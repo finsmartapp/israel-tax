@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "dc5a949effd465531944541d9ae6399f",
+    "revision": "629334c79e04078437d3d7da82ef746f",
     "url": "/israel-tax/index.html"
   },
   {
