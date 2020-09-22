@@ -18,7 +18,7 @@ function NetPayResultsSalaried(props) {
 		baseIncome,
 		creditPoints,
 		pensionOption,
-		pensionPercent,
+		pensionAmount,
 		educationFund,
 		travelAllowance,
 		lunchAllowance,
@@ -64,10 +64,10 @@ function NetPayResultsSalaried(props) {
 	const creditPointsTaxCredit = creditPoints * taxData[taxYearIndex].creditPointValue;
 	const pensionLegalMin = pensionMinCalc(taxData, taxYearIndex, baseIncome, employmentType);
 	const pensionContribution = pensionContributionCalc(
-		pensionOption,
 		baseIncome,
 		pensionLegalMin,
-		pensionPercent
+		pensionOption,
+		pensionAmount
 	);
 	const pensionTaxCredit = pensionBenefitCalc(taxData, taxYearIndex, pensionContribution);
 	const { incomeTax, annualIncomeTax } = incomeTaxCalc(
@@ -180,7 +180,7 @@ NetPayResultsSalaried.propTypes = {
 		baseIncome: netPayType.baseIncome,
 		creditPoints: netPayType.creditPoints,
 		pensionOption: netPayType.pensionOption,
-		pensionPercent: netPayType.pensionPercent,
+		pensionAmount: netPayType.pensionAmount,
 		educationFund: netPayType.educationFund,
 		travelAllowance: netPayType.travelAllowance,
 		lunchAllowance: netPayType.lunchAllowance,

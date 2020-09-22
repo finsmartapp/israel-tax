@@ -2,7 +2,9 @@
 
 .form-control,
 .input-group {
-	width: 85%;
+	@include screen-md {
+		width: 85%;
+	}
 
 	@include screen-lg {
 		width: 60%;

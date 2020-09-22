@@ -4,7 +4,7 @@ export function pensionMinCalc(taxData, taxYearIndex, income, employmentType) {
 
 	const averageSalary = taxData[taxYearIndex].bituachLeumi.nationalAverageSalary;
 	const averageSalaryHalf = averageSalary / 2;
-	const { low, high } = taxData[taxYearIndex].pension.legalMinPerecent.selfEmployed;
+	const { reducedRate, fullRate } = taxData[taxYearIndex].pension.legalMinPerecent.selfEmployed;
 	const salariedMin = taxData[taxYearIndex].pension.legalMinPerecent.salaried;
 	let pensionLegalMin;
 
@@ -13,13 +13,14 @@ export function pensionMinCalc(taxData, taxYearIndex, income, employmentType) {
 	} else if (employmentType === 'selfEmployed') {
 		if (income >= averageSalaryHalf) {
 			if (income >= averageSalary) {
-				pensionLegalMin = averageSalaryHalf * (low / 100) + averageSalaryHalf * (high / 100);
+				pensionLegalMin =
+					averageSalaryHalf * (reducedRate / 100) + averageSalaryHalf * (fullRate / 100);
 			} else {
 				pensionLegalMin =
-					averageSalaryHalf * (low / 100) + (income - averageSalaryHalf) * (high / 100);
+					averageSalaryHalf * (reducedRate / 100) + (income - averageSalaryHalf) * (fullRate / 100);
 			}
 		} else {
-			pensionLegalMin = income * (low / 100);
+			pensionLegalMin = income * (reducedRate / 100);
 		}
 	}
 

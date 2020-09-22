@@ -1,9 +1,12 @@
-export function pensionContributionCalc(type, income, min, percent) {
+export function pensionContributionCalc(income, legalMin, option, amount, type) {
 	let contribution;
-	if (type === 'legalMin') {
-		contribution = min;
+
+	if (option === 'legalMin') {
+		contribution = legalMin;
+	} else if (option === 'additional' && type === 'shekel') {
+		contribution = amount;
 	} else {
-		contribution = income * (percent / 100);
+		contribution = income * (amount / 100);
 	}
 	return contribution;
 }

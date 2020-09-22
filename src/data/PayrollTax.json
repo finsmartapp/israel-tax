@@ -14,7 +14,7 @@
 		"bituachLeumi": {
 			"nationalAverageSalary": 10273,
 			"prisaLimitPercent": 25,
-			"selfEmployedTaxDeductiblePercent": 52,
+			"selfEmployedNationalInsuranceDiscountPercent": 52,
 			"nationalInsurance": {
 				"band1": {
 					"rate": { "salaried": 0.4, "selfEmployed": 2.87 },
@@ -56,7 +56,7 @@
 			},
 			"legalMinPerecent": {
 				"salaried": 6,
-				"selfEmployed": { "low": 4.45, "high": 12.55 }
+				"selfEmployed": { "reducedRate": 4.45, "fullRate": 12.55 }
 			}
 		},
 		"educationFund": {
@@ -79,7 +79,7 @@
 		"bituachLeumi": {
 			"nationalAverageSalary": 10551,
 			"prisaLimitPercent": 25,
-			"selfEmployedTaxDeductiblePercent": 52,
+			"selfEmployedNationalInsuranceDiscountPercent": 52,
 			"nationalInsurance": {
 				"band1": {
 					"rate": { "salaried": 0.4, "selfEmployed": 2.87 },
@@ -121,7 +121,7 @@
 			},
 			"legalMinPerecent": {
 				"salaried": 6,
-				"selfEmployed": { "low": 4.45, "high": 12.55 }
+				"selfEmployed": { "reducedRate": 4.45, "fullRate": 12.55 }
 			}
 		},
 		"educationFund": {

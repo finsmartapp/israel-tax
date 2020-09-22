@@ -43,6 +43,7 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
 	-webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+	box-shadow: 0 0 0px 1000px #ffffff inset;
 }
 
 input:-internal-autofill-selected {
@@ -62,16 +63,21 @@ fieldset {
 		padding-left: 2rem;
 	}
 	fieldset .form-group label:not(.form-check-label) {
-		padding-left: 4rem;
+		padding-left: 3rem;
 	}
 }
 
-.not-required.form-control:valid {
+.was-validated input:not([required]).form-control:valid {
 	border-color: $gray-400;
 	padding-right: 0.75rem;
 	background-image: none;
+	box-shadow: none;
 }
 
 .form-control {
 	color: $base-font-family;
+}
+
+.form-check-input[disabled] ~ .form-check-label {
+	color: $disabled-font;
 }

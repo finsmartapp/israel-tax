@@ -2,4 +2,6 @@
 
 $base-font-color: #575757;
 
-$light-blue: rgba($blue, 0.75);
+$light-blue: lighten($blue, 10%);
+
+$disabled-font: lighten($base-font-color, 30%);

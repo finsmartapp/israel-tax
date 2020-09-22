@@ -16,7 +16,8 @@ class NetPayContainer extends Component {
 			baseIncome: '',
 			creditPoints: '',
 			pensionOption: 'legalMin',
-			pensionPercent: '',
+			pensionType: 'percent',
+			pensionAmount: '',
 			educationFund: '',
 			travelAllowance: '',
 			lunchAllowance: '',
@@ -31,7 +32,6 @@ class NetPayContainer extends Component {
 
 	handleChange = event => {
 		const { name, value, type } = event.target;
-
 		this.setState({
 			[name]: type === 'number' ? parseFloat(value) || '' : value,
 			showResultsTable: false
@@ -39,7 +39,12 @@ class NetPayContainer extends Component {
 
 		if (name === 'pensionOption' && value === 'legalMin') {
 			this.setState({
-				pensionPercent: ''
+				pensionAmount: ''
+			});
+		}
+		if (name === 'baseIncome' && value === '') {
+			this.setState({
+				pensionOption: 'legalMin'
 			});
 		}
 	};
@@ -58,17 +63,19 @@ class NetPayContainer extends Component {
 
 		if (form.checkValidity() === true) {
 			this.setState({
-				showResultsTable: true
+				showResultsTable: true,
+				validated: false
 			});
 			this.scrollToMyRef();
+		} else {
+			this.setState({
+				validated: true
+			});
 		}
 
 		form.checkValidity();
 		event.preventDefault();
 		event.stopPropagation();
-		this.setState({
-			validated: true
-		});
 	};
 
 	render() {

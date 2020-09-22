@@ -3,26 +3,34 @@ export function nationalInsuranceSelfEmp(taxData, taxYearIndex, profit) {
 
 	const {
 		nationalAverageSalary,
-		selfEmployedTaxDeductiblePercent,
+		selfEmployedNationalInsuranceDiscountPercent,
 		nationalInsurance: {
 			band1: {
 				rate: { selfEmployed: reduced }
 			},
 			band2: {
-				rate: { selfEmployed: standard },
-				min
+				rate: { selfEmployed: full },
+				min,
+				max
 			}
 		}
 	} = taxData[taxYearIndex].bituachLeumi;
 
-	const standardRateStart = min / nationalAverageSalary;
+	profit = profit > max ? max : profit;
+	const fullRateThresholdPercent = min / nationalAverageSalary;
 	const reducedRate = reduced / 100;
-	const standardRate = standard / 100;
-	const deductible = selfEmployedTaxDeductiblePercent / 100;
-	const taxable =
-		(profit +
-			standardRateStart * nationalAverageSalary * ((standardRate - reducedRate) * deductible)) /
-		(1 + deductible * standardRate);
+	const fullRate = full / 100;
+	const deductible = selfEmployedNationalInsuranceDiscountPercent / 100;
+	let taxable;
+
+	if (profit < min) {
+		taxable = profit / (1 + deductible * reducedRate);
+	} else {
+		taxable =
+			(profit +
+				fullRateThresholdPercent * nationalAverageSalary * (fullRate - reducedRate) * deductible) /
+			(1 + deductible * fullRate);
+	}
 
 	return profit - taxable;
 }
