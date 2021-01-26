@@ -27,7 +27,7 @@ export function incomeTaxCalc(
 
 			if (income >= min) {
 				if (max === undefined) {
-					taxDue += (income - min) * (rate / 100);
+					taxDue += (income - min + bandAdjustment) * (rate / 100);
 				} else if (income >= max) {
 					taxDue += (max - min + bandAdjustment) * (rate / 100);
 				} else {

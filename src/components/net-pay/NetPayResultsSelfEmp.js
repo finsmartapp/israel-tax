@@ -6,7 +6,7 @@ import { bituachLeumiCalc } from './calculations/BituachLeumi';
 import { nationalInsuranceSelfEmp } from './calculations/NationalInsuranceSelfEmp';
 import { pensionMinCalc } from './calculations/PensionLegalMin';
 import { pensionContributionCalc } from './calculations/PensionContribution';
-import { pensionBenefitCalc } from './calculations/PensionBenefitSelfEmp';
+import { pensionReliefCalc } from './calculations/PensionReliefSelfEmp';
 import { educationFundCalc } from './calculations/EducationFund';
 import { incomeTaxCalc } from './calculations/IncomeTax';
 import { formatCurrency } from '../../utils/FormatCurrency';
@@ -39,7 +39,7 @@ function NetPayResultsSelfEmployed(props) {
 		pensionAmount,
 		pensionType
 	);
-	const { pensionTaxDeductible, pensionTaxCredit } = pensionBenefitCalc(
+	const { pensionTaxDeductible, pensionTaxCredit } = pensionReliefCalc(
 		taxData,
 		taxYearIndex,
 		baseIncome,

@@ -9,7 +9,7 @@
 			"band4": { "rate": 31, "min": 174361, "max": 242400 },
 			"band5": { "rate": 35, "min": 242401, "max": 504360 },
 			"band6": { "rate": 47, "min": 504361, "max": 649560 },
-			"band7": { "rate": 50, "min": 649560 }
+			"band7": { "rate": 50, "min": 649561 }
 		},
 		"bituachLeumi": {
 			"nationalAverageSalary": 10273,
@@ -41,6 +41,10 @@
 			}
 		},
 		"pension": {
+			"legalMinPerecent": {
+				"salaried": 6,
+				"selfEmployed": { "reducedRate": 4.45, "fullRate": 12.55 }
+			},
 			"taxRelief": {
 				"salaried": {
 					"maxPercent": 7,
@@ -48,15 +52,11 @@
 					"taxCredit": 35
 				},
 				"selfEmployed": {
-					"taxDeductablePercent": 11,
-					"taxCreditPercent": 5.5,
+					"taxDeductableAllowance": 11,
+					"taxCreditAllowance": 5.5,
 					"taxCredit": 35,
 					"salaryCeiling": 211200
 				}
-			},
-			"legalMinPerecent": {
-				"salaried": 6,
-				"selfEmployed": { "reducedRate": 4.45, "fullRate": 12.55 }
 			}
 		},
 		"educationFund": {
@@ -69,12 +69,12 @@
 		"creditPointValue": 219,
 		"incomeTax": {
 			"band1": { "rate": 10, "min": 0, "max": 75960 },
-			"band2": { "rate": 14, "min": 75960, "max": 108960 },
+			"band2": { "rate": 14, "min": 75961, "max": 108960 },
 			"band3": { "rate": 20, "min": 108961, "max": 174960 },
 			"band4": { "rate": 31, "min": 174961, "max": 243120 },
 			"band5": { "rate": 35, "min": 243121, "max": 505920 },
 			"band6": { "rate": 47, "min": 505921, "max": 651600 },
-			"band7": { "rate": 50, "min": 651600 }
+			"band7": { "rate": 50, "min": 651601 }
 		},
 		"bituachLeumi": {
 			"nationalAverageSalary": 10551,
@@ -106,6 +106,10 @@
 			}
 		},
 		"pension": {
+			"legalMinPerecent": {
+				"salaried": 6,
+				"selfEmployed": { "reducedRate": 4.45, "fullRate": 12.55 }
+			},
 			"taxRelief": {
 				"salaried": {
 					"maxPercent": 7,
@@ -113,20 +117,81 @@
 					"taxCredit": 35
 				},
 				"selfEmployed": {
-					"taxDeductablePercent": 11,
-					"taxCreditPercent": 5.5,
+					"taxDeductableAllowance": 11,
+					"taxCreditAllowance": 5.5,
 					"taxCredit": 35,
 					"salaryCeiling": 211200
 				}
-			},
-			"legalMinPerecent": {
-				"salaried": 6,
-				"selfEmployed": { "reducedRate": 4.45, "fullRate": 12.55 }
 			}
 		},
 		"educationFund": {
 			"salaried": { "salaryPercent": 2.5, "salaryCeiling": 188544 },
 			"selfEmployed": { "salaryPercent": 4.5, "salaryCeiling": 265000 }
+		}
+	},
+	{
+		"taxYear": 2021,
+		"creditPointValue": 218,
+		"incomeTax": {
+			"band1": { "rate": 10, "min": 0, "max": 75480 },
+			"band2": { "rate": 14, "min": 75481, "max": 108360 },
+			"band3": { "rate": 20, "min": 108361, "max": 173880 },
+			"band4": { "rate": 31, "min": 173881, "max": 241680 },
+			"band5": { "rate": 35, "min": 241681, "max": 502920 },
+			"band6": { "rate": 47, "min": 502921, "max": 647640 },
+			"band7": { "rate": 50, "min": 647641 }
+		},
+		"bituachLeumi": {
+			"nationalAverageSalary": 10551,
+			"prisaLimitPercent": 25,
+			"selfEmployedNationalInsuranceDiscountPercent": 52,
+			"nationalInsurance": {
+				"band1": {
+					"rate": { "salaried": 0.4, "selfEmployed": 2.87 },
+					"min": 0,
+					"max": 6331
+				},
+				"band2": {
+					"rate": { "salaried": 7, "selfEmployed": 12.83 },
+					"min": 6332,
+					"max": 44020
+				}
+			},
+			"healthInsurance": {
+				"band1": {
+					"rate": { "salaried": 3.1, "selfEmployed": 3.1 },
+					"min": 0,
+					"max": 6331
+				},
+				"band2": {
+					"rate": { "salaried": 5, "selfEmployed": 5 },
+					"min": 6332,
+					"max": 44020
+				}
+			}
+		},
+		"pension": {
+			"legalMinPerecent": {
+				"salaried": 6,
+				"selfEmployed": { "reducedRate": 4.45, "fullRate": 12.55 }
+			},
+			"taxRelief": {
+				"salaried": {
+					"maxPercent": 7,
+					"maxShekel": 609,
+					"taxCredit": 35
+				},
+				"selfEmployed": {
+					"taxDeductableAllowance": 11,
+					"taxCreditAllowance": 5.5,
+					"taxCredit": 35,
+					"salaryCeiling": 208800
+				}
+			}
+		},
+		"educationFund": {
+			"salaried": { "salaryPercent": 2.5, "salaryCeiling": 188544 },
+			"selfEmployed": { "salaryPercent": 4.5, "salaryCeiling": 263000 }
 		}
 	}
 ]

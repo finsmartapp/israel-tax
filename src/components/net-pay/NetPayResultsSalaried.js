@@ -5,7 +5,7 @@ import { Table } from 'react-bootstrap';
 import { bituachLeumiCalc } from './calculations/BituachLeumi';
 import { pensionMinCalc } from './calculations/PensionLegalMin';
 import { pensionContributionCalc } from './calculations/PensionContribution';
-import { pensionBenefitCalc } from './calculations/PensionBenefitSalaried';
+import { pensionReliefCalc } from './calculations/PensionReliefSalaried';
 import { educationFundCalc } from './calculations/EducationFund';
 import { incomeTaxCalc } from './calculations/IncomeTax';
 import { formatCurrency } from '../../utils/FormatCurrency';
@@ -69,7 +69,7 @@ function NetPayResultsSalaried(props) {
 		pensionOption,
 		pensionAmount
 	);
-	const pensionTaxCredit = pensionBenefitCalc(taxData, taxYearIndex, pensionContribution);
+	const pensionTaxCredit = pensionReliefCalc(taxData, taxYearIndex, pensionContribution);
 	const { incomeTax, annualIncomeTax } = incomeTaxCalc(
 		taxData,
 		taxYearIndex,

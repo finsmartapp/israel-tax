@@ -24,11 +24,11 @@ function NetPayForm(props) {
 		validated
 	} = props.stateData;
 	const handleChange = props.handleChange;
-	const invalidNum = 'Enter a valid number (2 decimal places).';
+	const invalidNum = 'Enter a valid number (Up to 2 decimal places).';
 	const xsLabel = 7;
 	const mdLabel = 6;
-	const xsField = 12 - xsLabel;
-	const mdField = 12 - mdLabel;
+	const xsInput = 12 - xsLabel;
+	const mdInput = 12 - mdLabel;
 	const pensionMin = pensionMinCalc(taxData, taxYearIndex, baseIncome, employmentType).toFixed(2);
 	const pensionMinPecrcent = ((pensionMin / baseIncome) * 100).toFixed(2);
 
@@ -45,7 +45,7 @@ function NetPayForm(props) {
 					<Form.Label htmlFor="taxYear" column xs={xsLabel} md={mdLabel}>
 						Tax year
 					</Form.Label>
-					<Col xs={xsField} md={mdField}>
+					<Col xs={xsInput} md={mdInput}>
 						<Form.Control
 							as="select"
 							id="taxYear"
@@ -70,7 +70,7 @@ function NetPayForm(props) {
 					<Form.Label htmlFor="income" column xs={xsLabel} md={mdLabel}>
 						{employmentType === 'salaried' ? 'Base salary' : 'Profit'}
 					</Form.Label>
-					<Col xs={xsField} md={mdField}>
+					<Col xs={xsInput} md={mdInput}>
 						<Form.Control
 							as="input"
 							id="income"
@@ -91,7 +91,7 @@ function NetPayForm(props) {
 					<Form.Label htmlFor="creditPoints" column xs={xsLabel} md={mdLabel}>
 						Tax credit points
 					</Form.Label>
-					<Col xs={xsField} md={mdField}>
+					<Col xs={xsInput} md={mdInput}>
 						<Form.Control
 							as="input"
 							id="creditPoints"
@@ -117,7 +117,7 @@ function NetPayForm(props) {
 							<Form.Label as="legend" column xs={xsLabel} md={mdLabel}>
 								Pension
 							</Form.Label>
-							<Col xs={xsField} md={mdField}>
+							<Col xs={xsInput} md={mdInput}>
 								<Form.Check inline>
 									<Form.Check.Input
 										type="radio"
@@ -157,7 +157,7 @@ function NetPayForm(props) {
 										<Form.Label column xs={xsLabel} md={mdLabel}>
 											Contribution type
 										</Form.Label>
-										<Col xs={xsField} md={mdField}>
+										<Col xs={xsInput} md={mdInput}>
 											<Form.Check inline>
 												<Form.Check.Input
 													type="radio"
@@ -187,7 +187,7 @@ function NetPayForm(props) {
 									<Form.Label htmlFor="pensionAmount" column xs={xsLabel} md={mdLabel}>
 										Total contribution
 									</Form.Label>
-									<Col xs={xsField} md={mdField}>
+									<Col xs={xsInput} md={mdInput}>
 										<InputGroup>
 											<FormControl
 												as="input"
@@ -221,7 +221,7 @@ function NetPayForm(props) {
 						<Form.Label htmlFor="educationFund" column xs={xsLabel} md={mdLabel}>
 							Education fund
 						</Form.Label>
-						<Col xs={xsField} md={mdField}>
+						<Col xs={xsInput} md={mdInput}>
 							<InputGroup>
 								<FormControl
 									as="input"
@@ -232,7 +232,7 @@ function NetPayForm(props) {
 									pattern="[0-9]*"
 									step="0.01"
 									min="1"
-									max="100"
+									max={taxData[taxYearIndex].educationFund[employmentType].salaryPercent}
 									value={educationFund}
 									onChange={handleChange}
 									required={checkZeroOrGreater(educationFund)}
@@ -241,7 +241,7 @@ function NetPayForm(props) {
 									<InputGroup.Text>%</InputGroup.Text>
 								</InputGroup.Append>
 								<Form.Control.Feedback type="invalid">
-									Enter a valid percentage.
+									{`The maximum contribution allowed is ${taxData[taxYearIndex].educationFund[employmentType].salaryPercent}.`}
 								</Form.Control.Feedback>
 							</InputGroup>
 						</Col>
@@ -255,7 +255,7 @@ function NetPayForm(props) {
 								<Form.Label htmlFor="travelAllowance" column xs={xsLabel} md={mdLabel}>
 									Travel
 								</Form.Label>
-								<Col xs={xsField} md={mdField}>
+								<Col xs={xsInput} md={mdInput}>
 									<Form.Control
 										as="input"
 										id="travelAllowance"
@@ -276,7 +276,7 @@ function NetPayForm(props) {
 								<Form.Label htmlFor="lunchAllowance" column xs={xsLabel} md={mdLabel}>
 									Lunch
 								</Form.Label>
-								<Col xs={xsField} md={mdField}>
+								<Col xs={xsInput} md={mdInput}>
 									<Form.Control
 										as="input"
 										id="lunchAllowance"
@@ -300,7 +300,7 @@ function NetPayForm(props) {
 								<Form.Label htmlFor="annualBonus" column xs={xsLabel} md={mdLabel}>
 									One-time bonus or gift
 								</Form.Label>
-								<Col xs={xsField} md={mdField}>
+								<Col xs={xsInput} md={mdInput}>
 									<Form.Control
 										as="input"
 										id="annualBonus"
@@ -321,7 +321,7 @@ function NetPayForm(props) {
 								<Form.Label htmlFor="commission" column xs={xsLabel} md={mdLabel}>
 									Commission
 								</Form.Label>
-								<Col xs={xsField} md={mdField}>
+								<Col xs={xsInput} md={mdInput}>
 									<Form.Control
 										as="input"
 										id="commission"
@@ -342,7 +342,7 @@ function NetPayForm(props) {
 								<Form.Label htmlFor="overtime" column xs={xsLabel} md={mdLabel}>
 									Overtime
 								</Form.Label>
-								<Col xs={xsField} md={mdField}>
+								<Col xs={xsInput} md={mdInput}>
 									<Form.Control
 										as="input"
 										id="overtime"

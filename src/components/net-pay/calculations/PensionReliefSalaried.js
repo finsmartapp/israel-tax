@@ -1,4 +1,4 @@
-export function pensionBenefitCalc(taxData, taxYearIndex, pensionContribution) {
+export function pensionReliefCalc(taxData, taxYearIndex, pensionContribution) {
 	//Tax benefit is available as a percent of monthly contributions up to a fixed shekel limit
 
 	const { maxShekel, taxCredit } = taxData[taxYearIndex].pension.taxRelief.salaried;

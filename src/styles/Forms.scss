@@ -1,5 +1,6 @@
 @import './partials/fonts';
 @import './partials/colors';
+@import './partials/mediaQueries';
 
 .input-group > .input-group-append:not(:last-child) > .input-group-text {
 	border-top-right-radius: 0.25rem;
@@ -22,6 +23,7 @@ select {
 
 input[type='radio'] {
 	cursor: pointer;
+	transform: translate(0px);
 }
 
 //Override browser arrows
@@ -80,4 +82,12 @@ fieldset {
 
 .form-check-input[disabled] ~ .form-check-label {
 	color: $disabled-font;
+}
+
+.form-check-inline {
+	margin-right: 0;
+
+	@include screen-sm {
+		margin-right: 0.75rem;
+	}
 }
