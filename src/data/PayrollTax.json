@@ -59,7 +59,7 @@
 				}
 			}
 		},
-		"educationFund": {
+		"studyFund": {
 			"salaried": { "salaryPercent": 2.5, "salaryCeiling": 188544 },
 			"selfEmployed": { "salaryPercent": 4.5, "salaryCeiling": 264000 }
 		}
@@ -124,7 +124,7 @@
 				}
 			}
 		},
-		"educationFund": {
+		"studyFund": {
 			"salaried": { "salaryPercent": 2.5, "salaryCeiling": 188544 },
 			"selfEmployed": { "salaryPercent": 4.5, "salaryCeiling": 265000 }
 		}
@@ -189,7 +189,7 @@
 				}
 			}
 		},
-		"educationFund": {
+		"studyFund": {
 			"salaried": { "salaryPercent": 2.5, "salaryCeiling": 188544 },
 			"selfEmployed": { "salaryPercent": 4.5, "salaryCeiling": 263000 }
 		}

@@ -7,7 +7,7 @@ import { nationalInsuranceSelfEmp } from './calculations/NationalInsuranceSelfEm
 import { pensionMinCalc } from './calculations/PensionLegalMin';
 import { pensionContributionCalc } from './calculations/PensionContribution';
 import { pensionReliefCalc } from './calculations/PensionReliefSelfEmp';
-import { educationFundCalc } from './calculations/EducationFund';
+import { studyFundCalc } from './calculations/StudyFund';
 import { incomeTaxCalc } from './calculations/IncomeTax';
 import { formatCurrency } from '../../utils/FormatCurrency';
 
@@ -21,15 +21,17 @@ function NetPayResultsSelfEmployed(props) {
 		pensionOption,
 		pensionType,
 		pensionAmount,
-		educationFund,
+		studyFundType,
+		studyFundAmount,
 		showResultsTable
 	} = props.stateData;
-	const { educationFundContribution, educationFundTaxDeductible } = educationFundCalc(
+	const { studyFundContribution, studyFundTaxDeductible } = studyFundCalc(
 		taxData,
 		taxYearIndex,
 		baseIncome,
 		employmentType,
-		educationFund
+		studyFundAmount,
+		studyFundType
 	);
 	const pensionLegalMin = pensionMinCalc(taxData, taxYearIndex, baseIncome, employmentType);
 	const pensionContribution = pensionContributionCalc(
@@ -45,7 +47,7 @@ function NetPayResultsSelfEmployed(props) {
 		baseIncome,
 		pensionContribution
 	);
-	const taxableIncome = baseIncome - educationFundTaxDeductible - pensionTaxDeductible;
+	const taxableIncome = baseIncome - studyFundTaxDeductible - pensionTaxDeductible;
 	const bituachLeumiTaxDeductible = nationalInsuranceSelfEmp(taxData, taxYearIndex, taxableIncome);
 	const { month: nationalInsurance, annual: annualNationalInsurance } = bituachLeumiCalc(
 		taxData,
@@ -123,11 +125,11 @@ function NetPayResultsSelfEmployed(props) {
 						<td>{formatCurrency('il', pensionContribution)}</td>
 						<td>{formatCurrency('il', pensionContribution * 12)}</td>
 					</tr>
-					{educationFundContribution > 0 && (
+					{studyFundContribution > 0 && (
 						<tr>
 							<td>Educational fund</td>
-							<td>{formatCurrency('il', educationFundContribution)}</td>
-							<td>{formatCurrency('il', educationFundContribution * 12)}</td>
+							<td>{formatCurrency('il', studyFundContribution)}</td>
+							<td>{formatCurrency('il', studyFundContribution * 12)}</td>
 						</tr>
 					)}
 
@@ -141,18 +143,18 @@ function NetPayResultsSelfEmployed(props) {
 									nationalInsurance -
 									healthInsurance -
 									pensionContribution -
-									educationFundContribution
+									studyFundContribution
 							)}
 						</td>
 						<td>
 							{formatCurrency(
 								'il',
-								baseIncome * 12 +
+								baseIncome * 12 -
 									annualIncomeTax -
 									annualNationalInsurance -
 									annualHealthInsurance -
 									pensionContribution * 12 -
-									educationFundContribution * 12
+									studyFundContribution * 12
 							)}
 						</td>
 					</tr>
@@ -173,7 +175,8 @@ NetPayResultsSelfEmployed.propTypes = {
 		pensionOption: netPayType.pensionOption,
 		pensionType: netPayType.pensionType,
 		pensionAmount: netPayType.pensionAmount,
-		educationFund: netPayType.educationFund,
+		studyFundType: netPayType.studyFundType,
+		studyFundAmount: netPayType.studyFundAmount,
 		showResultsTable: netPayType.showResultsTable
 	})
 };

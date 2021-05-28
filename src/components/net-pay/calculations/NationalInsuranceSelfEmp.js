@@ -1,5 +1,5 @@
 export function nationalInsuranceSelfEmp(taxData, taxYearIndex, profit) {
-	//Only a percent of national insurance is tax deductible, but the below (from Bituach Leumi's site) calculates total to deduct and tax the remaining normally for national and health insurance
+	//Only a percentage of national insurance is tax deductible, but the below (from Bituach Leumi's site) calculates total taxable amount. National and health insurance is then calculated using the standard formula
 
 	const {
 		nationalAverageSalary,

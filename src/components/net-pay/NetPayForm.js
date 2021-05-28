@@ -4,6 +4,7 @@ import { netPayType } from './PropTypes';
 import { Form, Row, Col, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { checkZeroOrGreater } from '../../utils/Comparisons';
 import { pensionMinCalc } from './calculations/PensionLegalMin';
+import { invalidNum, invalidPercent } from '../../utils/FormMessages';
 
 function NetPayForm(props) {
 	const {
@@ -15,7 +16,8 @@ function NetPayForm(props) {
 		pensionOption,
 		pensionType,
 		pensionAmount,
-		educationFund,
+		studyFundType,
+		studyFundAmount,
 		travelAllowance,
 		lunchAllowance,
 		annualBonus,
@@ -24,7 +26,6 @@ function NetPayForm(props) {
 		validated
 	} = props.stateData;
 	const handleChange = props.handleChange;
-	const invalidNum = 'Enter a valid number (Up to 2 decimal places).';
 	const xsLabel = 7;
 	const mdLabel = 6;
 	const xsInput = 12 - xsLabel;
@@ -41,75 +42,78 @@ function NetPayForm(props) {
 				validated={validated}
 				onSubmit={props.handleSubmit}
 			>
-				<Form.Group as={Row}>
-					<Form.Label htmlFor="taxYear" column xs={xsLabel} md={mdLabel}>
-						Tax year
-					</Form.Label>
-					<Col xs={xsInput} md={mdInput}>
-						<Form.Control
-							as="select"
-							id="taxYear"
-							name="taxYearIndex"
-							defaultValue=""
-							required
-							onChange={handleChange}
-						>
-							<option disabled value="">
-								Select
-							</option>
-							{taxData.map((years, i) => (
-								<option key={i} value={i}>
-									{years.taxYear}
+				<fieldset>
+					<Form.Label as="legend">Tax</Form.Label>
+					<Form.Group as={Row}>
+						<Form.Label htmlFor="taxYear" column xs={xsLabel} md={mdLabel}>
+							Tax year
+						</Form.Label>
+						<Col xs={xsInput} md={mdInput}>
+							<Form.Control
+								as="select"
+								id="taxYear"
+								name="taxYearIndex"
+								defaultValue=""
+								required
+								onChange={handleChange}
+							>
+								<option disabled value="">
+									Select
 								</option>
-							))}
-						</Form.Control>
-						<Form.Control.Feedback type="invalid">Select a tax year.</Form.Control.Feedback>
-					</Col>
-				</Form.Group>
-				<Form.Group as={Row}>
-					<Form.Label htmlFor="income" column xs={xsLabel} md={mdLabel}>
-						{employmentType === 'salaried' ? 'Base salary' : 'Profit'}
-					</Form.Label>
-					<Col xs={xsInput} md={mdInput}>
-						<Form.Control
-							as="input"
-							id="income"
-							name="baseIncome"
-							type="number"
-							inputMode="decimal"
-							pattern="[0-9]*"
-							step="0.01"
-							min="0"
-							required
-							value={baseIncome}
-							onChange={handleChange}
-						></Form.Control>
-						<Form.Control.Feedback type="invalid">{invalidNum}</Form.Control.Feedback>
-					</Col>
-				</Form.Group>
-				<Form.Group as={Row}>
-					<Form.Label htmlFor="creditPoints" column xs={xsLabel} md={mdLabel}>
-						Tax credit points
-					</Form.Label>
-					<Col xs={xsInput} md={mdInput}>
-						<Form.Control
-							as="input"
-							id="creditPoints"
-							name="creditPoints"
-							type="number"
-							inputMode="decimal"
-							pattern="[0-9]*"
-							step="0.25"
-							min="0"
-							required={checkZeroOrGreater(creditPoints)}
-							value={creditPoints}
-							onChange={handleChange}
-						></Form.Control>
-						<Form.Control.Feedback type="invalid">
-							Must be in quater increments.
-						</Form.Control.Feedback>
-					</Col>
-				</Form.Group>
+								{taxData.map((years, i) => (
+									<option key={i} value={i}>
+										{years.taxYear}
+									</option>
+								))}
+							</Form.Control>
+							<Form.Control.Feedback type="invalid">Select a tax year.</Form.Control.Feedback>
+						</Col>
+					</Form.Group>
+					<Form.Group as={Row}>
+						<Form.Label htmlFor="income" column xs={xsLabel} md={mdLabel}>
+							{employmentType === 'salaried' ? 'Base salary' : 'Profit'}
+						</Form.Label>
+						<Col xs={xsInput} md={mdInput}>
+							<Form.Control
+								as="input"
+								id="income"
+								name="baseIncome"
+								type="number"
+								inputMode="decimal"
+								pattern="[0-9]*"
+								step="0.01"
+								min="0"
+								required
+								value={baseIncome}
+								onChange={handleChange}
+							></Form.Control>
+							<Form.Control.Feedback type="invalid">{invalidNum}</Form.Control.Feedback>
+						</Col>
+					</Form.Group>
+					<Form.Group as={Row}>
+						<Form.Label htmlFor="creditPoints" column xs={xsLabel} md={mdLabel}>
+							Tax credit points
+						</Form.Label>
+						<Col xs={xsInput} md={mdInput}>
+							<Form.Control
+								as="input"
+								id="creditPoints"
+								name="creditPoints"
+								type="number"
+								inputMode="decimal"
+								pattern="[0-9]*"
+								step="0.25"
+								min="0"
+								required={checkZeroOrGreater(creditPoints)}
+								value={creditPoints}
+								onChange={handleChange}
+							></Form.Control>
+							<Form.Control.Feedback type="invalid">
+								Must be in quater increments.
+							</Form.Control.Feedback>
+						</Col>
+					</Form.Group>
+				</fieldset>
 				<fieldset>
 					<Form.Label as="legend">Contributions</Form.Label>
 					<fieldset>
@@ -134,28 +138,28 @@ function NetPayForm(props) {
 										type="radio"
 										id="pensionlExtra"
 										name="pensionOption"
-										value="additional"
-										checked={pensionOption === 'additional'}
+										value="custom"
+										checked={pensionOption === 'custom'}
 										disabled={baseIncome >= 1 ? false : true}
 										onChange={handleChange}
 									/>
-									<Form.Check.Label htmlFor="pensionlExtra">Additional</Form.Check.Label>
+									<Form.Check.Label htmlFor="pensionlExtra">Custom</Form.Check.Label>
 								</Form.Check>
 								{baseIncome < 1 && (
 									<div className="small">
 										{employmentType === 'salaried'
-											? 'Enter a base salary to select additional.'
-											: 'Enter profit to select additional.'}
+											? 'Enter a base salary to select custom.'
+											: 'Enter profit to select custom.'}
 									</div>
 								)}
 							</Col>
 						</Form.Group>
-						{pensionOption === 'additional' && (
+						{pensionOption === 'custom' && (
 							<>
 								{employmentType === 'selfEmployed' && (
 									<Form.Group as={Row}>
 										<Form.Label column xs={xsLabel} md={mdLabel}>
-											Contribution type
+											Type
 										</Form.Label>
 										<Col xs={xsInput} md={mdInput}>
 											<Form.Check inline>
@@ -185,7 +189,7 @@ function NetPayForm(props) {
 								)}
 								<Form.Group as={Row}>
 									<Form.Label htmlFor="pensionAmount" column xs={xsLabel} md={mdLabel}>
-										Total contribution
+										Amount
 									</Form.Label>
 									<Col xs={xsInput} md={mdInput}>
 										<InputGroup>
@@ -208,7 +212,7 @@ function NetPayForm(props) {
 											</InputGroup.Append>
 											<Form.Control.Feedback type="invalid">
 												{pensionType === 'percent'
-													? `Enter a valid percentage. The legal minimum is ${pensionMinPecrcent}%.`
+													? `${invalidPercent} The legal minimum is ${pensionMinPecrcent}%.`
 													: `${invalidNum} The legal minimum is ${pensionMin}₪.`}
 											</Form.Control.Feedback>
 										</InputGroup>
@@ -217,35 +221,66 @@ function NetPayForm(props) {
 							</>
 						)}
 					</fieldset>
-					<Form.Group as={Row}>
-						<Form.Label htmlFor="educationFund" column xs={xsLabel} md={mdLabel}>
-							Education fund
-						</Form.Label>
-						<Col xs={xsInput} md={mdInput}>
-							<InputGroup>
-								<FormControl
-									as="input"
-									id="educationFund"
-									name="educationFund"
-									type="number"
-									inputMode="decimal"
-									pattern="[0-9]*"
-									step="0.01"
-									min="1"
-									max={taxData[taxYearIndex].educationFund[employmentType].salaryPercent}
-									value={educationFund}
-									onChange={handleChange}
-									required={checkZeroOrGreater(educationFund)}
-								/>
-								<InputGroup.Append>
-									<InputGroup.Text>%</InputGroup.Text>
-								</InputGroup.Append>
-								<Form.Control.Feedback type="invalid">
-									{`The maximum contribution allowed is ${taxData[taxYearIndex].educationFund[employmentType].salaryPercent}.`}
-								</Form.Control.Feedback>
-							</InputGroup>
-						</Col>
-					</Form.Group>
+					<fieldset>
+						<Form.Group as={Row}>
+							<Form.Label as="legend" column xs={xsLabel} md={mdLabel}>
+								Study fund
+							</Form.Label>
+							<Col xs={xsInput} md={mdInput}>
+								<Form.Check inline>
+									<Form.Check.Input
+										type="radio"
+										id="studyFundPercent"
+										name="studyFundType"
+										value="percent"
+										checked={studyFundType === 'percent'}
+										onChange={handleChange}
+									/>
+									<Form.Check.Label htmlFor="studyFundPercent">Percent</Form.Check.Label>
+								</Form.Check>
+								<Form.Check inline>
+									<Form.Check.Input
+										type="radio"
+										id="studyFundShekel"
+										name="studyFundType"
+										value="shekel"
+										checked={studyFundType === 'shekel'}
+										onChange={handleChange}
+									/>
+									<Form.Check.Label htmlFor="studyFundShekel">Shekel</Form.Check.Label>
+								</Form.Check>
+							</Col>
+						</Form.Group>
+						<Form.Group as={Row}>
+							<Form.Label htmlFor="studyFundAmount" column xs={xsLabel} md={mdLabel}>
+								Amount
+							</Form.Label>
+							<Col xs={xsInput} md={mdInput}>
+								<InputGroup>
+									<FormControl
+										as="input"
+										id="studyFundAmount"
+										name="studyFundAmount"
+										type="number"
+										inputMode="decimal"
+										pattern="[0-9]*"
+										step="0.01"
+										min="0"
+										max={studyFundType === 'percent' ? 100 : undefined}
+										value={studyFundAmount}
+										onChange={handleChange}
+										required={checkZeroOrGreater(studyFundAmount)}
+									/>
+									<InputGroup.Append>
+										<InputGroup.Text>{studyFundType === 'percent' ? '%' : '₪'}</InputGroup.Text>
+									</InputGroup.Append>
+									<Form.Control.Feedback type="invalid">
+										{studyFundType === 'percent' ? `${invalidPercent}` : `${invalidNum}`}
+									</Form.Control.Feedback>
+								</InputGroup>
+							</Col>
+						</Form.Group>
+					</fieldset>
 				</fieldset>
 				{employmentType === 'salaried' && (
 					<>

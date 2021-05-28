@@ -6,7 +6,7 @@ import { bituachLeumiCalc } from './calculations/BituachLeumi';
 import { pensionMinCalc } from './calculations/PensionLegalMin';
 import { pensionContributionCalc } from './calculations/PensionContribution';
 import { pensionReliefCalc } from './calculations/PensionReliefSalaried';
-import { educationFundCalc } from './calculations/EducationFund';
+import { studyFundCalc } from './calculations/StudyFund';
 import { incomeTaxCalc } from './calculations/IncomeTax';
 import { formatCurrency } from '../../utils/FormatCurrency';
 
@@ -19,7 +19,8 @@ function NetPayResultsSalaried(props) {
 		creditPoints,
 		pensionOption,
 		pensionAmount,
-		educationFund,
+		studyFundType,
+		studyFundAmount,
 		travelAllowance,
 		lunchAllowance,
 		overtime,
@@ -27,12 +28,13 @@ function NetPayResultsSalaried(props) {
 		commission,
 		showResultsTable
 	} = props.stateData;
-	const educationFundContribution = educationFundCalc(
+	const studyFundContribution = studyFundCalc(
 		taxData,
 		taxYearIndex,
 		baseIncome,
 		employmentType,
-		educationFund
+		studyFundAmount,
+		studyFundType
 	);
 	let taxableIncome = 0;
 	[baseIncome, travelAllowance, lunchAllowance, annualBonus, overtime, commission].forEach(e => {
@@ -126,11 +128,11 @@ function NetPayResultsSalaried(props) {
 						<td>{formatCurrency('il', pensionContribution)}</td>
 						<td>{formatCurrency('il', pensionContribution * 12)}</td>
 					</tr>
-					{educationFundContribution > 0 && (
+					{studyFundContribution > 0 && (
 						<tr>
 							<td>Educational fund</td>
-							<td>{formatCurrency('il', educationFundContribution)}</td>
-							<td>{formatCurrency('il', educationFundContribution * 12)}</td>
+							<td>{formatCurrency('il', studyFundContribution)}</td>
+							<td>{formatCurrency('il', studyFundContribution * 12)}</td>
 						</tr>
 					)}
 					{annualBonus > 0 && (
@@ -150,7 +152,7 @@ function NetPayResultsSalaried(props) {
 									nationalInsurance -
 									healthInsurance -
 									pensionContribution -
-									educationFundContribution
+									studyFundContribution
 							)}
 						</td>
 						<td>
@@ -161,7 +163,7 @@ function NetPayResultsSalaried(props) {
 									annualIncomeTax -
 									annualNationalInsurance -
 									annualHealthInsurance -
-									(pensionContribution + educationFundContribution) * 12
+									(pensionContribution + studyFundContribution) * 12
 							)}
 						</td>
 					</tr>
@@ -181,7 +183,8 @@ NetPayResultsSalaried.propTypes = {
 		creditPoints: netPayType.creditPoints,
 		pensionOption: netPayType.pensionOption,
 		pensionAmount: netPayType.pensionAmount,
-		educationFund: netPayType.educationFund,
+		studyFundType: netPayType.studyFundType,
+		studyFundAmount: netPayType.studyFundAmount,
 		travelAllowance: netPayType.travelAllowance,
 		lunchAllowance: netPayType.lunchAllowance,
 		overtime: netPayType.overtime,
