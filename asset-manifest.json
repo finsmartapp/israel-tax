@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/israel-tax/static/css/main.76ada8ed.chunk.css",
+    "main.css": "/israel-tax/static/css/main.f66446e8.chunk.css",
     "main.js": "/israel-tax/static/js/main.96761dc3.chunk.js",
     "main.js.map": "/israel-tax/static/js/main.96761dc3.chunk.js.map",
     "runtime-main.js": "/israel-tax/static/js/runtime-main.d95603d5.js",
@@ -8,9 +8,9 @@
     "static/js/2.958c62ea.chunk.js": "/israel-tax/static/js/2.958c62ea.chunk.js",
     "static/js/2.958c62ea.chunk.js.map": "/israel-tax/static/js/2.958c62ea.chunk.js.map",
     "index.html": "/israel-tax/index.html",
-    "precache-manifest.bc04df89885c34158894c2437f18befe.js": "/israel-tax/precache-manifest.bc04df89885c34158894c2437f18befe.js",
+    "precache-manifest.f8d4a3b580036da7b6d9bdf27a3f7645.js": "/israel-tax/precache-manifest.f8d4a3b580036da7b6d9bdf27a3f7645.js",
     "service-worker.js": "/israel-tax/service-worker.js",
-    "static/css/main.76ada8ed.chunk.css.map": "/israel-tax/static/css/main.76ada8ed.chunk.css.map",
+    "static/css/main.f66446e8.chunk.css.map": "/israel-tax/static/css/main.f66446e8.chunk.css.map",
     "static/js/2.958c62ea.chunk.js.LICENSE": "/israel-tax/static/js/2.958c62ea.chunk.js.LICENSE",
     "static/media/App.scss": "/israel-tax/static/media/icon-caret-down.2ee1553f.svg",
     "static/media/Hero.scss": "/israel-tax/static/media/shekel-banknotes.d339988a.jpg"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.d95603d5.js",
     "static/js/2.958c62ea.chunk.js",
-    "static/css/main.76ada8ed.chunk.css",
+    "static/css/main.f66446e8.chunk.css",
     "static/js/main.96761dc3.chunk.js"
   ]
 }
