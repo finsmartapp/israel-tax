@@ -44,15 +44,15 @@ textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-	-webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
-	box-shadow: 0 0 0px 1000px #ffffff inset;
+	-webkit-box-shadow: 0 0 0px 1000px #fff inset !important;
+	box-shadow: 0 0 0px 1000px #fff inset;
 }
 
 input:-internal-autofill-selected {
 	appearance: menulist-button;
-	background-color: white !important;
+	background-color: #fff !important;
 	background-image: none !important;
-	color: -internal-light-dark(black, white) !important;
+	color: -internal-light-dark(#000, #fff) !important;
 }
 
 label[as='legend'] {

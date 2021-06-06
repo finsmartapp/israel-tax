@@ -99,7 +99,7 @@ class NetPayContainer extends Component {
 }
 
 NetPayContainer.propTypes = {
-	employmentType: PropTypes.string
+	employmentType: PropTypes.string.isRequired
 };
 
 export default NetPayContainer;

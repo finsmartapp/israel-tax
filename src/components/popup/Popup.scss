@@ -1,0 +1,48 @@
+@import '../../styles/partials/colors';
+
+.popup {
+	opacity: 1;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 0;
+	z-index: 5;
+	background: rgba(0, 0, 0, 0.7);
+	overflow: auto;
+
+	&__box {
+		position: relative;
+		width: 75%;
+		max-width: 40rem;
+		margin: 0 auto;
+		padding: 1.5rem;
+		border-radius: 0.25rem;
+		opacity: 1;
+		transition: all 0.25s ease-in;
+		top: 45%;
+	}
+	&--warning {
+		background-color: #fff3cd;
+
+		h2 {
+			color: var(--warning);
+		}
+	}
+	&--error {
+		background-color: #f8d7da;
+
+		h2 {
+			color: var(--danger);
+		}
+	}
+}
+
+.close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 0.75rem 1.25rem;
+	cursor: pointer;
+}
