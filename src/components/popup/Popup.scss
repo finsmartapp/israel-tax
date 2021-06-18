@@ -21,7 +21,7 @@
 		border-radius: 0.25rem;
 		opacity: 1;
 		transition: all 0.25s ease-in;
-		top: 45%;
+		top: 20%;
 	}
 	&--warning {
 		background-color: #fff3cd;
@@ -35,6 +35,13 @@
 
 		h2 {
 			color: var(--danger);
+		}
+	}
+	&--info {
+		background-color: #d1ecf1;
+
+		h2 {
+			color: var(--info);
 		}
 	}
 }

@@ -20,6 +20,7 @@ function NetPayForm(props) {
 		studyFundAmount,
 		travelAllowance,
 		lunchAllowance,
+		otherAllowance,
 		annualBonus,
 		commission,
 		overtime,
@@ -109,7 +110,7 @@ function NetPayForm(props) {
 								onChange={handleChange}
 							></Form.Control>
 							<Form.Control.Feedback type="invalid">
-								Must be in quater increments.
+								Must be a valid number in quater increments.
 							</Form.Control.Feedback>
 						</Col>
 					</Form.Group>
@@ -309,7 +310,7 @@ function NetPayForm(props) {
 							</Form.Group>
 							<Form.Group as={Row}>
 								<Form.Label htmlFor="lunchAllowance" column xs={xsLabel} md={mdLabel}>
-									Lunch
+									10bis / Cibus / Other Card
 								</Form.Label>
 								<Col xs={xsInput} md={mdInput}>
 									<Form.Control
@@ -324,6 +325,27 @@ function NetPayForm(props) {
 										value={lunchAllowance}
 										onChange={handleChange}
 										required={checkZeroOrGreater(lunchAllowance)}
+									></Form.Control>
+									<Form.Control.Feedback type="invalid">{invalidNum}</Form.Control.Feedback>
+								</Col>
+							</Form.Group>
+							<Form.Group as={Row}>
+								<Form.Label htmlFor="lunchAllowance" column xs={xsLabel} md={mdLabel}>
+									Other
+								</Form.Label>
+								<Col xs={xsInput} md={mdInput}>
+									<Form.Control
+										as="input"
+										id="otherAllowance"
+										name="otherAllowance"
+										type="number"
+										inputMode="decimal"
+										pattern="[0-9]*"
+										step="0.01"
+										min="0"
+										value={otherAllowance}
+										onChange={handleChange}
+										required={checkZeroOrGreater(otherAllowance)}
 									></Form.Control>
 									<Form.Control.Feedback type="invalid">{invalidNum}</Form.Control.Feedback>
 								</Col>

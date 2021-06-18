@@ -99,7 +99,6 @@ function NetPayResultsSelfEmployed(props) {
 						<td>{formatCurrency('il', baseIncome)}</td>
 						<td>{formatCurrency('il', baseIncome * 12)}</td>
 					</tr>
-
 					<tr>
 						<td>Taxable income</td>
 						<td>{formatCurrency('il', taxableIncome)}</td>
@@ -153,8 +152,7 @@ function NetPayResultsSelfEmployed(props) {
 									annualIncomeTax -
 									annualNationalInsurance -
 									annualHealthInsurance -
-									pensionContribution * 12 -
-									studyFundContribution * 12
+									(pensionContribution + studyFundContribution) * 12
 							)}
 						</td>
 					</tr>

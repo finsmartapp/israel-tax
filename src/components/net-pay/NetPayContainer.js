@@ -22,6 +22,7 @@ class NetPayContainer extends Component {
 			studyFundAmount: '',
 			travelAllowance: '',
 			lunchAllowance: '',
+			otherAllowance: '',
 			annualBonus: '',
 			commission: '',
 			overtime: '',

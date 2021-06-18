@@ -1,6 +1,8 @@
 export function pensionContributionCalc(income, legalMin, option, amount, type) {
 	let contribution;
 
+	console.log('pension income', income);
+
 	if (option === 'legalMin') {
 		contribution = legalMin;
 	} else if (option === 'custom' && type === 'shekel') {

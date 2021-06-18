@@ -12,6 +12,7 @@ export const netPayType = {
 	studyFundAmount: oneOfType([string, number]).isRequired,
 	travelAllowance: oneOfType([string, number]).isRequired,
 	lunchAllowance: oneOfType([string, number]).isRequired,
+	otherAllowance: oneOfType([string, number]).isRequired,
 	annualBonus: oneOfType([string, number]).isRequired,
 	commission: oneOfType([string, number]).isRequired,
 	overtime: oneOfType([string, number]).isRequired,
