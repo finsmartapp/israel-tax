@@ -4,7 +4,7 @@ import { netPayType } from './PropTypes';
 import { Form, Row, Col, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { checkZeroOrGreater } from '../../utils/Comparisons';
 import { pensionMinCalc } from './calculations/PensionLegalMin';
-import { invalidNum, invalidPercent } from '../../utils/FormMessages';
+import { invalidNum, invalidPercent } from '../../utils/ValidationText';
 
 function NetPayForm(props) {
 	const {
@@ -294,7 +294,7 @@ function NetPayForm(props) {
 							<Form.Label as="legend">Allowances</Form.Label>
 							<Form.Group as={Row}>
 								<Form.Label htmlFor="travelAllowance" column xs={xsLabel} md={mdLabel}>
-									Travel
+									Transport
 								</Form.Label>
 								<Col xs={xsInput} md={mdInput}>
 									<Form.Control
@@ -435,6 +435,7 @@ function NetPayForm(props) {
 NetPayForm.propTypes = {
 	handleSubmit: func,
 	handleChange: func,
+	handleClick: func,
 	stateData: shape({
 		taxData: netPayType.taxData,
 		baseIncome: netPayType.baseIncome,

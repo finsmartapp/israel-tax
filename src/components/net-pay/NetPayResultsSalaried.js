@@ -9,7 +9,7 @@ import { pensionReliefCalc } from './calculations/PensionReliefSalaried';
 import { studyFundCalc } from './calculations/StudyFund';
 import { incomeTaxCalc } from './calculations/IncomeTax';
 import { formatCurrency } from '../../utils/FormatCurrency';
-import Popup from '../popup/Popup';
+import { cardAllowancePopup } from './Popups';
 
 function NetPayResultsSalaried(props) {
 	const {
@@ -96,109 +96,95 @@ function NetPayResultsSalaried(props) {
 		creditPointsTaxCredit,
 		pensionTaxCredit
 	);
-	console.log('pensionableIncome', pensionableIncome);
-	console.log('prisa', prisa);
 
 	return (
 		<>
-			<section
-				style={{
-					display: showResultsTable === true ? 'block' : 'none'
-				}}
-				ref={props.refProp}
-			>
-				<h2>Net pay results</h2>
-				<Table striped bordered className="table__3 table__header--blue">
-					<thead>
-						<tr>
-							<th></th>
-							<th>Month</th>
-							<th>Year</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Basic salary</td>
-							<td>{formatCurrency('il', baseIncome)}</td>
-							<td>{formatCurrency('il', baseIncome * 12)}</td>
-						</tr>
-						<tr>
-							<td>Taxable income</td>
-							<td>{formatCurrency('il', taxableIncome)}</td>
-							<td>{formatCurrency('il', (taxableIncome - annualBonus) * 12 + annualBonus)}</td>
-						</tr>
-						<tr>
-							<td>Income tax</td>
-							<td>{formatCurrency('il', incomeTax)}</td>
-							<td>{formatCurrency('il', annualIncomeTax)}</td>
-						</tr>
-						<tr>
-							<td>National insurance</td>
-							<td>{formatCurrency('il', nationalInsurance)}</td>
-							<td>{formatCurrency('il', annualNationalInsurance)}</td>
-						</tr>
-						<tr>
-							<td>Health insurance</td>
-							<td>{formatCurrency('il', healthInsurance)}</td>
-							<td>{formatCurrency('il', annualHealthInsurance)}</td>
-						</tr>
-						<tr>
-							<td>Pension</td>
-							<td>{formatCurrency('il', pensionContribution)}</td>
-							<td>{formatCurrency('il', pensionContribution * 12)}</td>
-						</tr>
-						{studyFundContribution > 0 && (
+			{showResultsTable === true && (
+				<section ref={props.refProp}>
+					<h2>Net pay results</h2>
+					<Table striped bordered className="table__3 table__header--blue">
+						<thead>
 							<tr>
-								<td>Educational fund</td>
-								<td>{formatCurrency('il', studyFundContribution)}</td>
-								<td>{formatCurrency('il', studyFundContribution * 12)}</td>
+								<th></th>
+								<th>Month</th>
+								<th>Year</th>
 							</tr>
-						)}
-						{annualBonus > 0 && (
+						</thead>
+						<tbody>
 							<tr>
-								<td>Bonus</td>
-								<td>{formatCurrency('il', annualBonus)}</td>
-								<td>{formatCurrency('il', annualBonus)}</td>
+								<td>Basic salary</td>
+								<td>{formatCurrency('il', baseIncome)}</td>
+								<td>{formatCurrency('il', baseIncome * 12)}</td>
 							</tr>
-						)}
-						<tr>
-							<td>Net</td>
-							<td>
-								{formatCurrency(
-									'il',
-									grossIncome -
-										incomeTax -
-										nationalInsurance -
-										healthInsurance -
-										pensionContribution -
-										studyFundContribution
-								)}
-							</td>
-							<td>
-								{formatCurrency(
-									'il',
-									(grossIncome - annualBonus) * 12 +
-										annualBonus -
-										annualIncomeTax -
-										annualNationalInsurance -
-										annualHealthInsurance -
-										(pensionContribution + studyFundContribution) * 12
-								)}
-							</td>
-						</tr>
-					</tbody>
-				</Table>
-			</section>
-			{lunchAllowance > 0 && showResultsTable === true && (
-				<Popup
-					type="info"
-					title="10bis, Cibus, or credit/debit card allowance"
-					text={`Your allowance of ${formatCurrency(
-						'il',
-						lunchAllowance
-					)} has been added to your taxable income, but as it's not included in your salary payment, it doesn't form part of your net income. It should still be considered desposible income though. `}
-				/>
+							<tr>
+								<td>Taxable income</td>
+								<td>{formatCurrency('il', taxableIncome)}</td>
+								<td>{formatCurrency('il', (taxableIncome - annualBonus) * 12 + annualBonus)}</td>
+							</tr>
+							<tr>
+								<td>Income tax</td>
+								<td>{formatCurrency('il', incomeTax)}</td>
+								<td>{formatCurrency('il', annualIncomeTax)}</td>
+							</tr>
+							<tr>
+								<td>National insurance</td>
+								<td>{formatCurrency('il', nationalInsurance)}</td>
+								<td>{formatCurrency('il', annualNationalInsurance)}</td>
+							</tr>
+							<tr>
+								<td>Health insurance</td>
+								<td>{formatCurrency('il', healthInsurance)}</td>
+								<td>{formatCurrency('il', annualHealthInsurance)}</td>
+							</tr>
+							<tr>
+								<td>Pension</td>
+								<td>{formatCurrency('il', pensionContribution)}</td>
+								<td>{formatCurrency('il', pensionContribution * 12)}</td>
+							</tr>
+							{studyFundContribution > 0 && (
+								<tr>
+									<td>Educational fund</td>
+									<td>{formatCurrency('il', studyFundContribution)}</td>
+									<td>{formatCurrency('il', studyFundContribution * 12)}</td>
+								</tr>
+							)}
+							{annualBonus > 0 && (
+								<tr>
+									<td>Bonus</td>
+									<td>{formatCurrency('il', annualBonus)}</td>
+									<td>{formatCurrency('il', annualBonus)}</td>
+								</tr>
+							)}
+							<tr>
+								<td>Net</td>
+								<td>
+									{formatCurrency(
+										'il',
+										grossIncome -
+											incomeTax -
+											nationalInsurance -
+											healthInsurance -
+											pensionContribution -
+											studyFundContribution
+									)}
+								</td>
+								<td>
+									{formatCurrency(
+										'il',
+										(grossIncome - annualBonus) * 12 +
+											annualBonus -
+											annualIncomeTax -
+											annualNationalInsurance -
+											annualHealthInsurance -
+											(pensionContribution + studyFundContribution) * 12
+									)}
+								</td>
+							</tr>
+						</tbody>
+					</Table>
+				</section>
 			)}
+			<>{lunchAllowance > 0 && showResultsTable === true && cardAllowancePopup(lunchAllowance)}</>
 		</>
 	);
 }

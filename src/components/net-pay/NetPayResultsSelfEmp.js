@@ -78,87 +78,86 @@ function NetPayResultsSelfEmployed(props) {
 	);
 
 	return (
-		<section
-			style={{
-				display: showResultsTable === true ? 'block' : 'none'
-			}}
-			ref={props.refProp}
-		>
-			<h2>Net pay results</h2>
-			<Table striped bordered className="table__3 table__header--blue">
-				<thead>
-					<tr>
-						<th></th>
-						<th>Month</th>
-						<th>Year</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Profit</td>
-						<td>{formatCurrency('il', baseIncome)}</td>
-						<td>{formatCurrency('il', baseIncome * 12)}</td>
-					</tr>
-					<tr>
-						<td>Taxable income</td>
-						<td>{formatCurrency('il', taxableIncome)}</td>
-						<td>{formatCurrency('il', taxableIncome * 12)}</td>
-					</tr>
-					<tr>
-						<td>Income tax</td>
-						<td>{formatCurrency('il', incomeTax)}</td>
-						<td>{formatCurrency('il', annualIncomeTax)}</td>
-					</tr>
-					<tr>
-						<td>National insurance</td>
-						<td>{formatCurrency('il', nationalInsurance)}</td>
-						<td>{formatCurrency('il', annualNationalInsurance)}</td>
-					</tr>
-					<tr>
-						<td>Health insurance</td>
-						<td>{formatCurrency('il', healthInsurance)}</td>
-						<td>{formatCurrency('il', annualHealthInsurance)}</td>
-					</tr>
-					<tr>
-						<td>Pension</td>
-						<td>{formatCurrency('il', pensionContribution)}</td>
-						<td>{formatCurrency('il', pensionContribution * 12)}</td>
-					</tr>
-					{studyFundContribution > 0 && (
-						<tr>
-							<td>Educational fund</td>
-							<td>{formatCurrency('il', studyFundContribution)}</td>
-							<td>{formatCurrency('il', studyFundContribution * 12)}</td>
-						</tr>
-					)}
+		<>
+			{showResultsTable === true && (
+				<section ref={props.refProp}>
+					<h2>Net pay results</h2>
+					<Table striped bordered className="table__3 table__header--blue">
+						<thead>
+							<tr>
+								<th></th>
+								<th>Month</th>
+								<th>Year</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Profit</td>
+								<td>{formatCurrency('il', baseIncome)}</td>
+								<td>{formatCurrency('il', baseIncome * 12)}</td>
+							</tr>
+							<tr>
+								<td>Taxable income</td>
+								<td>{formatCurrency('il', taxableIncome)}</td>
+								<td>{formatCurrency('il', taxableIncome * 12)}</td>
+							</tr>
+							<tr>
+								<td>Income tax</td>
+								<td>{formatCurrency('il', incomeTax)}</td>
+								<td>{formatCurrency('il', annualIncomeTax)}</td>
+							</tr>
+							<tr>
+								<td>National insurance</td>
+								<td>{formatCurrency('il', nationalInsurance)}</td>
+								<td>{formatCurrency('il', annualNationalInsurance)}</td>
+							</tr>
+							<tr>
+								<td>Health insurance</td>
+								<td>{formatCurrency('il', healthInsurance)}</td>
+								<td>{formatCurrency('il', annualHealthInsurance)}</td>
+							</tr>
+							<tr>
+								<td>Pension</td>
+								<td>{formatCurrency('il', pensionContribution)}</td>
+								<td>{formatCurrency('il', pensionContribution * 12)}</td>
+							</tr>
+							{studyFundContribution > 0 && (
+								<tr>
+									<td>Educational fund</td>
+									<td>{formatCurrency('il', studyFundContribution)}</td>
+									<td>{formatCurrency('il', studyFundContribution * 12)}</td>
+								</tr>
+							)}
 
-					<tr>
-						<td>Net</td>
-						<td>
-							{formatCurrency(
-								'il',
-								baseIncome -
-									incomeTax -
-									nationalInsurance -
-									healthInsurance -
-									pensionContribution -
-									studyFundContribution
-							)}
-						</td>
-						<td>
-							{formatCurrency(
-								'il',
-								baseIncome * 12 -
-									annualIncomeTax -
-									annualNationalInsurance -
-									annualHealthInsurance -
-									(pensionContribution + studyFundContribution) * 12
-							)}
-						</td>
-					</tr>
-				</tbody>
-			</Table>
-		</section>
+							<tr>
+								<td>Net</td>
+								<td>
+									{formatCurrency(
+										'il',
+										baseIncome -
+											incomeTax -
+											nationalInsurance -
+											healthInsurance -
+											pensionContribution -
+											studyFundContribution
+									)}
+								</td>
+								<td>
+									{formatCurrency(
+										'il',
+										baseIncome * 12 -
+											annualIncomeTax -
+											annualNationalInsurance -
+											annualHealthInsurance -
+											(pensionContribution + studyFundContribution) * 12
+									)}
+								</td>
+							</tr>
+						</tbody>
+					</Table>
+				</section>
+			)}
+		</>
 	);
 }
 

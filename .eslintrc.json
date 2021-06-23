@@ -28,6 +28,7 @@
 		"semi": ["error", "always"],
 		"no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
 		"no-console": ["warn"],
-		"no-mixed-spaces-and-tabs": "off"
+		"no-mixed-spaces-and-tabs": "off",
+		"react/no-unescaped-entities": 0
 	}
 }
