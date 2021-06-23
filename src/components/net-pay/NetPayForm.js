@@ -24,9 +24,11 @@ function NetPayForm(props) {
 		annualBonus,
 		commission,
 		overtime,
+		language,
 		validated
 	} = props.stateData;
 	const handleChange = props.handleChange;
+	const handleClick = props.handleClick;
 	const xsLabel = 7;
 	const mdLabel = 6;
 	const xsInput = 12 - xsLabel;
@@ -36,6 +38,9 @@ function NetPayForm(props) {
 
 	return (
 		<section>
+			<Button variant="danger" onClick={handleClick} className="mb-3">
+				Press if you're Mark and/or use decimal commas instead of points!
+			</Button>
 			<h2>Net pay calculator</h2>
 			<Form
 				id={`netpay-form-${employmentType}`}
@@ -80,8 +85,8 @@ function NetPayForm(props) {
 								id="income"
 								name="baseIncome"
 								type="number"
-								inputMode="decimal"
-								pattern="[0-9]*"
+								pattern="[0-9]"
+								inputMode={language === 'za' ? '' : 'decimal'}
 								step="0.01"
 								min="0"
 								required
@@ -101,8 +106,8 @@ function NetPayForm(props) {
 								id="creditPoints"
 								name="creditPoints"
 								type="number"
-								inputMode="decimal"
-								pattern="[0-9]*"
+								pattern="[0-9]"
+								inputMode={language === 'za' ? '' : 'decimal'}
 								step="0.25"
 								min="0"
 								required={checkZeroOrGreater(creditPoints)}
@@ -199,8 +204,8 @@ function NetPayForm(props) {
 												id="pensionAmount"
 												name="pensionAmount"
 												type="number"
-												inputMode="decimal"
-												pattern="[0-9]*"
+												pattern="[0-9]"
+												inputMode={language === 'za' ? '' : 'decimal'}
 												step="0.01"
 												min={pensionType === 'percent' ? pensionMinPecrcent : pensionMin}
 												max={pensionType === 'percent' ? 100 : undefined}
@@ -263,8 +268,8 @@ function NetPayForm(props) {
 										id="studyFundAmount"
 										name="studyFundAmount"
 										type="number"
-										inputMode="decimal"
-										pattern="[0-9]*"
+										pattern="[0-9]"
+										inputMode={language === 'za' ? '' : 'decimal'}
 										step="0.01"
 										min="0"
 										max={studyFundType === 'percent' ? 100 : undefined}
@@ -297,8 +302,8 @@ function NetPayForm(props) {
 										id="travelAllowance"
 										name="travelAllowance"
 										type="number"
-										inputMode="decimal"
-										pattern="[0-9]*"
+										pattern="[0-9]"
+										inputMode={language === 'za' ? '' : 'decimal'}
 										step="0.01"
 										min="0"
 										value={travelAllowance}
@@ -318,8 +323,8 @@ function NetPayForm(props) {
 										id="lunchAllowance"
 										name="lunchAllowance"
 										type="number"
-										inputMode="decimal"
-										pattern="[0-9]*"
+										pattern="[0-9]"
+										inputMode={language === 'za' ? '' : 'decimal'}
 										step="0.01"
 										min="0"
 										value={lunchAllowance}
@@ -339,8 +344,8 @@ function NetPayForm(props) {
 										id="otherAllowance"
 										name="otherAllowance"
 										type="number"
-										inputMode="decimal"
-										pattern="[0-9]*"
+										pattern="[0-9]"
+										inputMode={language === 'za' ? '' : 'decimal'}
 										step="0.01"
 										min="0"
 										value={otherAllowance}
@@ -363,8 +368,8 @@ function NetPayForm(props) {
 										id="annualBonus"
 										name="annualBonus"
 										type="number"
-										inputMode="decimal"
-										pattern="[0-9]*"
+										pattern="[0-9]"
+										inputMode={language === 'za' ? '' : 'decimal'}
 										step="0.01"
 										min="0"
 										value={annualBonus}
@@ -384,8 +389,8 @@ function NetPayForm(props) {
 										id="commission"
 										name="commission"
 										type="number"
-										inputMode="decimal"
-										pattern="[0-9]*"
+										pattern="[0-9]"
+										inputMode={language === 'za' ? '' : 'decimal'}
 										step="0.01"
 										min="0"
 										value={commission}
@@ -405,8 +410,8 @@ function NetPayForm(props) {
 										id="overtime"
 										name="overtime"
 										type="number"
-										inputMode="decimal"
-										pattern="[0-9]*"
+										pattern="[0-9]"
+										inputMode={language === 'za' ? '' : 'decimal'}
 										step="0.01"
 										min="0"
 										value={overtime}

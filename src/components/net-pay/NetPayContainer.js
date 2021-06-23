@@ -26,6 +26,7 @@ class NetPayContainer extends Component {
 			annualBonus: '',
 			commission: '',
 			overtime: '',
+			language: 'gb',
 			validated: false,
 			showResultsTable: false
 		};
@@ -49,6 +50,12 @@ class NetPayContainer extends Component {
 				pensionOption: 'legalMin'
 			});
 		}
+	};
+
+	handleClick = () => {
+		this.setState({
+			language: 'za'
+		});
 	};
 
 	scrollToMyRef = () => {
@@ -87,6 +94,7 @@ class NetPayContainer extends Component {
 					stateData={this.state}
 					handleChange={this.handleChange}
 					handleSubmit={this.handleSubmit}
+					handleClick={this.handleClick}
 				/>
 				{this.state.employmentType === 'salaried' && (
 					<NetPayResultsSalaried stateData={this.state} refProp={this.resultsTable} />
