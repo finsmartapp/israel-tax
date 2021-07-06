@@ -30,6 +30,7 @@ function NetPayResultsSalaried(props) {
 		commission,
 		showResultsTable
 	} = props.stateData;
+
 	const studyFundContribution = studyFundCalc(
 		taxData,
 		taxYearIndex,
@@ -45,14 +46,13 @@ function NetPayResultsSalaried(props) {
 		lunchAllowance,
 		otherAllowance,
 		annualBonus,
-		overtime,
-		commission
+		commission,
+		overtime
 	].forEach(e => {
 		taxableIncome += typeof e === 'number' && e;
 	});
-	const pensionableIncome = baseIncome + lunchAllowance + otherAllowance + commission;
-	const grossIncome =
-		baseIncome + travelAllowance + otherAllowance + annualBonus + commission + overtime;
+	const pensionableIncome = taxableIncome - travelAllowance - annualBonus - overtime;
+	const paycheckGross = taxableIncome - lunchAllowance;
 	const prisa =
 		annualBonus >
 		(taxableIncome - annualBonus) * (taxData[taxYearIndex].bituachLeumi.prisaLimitPercent / 100);
@@ -160,7 +160,7 @@ function NetPayResultsSalaried(props) {
 								<td>
 									{formatCurrency(
 										'il',
-										grossIncome -
+										paycheckGross -
 											incomeTax -
 											nationalInsurance -
 											healthInsurance -
@@ -171,7 +171,7 @@ function NetPayResultsSalaried(props) {
 								<td>
 									{formatCurrency(
 										'il',
-										(grossIncome - annualBonus) * 12 +
+										(paycheckGross - annualBonus) * 12 +
 											annualBonus -
 											annualIncomeTax -
 											annualNationalInsurance -
