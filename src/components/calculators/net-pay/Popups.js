@@ -1,6 +1,6 @@
 import React from 'react';
-import Popup from '../popup/Popup';
-import { formatCurrency } from '../../utils/FormatCurrency';
+import Popup from '../../popup/Popup';
+import { formatCurrency } from '../../../utils/formatCurrency';
 
 export function cardAllowancePopup(allowance) {
 	return (
