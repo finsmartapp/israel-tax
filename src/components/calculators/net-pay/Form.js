@@ -2,9 +2,9 @@ import React from 'react';
 import { func, shape } from 'prop-types';
 import { netPayType } from './PropTypes';
 import { Form, Row, Col, InputGroup, FormControl, Button } from 'react-bootstrap';
-import { checkZeroOrGreater } from '../../utils/Comparisons';
-import { pensionMinCalc } from './calculations/PensionLegalMin';
-import { invalidNum, invalidPercent } from '../../utils/ValidationText';
+import { checkZeroOrGreater } from '../../../utils/comparisons';
+import { pensionMinCalc } from '../../../utils/tax-calculators/pensionLegalMin';
+import { invalidNum, invalidPercent } from '../../../utils/validationText';
 
 function NetPayForm(props) {
 	const {

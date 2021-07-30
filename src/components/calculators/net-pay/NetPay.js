@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import taxData from '../../data/PayrollTax';
-import './NetPay.scss';
-import NetPayForm from './NetPayForm';
-import NetPayResultsSalaried from './NetPayResultsSalaried';
-import NetPayResultsSelfEmployed from './NetPayResultsSelfEmp';
+import taxData from '../../../data/payroll';
+import './net-pay.scss';
+import NetPayForm from './Form';
+import ResultsSalaried from './ResultsSalaried';
+import ResultsSelfEmployed from './ResultsSelfEmployed';
 
 class NetPayContainer extends Component {
 	constructor(props) {
@@ -97,10 +97,10 @@ class NetPayContainer extends Component {
 					handleClick={this.handleClick}
 				/>
 				{this.state.employmentType === 'salaried' && (
-					<NetPayResultsSalaried stateData={this.state} refProp={this.resultsTable} />
+					<ResultsSalaried stateData={this.state} refProp={this.resultsTable} />
 				)}
 				{this.state.employmentType === 'selfEmployed' && (
-					<NetPayResultsSelfEmployed stateData={this.state} refProp={this.resultsTable} />
+					<ResultsSelfEmployed stateData={this.state} refProp={this.resultsTable} />
 				)}
 			</>
 		);

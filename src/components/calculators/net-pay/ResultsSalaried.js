@@ -1,17 +1,17 @@
 import React from 'react';
 import { object, shape } from 'prop-types';
 import { netPayType } from './PropTypes';
-import Table from 'react-bootstrap/table';
-import { bituachLeumiCalc } from './calculations/BituachLeumi';
-import { nationalInsuranceSelfEmp } from './calculations/NationalInsuranceSelfEmp';
-import { pensionMinCalc } from './calculations/PensionLegalMin';
-import { pensionContributionCalc } from './calculations/PensionContribution';
-import { pensionReliefCalc } from './calculations/PensionReliefSelfEmp';
-import { studyFundCalc } from './calculations/StudyFund';
-import { incomeTaxCalc } from './calculations/IncomeTax';
-import { formatCurrency } from '../../utils/FormatCurrency';
+import { Table } from 'react-bootstrap';
+import { bituachLeumiCalc } from '../../../utils/tax-calculators/bituachLeumi';
+import { pensionMinCalc } from '../../../utils/tax-calculators/pensionLegalMin';
+import { pensionContributionCalc } from '../../../utils/tax-calculators/pensionContribution';
+import { pensionReliefCalc } from '../../../utils/tax-calculators/pensionReliefSalaried';
+import { studyFundCalc } from '../../../utils/tax-calculators/studyFund';
+import { incomeTaxCalc } from '../../../utils/tax-calculators/incomeTax';
+import { formatCurrency } from '../../../utils/formatCurrency';
+import { cardAllowancePopup } from './Popups';
 
-function NetPayResultsSelfEmployed(props) {
+function ResultsSalaried(props) {
 	const {
 		employmentType,
 		taxData,
@@ -19,13 +19,19 @@ function NetPayResultsSelfEmployed(props) {
 		baseIncome,
 		creditPoints,
 		pensionOption,
-		pensionType,
 		pensionAmount,
 		studyFundType,
 		studyFundAmount,
+		travelAllowance,
+		lunchAllowance,
+		otherAllowance,
+		overtime,
+		annualBonus,
+		commission,
 		showResultsTable
 	} = props.stateData;
-	const { studyFundContribution, studyFundTaxDeductible } = studyFundCalc(
+
+	const studyFundContribution = studyFundCalc(
 		taxData,
 		taxYearIndex,
 		baseIncome,
@@ -33,46 +39,60 @@ function NetPayResultsSelfEmployed(props) {
 		studyFundAmount,
 		studyFundType
 	);
-	const pensionLegalMin = pensionMinCalc(taxData, taxYearIndex, baseIncome, employmentType);
-	const pensionContribution = pensionContributionCalc(
+	let taxableIncome = 0;
+	[
 		baseIncome,
-		pensionLegalMin,
-		pensionOption,
-		pensionAmount,
-		pensionType
-	);
-	const { pensionTaxDeductible, pensionTaxCredit } = pensionReliefCalc(
-		taxData,
-		taxYearIndex,
-		baseIncome,
-		pensionContribution
-	);
-	const taxableIncome = baseIncome - studyFundTaxDeductible - pensionTaxDeductible;
-	const bituachLeumiTaxDeductible = nationalInsuranceSelfEmp(taxData, taxYearIndex, taxableIncome);
+		travelAllowance,
+		lunchAllowance,
+		otherAllowance,
+		annualBonus,
+		commission,
+		overtime
+	].forEach(e => {
+		taxableIncome += typeof e === 'number' && e;
+	});
+	const pensionableIncome = taxableIncome - travelAllowance - annualBonus - overtime;
+	const paycheckGross = taxableIncome - lunchAllowance;
+	const prisa =
+		annualBonus >
+		(taxableIncome - annualBonus) * (taxData[taxYearIndex].bituachLeumi.prisaLimitPercent / 100);
 	const { month: nationalInsurance, annual: annualNationalInsurance } = bituachLeumiCalc(
 		taxData,
 		taxYearIndex,
 		employmentType,
-		taxableIncome - bituachLeumiTaxDeductible,
-		false,
-		0,
+		taxableIncome,
+		prisa,
+		annualBonus,
 		'nationalInsurance'
 	);
 	const { month: healthInsurance, annual: annualHealthInsurance } = bituachLeumiCalc(
 		taxData,
 		taxYearIndex,
 		employmentType,
-		taxableIncome - bituachLeumiTaxDeductible,
-		false,
-		0,
+		taxableIncome,
+		prisa,
+		annualBonus,
 		'healthInsurance'
 	);
 	const creditPointsTaxCredit = creditPoints * taxData[taxYearIndex].creditPointValue;
+	const pensionLegalMin = pensionMinCalc(taxData, taxYearIndex, pensionableIncome, employmentType);
+	const pensionContribution = pensionContributionCalc(
+		pensionableIncome,
+		pensionLegalMin,
+		pensionOption,
+		pensionAmount
+	);
+	const pensionTaxCredit = pensionReliefCalc(
+		taxData,
+		taxYearIndex,
+		pensionContribution,
+		pensionableIncome
+	);
 	const { incomeTax, annualIncomeTax } = incomeTaxCalc(
 		taxData,
 		taxYearIndex,
 		taxableIncome,
-		0,
+		annualBonus,
 		creditPointsTaxCredit,
 		pensionTaxCredit
 	);
@@ -92,14 +112,14 @@ function NetPayResultsSelfEmployed(props) {
 						</thead>
 						<tbody>
 							<tr>
-								<td>Profit</td>
+								<td>Basic salary</td>
 								<td>{formatCurrency('il', baseIncome)}</td>
 								<td>{formatCurrency('il', baseIncome * 12)}</td>
 							</tr>
 							<tr>
 								<td>Taxable income</td>
 								<td>{formatCurrency('il', taxableIncome)}</td>
-								<td>{formatCurrency('il', taxableIncome * 12)}</td>
+								<td>{formatCurrency('il', (taxableIncome - annualBonus) * 12 + annualBonus)}</td>
 							</tr>
 							<tr>
 								<td>Income tax</td>
@@ -128,13 +148,19 @@ function NetPayResultsSelfEmployed(props) {
 									<td>{formatCurrency('il', studyFundContribution * 12)}</td>
 								</tr>
 							)}
-
+							{annualBonus > 0 && (
+								<tr>
+									<td>Bonus</td>
+									<td>{formatCurrency('il', annualBonus)}</td>
+									<td>{formatCurrency('il', annualBonus)}</td>
+								</tr>
+							)}
 							<tr>
 								<td>Net</td>
 								<td>
 									{formatCurrency(
 										'il',
-										baseIncome -
+										paycheckGross -
 											incomeTax -
 											nationalInsurance -
 											healthInsurance -
@@ -145,7 +171,8 @@ function NetPayResultsSelfEmployed(props) {
 								<td>
 									{formatCurrency(
 										'il',
-										baseIncome * 12 -
+										(paycheckGross - annualBonus) * 12 +
+											annualBonus -
 											annualIncomeTax -
 											annualNationalInsurance -
 											annualHealthInsurance -
@@ -157,11 +184,12 @@ function NetPayResultsSelfEmployed(props) {
 					</Table>
 				</section>
 			)}
+			<>{lunchAllowance > 0 && showResultsTable === true && cardAllowancePopup(lunchAllowance)}</>
 		</>
 	);
 }
 
-NetPayResultsSelfEmployed.propTypes = {
+ResultsSalaried.propTypes = {
 	refProp: object.isRequired,
 	stateData: shape({
 		employmentType: netPayType.employmentType,
@@ -170,12 +198,17 @@ NetPayResultsSelfEmployed.propTypes = {
 		baseIncome: netPayType.baseIncome,
 		creditPoints: netPayType.creditPoints,
 		pensionOption: netPayType.pensionOption,
-		pensionType: netPayType.pensionType,
 		pensionAmount: netPayType.pensionAmount,
 		studyFundType: netPayType.studyFundType,
 		studyFundAmount: netPayType.studyFundAmount,
+		travelAllowance: netPayType.travelAllowance,
+		lunchAllowance: netPayType.lunchAllowance,
+		otherAllowance: netPayType.otherAllowance,
+		overtime: netPayType.overtime,
+		annualBonus: netPayType.annualBonus,
+		commission: netPayType.commission,
 		showResultsTable: netPayType.showResultsTable
 	})
 };
 
-export default NetPayResultsSelfEmployed;
+export default ResultsSalaried;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { string } from 'prop-types';
-import './Popup.scss';
+import './popup.scss';
 import PopupBox from './PopupBox';
 
 class Popup extends Component {
