@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { globalProps } from '../../../prop-types/Global';
 import taxData from '../../../data/payroll';
 import './net-pay.scss';
 import NetPayForm from './Form';
 import ResultsSalaried from './ResultsSalaried';
 import ResultsSelfEmployed from './ResultsSelfEmployed';
+import LanguageContext from '../../../contexts/LanguageContext';
 
 class NetPayContainer extends Component {
 	constructor(props) {
@@ -18,7 +19,7 @@ class NetPayContainer extends Component {
 			pensionOption: 'legalMin',
 			pensionType: 'percent',
 			pensionAmount: '',
-			studyFundType: 'percent',
+			studyFundType: 'shekel',
 			studyFundAmount: '',
 			travelAllowance: '',
 			lunchAllowance: '',
@@ -26,7 +27,6 @@ class NetPayContainer extends Component {
 			annualBonus: '',
 			commission: '',
 			overtime: '',
-			language: 'gb',
 			validated: false,
 			showResultsTable: false
 		};
@@ -50,12 +50,6 @@ class NetPayContainer extends Component {
 				pensionOption: 'legalMin'
 			});
 		}
-	};
-
-	handleClick = () => {
-		this.setState({
-			language: 'za'
-		});
 	};
 
 	scrollToMyRef = () => {
@@ -90,12 +84,17 @@ class NetPayContainer extends Component {
 	render() {
 		return (
 			<>
-				<NetPayForm
-					stateData={this.state}
-					handleChange={this.handleChange}
-					handleSubmit={this.handleSubmit}
-					handleClick={this.handleClick}
-				/>
+				<LanguageContext.Consumer>
+					{value => (
+						<NetPayForm
+							stateData={this.state}
+							handleChange={this.handleChange}
+							handleSubmit={this.handleSubmit}
+							employmentType={this.props.employmentType}
+							language={value.language}
+						/>
+					)}
+				</LanguageContext.Consumer>
 				{this.state.employmentType === 'salaried' && (
 					<ResultsSalaried stateData={this.state} refProp={this.resultsTable} />
 				)}
@@ -108,7 +107,7 @@ class NetPayContainer extends Component {
 }
 
 NetPayContainer.propTypes = {
-	employmentType: PropTypes.string.isRequired
+	employmentType: globalProps.employmentType
 };
 
 export default NetPayContainer;

@@ -4,9 +4,12 @@ import './popup.scss';
 import PopupBox from './PopupBox';
 
 class Popup extends Component {
-	state = {
-		show: true
-	};
+	constructor(props) {
+		super(props);
+		this.state = {
+			show: true
+		};
+	}
 
 	componentDidMount() {
 		document.querySelector('body').style.overflow = 'hidden';

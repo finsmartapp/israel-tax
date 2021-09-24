@@ -7,10 +7,10 @@ function Home() {
 		<>
 			<Hero />
 			<ul>
-				<Link to="/calculators/salaried/net-pay">
+				<Link to="/salaried/net-pay-calculator">
 					<li>Salaried</li>
 				</Link>
-				<Link to="/calculators/self-employed/net-pay">
+				<Link to="/self-employed/net-pay-calculator">
 					<li>Self employed</li>
 				</Link>
 			</ul>

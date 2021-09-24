@@ -1,14 +1,15 @@
 import React from 'react';
-import { func, shape } from 'prop-types';
+import { shape } from 'prop-types';
+import { globalProps } from '../../../prop-types/Global';
 import { netPayType } from './PropTypes';
 import { Form, Row, Col, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { checkZeroOrGreater } from '../../../utils/comparisons';
 import { pensionMinCalc } from '../../../utils/tax-calculators/pensionLegalMin';
 import { invalidNum, invalidPercent } from '../../../utils/validationText';
+import { keypadDisplay } from '../../../utils/keypadDisplay';
 
 function NetPayForm(props) {
 	const {
-		employmentType,
 		taxData,
 		taxYearIndex,
 		baseIncome,
@@ -24,11 +25,11 @@ function NetPayForm(props) {
 		annualBonus,
 		commission,
 		overtime,
-		language,
 		validated
 	} = props.stateData;
 	const handleChange = props.handleChange;
-	const handleClick = props.handleClick;
+	const employmentType = props.employmentType;
+	const language = props.language;
 	const xsLabel = 7;
 	const mdLabel = 6;
 	const xsInput = 12 - xsLabel;
@@ -38,9 +39,6 @@ function NetPayForm(props) {
 
 	return (
 		<section>
-			<Button variant="danger" onClick={handleClick} className="mb-3">
-				Press if you're Mark and/or use decimal commas instead of points!
-			</Button>
 			<h2>Net pay calculator</h2>
 			<Form
 				id={`netpay-form-${employmentType}`}
@@ -86,7 +84,7 @@ function NetPayForm(props) {
 								name="baseIncome"
 								type="number"
 								pattern="[0-9]"
-								inputMode={language === 'za' ? '' : 'decimal'}
+								inputMode={keypadDisplay(language)}
 								step="0.01"
 								min="0"
 								required
@@ -107,7 +105,7 @@ function NetPayForm(props) {
 								name="creditPoints"
 								type="number"
 								pattern="[0-9]"
-								inputMode={language === 'za' ? '' : 'decimal'}
+								inputMode={keypadDisplay(language)}
 								step="0.25"
 								min="0"
 								required={checkZeroOrGreater(creditPoints)}
@@ -205,7 +203,7 @@ function NetPayForm(props) {
 												name="pensionAmount"
 												type="number"
 												pattern="[0-9]"
-												inputMode={language === 'za' ? '' : 'decimal'}
+												inputMode={keypadDisplay(language)}
 												step="0.01"
 												min={pensionType === 'percent' ? pensionMinPecrcent : pensionMin}
 												max={pensionType === 'percent' ? 100 : undefined}
@@ -269,7 +267,7 @@ function NetPayForm(props) {
 										name="studyFundAmount"
 										type="number"
 										pattern="[0-9]"
-										inputMode={language === 'za' ? '' : 'decimal'}
+										inputMode={keypadDisplay(language)}
 										step="0.01"
 										min="0"
 										max={studyFundType === 'percent' ? 100 : undefined}
@@ -303,7 +301,7 @@ function NetPayForm(props) {
 										name="travelAllowance"
 										type="number"
 										pattern="[0-9]"
-										inputMode={language === 'za' ? '' : 'decimal'}
+										inputMode={keypadDisplay(language)}
 										step="0.01"
 										min="0"
 										value={travelAllowance}
@@ -324,7 +322,7 @@ function NetPayForm(props) {
 										name="lunchAllowance"
 										type="number"
 										pattern="[0-9]"
-										inputMode={language === 'za' ? '' : 'decimal'}
+										inputMode={keypadDisplay(language)}
 										step="0.01"
 										min="0"
 										value={lunchAllowance}
@@ -345,7 +343,7 @@ function NetPayForm(props) {
 										name="otherAllowance"
 										type="number"
 										pattern="[0-9]"
-										inputMode={language === 'za' ? '' : 'decimal'}
+										inputMode={keypadDisplay(language)}
 										step="0.01"
 										min="0"
 										value={otherAllowance}
@@ -369,7 +367,7 @@ function NetPayForm(props) {
 										name="annualBonus"
 										type="number"
 										pattern="[0-9]"
-										inputMode={language === 'za' ? '' : 'decimal'}
+										inputMode={keypadDisplay(language)}
 										step="0.01"
 										min="0"
 										value={annualBonus}
@@ -390,7 +388,7 @@ function NetPayForm(props) {
 										name="commission"
 										type="number"
 										pattern="[0-9]"
-										inputMode={language === 'za' ? '' : 'decimal'}
+										inputMode={keypadDisplay(language)}
 										step="0.01"
 										min="0"
 										value={commission}
@@ -411,7 +409,7 @@ function NetPayForm(props) {
 										name="overtime"
 										type="number"
 										pattern="[0-9]"
-										inputMode={language === 'za' ? '' : 'decimal'}
+										inputMode={keypadDisplay(language)}
 										step="0.01"
 										min="0"
 										value={overtime}
@@ -433,9 +431,11 @@ function NetPayForm(props) {
 }
 
 NetPayForm.propTypes = {
-	handleSubmit: func,
-	handleChange: func,
-	handleClick: func,
+	handleSubmit: globalProps.handleSubmit,
+	handleChange: globalProps.handleChange,
+	handleClick: globalProps.handleClick,
+	employmentType: globalProps.employmentType,
+	language: globalProps.lanuage,
 	stateData: shape({
 		taxData: netPayType.taxData,
 		baseIncome: netPayType.baseIncome,

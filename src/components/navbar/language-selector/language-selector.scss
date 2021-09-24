@@ -1,0 +1,62 @@
+@import '../../../styles/partials/mediaQueries';
+
+.navbar .container {
+	position: relative;
+}
+
+.language-selector {
+	position: absolute;
+	left: 4rem;
+	top: 0.5rem;
+	margin-left: 1.5rem;
+
+	@include screen-md {
+		left: 5rem;
+	}
+	@include screen-lg {
+		left: 6rem;
+	}
+
+	.dropdown-toggle {
+		margin-left: 0.5rem;
+
+		&::after {
+			display: none;
+		}
+	}
+
+	.dropdown-menu {
+		padding-top: 0.75rem;
+		padding-left: 0.5rem;
+	}
+
+	a,
+	.dropdown-toggle {
+		position: relative;
+		padding-left: 2rem;
+
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			width: 1.5rem;
+			height: 1.5rem;
+			display: inline-block;
+			background-color: #c00;
+			background-size: 1.5rem 1.5rem;
+			background-repeat: no-repeat;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+	}
+
+	.flag- {
+		&en::before {
+			background-image: url(../../../images/flags/uk.png);
+		}
+
+		&za::before {
+			background-image: url(../../../images/flags/south-africa.png);
+		}
+	}
+}
