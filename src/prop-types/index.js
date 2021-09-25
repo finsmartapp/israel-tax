@@ -1,6 +1,21 @@
-import { array, oneOfType, number, string, bool } from 'prop-types';
+import { func, string, oneOf, array, oneOfType, number, bool, object } from 'prop-types';
 
-export const netPayType = {
+export const globalProps = {
+	handleSubmit: func.isRequired,
+	handleChange: func.isRequired,
+	handleClick: func.isRequired,
+	employmentType: oneOf(['employee', 'selfEmployed']).isRequired,
+	language: string.isRequired,
+	display: bool.isRequired
+};
+
+export const panelProps = {
+	type: string.isRequired,
+	title: string.isRequired,
+	text: string.isRequired
+};
+
+export const payrollProps = {
 	taxData: array.isRequired,
 	taxYearIndex: oneOfType([string, number]).isRequired,
 	baseIncome: oneOfType([string, number]).isRequired,
@@ -17,5 +32,6 @@ export const netPayType = {
 	commission: oneOfType([string, number]).isRequired,
 	overtime: oneOfType([string, number]).isRequired,
 	validated: bool.isRequired,
+	resultsTable: object.isRequired,
 	showResultsTable: bool.isRequired
 };

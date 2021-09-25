@@ -1,7 +1,6 @@
 import React from 'react';
 import { shape } from 'prop-types';
-import { globalProps } from '../../../prop-types/Global';
-import { netPayType } from './PropTypes';
+import { globalProps, payrollProps } from '../../../prop-types';
 import { Form, Row, Col, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { checkZeroOrGreater } from '../../../utils/comparisons';
 import { pensionMinCalc } from '../../../utils/tax-calculators/pensionLegalMin';
@@ -41,7 +40,7 @@ function NetPayForm(props) {
 		<section>
 			<h2>Net pay calculator</h2>
 			<Form
-				id={`netpay-form-${employmentType}`}
+				id={`${employmentType}-netpay-form`}
 				noValidate
 				validated={validated}
 				onSubmit={props.handleSubmit}
@@ -75,7 +74,7 @@ function NetPayForm(props) {
 					</Form.Group>
 					<Form.Group as={Row}>
 						<Form.Label htmlFor="income" column xs={xsLabel} md={mdLabel}>
-							{employmentType === 'salaried' ? 'Base salary' : 'Profit'}
+							{employmentType === 'employee' ? 'Base salary' : 'Profit'}
 						</Form.Label>
 						<Col xs={xsInput} md={mdInput}>
 							<Form.Control
@@ -151,7 +150,7 @@ function NetPayForm(props) {
 								</Form.Check>
 								{baseIncome < 1 && (
 									<div className="small">
-										{employmentType === 'salaried'
+										{employmentType === 'employee'
 											? 'Enter a base salary to select custom.'
 											: 'Enter profit to select custom.'}
 									</div>
@@ -286,7 +285,7 @@ function NetPayForm(props) {
 						</Form.Group>
 					</fieldset>
 				</fieldset>
-				{employmentType === 'salaried' && (
+				{employmentType === 'employee' && (
 					<>
 						<fieldset>
 							<Form.Label as="legend">Allowances</Form.Label>
@@ -433,22 +432,21 @@ function NetPayForm(props) {
 NetPayForm.propTypes = {
 	handleSubmit: globalProps.handleSubmit,
 	handleChange: globalProps.handleChange,
-	handleClick: globalProps.handleClick,
 	employmentType: globalProps.employmentType,
-	language: globalProps.lanuage,
+	language: globalProps.language,
 	stateData: shape({
-		taxData: netPayType.taxData,
-		baseIncome: netPayType.baseIncome,
-		creditPoints: netPayType.creditPoints,
-		pensionOption: netPayType.pensionOption,
-		pensionAmount: netPayType.pensionAmount,
-		educationFund: netPayType.educationFund,
-		travelAllowance: netPayType.travelAllowance,
-		lunchAllowance: netPayType.lunchAllowance,
-		annualBonus: netPayType.annualBonus,
-		commission: netPayType.commission,
-		overtime: netPayType.overtime,
-		validated: netPayType.validated
+		taxData: payrollProps.taxData,
+		baseIncome: payrollProps.baseIncome,
+		creditPoints: payrollProps.creditPoints,
+		pensionOption: payrollProps.pensionOption,
+		pensionAmount: payrollProps.pensionAmount,
+		educationFund: payrollProps.educationFund,
+		travelAllowance: payrollProps.travelAllowance,
+		lunchAllowance: payrollProps.lunchAllowance,
+		annualBonus: payrollProps.annualBonus,
+		commission: payrollProps.commission,
+		overtime: payrollProps.overtime,
+		validated: payrollProps.validated
 	})
 };
 

@@ -13,8 +13,8 @@ function NavigationMenu(props) {
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav className="mr-auto">
 						<Nav.Link href="/">Home</Nav.Link>
-						<NavDropdown title="Salaried">
-							<NavDropdown.Item href="/salaried/net-pay-calculator">
+						<NavDropdown title="Employee">
+							<NavDropdown.Item href="/employee/net-pay-calculator">
 								Net Pay Calculator
 							</NavDropdown.Item>
 						</NavDropdown>

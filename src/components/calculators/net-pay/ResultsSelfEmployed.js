@@ -1,6 +1,6 @@
 import React from 'react';
-import { object, shape } from 'prop-types';
-import { netPayType } from './PropTypes';
+import { shape } from 'prop-types';
+import { globalProps, payrollProps } from '../../../prop-types';
 import Table from 'react-bootstrap/table';
 import { bituachLeumiCalc } from '../../../utils/tax-calculators/bituachLeumi';
 import { nationalInsuranceSelfEmp } from '../../../utils/tax-calculators/nationalInsuranceSelfEmp';
@@ -13,7 +13,6 @@ import { formatCurrency } from '../../../utils/formatCurrency';
 
 function ResultsSelfEmployed(props) {
 	const {
-		employmentType,
 		taxData,
 		taxYearIndex,
 		baseIncome,
@@ -25,6 +24,7 @@ function ResultsSelfEmployed(props) {
 		studyFundAmount,
 		showResultsTable
 	} = props.stateData;
+	const employmentType = props.employmentType;
 	const { studyFundContribution, studyFundTaxDeductible } = studyFundCalc(
 		taxData,
 		taxYearIndex,
@@ -67,7 +67,7 @@ function ResultsSelfEmployed(props) {
 		0,
 		'healthInsurance'
 	);
-	const creditPointsTaxCredit = creditPoints * taxData[taxYearIndex].creditPointValue;
+	const creditPointsTaxCredit = creditPoints * taxData[taxYearIndex].creditPoint;
 	const { incomeTax, annualIncomeTax } = incomeTaxCalc(
 		taxData,
 		taxYearIndex,
@@ -80,7 +80,7 @@ function ResultsSelfEmployed(props) {
 	return (
 		<>
 			{showResultsTable === true && (
-				<section ref={props.refProp}>
+				<section ref={props.resultsTable}>
 					<h2>Net pay results</h2>
 					<Table striped bordered className="table__3 table__header--blue">
 						<thead>
@@ -162,19 +162,19 @@ function ResultsSelfEmployed(props) {
 }
 
 ResultsSelfEmployed.propTypes = {
-	refProp: object.isRequired,
+	employmentType: globalProps.employmentType,
+	resultsTable: payrollProps.resultsTable,
 	stateData: shape({
-		employmentType: netPayType.employmentType,
-		taxData: netPayType.taxData,
-		taxYearIndex: netPayType.taxYearIndex,
-		baseIncome: netPayType.baseIncome,
-		creditPoints: netPayType.creditPoints,
-		pensionOption: netPayType.pensionOption,
-		pensionType: netPayType.pensionType,
-		pensionAmount: netPayType.pensionAmount,
-		studyFundType: netPayType.studyFundType,
-		studyFundAmount: netPayType.studyFundAmount,
-		showResultsTable: netPayType.showResultsTable
+		taxData: payrollProps.taxData,
+		taxYearIndex: payrollProps.taxYearIndex,
+		baseIncome: payrollProps.baseIncome,
+		creditPoints: payrollProps.creditPoints,
+		pensionOption: payrollProps.pensionOption,
+		pensionType: payrollProps.pensionType,
+		pensionAmount: payrollProps.pensionAmount,
+		studyFundType: payrollProps.studyFundType,
+		studyFundAmount: payrollProps.studyFundAmount,
+		showResultsTable: payrollProps.showResultsTable
 	})
 };
 

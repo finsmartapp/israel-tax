@@ -1,12 +1,12 @@
 import React from 'react';
-import { func, bool, string } from 'prop-types';
+import { globalProps, panelProps } from '../../prop-types';
 
 function PopupBox(props) {
 	return (
 		<div
 			className="popup"
 			style={{
-				display: props.show === true ? 'block' : 'none'
+				display: props.display === true ? 'block' : 'none'
 			}}
 		>
 			<div className={`popup__box popup--${props.type}`}>
@@ -21,11 +21,11 @@ function PopupBox(props) {
 }
 
 PopupBox.propTypes = {
-	handleClick: func,
-	show: bool.isRequired,
-	type: string.isRequired,
-	title: string.isRequired,
-	text: string.isRequired
+	handleClick: globalProps.handleClick,
+	display: globalProps.display,
+	type: panelProps.type,
+	title: panelProps.title,
+	text: panelProps.text
 };
 
 export default PopupBox;

@@ -34,8 +34,8 @@ class App extends Component {
 					<Switch>
 						<Route path="/" exact component={Home} />
 						<Route
-							path="/salaried/net-pay-calculator"
-							render={() => <NetPayCalculator employmentType={'salaried'} />}
+							path="/employee/net-pay-calculator"
+							render={() => <NetPayCalculator employmentType={'employee'} />}
 						/>
 						<Route
 							path="/self-employed/net-pay-calculator"

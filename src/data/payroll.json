@@ -1,7 +1,7 @@
 [
 	{
 		"taxYear": 2019,
-		"creditPointValue": 218,
+		"creditPoint": 218,
 		"incomeTax": {
 			"band1": { "rate": 10, "min": 0, "max": 75720 },
 			"band2": { "rate": 14, "min": 75721, "max": 108600 },
@@ -12,61 +12,61 @@
 			"band7": { "rate": 50, "min": 649561 }
 		},
 		"bituachLeumi": {
-			"nationalAverageSalary": 10273,
-			"prisaLimitPercent": 25,
-			"selfEmployedNationalInsuranceDiscountPercent": 52,
+			"averageSalary": 10273,
+			"prisa": 25,
+			"selfEmployedNationalInsuranceDiscount": 52,
 			"nationalInsurance": {
 				"band1": {
-					"rate": { "salaried": 0.4, "selfEmployed": 2.87 },
+					"rate": { "employee": 0.4, "selfEmployed": 2.87 },
 					"min": 0,
 					"max": 6164
 				},
 				"band2": {
-					"rate": { "salaried": 7, "selfEmployed": 12.83 },
+					"rate": { "employee": 7, "selfEmployed": 12.83 },
 					"min": 6165,
 					"max": 43890
 				}
 			},
 			"healthInsurance": {
 				"band1": {
-					"rate": { "salaried": 3.1, "selfEmployed": 3.1 },
+					"rate": { "employee": 3.1, "selfEmployed": 3.1 },
 					"min": 0,
 					"max": 6164
 				},
 				"band2": {
-					"rate": { "salaried": 5, "selfEmployed": 5 },
+					"rate": { "employee": 5, "selfEmployed": 5 },
 					"min": 6165,
 					"max": 43890
 				}
 			}
 		},
 		"pension": {
-			"legalMinPerecent": {
-				"salaried": 6,
+			"legalMin": {
+				"employee": 6,
 				"selfEmployed": { "reducedRate": 4.45, "fullRate": 12.55 }
 			},
 			"taxRelief": {
-				"salaried": {
-					"maxPercent": 7,
-					"maxShekel": 616,
-					"taxCredit": 35
+				"employee": {
+					"percent": 7,
+					"shekel": 616,
+					"taxCreditRate": 35
 				},
 				"selfEmployed": {
-					"taxDeductableAllowance": 11,
-					"taxCreditAllowance": 5.5,
-					"taxCredit": 35,
-					"salaryCeiling": 211200
+					"taxDeductable": 11,
+					"taxCredit": 5.5,
+					"taxCreditRate": 35,
+					"ceiling": 211200
 				}
 			}
 		},
 		"studyFund": {
-			"salaried": { "salaryPercent": 2.5, "salaryCeiling": 188544 },
-			"selfEmployed": { "salaryPercent": 4.5, "salaryCeiling": 264000 }
+			"employee": { "percent": 2.5, "ceiling": 188544 },
+			"selfEmployed": { "percent": 4.5, "ceiling": 264000 }
 		}
 	},
 	{
 		"taxYear": 2020,
-		"creditPointValue": 219,
+		"creditPoint": 219,
 		"incomeTax": {
 			"band1": { "rate": 10, "min": 0, "max": 75960 },
 			"band2": { "rate": 14, "min": 75961, "max": 108960 },
@@ -77,61 +77,61 @@
 			"band7": { "rate": 50, "min": 651601 }
 		},
 		"bituachLeumi": {
-			"nationalAverageSalary": 10551,
-			"prisaLimitPercent": 25,
-			"selfEmployedNationalInsuranceDiscountPercent": 52,
+			"averageSalary": 10551,
+			"prisa": 25,
+			"selfEmployedNationalInsuranceDiscount": 52,
 			"nationalInsurance": {
 				"band1": {
-					"rate": { "salaried": 0.4, "selfEmployed": 2.87 },
+					"rate": { "employee": 0.4, "selfEmployed": 2.87 },
 					"min": 0,
 					"max": 6331
 				},
 				"band2": {
-					"rate": { "salaried": 7, "selfEmployed": 12.83 },
+					"rate": { "employee": 7, "selfEmployed": 12.83 },
 					"min": 6332,
 					"max": 44020
 				}
 			},
 			"healthInsurance": {
 				"band1": {
-					"rate": { "salaried": 3.1, "selfEmployed": 3.1 },
+					"rate": { "employee": 3.1, "selfEmployed": 3.1 },
 					"min": 0,
 					"max": 6331
 				},
 				"band2": {
-					"rate": { "salaried": 5, "selfEmployed": 5 },
+					"rate": { "employee": 5, "selfEmployed": 5 },
 					"min": 6332,
 					"max": 44020
 				}
 			}
 		},
 		"pension": {
-			"legalMinPerecent": {
-				"salaried": 6,
+			"legalMin": {
+				"employee": 6,
 				"selfEmployed": { "reducedRate": 4.45, "fullRate": 12.55 }
 			},
 			"taxRelief": {
-				"salaried": {
-					"maxPercent": 7,
-					"maxShekel": 616,
-					"taxCredit": 35
+				"employee": {
+					"percent": 7,
+					"shekel": 616,
+					"taxCreditRate": 35
 				},
 				"selfEmployed": {
-					"taxDeductableAllowance": 11,
-					"taxCreditAllowance": 5.5,
-					"taxCredit": 35,
-					"salaryCeiling": 211200
+					"taxDeductable": 11,
+					"taxCredit": 5.5,
+					"taxCreditRate": 35,
+					"ceiling": 211200
 				}
 			}
 		},
 		"studyFund": {
-			"salaried": { "salaryPercent": 2.5, "salaryCeiling": 188544 },
-			"selfEmployed": { "salaryPercent": 4.5, "salaryCeiling": 265000 }
+			"employee": { "percent": 2.5, "ceiling": 188544 },
+			"selfEmployed": { "percent": 4.5, "ceiling": 265000 }
 		}
 	},
 	{
 		"taxYear": 2021,
-		"creditPointValue": 218,
+		"creditPoint": 218,
 		"incomeTax": {
 			"band1": { "rate": 10, "min": 0, "max": 75480 },
 			"band2": { "rate": 14, "min": 75481, "max": 108360 },
@@ -142,56 +142,56 @@
 			"band7": { "rate": 50, "min": 647641 }
 		},
 		"bituachLeumi": {
-			"nationalAverageSalary": 10551,
-			"prisaLimitPercent": 25,
-			"selfEmployedNationalInsuranceDiscountPercent": 52,
+			"averageSalary": 10551,
+			"prisa": 25,
+			"selfEmployedNationalInsuranceDiscount": 52,
 			"nationalInsurance": {
 				"band1": {
-					"rate": { "salaried": 0.4, "selfEmployed": 2.87 },
+					"rate": { "employee": 0.4, "selfEmployed": 2.87 },
 					"min": 0,
 					"max": 6331
 				},
 				"band2": {
-					"rate": { "salaried": 7, "selfEmployed": 12.83 },
+					"rate": { "employee": 7, "selfEmployed": 12.83 },
 					"min": 6332,
 					"max": 44020
 				}
 			},
 			"healthInsurance": {
 				"band1": {
-					"rate": { "salaried": 3.1, "selfEmployed": 3.1 },
+					"rate": { "employee": 3.1, "selfEmployed": 3.1 },
 					"min": 0,
 					"max": 6331
 				},
 				"band2": {
-					"rate": { "salaried": 5, "selfEmployed": 5 },
+					"rate": { "employee": 5, "selfEmployed": 5 },
 					"min": 6332,
 					"max": 44020
 				}
 			}
 		},
 		"pension": {
-			"legalMinPerecent": {
-				"salaried": 6,
+			"legalMin": {
+				"employee": 6,
 				"selfEmployed": { "reducedRate": 4.45, "fullRate": 12.55 }
 			},
 			"taxRelief": {
-				"salaried": {
-					"maxPercent": 7,
-					"maxShekel": 609,
-					"taxCredit": 35
+				"employee": {
+					"percent": 7,
+					"shekel": 609,
+					"taxCreditRate": 35
 				},
 				"selfEmployed": {
-					"taxDeductableAllowance": 11,
-					"taxCreditAllowance": 5.5,
-					"taxCredit": 35,
-					"salaryCeiling": 208800
+					"taxDeductable": 11,
+					"taxCredit": 5.5,
+					"taxCreditRate": 35,
+					"ceiling": 208800
 				}
 			}
 		},
 		"studyFund": {
-			"salaried": { "salaryPercent": 2.5, "salaryCeiling": 188544 },
-			"selfEmployed": { "salaryPercent": 4.5, "salaryCeiling": 263000 }
+			"employee": { "percent": 2.5, "ceiling": 188544 },
+			"selfEmployed": { "percent": 4.5, "ceiling": 263000 }
 		}
 	}
 ]

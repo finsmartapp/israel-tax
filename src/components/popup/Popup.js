@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { string } from 'prop-types';
+import { panelProps } from '../../prop-types';
 import './popup.scss';
 import PopupBox from './PopupBox';
 
@@ -7,7 +7,7 @@ class Popup extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			show: true
+			display: true
 		};
 	}
 
@@ -16,14 +16,14 @@ class Popup extends Component {
 	}
 
 	handleClick = () => {
-		this.setState({ show: false });
+		this.setState({ display: false });
 		document.querySelector('body').style.overflow = '';
 	};
 
 	render() {
 		return (
 			<PopupBox
-				show={this.state.show}
+				display={this.state.display}
 				type={this.props.type}
 				title={this.props.title}
 				text={this.props.text}
@@ -34,9 +34,9 @@ class Popup extends Component {
 }
 
 Popup.propTypes = {
-	type: string.isRequired,
-	title: string.isRequired,
-	text: string.isRequired
+	type: panelProps.type,
+	title: panelProps.title,
+	text: panelProps.text
 };
 
 export default Popup;

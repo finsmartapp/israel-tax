@@ -1,19 +1,18 @@
 import React from 'react';
-import { object, shape } from 'prop-types';
-import { netPayType } from './PropTypes';
+import { shape } from 'prop-types';
+import { globalProps, payrollProps } from '../../../prop-types';
 import { Table } from 'react-bootstrap';
 import { bituachLeumiCalc } from '../../../utils/tax-calculators/bituachLeumi';
 import { pensionMinCalc } from '../../../utils/tax-calculators/pensionLegalMin';
 import { pensionContributionCalc } from '../../../utils/tax-calculators/pensionContribution';
-import { pensionReliefCalc } from '../../../utils/tax-calculators/pensionReliefSalaried';
+import { pensionReliefCalc } from '../../../utils/tax-calculators/pensionReliefEmployee';
 import { studyFundCalc } from '../../../utils/tax-calculators/studyFund';
 import { incomeTaxCalc } from '../../../utils/tax-calculators/incomeTax';
 import { formatCurrency } from '../../../utils/formatCurrency';
 import { cardAllowancePopup } from './Popups';
 
-function ResultsSalaried(props) {
+function ResultsEmployee(props) {
 	const {
-		employmentType,
 		taxData,
 		taxYearIndex,
 		baseIncome,
@@ -30,7 +29,7 @@ function ResultsSalaried(props) {
 		commission,
 		showResultsTable
 	} = props.stateData;
-
+	const employmentType = props.employmentType;
 	const studyFundContribution = studyFundCalc(
 		taxData,
 		taxYearIndex,
@@ -54,8 +53,7 @@ function ResultsSalaried(props) {
 	const pensionableIncome = taxableIncome - travelAllowance - annualBonus - overtime;
 	const paycheckGross = taxableIncome - lunchAllowance;
 	const prisa =
-		annualBonus >
-		(taxableIncome - annualBonus) * (taxData[taxYearIndex].bituachLeumi.prisaLimitPercent / 100);
+		annualBonus > (taxableIncome - annualBonus) * (taxData[taxYearIndex].bituachLeumi.prisa / 100);
 	const { month: nationalInsurance, annual: annualNationalInsurance } = bituachLeumiCalc(
 		taxData,
 		taxYearIndex,
@@ -74,7 +72,7 @@ function ResultsSalaried(props) {
 		annualBonus,
 		'healthInsurance'
 	);
-	const creditPointsTaxCredit = creditPoints * taxData[taxYearIndex].creditPointValue;
+	const creditPointsTaxCredit = creditPoints * taxData[taxYearIndex].creditPoint;
 	const pensionLegalMin = pensionMinCalc(taxData, taxYearIndex, pensionableIncome, employmentType);
 	const pensionContribution = pensionContributionCalc(
 		pensionableIncome,
@@ -100,7 +98,7 @@ function ResultsSalaried(props) {
 	return (
 		<>
 			{showResultsTable === true && (
-				<section ref={props.refProp}>
+				<section ref={props.resultsTable}>
 					<h2>Net pay results</h2>
 					<Table striped bordered className="table__3 table__header--blue">
 						<thead>
@@ -189,26 +187,26 @@ function ResultsSalaried(props) {
 	);
 }
 
-ResultsSalaried.propTypes = {
-	refProp: object.isRequired,
+ResultsEmployee.propTypes = {
+	employmentType: globalProps.employmentType,
+	resultsTable: payrollProps.resultsTable,
 	stateData: shape({
-		employmentType: netPayType.employmentType,
-		taxData: netPayType.taxData,
-		taxYearIndex: netPayType.taxYearIndex,
-		baseIncome: netPayType.baseIncome,
-		creditPoints: netPayType.creditPoints,
-		pensionOption: netPayType.pensionOption,
-		pensionAmount: netPayType.pensionAmount,
-		studyFundType: netPayType.studyFundType,
-		studyFundAmount: netPayType.studyFundAmount,
-		travelAllowance: netPayType.travelAllowance,
-		lunchAllowance: netPayType.lunchAllowance,
-		otherAllowance: netPayType.otherAllowance,
-		overtime: netPayType.overtime,
-		annualBonus: netPayType.annualBonus,
-		commission: netPayType.commission,
-		showResultsTable: netPayType.showResultsTable
+		taxData: payrollProps.taxData,
+		taxYearIndex: payrollProps.taxYearIndex,
+		baseIncome: payrollProps.baseIncome,
+		creditPoints: payrollProps.creditPoints,
+		pensionOption: payrollProps.pensionOption,
+		pensionAmount: payrollProps.pensionAmount,
+		studyFundType: payrollProps.studyFundType,
+		studyFundAmount: payrollProps.studyFundAmount,
+		travelAllowance: payrollProps.travelAllowance,
+		lunchAllowance: payrollProps.lunchAllowance,
+		otherAllowance: payrollProps.otherAllowance,
+		overtime: payrollProps.overtime,
+		annualBonus: payrollProps.annualBonus,
+		commission: payrollProps.commission,
+		showResultsTable: payrollProps.showResultsTable
 	})
 };
 
-export default ResultsSalaried;
+export default ResultsEmployee;

@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
-import { globalProps } from '../../../prop-types/Global';
+import { globalProps } from '../../../prop-types';
 import taxData from '../../../data/payroll';
 import './net-pay.scss';
 import NetPayForm from './Form';
-import ResultsSalaried from './ResultsSalaried';
+import ResultsEmployee from './ResultsEmployee';
 import ResultsSelfEmployed from './ResultsSelfEmployed';
 import LanguageContext from '../../../contexts/LanguageContext';
 
-class NetPayContainer extends Component {
+class NetPay extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			employmentType: props.employmentType,
 			taxData: taxData,
 			taxYearIndex: 0,
 			baseIncome: '',
@@ -52,7 +51,7 @@ class NetPayContainer extends Component {
 		}
 	};
 
-	scrollToMyRef = () => {
+	scrollToResults = () => {
 		setTimeout(() => {
 			this.resultsTable.current.scrollIntoView({
 				behavior: 'smooth',
@@ -69,7 +68,7 @@ class NetPayContainer extends Component {
 				showResultsTable: true,
 				validated: false
 			});
-			this.scrollToMyRef();
+			this.scrollToResults();
 		} else {
 			this.setState({
 				validated: true
@@ -87,27 +86,35 @@ class NetPayContainer extends Component {
 				<LanguageContext.Consumer>
 					{value => (
 						<NetPayForm
+							employmentType={this.props.employmentType}
 							stateData={this.state}
 							handleChange={this.handleChange}
 							handleSubmit={this.handleSubmit}
-							employmentType={this.props.employmentType}
 							language={value.language}
 						/>
 					)}
 				</LanguageContext.Consumer>
-				{this.state.employmentType === 'salaried' && (
-					<ResultsSalaried stateData={this.state} refProp={this.resultsTable} />
+				{this.props.employmentType === 'employee' && (
+					<ResultsEmployee
+						employmentType={this.props.employmentType}
+						stateData={this.state}
+						resultsTable={this.resultsTable}
+					/>
 				)}
-				{this.state.employmentType === 'selfEmployed' && (
-					<ResultsSelfEmployed stateData={this.state} refProp={this.resultsTable} />
+				{this.props.employmentType === 'selfEmployed' && (
+					<ResultsSelfEmployed
+						employmentType={this.props.employmentType}
+						stateData={this.state}
+						resultsTable={this.resultsTable}
+					/>
 				)}
 			</>
 		);
 	}
 }
 
-NetPayContainer.propTypes = {
+NetPay.propTypes = {
 	employmentType: globalProps.employmentType
 };
 
-export default NetPayContainer;
+export default NetPay;
