@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/israel-tax/static/css/main.805e5ac0.chunk.css",
-    "main.js": "/israel-tax/static/js/main.f634ecf7.chunk.js",
-    "main.js.map": "/israel-tax/static/js/main.f634ecf7.chunk.js.map",
+    "main.css": "/israel-tax/static/css/main.2cb7bc65.chunk.css",
+    "main.js": "/israel-tax/static/js/main.1cfaa142.chunk.js",
+    "main.js.map": "/israel-tax/static/js/main.1cfaa142.chunk.js.map",
     "runtime-main.js": "/israel-tax/static/js/runtime-main.d95603d5.js",
     "runtime-main.js.map": "/israel-tax/static/js/runtime-main.d95603d5.js.map",
-    "static/js/2.78c3c708.chunk.js": "/israel-tax/static/js/2.78c3c708.chunk.js",
-    "static/js/2.78c3c708.chunk.js.map": "/israel-tax/static/js/2.78c3c708.chunk.js.map",
+    "static/js/2.6c26527c.chunk.js": "/israel-tax/static/js/2.6c26527c.chunk.js",
+    "static/js/2.6c26527c.chunk.js.map": "/israel-tax/static/js/2.6c26527c.chunk.js.map",
     "index.html": "/israel-tax/index.html",
-    "precache-manifest.596bbeb99034fe576dd0fd10a5e3d4ae.js": "/israel-tax/precache-manifest.596bbeb99034fe576dd0fd10a5e3d4ae.js",
+    "precache-manifest.484236b48531a245ece3a0a6e5053174.js": "/israel-tax/precache-manifest.484236b48531a245ece3a0a6e5053174.js",
     "service-worker.js": "/israel-tax/service-worker.js",
-    "static/css/main.805e5ac0.chunk.css.map": "/israel-tax/static/css/main.805e5ac0.chunk.css.map",
-    "static/js/2.78c3c708.chunk.js.LICENSE": "/israel-tax/static/js/2.78c3c708.chunk.js.LICENSE",
+    "static/css/main.2cb7bc65.chunk.css.map": "/israel-tax/static/css/main.2cb7bc65.chunk.css.map",
+    "static/js/2.6c26527c.chunk.js.LICENSE": "/israel-tax/static/js/2.6c26527c.chunk.js.LICENSE",
     "static/media/app.scss": "/israel-tax/static/media/icon-caret-down.2ee1553f.svg",
     "static/media/hero.scss": "/israel-tax/static/media/shekel-banknotes.d339988a.jpg",
     "static/media/language-selector.scss": "/israel-tax/static/media/south-africa.3dcf1922.png"
   },
   "entrypoints": [
     "static/js/runtime-main.d95603d5.js",
-    "static/js/2.78c3c708.chunk.js",
-    "static/css/main.805e5ac0.chunk.css",
-    "static/js/main.f634ecf7.chunk.js"
+    "static/js/2.6c26527c.chunk.js",
+    "static/css/main.2cb7bc65.chunk.css",
+    "static/js/main.1cfaa142.chunk.js"
   ]
 }
