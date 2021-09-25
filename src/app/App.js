@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import './app.scss';
 import Home from '../pages/home';
 import NetPayCalculator from '../pages/net-pay-calculators';
@@ -32,7 +32,7 @@ class App extends Component {
 				<LanguageContext.Provider value={this.state}>
 					<Navigation />
 					<Switch>
-						<Route path="/" exact component={Home} />
+						<Route exact path="/" component={Home} />
 						<Route
 							path="/employee/net-pay-calculator"
 							render={() => <NetPayCalculator employmentType={'employee'} />}

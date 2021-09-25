@@ -6,13 +6,19 @@ $nav-nohero-bg: #fffeea;
 	background-color: #fff;
 	border-bottom: 1px var(--gray) solid;
 
+	//No hero code
 	&--nohero {
 		background-color: $nav-nohero-bg;
 	}
-}
 
-.navbar--nohero .dropdown-menu {
-	background-color: $nav-nohero-bg;
+	&--nohero .dropdown-menu {
+		background-color: $nav-nohero-bg;
+	}
+	//end
+
+	.navbar-nav .nav-link {
+		color: $base-font-color;
+	}
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
