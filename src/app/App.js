@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './app.scss';
 import Home from '../pages/home';
 import NetPayCalculator from '../pages/net-pay-calculators';

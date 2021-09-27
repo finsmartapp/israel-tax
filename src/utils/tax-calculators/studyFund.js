@@ -5,13 +5,13 @@ export function studyFundCalc(taxData, taxYearIndex, income, employment, amount,
 
 	const contribution = type === 'shekel' ? amount : income * (amount / 100);
 	const { percent, ceiling } = taxData[taxYearIndex].studyFund[employment];
-	const monthlyAllowance = (ceiling * (percent / 100)) / 12;
+	const taxDeductibleMax = (ceiling * (percent / 100)) / 12;
 	let taxDeductible;
 
-	if (contribution <= monthlyAllowance) {
+	if (contribution <= taxDeductibleMax) {
 		taxDeductible = contribution;
 	} else {
-		taxDeductible = monthlyAllowance;
+		taxDeductible = taxDeductibleMax;
 	}
 
 	if (employment === 'selfEmployed') {
