@@ -11,18 +11,18 @@ export function pensionReliefCalc(taxData, taxYearIndex, income, pensionContribu
 	let pensionTaxCredit = 0;
 
 	const taxCreditEligible = () => {
-		const remainingContribution = pensionContribution - taxDeductableRelativeMax;
+		const taxCreditContribution = pensionContribution - taxDeductableRelativeMax;
 
-		if (remainingContribution > taxCreditRelativeMax) {
+		if (taxCreditContribution > taxCreditRelativeMax) {
 			if (taxCreditRelativeMax > taxCreditAbsoluteMax) {
-				pensionTaxCredit = taxCreditAbsoluteMax * (taxCreditRate / 100);
+				pensionTaxCredit = taxCreditAbsoluteMax;
 			} else {
-				pensionTaxCredit = taxCreditRelativeMax * (taxCreditRate / 100);
+				pensionTaxCredit = taxCreditRelativeMax;
 			}
-		} else if (remainingContribution > taxCreditAbsoluteMax) {
-			pensionTaxCredit = taxCreditAbsoluteMax * (taxCreditRate / 100);
+		} else if (taxCreditContribution > taxCreditAbsoluteMax) {
+			pensionTaxCredit = taxCreditAbsoluteMax;
 		} else {
-			pensionTaxCredit = remainingContribution * (taxCreditRate / 100);
+			pensionTaxCredit = taxCreditContribution;
 		}
 	};
 
@@ -38,6 +38,5 @@ export function pensionReliefCalc(taxData, taxYearIndex, income, pensionContribu
 	} else {
 		pensionTaxDeductible = pensionContribution;
 	}
-
-	return { pensionTaxDeductible, pensionTaxCredit };
+	return { pensionTaxDeductible, pensionTaxCredit: pensionTaxCredit * (taxCreditRate / 100) };
 }
