@@ -66,7 +66,7 @@ class NetPay extends Component {
 		if (form.checkValidity() === true) {
 			this.setState({
 				showResultsTable: true,
-				validated: false
+				validated: false //Hides validation errors
 			});
 			this.scrollToResults();
 		} else {
@@ -75,7 +75,6 @@ class NetPay extends Component {
 			});
 		}
 
-		form.checkValidity();
 		event.preventDefault();
 		event.stopPropagation();
 	};

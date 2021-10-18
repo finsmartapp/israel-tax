@@ -6,7 +6,8 @@ export const globalProps = {
 	handleClick: func.isRequired,
 	employmentType: oneOf(['employee', 'selfEmployed']).isRequired,
 	language: string.isRequired,
-	display: bool.isRequired
+	display: bool.isRequired,
+	validated: bool.isRequired
 };
 
 export const panelProps = {
@@ -31,7 +32,6 @@ export const payrollProps = {
 	annualBonus: oneOfType([string, number]).isRequired,
 	commission: oneOfType([string, number]).isRequired,
 	overtime: oneOfType([string, number]).isRequired,
-	validated: bool.isRequired,
 	resultsTable: object.isRequired,
 	showResultsTable: bool.isRequired
 };
