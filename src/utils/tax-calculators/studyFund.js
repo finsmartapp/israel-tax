@@ -4,8 +4,8 @@ export function studyFundCalc(taxData, taxYearIndex, income, employment, amount,
 	//Both have ceilings to be eligible for capital gains relief
 
 	const contribution = type === 'shekel' ? amount : income * (amount / 100);
-	const { percent, ceiling } = taxData[taxYearIndex].studyFund[employment];
-	const taxDeductibleMax = (ceiling * (percent / 100)) / 12;
+	const { rate, ceiling } = taxData[taxYearIndex].studyFund[employment];
+	const taxDeductibleMax = (ceiling * (rate / 100)) / 12;
 	let taxDeductible;
 
 	if (contribution <= taxDeductibleMax) {

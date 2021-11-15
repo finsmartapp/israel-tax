@@ -1,9 +1,10 @@
 export function pensionReliefCalc(taxData, taxYearIndex, pensionContribution, income) {
 	//Tax benefit is available as a percent of monthly contributions up to a fixed shekel limit
 
-	const { percent, shekel, taxCreditRate } = taxData[taxYearIndex].pension.taxRelief.employee;
-	const shekelPercent = income * (percent / 100);
-	const ceiling = shekel > shekelPercent ? shekelPercent : shekel;
+	const { percentLimit, shekelLimit, taxCreditRate } =
+		taxData[taxYearIndex].pension.taxRelief.employee;
+	const shekelPercent = income * (percentLimit / 100);
+	const ceiling = shekelLimit > shekelPercent ? shekelPercent : shekelLimit;
 
 	let pensionTaxCredit;
 

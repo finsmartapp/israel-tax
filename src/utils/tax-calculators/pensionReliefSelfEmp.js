@@ -1,12 +1,12 @@
 export function pensionReliefCalc(taxData, taxYearIndex, income, pensionContribution) {
 	//Tax benefit available to a fixed percentage of the salary with a ceiling based on the national avaerage salary. Part of that can be deducted as an expense and the remaining part a tax credit, up to a ceiling
 
-	const { taxDeductable, taxCredit, taxCreditRate, ceiling } =
+	const { taxDeductableLimit, taxCreditLimit, taxCreditRate, ceiling } =
 		taxData[taxYearIndex].pension.taxRelief.selfEmployed;
-	const taxDeductableAbsoluteMax = (ceiling / 12) * (taxDeductable / 100);
-	const taxCreditAbsoluteMax = (ceiling / 12) * (taxCredit / 100);
-	const taxDeductableRelativeMax = income * (taxDeductable / 100);
-	const taxCreditRelativeMax = income * (taxCredit / 100);
+	const taxDeductableAbsoluteMax = (ceiling / 12) * (taxDeductableLimit / 100);
+	const taxCreditAbsoluteMax = (ceiling / 12) * (taxCreditLimit / 100);
+	const taxDeductableRelativeMax = income * (taxDeductableLimit / 100);
+	const taxCreditRelativeMax = income * (taxCreditLimit / 100);
 	let pensionTaxDeductible;
 	let pensionTaxCredit = 0;
 

@@ -1,5 +1,5 @@
-@import './partials/fonts';
-@import './partials/colors';
+@import './variables/fonts';
+@import './variables/colors';
 
 html,
 body {
@@ -16,10 +16,6 @@ h2 {
 	margin-bottom: 1.5rem;
 }
 
-a {
-	color: $base-font-color;
-
-	&:hover {
-		text-decoration: none;
-	}
+.small {
+	font-size: 65%;
 }

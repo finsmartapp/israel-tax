@@ -2,21 +2,29 @@
 	th {
 		text-align: center;
 	}
+
 	&__3 th {
 		&:nth-last-of-type(1) {
 			width: 27.5%;
 		}
+
 		&:nth-last-of-type(2) {
 			width: 27.5%;
 		}
+
 		&:nth-last-of-type(3) {
 			width: 45%;
 		}
 	}
+
 	&__header {
 		&--blue th {
 			background-color: $light-blue;
 			color: $white;
 		}
+	}
+
+	> :not(:first-child) {
+		border-top: none;
 	}
 }

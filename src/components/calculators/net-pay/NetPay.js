@@ -5,7 +5,6 @@ import './net-pay.scss';
 import NetPayForm from './Form';
 import ResultsEmployee from './ResultsEmployee';
 import ResultsSelfEmployed from './ResultsSelfEmployed';
-import LanguageContext from '../../../contexts/LanguageContext';
 
 class NetPay extends Component {
 	constructor(props) {
@@ -16,12 +15,12 @@ class NetPay extends Component {
 			baseIncome: '',
 			creditPoints: '',
 			pensionOption: 'legalMin',
-			pensionType: 'percent',
+			pensionType: props.employmentType === 'employee' ? 'percent' : 'shekel',
 			pensionAmount: '',
-			studyFundType: 'shekel',
+			studyFundType: props.employmentType === 'employee' ? 'percent' : 'shekel',
 			studyFundAmount: '',
 			travelAllowance: '',
-			lunchAllowance: '',
+			foodAllowance: '',
 			otherAllowance: '',
 			annualBonus: '',
 			commission: '',
@@ -30,6 +29,38 @@ class NetPay extends Component {
 			showResultsTable: false
 		};
 		this.resultsTable = React.createRef();
+	}
+
+	componentDidUpdate(prevProps) {
+		//Reset state when change forms
+		if (prevProps.employmentType !== this.props.employmentType) {
+			this.setState({
+				baseIncome: '',
+				creditPoints: '',
+				pensionOption: 'legalMin',
+				pensionAmount: '',
+				studyFundAmount: '',
+				validated: false,
+				showResultsTable: false
+			});
+			if (this.props.employmentType === 'employee') {
+				this.setState({
+					pensionType: 'percent',
+					studyFundType: 'percent'
+				});
+			} else {
+				this.setState({
+					pensionType: 'shekel',
+					studyFundType: 'shekel',
+					travelAllowance: '',
+					foodAllowance: '',
+					otherAllowance: '',
+					annualBonus: '',
+					commission: '',
+					overtime: ''
+				});
+			}
+		}
 	}
 
 	handleChange = event => {
@@ -44,6 +75,7 @@ class NetPay extends Component {
 				pensionAmount: ''
 			});
 		}
+
 		if (name === 'baseIncome' && value === '') {
 			this.setState({
 				pensionOption: 'legalMin'
@@ -66,7 +98,7 @@ class NetPay extends Component {
 		if (form.checkValidity() === true) {
 			this.setState({
 				showResultsTable: true,
-				validated: false //Hides validation errors
+				validated: false //Hides validation text
 			});
 			this.scrollToResults();
 		} else {
@@ -74,7 +106,6 @@ class NetPay extends Component {
 				validated: true
 			});
 		}
-
 		event.preventDefault();
 		event.stopPropagation();
 	};
@@ -82,17 +113,12 @@ class NetPay extends Component {
 	render() {
 		return (
 			<>
-				<LanguageContext.Consumer>
-					{value => (
-						<NetPayForm
-							employmentType={this.props.employmentType}
-							stateData={this.state}
-							handleChange={this.handleChange}
-							handleSubmit={this.handleSubmit}
-							language={value.language}
-						/>
-					)}
-				</LanguageContext.Consumer>
+				<NetPayForm
+					employmentType={this.props.employmentType}
+					stateData={this.state}
+					handleChange={this.handleChange}
+					handleSubmit={this.handleSubmit}
+				/>
 				{this.props.employmentType === 'employee' && (
 					<ResultsEmployee
 						employmentType={this.props.employmentType}

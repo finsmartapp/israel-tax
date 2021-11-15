@@ -1,5 +1,4 @@
 import React from 'react';
-import { shape } from 'prop-types';
 import { globalProps, payrollProps } from '../../../prop-types';
 import { Table } from 'react-bootstrap';
 import { bituachLeumiCalc } from '../../../utils/tax-calculators/bituachLeumi';
@@ -22,7 +21,7 @@ function ResultsEmployee(props) {
 		studyFundType,
 		studyFundAmount,
 		travelAllowance,
-		lunchAllowance,
+		foodAllowance,
 		otherAllowance,
 		overtime,
 		annualBonus,
@@ -42,7 +41,7 @@ function ResultsEmployee(props) {
 	[
 		baseIncome,
 		travelAllowance,
-		lunchAllowance,
+		foodAllowance,
 		otherAllowance,
 		annualBonus,
 		commission,
@@ -51,7 +50,7 @@ function ResultsEmployee(props) {
 		taxableIncome += typeof e === 'number' && e;
 	});
 	const pensionableIncome = taxableIncome - travelAllowance - annualBonus - overtime;
-	const paycheckGross = taxableIncome - lunchAllowance;
+	const paycheckGross = taxableIncome - foodAllowance;
 	const prisa =
 		annualBonus > (taxableIncome - annualBonus) * (taxData[taxYearIndex].bituachLeumi.prisa / 100);
 	const { month: nationalInsurance, annual: annualNationalInsurance } = bituachLeumiCalc(
@@ -99,7 +98,7 @@ function ResultsEmployee(props) {
 		<>
 			{showResultsTable === true && (
 				<section ref={props.resultsTable}>
-					<h2>Net pay results</h2>
+					<h2>Net Pay Results</h2>
 					<Table striped bordered className="table__3 table__header--blue">
 						<thead>
 							<tr>
@@ -141,7 +140,7 @@ function ResultsEmployee(props) {
 							</tr>
 							{studyFundContribution > 0 && (
 								<tr>
-									<td>Educational fund</td>
+									<td>Study fund</td>
 									<td>{formatCurrency('il', studyFundContribution)}</td>
 									<td>{formatCurrency('il', studyFundContribution * 12)}</td>
 								</tr>
@@ -182,7 +181,7 @@ function ResultsEmployee(props) {
 					</Table>
 				</section>
 			)}
-			<>{lunchAllowance > 0 && showResultsTable === true && cardAllowancePopup(lunchAllowance)}</>
+			<>{foodAllowance > 0 && showResultsTable === true && cardAllowancePopup(foodAllowance)}</>
 		</>
 	);
 }
@@ -190,7 +189,7 @@ function ResultsEmployee(props) {
 ResultsEmployee.propTypes = {
 	employmentType: globalProps.employmentType,
 	resultsTable: payrollProps.resultsTable,
-	stateData: shape({
+	stateData: globalProps.shape({
 		taxData: payrollProps.taxData,
 		taxYearIndex: payrollProps.taxYearIndex,
 		baseIncome: payrollProps.baseIncome,
@@ -200,7 +199,7 @@ ResultsEmployee.propTypes = {
 		studyFundType: payrollProps.studyFundType,
 		studyFundAmount: payrollProps.studyFundAmount,
 		travelAllowance: payrollProps.travelAllowance,
-		lunchAllowance: payrollProps.lunchAllowance,
+		foodAllowance: payrollProps.foodAllowance,
 		otherAllowance: payrollProps.otherAllowance,
 		overtime: payrollProps.overtime,
 		annualBonus: payrollProps.annualBonus,

@@ -4,6 +4,7 @@ $screen-sm: map-get($grid-breakpoints, 'sm'); // 576px;
 $screen-md: map-get($grid-breakpoints, 'md'); // 768px;
 $screen-lg: map-get($grid-breakpoints, 'lg'); // 992px;
 $screen-xl: map-get($grid-breakpoints, 'xl'); // 1200px;
+$screen-xxl: map-get($grid-breakpoints, 'xxl'); // 1400px;
 
 @mixin screen-sm() {
 	@media (min-width: $screen-sm) {
@@ -25,6 +26,12 @@ $screen-xl: map-get($grid-breakpoints, 'xl'); // 1200px;
 
 @mixin screen-xl() {
 	@media (min-width: $screen-xl) {
+		@content;
+	}
+}
+
+@mixin screen-xxl() {
+	@media (min-width: $screen-xxl) {
 		@content;
 	}
 }

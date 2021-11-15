@@ -47,21 +47,22 @@
 			},
 			"taxRelief": {
 				"employee": {
-					"percent": 7,
-					"shekel": 616,
+					"percentLimit": 7,
+					"shekelLimit": 616,
 					"taxCreditRate": 35
 				},
 				"selfEmployed": {
-					"taxDeductable": 11,
-					"taxCredit": 5.5,
+					"taxDeductableLimit": 11,
+					"taxCreditLimit": 5.5,
 					"taxCreditRate": 35,
 					"ceiling": 211200
 				}
 			}
 		},
 		"studyFund": {
-			"employee": { "percent": 2.5, "ceiling": 188544 },
-			"selfEmployed": { "percent": 4.5, "ceiling": 264000 }
+			"employee": { "rate": 2.5, "ceiling": 188544 },
+			"employer": { "rate": 7.5, "ceiling": 188544 },
+			"selfEmployed": { "rate": 4.5, "ceiling": 264000 }
 		}
 	},
 	{
@@ -112,21 +113,22 @@
 			},
 			"taxRelief": {
 				"employee": {
-					"percent": 7,
-					"shekel": 616,
+					"percentLimit": 7,
+					"shekelLimit": 616,
 					"taxCreditRate": 35
 				},
 				"selfEmployed": {
-					"taxDeductable": 11,
-					"taxCredit": 5.5,
+					"taxDeductableLimit": 11,
+					"taxCreditLimit": 5.5,
 					"taxCreditRate": 35,
 					"ceiling": 211200
 				}
 			}
 		},
 		"studyFund": {
-			"employee": { "percent": 2.5, "ceiling": 188544 },
-			"selfEmployed": { "percent": 4.5, "ceiling": 265000 }
+			"employee": { "rate": 2.5, "ceiling": 188544 },
+			"employer": { "rate": 7.5, "ceiling": 188544 },
+			"selfEmployed": { "rate": 4.5, "ceiling": 265000 }
 		}
 	},
 	{
@@ -177,21 +179,22 @@
 			},
 			"taxRelief": {
 				"employee": {
-					"percent": 7,
-					"shekel": 609,
+					"percentLimit": 7,
+					"shekelLimit": 609,
 					"taxCreditRate": 35
 				},
 				"selfEmployed": {
-					"taxDeductable": 11,
-					"taxCredit": 5.5,
+					"taxDeductableLimit": 11,
+					"taxCreditLimit": 5.5,
 					"taxCreditRate": 35,
 					"ceiling": 208800
 				}
 			}
 		},
 		"studyFund": {
-			"employee": { "percent": 2.5, "ceiling": 188544 },
-			"selfEmployed": { "percent": 4.5, "ceiling": 263000 }
+			"employee": { "rate": 2.5, "ceiling": 188544 },
+			"employer": { "rate": 7.5, "ceiling": 188544 },
+			"selfEmployed": { "rate": 4.5, "ceiling": 263000 }
 		}
 	}
 ]

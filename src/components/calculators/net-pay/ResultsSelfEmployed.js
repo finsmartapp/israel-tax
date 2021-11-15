@@ -1,5 +1,4 @@
 import React from 'react';
-import { shape } from 'prop-types';
 import { globalProps, payrollProps } from '../../../prop-types';
 import Table from 'react-bootstrap/table';
 import { bituachLeumiCalc } from '../../../utils/tax-calculators/bituachLeumi';
@@ -81,7 +80,7 @@ function ResultsSelfEmployed(props) {
 		<>
 			{showResultsTable === true && (
 				<section ref={props.resultsTable}>
-					<h2>Net pay results</h2>
+					<h2>Net Pay Results</h2>
 					<Table striped bordered className="table__3 table__header--blue">
 						<thead>
 							<tr>
@@ -123,7 +122,7 @@ function ResultsSelfEmployed(props) {
 							</tr>
 							{studyFundContribution > 0 && (
 								<tr>
-									<td>Educational fund</td>
+									<td>Study fund</td>
 									<td>{formatCurrency('il', studyFundContribution)}</td>
 									<td>{formatCurrency('il', studyFundContribution * 12)}</td>
 								</tr>
@@ -164,7 +163,7 @@ function ResultsSelfEmployed(props) {
 ResultsSelfEmployed.propTypes = {
 	employmentType: globalProps.employmentType,
 	resultsTable: payrollProps.resultsTable,
-	stateData: shape({
+	stateData: globalProps.shape({
 		taxData: payrollProps.taxData,
 		taxYearIndex: payrollProps.taxYearIndex,
 		baseIncome: payrollProps.baseIncome,

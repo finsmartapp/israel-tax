@@ -8,5 +8,6 @@ export function pensionContributionCalc(income, legalMin, option, amount, type) 
 	} else {
 		contribution = income * (amount / 100);
 	}
+
 	return contribution;
 }

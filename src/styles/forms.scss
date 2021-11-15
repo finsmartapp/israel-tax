@@ -1,24 +1,10 @@
-@import './partials/fonts';
-@import './partials/colors';
-@import './partials/mediaQueries';
+@import './variables/fonts';
+@import './variables/colors';
+@import './variables/media-queries';
 
 .input-group > .input-group-append:not(:last-child) > .input-group-text {
 	border-top-right-radius: 0.25rem;
 	border-bottom-right-radius: 0.25rem;
-}
-
-select {
-	cursor: pointer;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	background-image: url(../images/icons/icon-caret-down.svg);
-	background-position: right 10px center;
-	background-repeat: no-repeat;
-	background-size: 16px;
-
-	&::-moz-focus-inner {
-		border: none;
-	}
 }
 
 input[type='radio'] {
@@ -61,16 +47,6 @@ label[as='legend'] {
 	font-weight: $strong;
 }
 
-//Indentation
-label.form-label {
-	padding-left: 2rem;
-}
-
-fieldset fieldset .form-group:not(:nth-of-type(1)) label.form-label {
-	padding-left: 3rem;
-}
-//end
-
 .was-validated input:not([required]).form-control:valid {
 	border-color: $gray-400;
 	padding-right: 0.75rem;
@@ -82,14 +58,24 @@ fieldset fieldset .form-group:not(:nth-of-type(1)) label.form-label {
 	color: $base-font-family;
 }
 
-.form-check-input[disabled] ~ .form-check-label {
-	color: $disabled-font;
-}
-
 .form-check-inline {
 	margin-right: 0;
 
 	@include screen-sm {
 		margin-right: 0.75rem;
 	}
+}
+
+form {
+	margin-bottom: 2rem;
+
+	@include screen-md {
+		margin-bottom: 4rem;
+	}
+}
+
+.form-text {
+	display: block;
+	margin-top: 0;
+	font-size: 65%;
 }
