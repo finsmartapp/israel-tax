@@ -1,7 +1,7 @@
 import React from 'react';
 import { object } from 'prop-types';
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
-import LanguageSelector from '../navbar/language-selector/LanguageSelector';
+import LanguageSelector from '../navbar/language-selector';
 import { LinkContainer } from 'react-router-bootstrap';
 
 function NavigationMenu(props) {
@@ -27,9 +27,11 @@ function NavigationMenu(props) {
 							<LinkContainer to="/self-employed/net-pay-calculator">
 								<NavDropdown.Item>Net Pay Calculator</NavDropdown.Item>
 							</LinkContainer>
-							{/* <NavDropdown.Item href="#">End Of Year Calculator</NavDropdown.Item>
-							<NavDropdown.Item href="#">Expenses Calculator</NavDropdown.Item>
-							<NavDropdown.Item href="#">Recognised Expenses</NavDropdown.Item> */}
+							<NavDropdown.Item href="/self-employed/end-of-year-calculator">
+								End of Year Calculator
+							</NavDropdown.Item>
+							{/* <NavDropdown.Item href="#">Expenses Calculator</NavDropdown.Item> */}
+							{/* <NavDropdown.Item href="#">Recognised Expenses</NavDropdown.Item> */}
 						</NavDropdown>
 						{/* <Nav.Link href="#">Tax Bands</Nav.Link> */}
 						{/* <NavDropdown title="Other Taxes" id="selfEemployed-nav">

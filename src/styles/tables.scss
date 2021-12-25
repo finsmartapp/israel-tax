@@ -3,6 +3,10 @@
 		text-align: center;
 	}
 
+	&__2 th {
+		width: 50%;
+	}
+
 	&__3 th {
 		&:nth-last-of-type(1) {
 			width: 27.5%;

@@ -19,6 +19,7 @@ function InputField(props) {
 		horizontal,
 		columns,
 		handleChange,
+		help,
 		required,
 		error
 	} = props;
@@ -32,8 +33,8 @@ function InputField(props) {
 	};
 	const appendSymbol = symbol === undefined ? false : true;
 	const aria = camelToKebab(name);
-	const ariaHelp = `${aria}-help`;
-	const ariaSymbol = `${aria}-symbol`;
+	const ariaError = `${aria}-error`;
+	const ariaSymbol = appendSymbol ? `${aria}-symbol` : '';
 
 	return (
 		<InputWrapper name={name} label={label} columns={columns} horizontal={horizontal}>
@@ -47,11 +48,15 @@ function InputField(props) {
 					{...controls}
 					onChange={handleChange}
 					required={required}
-					aria-describedby={`${ariaHelp} ${ariaSymbol}`}
+					aria-describedby={`${ariaError} ${ariaSymbol}`}
 				/>
 				{appendSymbol && <InputGroup.Text id={ariaSymbol}>{symbol}</InputGroup.Text>}
-
-				<Form.Control.Feedback type="invalid" id={ariaHelp}>
+				{help !== undefined && (
+					<Form.Text id="passwordHelpBlock" muted>
+						{help}
+					</Form.Text>
+				)}
+				<Form.Control.Feedback type="invalid" id={ariaError}>
 					{error}
 				</Form.Control.Feedback>
 			</ConditionalWrapper>
@@ -72,7 +77,8 @@ InputField.propTypes = {
 	horizontal: formProps.horizontal,
 	columns: formProps.columns,
 	required: formProps.required,
-	error: formProps.error
+	error: formProps.error,
+	help: formProps.help
 };
 
 export default InputField;

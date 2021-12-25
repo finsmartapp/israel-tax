@@ -1,161 +1,185 @@
 import React from 'react';
 import { globalProps, payrollProps } from '../../../prop-types';
-import Table from 'react-bootstrap/table';
-import { bituachLeumiCalc } from '../../../utils/tax-calculators/bituachLeumi';
-import { nationalInsuranceSelfEmp } from '../../../utils/tax-calculators/nationalInsuranceSelfEmp';
+import { Table } from 'react-bootstrap';
+import { formatCurrency } from '../../../utils/formatCurrency';
 import { pensionMinCalc } from '../../../utils/tax-calculators/pensionLegalMin';
 import { pensionContributionCalc } from '../../../utils/tax-calculators/pensionContribution';
 import { pensionReliefCalc } from '../../../utils/tax-calculators/pensionReliefSelfEmp';
 import { studyFundAllowances } from '../../../utils/tax-calculators/studyFundAllowances';
 import { studyFundCalc } from '../../../utils/tax-calculators/studyFund';
 import { incomeTaxCalc } from '../../../utils/tax-calculators/incomeTax';
-import { formatCurrency } from '../../../utils/formatCurrency';
+import { nationalInsuranceSelfEmp } from '../../../utils/tax-calculators/nationalInsuranceSelfEmp';
+import { bituachLeumiCalc } from '../../../utils/tax-calculators/bituachLeumi';
 
-function ResultsSelfEmployed(props) {
+function EndOfYearResults(props) {
 	const {
 		taxData,
 		taxYearIndex,
-		baseIncome,
+		income,
+		expenses,
+		profit,
 		creditPoints,
 		pensionOption,
 		pensionType,
 		pensionAmount,
+		studyFundOption,
 		studyFundType,
 		studyFundAmount,
 		showResultsTable
 	} = props.stateData;
-	const employmentType = props.employmentType;
-	const studyFundTaxAllowance = studyFundAllowances(
-		taxData,
-		taxYearIndex,
-		baseIncome,
-		employmentType
-	);
-	const { studyFundContribution, studyFundTaxDeductible } = studyFundCalc(
-		baseIncome,
-		employmentType,
-		studyFundAmount,
-		studyFundType,
-		studyFundTaxAllowance
-	);
-	const pensionLegalMin = pensionMinCalc(taxData, taxYearIndex, baseIncome, employmentType);
+	const total = array => {
+		const filteredArray = array.filter(Boolean);
+
+		if (filteredArray.length === 0 && filteredArray[0] === undefined) {
+			return 0;
+		} else {
+			return filteredArray.reduce((previousValue, currentValue) => previousValue + currentValue);
+		}
+	};
+	const totalIncome = total(income);
+	const totalExpenses = total(expenses);
+	const totalProfit = total(profit);
+	const creditPointsTaxCredit = total(creditPoints) * taxData[taxYearIndex].creditPoint;
+	const employmentType = 'selfEmployed';
+	const eoy = true;
+	const pensionLegalMin = pensionMinCalc(taxData, taxYearIndex, totalProfit, employmentType, eoy);
 	const pensionContribution = pensionContributionCalc(
-		baseIncome,
+		profit,
 		pensionLegalMin,
 		pensionOption,
 		pensionAmount,
-		pensionType
+		pensionType,
+		eoy
 	);
 	const { pensionTaxDeductible, pensionTaxCredit } = pensionReliefCalc(
 		taxData,
 		taxYearIndex,
-		baseIncome,
-		pensionContribution
+		totalProfit,
+		pensionContribution,
+		eoy
 	);
-	const taxableIncome = baseIncome - studyFundTaxDeductible - pensionTaxDeductible;
-	const bituachLeumiDeductible = nationalInsuranceSelfEmp(taxData, taxYearIndex, taxableIncome);
-	const { month: nationalInsurance, annual: annualNationalInsurance } = bituachLeumiCalc(
+	const studyFundTaxAllowance = studyFundAllowances(
 		taxData,
 		taxYearIndex,
+		totalProfit,
 		employmentType,
-		taxableIncome - bituachLeumiDeductible,
-		false,
-		0,
-		'nationalInsurance'
+		eoy
 	);
-	const { month: healthInsurance, annual: annualHealthInsurance } = bituachLeumiCalc(
-		taxData,
-		taxYearIndex,
+	const { studyFundContribution, studyFundTaxDeductible } = studyFundCalc(
+		profit,
 		employmentType,
-		taxableIncome - bituachLeumiDeductible,
-		false,
-		0,
-		'healthInsurance'
+		studyFundAmount,
+		studyFundType,
+		studyFundTaxAllowance,
+		studyFundOption,
+		eoy
 	);
-	const creditPointsTaxCredit = creditPoints * taxData[taxYearIndex].creditPoint;
-	const { incomeTax, annualIncomeTax } = incomeTaxCalc(
+	const taxableIncome = totalProfit - studyFundTaxDeductible - pensionTaxDeductible;
+	const { incomeTax } = incomeTaxCalc(
 		taxData,
 		taxYearIndex,
 		taxableIncome,
 		0,
 		creditPointsTaxCredit,
 		pensionTaxCredit,
-		employmentType
+		employmentType,
+		eoy
+	);
+	const bituachLeumiDeductible = nationalInsuranceSelfEmp(
+		taxData,
+		taxYearIndex,
+		taxableIncome,
+		eoy
+	);
+	const { month: nationalInsurance } = bituachLeumiCalc(
+		taxData,
+		taxYearIndex,
+		employmentType,
+		taxableIncome - bituachLeumiDeductible,
+		false,
+		0,
+		'nationalInsurance',
+		eoy
+	);
+	const { month: healthInsurance } = bituachLeumiCalc(
+		taxData,
+		taxYearIndex,
+		employmentType,
+		taxableIncome - bituachLeumiDeductible,
+		false,
+		0,
+		'healthInsurance',
+		eoy
 	);
 
 	return (
 		<>
 			{showResultsTable === true && (
 				<section ref={props.resultsTable}>
-					<h2>Net Pay Results</h2>
-					<Table striped bordered className="table__3 table__header--blue">
+					<h2>Results</h2>
+
+					<Table striped bordered className="table__2 table__header--blue">
 						<thead>
 							<tr>
 								<th></th>
-								<th>Month</th>
-								<th>Year</th>
+								<th>Total</th>
 							</tr>
 						</thead>
 						<tbody>
+							{totalIncome > 0 && (
+								<tr>
+									<td>Income</td>
+									<td>{formatCurrency('il', totalIncome)}</td>
+								</tr>
+							)}
+							{totalExpenses > 0 && (
+								<tr>
+									<td>Expenses</td>
+									<td>{formatCurrency('il', totalExpenses)}</td>
+								</tr>
+							)}
 							<tr>
 								<td>Profit</td>
-								<td>{formatCurrency('il', baseIncome)}</td>
-								<td>{formatCurrency('il', baseIncome * 12)}</td>
+								<td>{formatCurrency('il', totalProfit)}</td>
 							</tr>
 							<tr>
 								<td>Taxable income</td>
 								<td>{formatCurrency('il', taxableIncome)}</td>
-								<td>{formatCurrency('il', taxableIncome * 12)}</td>
 							</tr>
 							<tr>
 								<td>Income tax</td>
 								<td>{formatCurrency('il', incomeTax)}</td>
-								<td>{formatCurrency('il', annualIncomeTax)}</td>
 							</tr>
 							<tr>
 								<td>National insurance</td>
 								<td>{formatCurrency('il', nationalInsurance)}</td>
-								<td>{formatCurrency('il', annualNationalInsurance)}</td>
 							</tr>
 							<tr>
 								<td>Health insurance</td>
 								<td>{formatCurrency('il', healthInsurance)}</td>
-								<td>{formatCurrency('il', annualHealthInsurance)}</td>
 							</tr>
 							<tr>
 								<td>Pension</td>
 								<td>{formatCurrency('il', pensionContribution)}</td>
-								<td>{formatCurrency('il', pensionContribution * 12)}</td>
 							</tr>
 							{studyFundContribution > 0 && (
 								<tr>
 									<td>Study fund</td>
 									<td>{formatCurrency('il', studyFundContribution)}</td>
-									<td>{formatCurrency('il', studyFundContribution * 12)}</td>
 								</tr>
 							)}
-
 							<tr>
 								<td>Net</td>
 								<td>
+									{' '}
 									{formatCurrency(
 										'il',
-										baseIncome -
+										totalProfit -
 											incomeTax -
 											nationalInsurance -
 											healthInsurance -
 											pensionContribution -
 											studyFundContribution
-									)}
-								</td>
-								<td>
-									{formatCurrency(
-										'il',
-										baseIncome * 12 -
-											annualIncomeTax -
-											annualNationalInsurance -
-											annualHealthInsurance -
-											(pensionContribution + studyFundContribution) * 12
 									)}
 								</td>
 							</tr>
@@ -167,21 +191,23 @@ function ResultsSelfEmployed(props) {
 	);
 }
 
-ResultsSelfEmployed.propTypes = {
-	employmentType: globalProps.employmentType,
+EndOfYearResults.propTypes = {
 	resultsTable: globalProps.resultsTable,
 	stateData: globalProps.shape({
 		taxData: payrollProps.taxData,
 		taxYearIndex: payrollProps.taxYearIndex,
-		baseIncome: payrollProps.baseIncome,
+		income: payrollProps.income,
+		expenses: payrollProps.expenses,
+		profit: payrollProps.profit,
 		creditPoints: payrollProps.creditPoints,
 		pensionOption: payrollProps.pensionOption,
 		pensionType: payrollProps.pensionType,
 		pensionAmount: payrollProps.pensionAmount,
+		studyFundOption: payrollProps.studyFundOption,
 		studyFundType: payrollProps.studyFundType,
 		studyFundAmount: payrollProps.studyFundAmount,
 		showResultsTable: globalProps.showResultsTable
 	})
 };
 
-export default ResultsSelfEmployed;
+export default EndOfYearResults;

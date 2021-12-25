@@ -25,7 +25,6 @@
 	fieldset fieldset {
 		legend.form-label {
 			padding-left: 1rem;
-			font-size: inherit;
 			font-size: calc(1rem + 0.3vw);
 		}
 
@@ -34,4 +33,12 @@
 		}
 	}
 	//end
+
+	.form-check-inline {
+		margin-right: 0;
+
+		@include screen-sm {
+			margin-right: 1rem;
+		}
+	}
 }

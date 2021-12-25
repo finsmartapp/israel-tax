@@ -2,7 +2,7 @@ import React from 'react';
 import { globalProps } from '../../prop-types';
 import { Container, Row, Col } from 'react-bootstrap';
 import Hero from '../../components/hero/Hero';
-import NetPay from '../../components/calculators/net-pay/NetPay';
+import NetPay from '../../components/calculators/net-pay';
 
 function NetPayCalculator(props) {
 	return (

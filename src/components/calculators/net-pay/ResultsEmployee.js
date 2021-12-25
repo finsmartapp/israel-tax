@@ -30,8 +30,6 @@ function ResultsEmployee(props) {
 	} = props.stateData;
 	const employmentType = props.employmentType;
 	const studyFundContribution = studyFundCalc(
-		taxData,
-		taxYearIndex,
 		baseIncome,
 		employmentType,
 		studyFundAmount,
@@ -91,7 +89,8 @@ function ResultsEmployee(props) {
 		taxableIncome,
 		annualBonus,
 		creditPointsTaxCredit,
-		pensionTaxCredit
+		pensionTaxCredit,
+		employmentType
 	);
 
 	return (
@@ -188,7 +187,7 @@ function ResultsEmployee(props) {
 
 ResultsEmployee.propTypes = {
 	employmentType: globalProps.employmentType,
-	resultsTable: payrollProps.resultsTable,
+	resultsTable: globalProps.resultsTable,
 	stateData: globalProps.shape({
 		taxData: payrollProps.taxData,
 		taxYearIndex: payrollProps.taxYearIndex,
@@ -204,7 +203,7 @@ ResultsEmployee.propTypes = {
 		overtime: payrollProps.overtime,
 		annualBonus: payrollProps.annualBonus,
 		commission: payrollProps.commission,
-		showResultsTable: payrollProps.showResultsTable
+		showResultsTable: globalProps.showResultsTable
 	})
 };
 

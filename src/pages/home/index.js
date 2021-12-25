@@ -8,10 +8,13 @@ function Home() {
 			<Hero />
 			<ul>
 				<Link to="/employee/net-pay-calculator">
-					<li>Employee</li>
+					<li>Employee Net Pay Calculator</li>
 				</Link>
 				<Link to="/self-employed/net-pay-calculator">
-					<li>Self employed</li>
+					<li>Self-employed Net Pay Calculator</li>
+				</Link>
+				<Link to="/self-employed/end-of-year-calculator">
+					<li>End of Year Calculator</li>
 				</Link>
 			</ul>
 		</>

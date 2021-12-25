@@ -4,6 +4,8 @@ import { Form } from 'react-bootstrap';
 import InputWrapper from './InputWrapper';
 import { camelToKebab } from '../../utils/caseConvertor';
 
+import ConditionalWrapper from '../../utils/conditionalWrapper';
+
 function InputRadio(props) {
 	const {
 		label,
@@ -27,7 +29,10 @@ function InputRadio(props) {
 	const ariaHelp = `${id}-help`;
 
 	return (
-		<fieldset>
+		<ConditionalWrapper
+			condition={horizontal || horizontal === undefined}
+			wrapper={children => <fieldset>{children}</fieldset>}
+		>
 			<InputWrapper
 				name={name}
 				label={label}
@@ -58,7 +63,7 @@ function InputRadio(props) {
 					''
 				)}
 			</InputWrapper>
-		</fieldset>
+		</ConditionalWrapper>
 	);
 }
 

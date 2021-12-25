@@ -1,8 +1,9 @@
-export function pensionMinCalc(taxData, taxYearIndex, income, employmentType) {
+export function pensionMinCalc(taxData, taxYearIndex, income, employmentType, eoy) {
 	//Employees pay a fixed percent of monthly base salary before any extra earnings
 	//Self employed pay different percentages on earnings above and below the national average salary mid-point
 
-	const averageSalary = taxData[taxYearIndex].bituachLeumi.averageSalary;
+	const averageSalaryMonth = taxData[taxYearIndex].bituachLeumi.averageSalary;
+	const averageSalary = eoy ? averageSalaryMonth * 12 : averageSalaryMonth;
 	const averageSalaryHalf = averageSalary / 2;
 	const { reducedRate, fullRate } = taxData[taxYearIndex].pension.legalMin.selfEmployed;
 	const employeeMin = taxData[taxYearIndex].pension.legalMin.employee;
@@ -10,7 +11,7 @@ export function pensionMinCalc(taxData, taxYearIndex, income, employmentType) {
 
 	if (employmentType === 'employee') {
 		pensionLegalMin = income * (employeeMin / 100);
-	} else if (employmentType === 'selfEmployed') {
+	} else {
 		if (income >= averageSalaryHalf) {
 			if (income >= averageSalary) {
 				pensionLegalMin =

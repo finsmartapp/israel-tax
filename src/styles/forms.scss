@@ -58,14 +58,6 @@ label[as='legend'] {
 	color: $base-font-family;
 }
 
-.form-check-inline {
-	margin-right: 0;
-
-	@include screen-sm {
-		margin-right: 0.75rem;
-	}
-}
-
 form {
 	margin-bottom: 2rem;
 
@@ -78,4 +70,11 @@ form {
 	display: block;
 	margin-top: 0;
 	font-size: 65%;
+}
+
+.hideLabels {
+	label.form-label,
+	fieldset > legend {
+		@extend .visually-hidden;
+	}
 }

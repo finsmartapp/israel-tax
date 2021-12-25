@@ -21,27 +21,28 @@ export const globalProps = {
 	language: string.isRequired,
 	display: bool.isRequired,
 	validated: bool.isRequired,
-	children: oneOfType([array, object]).isRequired
+	children: oneOfType([array, object]).isRequired,
+	resultsTable: object.isRequired,
+	showResultsTable: bool.isRequired
 };
 
 export const payrollProps = {
 	taxData: array.isRequired,
 	taxYearIndex: oneOfType([string, number]).isRequired,
 	baseIncome: oneOfType([string, number]).isRequired,
-	creditPoints: oneOfType([string, number]).isRequired,
-	pensionOption: string.isRequired,
-	pensionType: string.isRequired,
-	pensionAmount: oneOfType([string, number]).isRequired,
-	studyFundType: string.isRequired,
-	studyFundAmount: oneOfType([string, number]).isRequired,
+	creditPoints: oneOfType([string, number, array]).isRequired,
+	pensionOption: oneOfType([string, array]).isRequired,
+	pensionType: oneOfType([string, array]).isRequired,
+	pensionAmount: oneOfType([string, number, array]).isRequired,
+	studyFundType: oneOfType([string, array]).isRequired,
+	studyFundAmount: oneOfType([string, number, array]).isRequired,
 	travelAllowance: oneOfType([string, number]).isRequired,
 	foodAllowance: oneOfType([string, number]).isRequired,
 	otherAllowance: oneOfType([string, number]).isRequired,
 	annualBonus: oneOfType([string, number]).isRequired,
 	commission: oneOfType([string, number]).isRequired,
 	overtime: oneOfType([string, number]).isRequired,
-	resultsTable: object.isRequired,
-	showResultsTable: bool.isRequired
+	fiscalPeriod: string.isRequired
 };
 
 export const panelProps = {
@@ -74,5 +75,6 @@ export const formProps = {
 	dataSource: array.isRequired,
 	dataKey: string.isRequired,
 	controlled: bool,
-	type: string
+	type: string,
+	formIndex: number.isRequired
 };

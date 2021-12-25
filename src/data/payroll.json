@@ -55,6 +55,7 @@
 					"taxDeductableLimit": 11,
 					"taxCreditLimit": 5.5,
 					"taxCreditRate": 35,
+					"eligibleIncome": 148800,
 					"ceiling": 211200
 				}
 			}
@@ -121,6 +122,7 @@
 					"taxDeductableLimit": 11,
 					"taxCreditLimit": 5.5,
 					"taxCreditRate": 35,
+					"eligibleIncome": 148800,
 					"ceiling": 211200
 				}
 			}
@@ -187,6 +189,7 @@
 					"taxDeductableLimit": 11,
 					"taxCreditLimit": 5.5,
 					"taxCreditRate": 35,
+					"eligibleIncome": 147600,
 					"ceiling": 208800
 				}
 			}

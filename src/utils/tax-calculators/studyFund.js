@@ -1,22 +1,39 @@
-export function studyFundCalc(taxData, taxYearIndex, income, employment, amount, type) {
-	//Education fund is a tax deductible expense up to a ceiling for self-employed
-	//Employees contribution is taxed, but aren't taxed on the employers contribution (tax deductible expense for them)
-	//Both have ceilings to be eligible for capital gains relief
+export function studyFundCalc(
+	income,
+	employment,
+	amount,
+	type,
+	studyFundTaxAllowance,
+	options,
+	eoy
+) {
+	let eoyTotal = 0;
 
-	const contribution = type === 'shekel' ? amount : income * (amount / 100);
-	const { rate, ceiling } = taxData[taxYearIndex].studyFund[employment];
-	const taxDeductibleMax = (ceiling * (rate / 100)) / 12;
-	let taxDeductible;
+	if (eoy) {
+		eoyTotal +=
+			(studyFundTaxAllowance / options.length) *
+			options.filter(option => option.match(/maximum/)).length;
 
-	if (contribution <= taxDeductibleMax) {
-		taxDeductible = contribution;
-	} else {
-		taxDeductible = taxDeductibleMax;
+		options.forEach((option, i) => {
+			if (option === 'custom') {
+				if (type[i] === 'shekel') {
+					eoyTotal += amount[i];
+				} else {
+					eoyTotal += income[i] * (amount[i] / 100);
+				}
+			}
+		});
 	}
 
-	if (employment === 'selfEmployed') {
-		return { studyFundContribution: contribution, studyFundTaxDeductible: taxDeductible };
-	} else {
+	const contribution = eoy ? eoyTotal : type === 'shekel' ? amount : income * (amount / 100);
+
+	if (employment === 'employee') {
 		return contribution;
+	} else {
+		return {
+			studyFundContribution: contribution,
+			studyFundTaxDeductible:
+				contribution > studyFundTaxAllowance ? studyFundTaxAllowance : contribution
+		};
 	}
 }

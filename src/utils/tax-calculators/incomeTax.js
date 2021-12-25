@@ -4,15 +4,19 @@ export function incomeTaxCalc(
 	taxableIncome,
 	annualBonus,
 	creditPointsTaxCredit,
-	pensionTaxCredit
+	pensionTaxCredit,
+	employment,
+	eoy
 ) {
 	//Income tax uses annual tax bands
 	//Bonus calculated separatly to ensure tax that month isn't multipled by 12 for yearly total
 
-	let incomes = [
-		(taxableIncome - annualBonus) * 12,
-		(taxableIncome - annualBonus) * 12 + annualBonus
-	];
+	let incomes = eoy
+		? [taxableIncome]
+		: employment === 'selfEmployed'
+		? [taxableIncome * 12]
+		: [(taxableIncome - annualBonus) * 12, (taxableIncome - annualBonus) * 12 + annualBonus];
+	const credits = creditPointsTaxCredit + pensionTaxCredit;
 	let taxes = [];
 
 	incomes.forEach(income => {
@@ -40,9 +44,9 @@ export function incomeTaxCalc(
 	});
 
 	const annualTax = taxes[0];
-	const taxOnBonus = taxes[1] - taxes[0];
-	const incomeTax = annualTax / 12 + taxOnBonus - (creditPointsTaxCredit + pensionTaxCredit);
-	const annualIncomeTax = annualTax + taxOnBonus - (creditPointsTaxCredit + pensionTaxCredit) * 12;
+	const taxOnBonus = employment === 'employee' ? taxes[1] - taxes[0] : 0;
+	const incomeTax = eoy ? annualTax - credits : annualTax / 12 + taxOnBonus - credits;
+	const annualIncomeTax = annualTax + taxOnBonus - credits * 12;
 
 	return {
 		incomeTax: incomeTax > 0 ? incomeTax : 0,
