@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a76ce53fc4d2aa2db891170790b05455",
+    "revision": "f46974e30f60df23ce1f03e7589cc79d",
     "url": "/israel-tax/index.html"
   },
   {
-    "revision": "4c3f2088995d3b40d9f3",
-    "url": "/israel-tax/static/css/main.c6e5dd1d.chunk.css"
+    "revision": "a5fe937feeb51cf95997",
+    "url": "/israel-tax/static/css/main.3a061eea.chunk.css"
   },
   {
-    "revision": "585429c65bf6366ea9f1",
-    "url": "/israel-tax/static/js/2.cd774d43.chunk.js"
+    "revision": "14a15a410e23f9c7e427",
+    "url": "/israel-tax/static/js/2.56835471.chunk.js"
   },
   {
     "revision": "1fb61ba9693ca5fc55f90ed9ce4461e0",
-    "url": "/israel-tax/static/js/2.cd774d43.chunk.js.LICENSE"
+    "url": "/israel-tax/static/js/2.56835471.chunk.js.LICENSE"
   },
   {
-    "revision": "4c3f2088995d3b40d9f3",
-    "url": "/israel-tax/static/js/main.18937edd.chunk.js"
+    "revision": "a5fe937feeb51cf95997",
+    "url": "/israel-tax/static/js/main.5857c697.chunk.js"
   },
   {
     "revision": "1a248455dd5b062ab888",
