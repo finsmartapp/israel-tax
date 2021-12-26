@@ -12,8 +12,8 @@ import { nationalInsuranceSelfEmp } from '../../../utils/tax-calculators/nationa
 import { bituachLeumiCalc } from '../../../utils/tax-calculators/bituachLeumi';
 
 function EndOfYearResults(props) {
+	const taxData = props.taxData;
 	const {
-		taxData,
 		taxYearIndex,
 		income,
 		expenses,
@@ -193,8 +193,8 @@ function EndOfYearResults(props) {
 
 EndOfYearResults.propTypes = {
 	resultsTable: globalProps.resultsTable,
+	taxData: payrollProps.taxData,
 	stateData: globalProps.shape({
-		taxData: payrollProps.taxData,
 		taxYearIndex: payrollProps.taxYearIndex,
 		income: payrollProps.income,
 		expenses: payrollProps.expenses,

@@ -9,13 +9,14 @@ import LanguageContext from '../../../contexts/LanguageContext';
 
 function NetPayForm(props) {
 	const employmentType = props.employmentType;
+	const taxData = props.taxData;
 	const stateData = props.stateData;
 	const handleChange = props.handleChange;
 	const formSize = ['xs=7', 'md=6'];
 
 	return (
 		<section>
-			<h2>Net Pay Calculator</h2>
+			<h2>Calculator</h2>
 			<Form
 				id={`${employmentType}-netpay-form`}
 				noValidate
@@ -28,6 +29,7 @@ function NetPayForm(props) {
 						<>
 							<NetPayIncome
 								employmentType={employmentType}
+								taxData={taxData}
 								stateData={stateData}
 								handleChange={handleChange}
 								language={value.language}
@@ -35,6 +37,7 @@ function NetPayForm(props) {
 							/>
 							<NetPayContributions
 								employmentType={employmentType}
+								taxData={taxData}
 								stateData={stateData}
 								handleChange={handleChange}
 								language={value.language}
@@ -70,6 +73,7 @@ function NetPayForm(props) {
 NetPayForm.propTypes = {
 	handleSubmit: globalProps.handleSubmit,
 	handleChange: globalProps.handleChange,
+	taxData: payrollProps.taxData,
 	employmentType: globalProps.employmentType,
 	stateData: globalProps.shape({
 		validated: payrollProps.validated

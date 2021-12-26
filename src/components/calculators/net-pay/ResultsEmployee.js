@@ -11,8 +11,8 @@ import { formatCurrency } from '../../../utils/formatCurrency';
 import { cardAllowancePopup } from './Popups';
 
 function ResultsEmployee(props) {
+	const taxData = props.taxData;
 	const {
-		taxData,
 		taxYearIndex,
 		baseIncome,
 		creditPoints,
@@ -97,7 +97,7 @@ function ResultsEmployee(props) {
 		<>
 			{showResultsTable === true && (
 				<section ref={props.resultsTable}>
-					<h2>Net Pay Results</h2>
+					<h2>Results</h2>
 					<Table striped bordered className="table__3 table__header--blue">
 						<thead>
 							<tr>
@@ -188,8 +188,8 @@ function ResultsEmployee(props) {
 ResultsEmployee.propTypes = {
 	employmentType: globalProps.employmentType,
 	resultsTable: globalProps.resultsTable,
+	taxData: payrollProps.taxData,
 	stateData: globalProps.shape({
-		taxData: payrollProps.taxData,
 		taxYearIndex: payrollProps.taxYearIndex,
 		baseIncome: payrollProps.baseIncome,
 		creditPoints: payrollProps.creditPoints,

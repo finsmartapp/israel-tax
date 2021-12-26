@@ -9,7 +9,7 @@ import PayrollTaxYearBtn from '../../buttons/PayrollYear';
 
 function EndOfYearForm(props) {
 	const stateData = props.stateData;
-	const { fiscalPeriod, pensionOption, studyFundOption } = props.stateData;
+	const { fiscalPeriod, taxYearIndex, pensionOption, studyFundOption, validated } = props.stateData;
 	const handleChange = props.handleChange;
 	const months = [
 		'January',
@@ -53,15 +53,11 @@ function EndOfYearForm(props) {
 			<Form
 				id="endofyear-form"
 				noValidate
-				validated={stateData.validated}
+				validated={validated}
 				onSubmit={props.handleSubmit}
 				className="vertical-form"
 			>
-				<PayrollTaxYearBtn
-					value={stateData.taxYearIndex}
-					columns={['xs=auto']}
-					handleChange={handleChange}
-				/>
+				<PayrollTaxYearBtn value={taxYearIndex} columns={['xs=auto']} handleChange={handleChange} />
 
 				{pensionOption.map((forms, i) => {
 					const fullWidth =

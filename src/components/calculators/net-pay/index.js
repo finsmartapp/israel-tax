@@ -10,7 +10,6 @@ class NetPay extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			taxData: taxData,
 			taxYearIndex: 0,
 			baseIncome: '',
 			creditPoints: '',
@@ -115,6 +114,7 @@ class NetPay extends Component {
 			<>
 				<NetPayForm
 					employmentType={this.props.employmentType}
+					taxData={taxData}
 					stateData={this.state}
 					handleChange={this.handleChange}
 					handleSubmit={this.handleSubmit}
@@ -122,6 +122,7 @@ class NetPay extends Component {
 				{this.props.employmentType === 'employee' && (
 					<ResultsEmployee
 						employmentType={this.props.employmentType}
+						taxData={taxData}
 						stateData={this.state}
 						resultsTable={this.resultsTable}
 					/>
@@ -129,6 +130,7 @@ class NetPay extends Component {
 				{this.props.employmentType === 'selfEmployed' && (
 					<ResultsSelfEmployed
 						employmentType={this.props.employmentType}
+						taxData={taxData}
 						stateData={this.state}
 						resultsTable={this.resultsTable}
 					/>

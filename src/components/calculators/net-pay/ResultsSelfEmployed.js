@@ -12,8 +12,8 @@ import { incomeTaxCalc } from '../../../utils/tax-calculators/incomeTax';
 import { formatCurrency } from '../../../utils/formatCurrency';
 
 function ResultsSelfEmployed(props) {
+	const taxData = props.taxData;
 	const {
-		taxData,
 		taxYearIndex,
 		baseIncome,
 		creditPoints,
@@ -87,7 +87,7 @@ function ResultsSelfEmployed(props) {
 		<>
 			{showResultsTable === true && (
 				<section ref={props.resultsTable}>
-					<h2>Net Pay Results</h2>
+					<h2>Results</h2>
 					<Table striped bordered className="table__3 table__header--blue">
 						<thead>
 							<tr>
@@ -170,8 +170,8 @@ function ResultsSelfEmployed(props) {
 ResultsSelfEmployed.propTypes = {
 	employmentType: globalProps.employmentType,
 	resultsTable: globalProps.resultsTable,
+	taxData: payrollProps.taxData,
 	stateData: globalProps.shape({
-		taxData: payrollProps.taxData,
 		taxYearIndex: payrollProps.taxYearIndex,
 		baseIncome: payrollProps.baseIncome,
 		creditPoints: payrollProps.creditPoints,

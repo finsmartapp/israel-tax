@@ -7,7 +7,8 @@ import { invalidNum } from '../../../../utils/validationText';
 import { isZeroOrGreater } from '../../../../utils/comparisons';
 
 function NetPayIncome(props) {
-	const { taxData, taxYearIndex, baseIncome, creditPoints } = props.stateData;
+	const taxData = props.taxData;
+	const { taxYearIndex, baseIncome, creditPoints } = props.stateData;
 	const handleChange = props.handleChange;
 	const employmentType = props.employmentType;
 	const language = props.language;
@@ -56,8 +57,8 @@ NetPayIncome.propTypes = {
 	handleChange: globalProps.handleChange,
 	employmentType: globalProps.employmentType,
 	language: globalProps.language,
+	taxData: payrollProps.taxData,
 	stateData: globalProps.shape({
-		taxData: payrollProps.taxData,
 		taxYearIndex: payrollProps.taxYearIndex,
 		baseIncome: payrollProps.baseIncome,
 		creditPoints: payrollProps.creditPoints

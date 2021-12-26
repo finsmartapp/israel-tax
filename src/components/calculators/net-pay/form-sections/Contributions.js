@@ -8,8 +8,8 @@ import { isZeroOrGreater } from '../../../../utils/comparisons';
 import { pensionMinCalc } from '../../../../utils/tax-calculators/pensionLegalMin';
 
 function NetPayContributions(props) {
+	const taxData = props.taxData;
 	const {
-		taxData,
 		taxYearIndex,
 		baseIncome,
 		pensionOption,
@@ -114,8 +114,8 @@ NetPayContributions.propTypes = {
 	handleChange: globalProps.handleChange,
 	employmentType: globalProps.employmentType,
 	language: globalProps.language,
+	taxData: payrollProps.taxData,
 	stateData: globalProps.shape({
-		taxData: payrollProps.taxData,
 		taxYearIndex: payrollProps.taxYearIndex,
 		baseIncome: payrollProps.baseIncome,
 		pensionOption: payrollProps.pensionOption,

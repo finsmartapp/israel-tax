@@ -8,7 +8,6 @@ class EndOfYearCalculator extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			taxData: taxData,
 			fiscalPeriod: 'annual',
 			taxYearIndex: 0,
 			income: [''],
@@ -30,10 +29,10 @@ class EndOfYearCalculator extends Component {
 	componentDidUpdate(prevProps, prevState) {
 		//Reset state when change forms
 
-		const indexes =
-			this.state.fiscalPeriod === 'annual' ? 1 : this.state.fiscalPeriod === 'quarterly' ? 4 : 12;
+		const fiscalPeriod = this.state.fiscalPeriod;
+		const indexes = fiscalPeriod === 'annual' ? 1 : fiscalPeriod === 'quarterly' ? 4 : 12;
 
-		if (prevState.fiscalPeriod !== this.state.fiscalPeriod) {
+		if (prevState.fiscalPeriod !== fiscalPeriod) {
 			this.setState({
 				income: Array(indexes).fill(''),
 				expenses: Array(indexes).fill(''),
@@ -52,6 +51,7 @@ class EndOfYearCalculator extends Component {
 
 	handleChange = event => {
 		const { name, value, type } = event.target;
+		const { pensionOption } = this.state;
 		const stateIndex = name.match(/\d+/);
 		const stateName = name.replace(stateIndex, '');
 
@@ -87,11 +87,7 @@ class EndOfYearCalculator extends Component {
 				});
 			}
 
-			if (
-				stateName === 'profit' &&
-				value === '' &&
-				this.state.pensionOption[stateIndex] === 'custom'
-			) {
+			if (stateName === 'profit' && value === '' && pensionOption[stateIndex] === 'custom') {
 				let setPensionOption = copyState('pensionOption');
 				setPensionOption.splice(stateIndex, 1, 'legalMin');
 
@@ -103,7 +99,7 @@ class EndOfYearCalculator extends Component {
 			if (
 				stateName === 'pensionOption' &&
 				value !== '' &&
-				this.state.pensionOption[stateIndex] === 'legalMin'
+				pensionOption[stateIndex] === 'legalMin'
 			) {
 				let setPensionAmount = copyState('pensionAmount');
 				setPensionAmount.splice(stateIndex, 1, '');
@@ -153,7 +149,11 @@ class EndOfYearCalculator extends Component {
 					handleChange={this.handleChange}
 					handleSubmit={this.handleSubmit}
 				/>
-				<EndOfYearResults stateData={this.state} resultsTable={this.resultsTable} />
+				<EndOfYearResults
+					taxData={taxData}
+					stateData={this.state}
+					resultsTable={this.resultsTable}
+				/>
 			</>
 		);
 	}
