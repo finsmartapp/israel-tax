@@ -1,7 +1,12 @@
-export function formatCurrency(country, number) {
+export function formatCurrency(country, number, decimal) {
+	// decimal !== ??
 	if (country === 'il') {
-		var language = 'he-IL';
+		var language = 'en-IL';
 		var currency = 'ILS';
 	}
-	return new Intl.NumberFormat(language, { style: 'currency', currency: currency }).format(number);
+	return new Intl.NumberFormat(language, {
+		style: 'currency',
+		currency: currency,
+		maximumFractionDigits: decimal
+	}).format(number);
 }

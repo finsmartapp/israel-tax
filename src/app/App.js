@@ -6,6 +6,7 @@ import NetPayCalculator from '../pages/net-pay-calculators';
 import Navigation from '../components/navbar';
 import LanguageContext from '../contexts/LanguageContext';
 import EndOfYear from '../pages/end-of-year';
+import IncomeTax from '../pages/tax-tables/IncomeTax';
 
 class App extends Component {
 	constructor() {
@@ -42,11 +43,8 @@ class App extends Component {
 							path="/self-employed/net-pay-calculator"
 							render={() => <NetPayCalculator employmentType={'selfEmployed'} />}
 						/>
-						{/* <Route path="/self-employed/end-of-year-calculator" component={EndOfYear} /> */}
-						<Route
-							path="/self-employed/end-of-year-calculator"
-							render={props => <EndOfYear {...props} />}
-						/>
+						<Route path="/self-employed/end-of-year-calculator" component={EndOfYear} />
+						<Route path="/tax-rates/income-tax" component={IncomeTax} />
 					</Switch>
 				</LanguageContext.Provider>
 			</Router>

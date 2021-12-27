@@ -23,21 +23,19 @@ function NavigationMenu(props) {
 								<NavDropdown.Item>Net Pay Calculator</NavDropdown.Item>
 							</LinkContainer>
 						</NavDropdown>
-						<NavDropdown title="Self-employed ">
+						<NavDropdown title="Self-employed">
 							<LinkContainer to="/self-employed/net-pay-calculator">
 								<NavDropdown.Item>Net Pay Calculator</NavDropdown.Item>
 							</LinkContainer>
-							<NavDropdown.Item href="/self-employed/end-of-year-calculator">
-								End of Year Calculator
-							</NavDropdown.Item>
-							{/* <NavDropdown.Item href="#">Expenses Calculator</NavDropdown.Item> */}
-							{/* <NavDropdown.Item href="#">Recognised Expenses</NavDropdown.Item> */}
+							<LinkContainer to="/self-employed/end-of-year-calculator">
+								<NavDropdown.Item>End of Year Calculator</NavDropdown.Item>
+							</LinkContainer>
 						</NavDropdown>
-						{/* <Nav.Link href="#">Tax Bands</Nav.Link> */}
-						{/* <NavDropdown title="Other Taxes" id="selfEemployed-nav">
-							<NavDropdown.Item href="#">Capital Gains</NavDropdown.Item>
-						</NavDropdown> */}
-						{/* <Nav.Link href="#">Resources</Nav.Link> */}
+						<NavDropdown title="Tax Rates & Bands">
+							<LinkContainer to="/tax-rates/income-tax">
+								<NavDropdown.Item>Income Tax</NavDropdown.Item>
+							</LinkContainer>
+						</NavDropdown>
 					</Nav>
 				</Navbar.Collapse>
 			</Container>

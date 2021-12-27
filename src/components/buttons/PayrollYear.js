@@ -11,6 +11,7 @@ function PayrollTaxYearBtn(props) {
 			value={props.value}
 			dataSource={taxData}
 			dataKey="taxYear"
+			controlled={props.controlled}
 			columns={props.columns}
 			horizontal={props.horizontal}
 			handleChange={props.handleChange}
@@ -24,7 +25,8 @@ PayrollTaxYearBtn.propTypes = {
 	value: formProps.value,
 	columns: formProps.columns,
 	horizontal: formProps.horizontal,
-	handleChange: globalProps.handleChange
+	handleChange: globalProps.handleChange,
+	controlled: formProps.controlled
 };
 
 export default PayrollTaxYearBtn;

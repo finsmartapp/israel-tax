@@ -24,7 +24,7 @@ export function incomeTaxCalc(
 		const taxBands = Object.keys(taxData[taxYearIndex].incomeTax);
 
 		taxBands.forEach(taxBand => {
-			let { rate, min, max } = taxData[taxYearIndex].incomeTax[taxBand];
+			const { rate, min, max } = taxData[taxYearIndex].incomeTax[taxBand];
 			let bandAdjustment;
 			//Adjust as min band is inclusive and is lost during x - min
 			min === 0 ? (bandAdjustment = 0) : (bandAdjustment = 1);
