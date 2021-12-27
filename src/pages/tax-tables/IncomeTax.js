@@ -1,19 +1,15 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import Hero from '../../components/hero/Hero';
+import Hero from '../../components/hero';
+import PageContainer from '../../components/page-container';
 import IncomeTaxBands from '../../components/tax-tables/income-tax';
 
 function IncomeTax() {
 	return (
 		<>
-			<Hero />
-			<Container>
-				<Row className="justify-content-center">
-					<Col xs={12} sm={10} md={8}>
-						<IncomeTaxBands />
-					</Col>
-				</Row>
-			</Container>
+			<Hero h1="Income Tax Bands" />
+			<PageContainer>
+				<IncomeTaxBands />
+			</PageContainer>
 		</>
 	);
 }

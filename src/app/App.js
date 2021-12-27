@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './app.scss';
 import Home from '../pages/home';
-import NetPayCalculator from '../pages/net-pay-calculators';
+import NetPay from '../pages/calculators/NetPay';
 import Navigation from '../components/navbar';
 import LanguageContext from '../contexts/LanguageContext';
-import EndOfYear from '../pages/end-of-year';
+import EndOfYear from '../pages/calculators/EndOfYear';
 import IncomeTax from '../pages/tax-tables/IncomeTax';
 
 class App extends Component {
@@ -37,11 +37,11 @@ class App extends Component {
 						<Route exact path="/" component={Home} />
 						<Route
 							path="/employee/net-pay-calculator"
-							render={() => <NetPayCalculator employmentType={'employee'} />}
+							render={() => <NetPay employmentType={'employee'} />}
 						/>
 						<Route
 							path="/self-employed/net-pay-calculator"
-							render={() => <NetPayCalculator employmentType={'selfEmployed'} />}
+							render={() => <NetPay employmentType={'selfEmployed'} />}
 						/>
 						<Route path="/self-employed/end-of-year-calculator" component={EndOfYear} />
 						<Route path="/tax-rates/income-tax" component={IncomeTax} />

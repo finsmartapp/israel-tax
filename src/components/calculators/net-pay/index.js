@@ -6,7 +6,7 @@ import NetPayForm from './Form';
 import ResultsEmployee from './ResultsEmployee';
 import ResultsSelfEmployed from './ResultsSelfEmployed';
 
-class NetPay extends Component {
+class NetPayCalculator extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -140,8 +140,8 @@ class NetPay extends Component {
 	}
 }
 
-NetPay.propTypes = {
+NetPayCalculator.propTypes = {
 	employmentType: globalProps.employmentType
 };
 
-export default NetPay;
+export default NetPayCalculator;

@@ -78,3 +78,7 @@ export const formProps = {
 	type: string,
 	formIndex: number.isRequired
 };
+
+export const heroProps = {
+	h1: string.isRequired
+};
