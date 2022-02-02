@@ -49,25 +49,24 @@ function ResultsEmployee(props) {
 	});
 	const pensionableIncome = taxableIncome - travelAllowance - annualBonus - overtime;
 	const paycheckGross = taxableIncome - foodAllowance;
-	const prisa =
-		annualBonus > (taxableIncome - annualBonus) * (taxData[taxYearIndex].bituachLeumi.prisa / 100);
+	const prisa = annualBonus > (taxableIncome - annualBonus) * 0.25;
 	const { month: nationalInsurance, annual: annualNationalInsurance } = bituachLeumiCalc(
 		taxData,
 		taxYearIndex,
 		employmentType,
 		taxableIncome,
-		prisa,
+		'nationalInsurance',
 		annualBonus,
-		'nationalInsurance'
+		prisa
 	);
 	const { month: healthInsurance, annual: annualHealthInsurance } = bituachLeumiCalc(
 		taxData,
 		taxYearIndex,
 		employmentType,
 		taxableIncome,
-		prisa,
+		'healthInsurance',
 		annualBonus,
-		'healthInsurance'
+		prisa
 	);
 	const creditPointsTaxCredit = creditPoints * taxData[taxYearIndex].creditPoint;
 	const pensionLegalMin = pensionMinCalc(taxData, taxYearIndex, pensionableIncome, employmentType);

@@ -59,8 +59,6 @@ function ResultsSelfEmployed(props) {
 		taxYearIndex,
 		employmentType,
 		taxableIncome - bituachLeumiDeductible,
-		false,
-		0,
 		'nationalInsurance'
 	);
 	const { month: healthInsurance, annual: annualHealthInsurance } = bituachLeumiCalc(
@@ -68,8 +66,6 @@ function ResultsSelfEmployed(props) {
 		taxYearIndex,
 		employmentType,
 		taxableIncome - bituachLeumiDeductible,
-		false,
-		0,
 		'healthInsurance'
 	);
 	const creditPointsTaxCredit = creditPoints * taxData[taxYearIndex].creditPoint;

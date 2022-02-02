@@ -3,9 +3,9 @@ export function bituachLeumiCalc(
 	taxYearIndex,
 	employmentType,
 	taxableIncome,
-	prisa,
-	annualBonus,
 	insuranceType,
+	annualBonus,
+	prisa,
 	eoy
 ) {
 	//Batuach Leumi uses monthly tax bands

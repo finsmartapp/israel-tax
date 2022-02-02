@@ -96,9 +96,9 @@ function EndOfYearResults(props) {
 		taxYearIndex,
 		employmentType,
 		taxableIncome - bituachLeumiDeductible,
-		false,
-		0,
 		'nationalInsurance',
+		0,
+		false,
 		eoy
 	);
 	const { month: healthInsurance } = bituachLeumiCalc(
@@ -106,9 +106,9 @@ function EndOfYearResults(props) {
 		taxYearIndex,
 		employmentType,
 		taxableIncome - bituachLeumiDeductible,
-		false,
-		0,
 		'healthInsurance',
+		0,
+		false,
 		eoy
 	);
 

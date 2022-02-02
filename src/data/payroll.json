@@ -13,31 +13,14 @@
 		},
 		"bituachLeumi": {
 			"averageSalary": 10273,
-			"prisa": 25,
 			"selfEmployedNationalInsuranceDiscount": 52,
 			"nationalInsurance": {
-				"band1": {
-					"rate": { "employee": 0.4, "selfEmployed": 2.87 },
-					"min": 0,
-					"max": 6164
-				},
-				"band2": {
-					"rate": { "employee": 7, "selfEmployed": 12.83 },
-					"min": 6165,
-					"max": 43890
-				}
+				"band1": { "rate": { "employee": 0.4, "selfEmployed": 2.87 }, "min": 0, "max": 6164 },
+				"band2": { "rate": { "employee": 7, "selfEmployed": 12.83 }, "min": 6165, "max": 43890 }
 			},
 			"healthInsurance": {
-				"band1": {
-					"rate": { "employee": 3.1, "selfEmployed": 3.1 },
-					"min": 0,
-					"max": 6164
-				},
-				"band2": {
-					"rate": { "employee": 5, "selfEmployed": 5 },
-					"min": 6165,
-					"max": 43890
-				}
+				"band1": { "rate": { "employee": 3.1, "selfEmployed": 3.1 }, "min": 0, "max": 6164 },
+				"band2": { "rate": { "employee": 5, "selfEmployed": 5 }, "min": 6165, "max": 43890 }
 			}
 		},
 		"pension": {
@@ -80,31 +63,14 @@
 		},
 		"bituachLeumi": {
 			"averageSalary": 10551,
-			"prisa": 25,
 			"selfEmployedNationalInsuranceDiscount": 52,
 			"nationalInsurance": {
-				"band1": {
-					"rate": { "employee": 0.4, "selfEmployed": 2.87 },
-					"min": 0,
-					"max": 6331
-				},
-				"band2": {
-					"rate": { "employee": 7, "selfEmployed": 12.83 },
-					"min": 6332,
-					"max": 44020
-				}
+				"band1": { "rate": { "employee": 0.4, "selfEmployed": 2.87 }, "min": 0, "max": 6331 },
+				"band2": { "rate": { "employee": 7, "selfEmployed": 12.83 }, "min": 6332, "max": 44020 }
 			},
 			"healthInsurance": {
-				"band1": {
-					"rate": { "employee": 3.1, "selfEmployed": 3.1 },
-					"min": 0,
-					"max": 6331
-				},
-				"band2": {
-					"rate": { "employee": 5, "selfEmployed": 5 },
-					"min": 6332,
-					"max": 44020
-				}
+				"band1": { "rate": { "employee": 3.1, "selfEmployed": 3.1 }, "min": 0, "max": 6331 },
+				"band2": { "rate": { "employee": 5, "selfEmployed": 5 }, "min": 6332, "max": 44020 }
 			}
 		},
 		"pension": {
@@ -147,31 +113,14 @@
 		},
 		"bituachLeumi": {
 			"averageSalary": 10551,
-			"prisa": 25,
 			"selfEmployedNationalInsuranceDiscount": 52,
 			"nationalInsurance": {
-				"band1": {
-					"rate": { "employee": 0.4, "selfEmployed": 2.87 },
-					"min": 0,
-					"max": 6331
-				},
-				"band2": {
-					"rate": { "employee": 7, "selfEmployed": 12.83 },
-					"min": 6332,
-					"max": 44020
-				}
+				"band1": { "rate": { "employee": 0.4, "selfEmployed": 2.87 }, "min": 0, "max": 6331 },
+				"band2": { "rate": { "employee": 7, "selfEmployed": 12.83 }, "min": 6332, "max": 44020 }
 			},
 			"healthInsurance": {
-				"band1": {
-					"rate": { "employee": 3.1, "selfEmployed": 3.1 },
-					"min": 0,
-					"max": 6331
-				},
-				"band2": {
-					"rate": { "employee": 5, "selfEmployed": 5 },
-					"min": 6332,
-					"max": 44020
-				}
+				"band1": { "rate": { "employee": 3.1, "selfEmployed": 3.1 }, "min": 0, "max": 6331 },
+				"band2": { "rate": { "employee": 5, "selfEmployed": 5 }, "min": 6332, "max": 44020 }
 			}
 		},
 		"pension": {
@@ -198,6 +147,56 @@
 			"employee": { "rate": 2.5, "ceiling": 188544 },
 			"employer": { "rate": 7.5, "ceiling": 188544 },
 			"selfEmployed": { "rate": 4.5, "ceiling": 263000 }
+		}
+	},
+	{
+		"taxYear": 2022,
+		"creditPoint": 223,
+		"incomeTax": {
+			"band1": { "rate": 10, "min": 0, "max": 77400 },
+			"band2": { "rate": 14, "min": 77401, "max": 110880 },
+			"band3": { "rate": 20, "min": 110881, "max": 178080 },
+			"band4": { "rate": 31, "min": 178081, "max": 247440 },
+			"band5": { "rate": 35, "min": 247441, "max": 514920 },
+			"band6": { "rate": 47, "min": 502921, "max": 663240 },
+			"band7": { "rate": 50, "min": 663241 }
+		},
+		"bituachLeumi": {
+			"averageSalary": 10551,
+			"selfEmployedNationalInsuranceDiscount": 52,
+			"nationalInsurance": {
+				"band1": { "rate": { "employee": 0.4, "selfEmployed": 2.87 }, "min": 0, "max": 6331 },
+				"band2": { "rate": { "employee": 7, "selfEmployed": 12.83 }, "min": 6332, "max": 45075 }
+			},
+			"healthInsurance": {
+				"band1": { "rate": { "employee": 3.1, "selfEmployed": 3.1 }, "min": 0, "max": 6331 },
+				"band2": { "rate": { "employee": 5, "selfEmployed": 5 }, "min": 6332, "max": 45075 }
+			}
+		},
+		"pension": {
+			"legalMin": {
+				"employee": 6,
+				"selfEmployed": { "reducedRate": 4.45, "fullRate": 12.55 }
+			},
+			"taxRelief": {
+				"employee": {
+					"percentLimit": 7,
+					"shekelLimit": 623,
+					"taxCreditRate": 35
+				},
+				"selfEmployed": {
+					"taxDeductableLimit": 11,
+					"taxCreditLimit": 5.5,
+					"taxCreditRate": 35,
+					"eligibleIncome": 151200,
+					"ceiling": 213600
+				}
+			}
+		},
+		"studyFund": {
+			"employee": { "rate": 2.5, "ceiling": 188544 },
+			"employer": { "rate": 7.5, "ceiling": 188544 },
+			"selfEmployed": { "rate": 4.5, "ceiling": 270000 }
 		}
 	}
 ]
