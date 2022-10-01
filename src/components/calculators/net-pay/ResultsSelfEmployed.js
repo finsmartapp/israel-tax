@@ -69,10 +69,14 @@ function ResultsSelfEmployed(props) {
 		'healthInsurance'
 	);
 	const creditPointsTaxCredit = creditPoints * taxData[taxYearIndex].creditPoint;
+	const incomeTaxTaxableIncome =
+		taxableIncome -
+		nationalInsurance *
+			(taxData[taxYearIndex].bituachLeumi.selfEmployedNationalInsuranceDiscount / 100);
 	const { incomeTax, annualIncomeTax } = incomeTaxCalc(
 		taxData,
 		taxYearIndex,
-		taxableIncome,
+		incomeTaxTaxableIncome,
 		0,
 		creditPointsTaxCredit,
 		pensionTaxCredit,
@@ -84,7 +88,7 @@ function ResultsSelfEmployed(props) {
 			{showResultsTable === true && (
 				<section ref={props.resultsTable}>
 					<h2>Results</h2>
-					<Table striped bordered className="table__3 table__header--blue">
+					<Table striped bordered className='table__3 table__header--blue'>
 						<thead>
 							<tr>
 								<th></th>
@@ -100,8 +104,8 @@ function ResultsSelfEmployed(props) {
 							</tr>
 							<tr>
 								<td>Taxable income</td>
-								<td>{formatCurrency('il', taxableIncome)}</td>
-								<td>{formatCurrency('il', taxableIncome * 12)}</td>
+								<td>{formatCurrency('il', incomeTaxTaxableIncome)}</td>
+								<td>{formatCurrency('il', incomeTaxTaxableIncome * 12)}</td>
 							</tr>
 							<tr>
 								<td>Income tax</td>

@@ -75,16 +75,6 @@ function EndOfYearResults(props) {
 		eoy
 	);
 	const taxableIncome = totalProfit - studyFundTaxDeductible - pensionTaxDeductible;
-	const { incomeTax } = incomeTaxCalc(
-		taxData,
-		taxYearIndex,
-		taxableIncome,
-		0,
-		creditPointsTaxCredit,
-		pensionTaxCredit,
-		employmentType,
-		eoy
-	);
 	const bituachLeumiDeductible = nationalInsuranceSelfEmp(
 		taxData,
 		taxYearIndex,
@@ -111,6 +101,20 @@ function EndOfYearResults(props) {
 		false,
 		eoy
 	);
+	const incomeTaxTaxableIncome =
+		taxableIncome -
+		nationalInsurance *
+			(taxData[taxYearIndex].bituachLeumi.selfEmployedNationalInsuranceDiscount / 100);
+	const { incomeTax } = incomeTaxCalc(
+		taxData,
+		taxYearIndex,
+		incomeTaxTaxableIncome,
+		0,
+		creditPointsTaxCredit,
+		pensionTaxCredit,
+		employmentType,
+		eoy
+	);
 
 	return (
 		<>
@@ -118,7 +122,7 @@ function EndOfYearResults(props) {
 				<section ref={props.resultsTable}>
 					<h2>Results</h2>
 
-					<Table striped bordered className="table__2 table__header--blue">
+					<Table striped bordered className='table__2 table__header--blue'>
 						<thead>
 							<tr>
 								<th></th>
@@ -144,7 +148,7 @@ function EndOfYearResults(props) {
 							</tr>
 							<tr>
 								<td>Taxable income</td>
-								<td>{formatCurrency('il', taxableIncome)}</td>
+								<td>{formatCurrency('il', incomeTaxTaxableIncome)}</td>
 							</tr>
 							<tr>
 								<td>Income tax</td>

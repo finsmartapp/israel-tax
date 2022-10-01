@@ -1,6 +1,10 @@
 export function pensionReliefCalc(taxData, taxYearIndex, income, pensionContribution, eoy) {
 	//Tax benefit available to a fixed percentage of profit up to a ceiling based. Part of that can be deducted as an expense and the remaining part a tax credit, up to ceilings. Different salary cielings and calculation methods depending on profit and contribution amounts.
 
+	//Up to the eligible income tax relief is calculated on whole amount - above it's tiered
+	//Tier 1 is calculated on whole amount
+	//Beneficiary contribution, which includes a non tax benefit proportion, has to be paid before eligible for tier 2
+
 	const prorata = eoy ? 1 : 12;
 	income = eoy ? income : income * 12;
 	pensionContribution = eoy ? pensionContribution : pensionContribution * 12;
@@ -8,7 +12,7 @@ export function pensionReliefCalc(taxData, taxYearIndex, income, pensionContribu
 		taxData[taxYearIndex].pension.taxRelief.selfEmployed;
 	const beneficiaryTrack = income > eligibleIncome;
 	const beneficiaryContribution = taxData[taxYearIndex].bituachLeumi.averageSalary * 0.16 * 12;
-	const beneficiary = pensionContribution >= beneficiaryContribution;
+	const beneficiaryFellow = pensionContribution >= beneficiaryContribution;
 	//Baseline limits
 	const maxDeductableIncome = income * (taxDeductableLimit / 100);
 	const maxCreditIncome = income * (taxCreditLimit / 100);
@@ -100,7 +104,7 @@ export function pensionReliefCalc(taxData, taxYearIndex, income, pensionContribu
 		const tier2 = remainingContribution > max ? max : remainingContribution;
 
 		deductableCalc(tier1, 1);
-		beneficiary && deductableCalc(tier2, 2);
+		beneficiaryFellow && deductableCalc(tier2, 2);
 	};
 
 	beneficiaryTrack ? beneficiaryTiers() : deductableCalc(pensionContribution);
@@ -110,49 +114,3 @@ export function pensionReliefCalc(taxData, taxYearIndex, income, pensionContribu
 		pensionTaxCredit: (totalCredit * (taxCreditRate / 100)) / prorata
 	};
 }
-
-//******************************************************************************** Original calc - Wait until 2021 annual report to confirm which is correct
-
-// export function pensionReliefCalc(taxData, taxYearIndex, income, pensionContribution, eoy) {
-// 	//Tax benefit available to a fixed percentage of the salary with a ceiling based on the national avaerage salary. Part of that can be deducted as an expense and the remaining part a tax credit, up to a ceiling
-
-// 	const { taxDeductableLimit, taxCreditLimit, taxCreditRate, ceiling } =
-// 		taxData[taxYearIndex].pension.taxRelief.selfEmployed;
-// 	const diminisher = eoy ? 1 : 12;
-// 	const maxDeductableCeiling = (ceiling / diminisher) * (taxDeductableLimit / 100);
-// 	const maxCreditCeiling = (ceiling / diminisher) * (taxCreditLimit / 100);
-// 	const maxDeductableIncome = income * (taxDeductableLimit / 100);
-// 	const maxCreditIncome = income * (taxCreditLimit / 100);
-// 	let totalDeductible;
-// 	let totalCredit = 0;
-
-// 	const taxCreditEligible = () => {
-// 		const taxCreditContribution = pensionContribution - maxDeductableIncome;
-
-// 		if (taxCreditContribution > maxCreditIncome) {
-// 			if (maxCreditIncome > maxCreditCeiling) {
-// 				totalCredit = maxCreditCeiling;
-// 			} else {
-// 				totalCredit = maxCreditIncome;
-// 			}
-// 		} else if (taxCreditContribution > maxCreditCeiling) {
-// 			totalCredit = maxCreditCeiling;
-// 		} else {
-// 			totalCredit = taxCreditContribution;
-// 		}
-// 	};
-
-// 	if (pensionContribution > maxDeductableIncome) {
-// 		taxCreditEligible();
-// 		if (maxDeductableIncome > maxDeductableCeiling) {
-// 			totalDeductible = maxDeductableCeiling;
-// 		} else {
-// 			totalDeductible = maxDeductableIncome;
-// 		}
-// 	} else if (pensionContribution > maxDeductableCeiling) {
-// 		totalDeductible = maxDeductableCeiling;
-// 	} else {
-// 		totalDeductible = pensionContribution;
-// 	}
-// 	return { totalDeductible, pensionTaxCredit: totalCredit * (taxCreditRate / 100) };
-// }
