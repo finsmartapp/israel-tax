@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-// import { globalProps } from '../../../prop-types';
 import taxData from '../../../data/payroll.json';
-import IncomeTaxBandsTable from './Table.js';
+import TaxBandssTable from './Table.js';
 
-class IncomeTaxBands extends Component {
+class TaxBands extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -19,7 +18,7 @@ class IncomeTaxBands extends Component {
 
 	render() {
 		return (
-			<IncomeTaxBandsTable
+			<TaxBandssTable
 				taxData={taxData}
 				taxYearIndex={this.state.taxYearIndex}
 				handleChange={this.handleChange}
@@ -28,4 +27,4 @@ class IncomeTaxBands extends Component {
 	}
 }
 
-export default IncomeTaxBands;
+export default TaxBands;

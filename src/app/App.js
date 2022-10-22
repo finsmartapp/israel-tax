@@ -6,7 +6,7 @@ import NetPay from '../pages/calculators/NetPay';
 import Navigation from '../components/navbar';
 import LanguageContext from '../contexts/LanguageContext';
 import EndOfYear from '../pages/calculators/EndOfYear';
-import IncomeTax from '../pages/tax-tables/IncomeTax';
+import TaxTables from '../pages/tax-tables';
 
 class App extends Component {
 	constructor() {
@@ -30,21 +30,22 @@ class App extends Component {
 
 	render() {
 		return (
-			<Router basename="/israel-tax">
+			<Router basename='/israel-tax'>
 				<LanguageContext.Provider value={this.state}>
 					<Navigation />
 					<Switch>
-						<Route exact path="/" component={Home} />
+						<Route exact path='/' component={Home} />
 						<Route
-							path="/employee/net-pay-calculator"
+							path='/employee/net-pay-calculator'
 							render={() => <NetPay employmentType={'employee'} />}
 						/>
 						<Route
-							path="/self-employed/net-pay-calculator"
+							path='/self-employed/net-pay-calculator'
 							render={() => <NetPay employmentType={'selfEmployed'} />}
 						/>
-						<Route path="/self-employed/end-of-year-calculator" component={EndOfYear} />
-						<Route path="/tax-rates/income-tax" component={IncomeTax} />
+						<Route path='/self-employed/end-of-year-calculator' component={EndOfYear} />
+						<Route path='/tax-rates/income-tax' render={() => <TaxTables page={1} />} />
+						<Route path='/tax-rates/credit-points' render={() => <TaxTables page={2} />} />
 					</Switch>
 				</LanguageContext.Provider>
 			</Router>

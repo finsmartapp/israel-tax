@@ -7,29 +7,32 @@ import Hero from '../../components/hero';
 function Home() {
 	return (
 		<>
-			<Hero h1="Israel Tax Information" />
+			<Hero h1='Israel Tax Information' />
 			<PageContainer>
 				<Row>
-					<Col xs={12} sm={6}>
+					<Col xs={12} sm={6} className='plain-links'>
 						<h2>Calculators</h2>
 						<ul>
-							<Link to="/employee/net-pay-calculator">
-								<li>Employee Net Pay</li>
-							</Link>
-							<Link to="/self-employed/net-pay-calculator">
-								<li>Self-employed Net Pay</li>
-							</Link>
-							<Link to="/self-employed/end-of-year-calculator">
-								<li>End of Year</li>
-							</Link>
+							<li>
+								<Link to='/employee/net-pay-calculator'>Employee Net Pay</Link>
+							</li>
+							<li>
+								<Link to='/self-employed/net-pay-calculator'>Self-employed Net Pay</Link>
+							</li>
+							<li>
+								<Link to='/self-employed/end-of-year-calculator'>End of Year</Link>
+							</li>
 						</ul>
 					</Col>
-					<Col xs={12} sm={6}>
+					<Col xs={12} sm={6} className='plain-links'>
 						<h2>Tax Rate Tables</h2>
 						<ul>
-							<Link to="/tax-rates/income-tax">
-								<li>Income Tax</li>
-							</Link>
+							<li>
+								<Link to='/tax-rates/income-tax'>Income Tax</Link>
+							</li>
+							<li>
+								<Link to='/tax-rates/credit-points'>Credit Points</Link>
+							</li>
 						</ul>
 					</Col>
 				</Row>

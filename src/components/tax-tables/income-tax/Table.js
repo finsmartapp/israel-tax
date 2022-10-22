@@ -4,7 +4,7 @@ import PayrollTaxYearBtn from '../../buttons/PayrollYear';
 import { Table } from 'react-bootstrap';
 import { formatCurrency } from '../../../utils/formatCurrency';
 
-function IncomeTaxBandsTable(props) {
+function TaxBandssTable(props) {
 	const taxData = props.taxData;
 	const taxYearIndex = props.taxYearIndex;
 	const handleChange = props.handleChange;
@@ -23,7 +23,7 @@ function IncomeTaxBandsTable(props) {
 				handleChange={handleChange}
 				controlled={true}
 			/>
-			<Table striped bordered className="table__3--reverse table__header--blue">
+			<Table striped bordered className='table__3--reverse table__header--blue'>
 				<thead>
 					<tr>
 						<th>Rate</th>
@@ -55,13 +55,10 @@ function IncomeTaxBandsTable(props) {
 	);
 }
 
-IncomeTaxBandsTable.propTypes = {
+TaxBandssTable.propTypes = {
 	handleChange: globalProps.handleChange,
 	taxData: payrollProps.taxData,
 	taxYearIndex: payrollProps.taxYearIndex
-	// stateData: globalProps.shape({
-	// 	taxYearIndex: payrollProps.taxYearIndex
-	// })
 };
 
-export default IncomeTaxBandsTable;
+export default TaxBandssTable;

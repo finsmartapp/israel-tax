@@ -3,3 +3,16 @@
 		max-width: 1200px;
 	}
 }
+
+.container {
+	&--sm {
+		@include screen-lg {
+			width: 50%;
+		}
+	}
+	&--md {
+		@include screen-lg {
+			width: 75%;
+		}
+	}
+}

@@ -23,7 +23,9 @@ export const globalProps = {
 	validated: bool.isRequired,
 	children: oneOfType([array, object]).isRequired,
 	resultsTable: object.isRequired,
-	showResultsTable: bool.isRequired
+	showResultsTable: bool.isRequired,
+	displayItems: number.isRequired,
+	page: number.isRequired
 };
 
 export const payrollProps = {
