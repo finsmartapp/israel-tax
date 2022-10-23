@@ -8,6 +8,7 @@ import LanguageContext from '../contexts/LanguageContext';
 import EndOfYear from '../pages/calculators/EndOfYear';
 import TaxTables from '../pages/tax-tables';
 import ContributionTables from '../pages/contribution-tables';
+import Footer from '../components/footer';
 
 class App extends Component {
 	constructor() {
@@ -56,6 +57,7 @@ class App extends Component {
 							render={() => <ContributionTables page={2} employmentType={'selfEmployed'} />}
 						/>
 					</Switch>
+					<Footer />
 				</LanguageContext.Provider>
 			</Router>
 		);

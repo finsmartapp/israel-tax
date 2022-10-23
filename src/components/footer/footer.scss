@@ -1,0 +1,23 @@
+@import '../../styles/variables/colors';
+
+#root {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+footer {
+	margin-top: auto;
+	background-color: $gray-100;
+	border-top: 1px solid $gray-200;
+}
+
+.footer-inner {
+	text-align: center;
+	font-size: 75%;
+	padding: 1.5rem 0 1.5rem 0;
+
+	p:last-of-type {
+		margin-bottom: 0;
+	}
+}
