@@ -7,6 +7,7 @@ import Navigation from '../components/navbar';
 import LanguageContext from '../contexts/LanguageContext';
 import EndOfYear from '../pages/calculators/EndOfYear';
 import TaxTables from '../pages/tax-tables';
+import ContributionTables from '../pages/contribution-tables';
 
 class App extends Component {
 	constructor() {
@@ -46,6 +47,14 @@ class App extends Component {
 						<Route path='/self-employed/end-of-year-calculator' component={EndOfYear} />
 						<Route path='/tax-rates/income-tax' render={() => <TaxTables page={1} />} />
 						<Route path='/tax-rates/credit-points' render={() => <TaxTables page={2} />} />
+						<Route
+							path='/employee/study-fund'
+							render={() => <ContributionTables page={1} employmentType={'employee'} />}
+						/>
+						<Route
+							path='/self-employed/study-fund'
+							render={() => <ContributionTables page={2} employmentType={'selfEmployed'} />}
+						/>
 					</Switch>
 				</LanguageContext.Provider>
 			</Router>

@@ -22,10 +22,16 @@ function NavigationMenu(props) {
 							<LinkContainer to='/employee/net-pay-calculator'>
 								<NavDropdown.Item>Net Pay Calculator</NavDropdown.Item>
 							</LinkContainer>
+							<LinkContainer to='/employee/study-fund'>
+								<NavDropdown.Item>Study Fund Allowances</NavDropdown.Item>
+							</LinkContainer>
 						</NavDropdown>
 						<NavDropdown title='Self-employed'>
 							<LinkContainer to='/self-employed/net-pay-calculator'>
 								<NavDropdown.Item>Net Pay Calculator</NavDropdown.Item>
+							</LinkContainer>
+							<LinkContainer to='/self-employed/study-fund'>
+								<NavDropdown.Item>Study Fund Allowances</NavDropdown.Item>
 							</LinkContainer>
 							<LinkContainer to='/self-employed/end-of-year-calculator'>
 								<NavDropdown.Item>End of Year Calculator</NavDropdown.Item>

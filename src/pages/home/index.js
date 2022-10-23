@@ -36,6 +36,19 @@ function Home() {
 						</ul>
 					</Col>
 				</Row>
+				<Row>
+					<Col xs={12} sm={6} className='plain-links ms-auto'>
+						<h2>Contribution Tables</h2>
+						<ul>
+							<li>
+								<Link to='/employee/study-fund'>Employee Study Fund</Link>
+							</li>
+							<li>
+								<Link to='/self-employed/study-fund'>Self-employed Study Fund</Link>
+							</li>
+						</ul>
+					</Col>
+				</Row>
 			</PageContainer>
 		</>
 	);

@@ -16,3 +16,12 @@
 		}
 	}
 }
+
+section,
+.section {
+	margin-bottom: 2rem;
+
+	@include screen-xxl {
+		margin-bottom: 3rem;
+	}
+}

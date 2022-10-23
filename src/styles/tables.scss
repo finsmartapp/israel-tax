@@ -1,11 +1,12 @@
 .table {
+	&--equal {
+		table-layout: fixed;
+		width: 100%;
+	}
+
 	th {
 		text-align: center;
 		vertical-align: top;
-	}
-
-	&__2 th {
-		width: 50%;
 	}
 
 	&__3 {

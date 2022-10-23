@@ -46,7 +46,7 @@
 		"studyFund": {
 			"employee": { "rate": 2.5, "ceiling": 188544 },
 			"employer": { "rate": 7.5, "ceiling": 188544 },
-			"selfEmployed": { "rate": 4.5, "ceiling": 264000 }
+			"selfEmployed": { "rate": 4.5, "ceiling": 264000, "capitalGainsLimit": 18480 }
 		}
 	},
 	{
@@ -96,7 +96,7 @@
 		"studyFund": {
 			"employee": { "rate": 2.5, "ceiling": 188544 },
 			"employer": { "rate": 7.5, "ceiling": 188544 },
-			"selfEmployed": { "rate": 4.5, "ceiling": 265000 }
+			"selfEmployed": { "rate": 4.5, "ceiling": 265000, "capitalGainsLimit": 18550 }
 		}
 	},
 	{
@@ -146,7 +146,7 @@
 		"studyFund": {
 			"employee": { "rate": 2.5, "ceiling": 188544 },
 			"employer": { "rate": 7.5, "ceiling": 188544 },
-			"selfEmployed": { "rate": 4.5, "ceiling": 263000 }
+			"selfEmployed": { "rate": 4.5, "ceiling": 263000, "capitalGainsLimit": 18410 }
 		}
 	},
 	{
@@ -196,7 +196,7 @@
 		"studyFund": {
 			"employee": { "rate": 2.5, "ceiling": 188544 },
 			"employer": { "rate": 7.5, "ceiling": 188544 },
-			"selfEmployed": { "rate": 4.5, "ceiling": 270000 }
+			"selfEmployed": { "rate": 4.5, "ceiling": 270000, "capitalGainsLimit": 18900 }
 		}
 	}
 ]
