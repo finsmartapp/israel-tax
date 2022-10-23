@@ -15,58 +15,67 @@ function NetPayForm(props) {
 	const formSize = ['xs=7', 'md=6'];
 
 	return (
-		<section>
-			<h2>Calculator</h2>
-			<Form
-				id={`${employmentType}-netpay-form`}
-				noValidate
-				validated={stateData.validated}
-				onSubmit={props.handleSubmit}
-				className="horizontal-form"
-			>
-				<LanguageContext.Consumer>
-					{value => (
-						<>
-							<NetPayIncome
-								employmentType={employmentType}
-								taxData={taxData}
-								stateData={stateData}
-								handleChange={handleChange}
-								language={value.language}
-								formSize={formSize}
-							/>
-							<NetPayContributions
-								employmentType={employmentType}
-								taxData={taxData}
-								stateData={stateData}
-								handleChange={handleChange}
-								language={value.language}
-								formSize={formSize}
-							/>
-							{employmentType === 'employee' && (
-								<>
-									<NetPayAllowances
-										stateData={stateData}
-										handleChange={handleChange}
-										language={value.language}
-										formSize={formSize}
-									/>
-									<NetPayIncentives
-										stateData={stateData}
-										handleChange={handleChange}
-										language={value.language}
-										formSize={formSize}
-									/>
-								</>
-							)}
-						</>
-					)}
-				</LanguageContext.Consumer>
-				<Button type="submit" variant="primary">
-					Calculate
-				</Button>
-			</Form>
-		</section>
+		<>
+			<section>
+				<h2>Net Pay</h2>
+				<p>
+					Use the calculator to determine your net pay, which is the amount you're left with after
+					all tax and other deductions have been applied.
+				</p>
+			</section>
+			<section>
+				<h2>Calculator</h2>
+				<Form
+					id={`${employmentType}-netpay-form`}
+					noValidate
+					validated={stateData.validated}
+					onSubmit={props.handleSubmit}
+					className='horizontal-form'
+				>
+					<LanguageContext.Consumer>
+						{value => (
+							<>
+								<NetPayIncome
+									employmentType={employmentType}
+									taxData={taxData}
+									stateData={stateData}
+									handleChange={handleChange}
+									language={value.language}
+									formSize={formSize}
+								/>
+								<NetPayContributions
+									employmentType={employmentType}
+									taxData={taxData}
+									stateData={stateData}
+									handleChange={handleChange}
+									language={value.language}
+									formSize={formSize}
+								/>
+								{employmentType === 'employee' && (
+									<>
+										<NetPayAllowances
+											stateData={stateData}
+											handleChange={handleChange}
+											language={value.language}
+											formSize={formSize}
+										/>
+										<NetPayIncentives
+											stateData={stateData}
+											handleChange={handleChange}
+											language={value.language}
+											formSize={formSize}
+										/>
+									</>
+								)}
+							</>
+						)}
+					</LanguageContext.Consumer>
+					<Button type='submit' variant='primary'>
+						Calculate
+					</Button>
+				</Form>
+			</section>
+		</>
 	);
 }
 
