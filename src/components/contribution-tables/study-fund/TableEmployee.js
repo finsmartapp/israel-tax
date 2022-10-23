@@ -15,8 +15,8 @@ function StudyFundTableEmployee(props) {
 
 	return (
 		<section>
+			<h2>Contributions & Allowances</h2>
 			<div className='section'>
-				<h2>Contributions & Allowances</h2>
 				<p>
 					A study fund allows you to save without paying capital gains tax on any profit the fund
 					generates, up to a deposit ceiling.

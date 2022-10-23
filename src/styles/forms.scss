@@ -58,14 +58,6 @@ label[as='legend'] {
 	color: $base-font-family;
 }
 
-form {
-	margin-bottom: 2rem;
-
-	@include screen-md {
-		margin-bottom: 4rem;
-	}
-}
-
 .form-text {
 	display: block;
 	margin-top: 0;

@@ -5,18 +5,18 @@ import { Table } from 'react-bootstrap';
 import { formatCurrency } from '../../../utils/formatCurrency';
 
 function TaxBandssTable(props) {
-	const taxData = props.taxData;
-	const taxYearIndex = props.taxYearIndex;
-	const handleChange = props.handleChange;
+	const { taxData, taxYearIndex, handleChange } = props;
 	const taxBands = Object.keys(taxData[taxYearIndex].incomeTax);
 
 	return (
 		<section>
-			<h2>Tax Band Table</h2>
-			<p>
-				Income tax is calculated on your annual income, but monthly bands have been included for
-				comparrison.
-			</p>
+			<h2>Tax Bands</h2>
+			<div className='section'>
+				<p>
+					Income tax is calculated on your annual income, but monthly bands have been included for
+					comparrison.
+				</p>
+			</div>
 			<PayrollTaxYearBtn
 				value={taxYearIndex}
 				columns={['xs=auto']}
