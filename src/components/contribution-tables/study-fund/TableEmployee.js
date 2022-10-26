@@ -8,8 +8,8 @@ function StudyFundTableEmployee(props) {
 	const { taxData, taxYearIndex, employmentType, handleChange } = props;
 	const {
 		studyFund: {
-			[employmentType]: { rate: u1, ceiling: u2 },
-			employer: { rate: e1, ceiling: e2 }
+			[employmentType]: { rate: aRate, ceiling: u2 },
+			employer: { rate: bRate, ceiling: bCeiling }
 		}
 	} = taxData[taxYearIndex];
 
@@ -48,13 +48,13 @@ function StudyFundTableEmployee(props) {
 				<tbody>
 					<tr>
 						<td>Employee Contribution</td>
-						<td>{u1}</td>
-						<td>{formatCurrency('il', u2 * (u1 / 100), 0)}</td>
+						<td>{aRate}</td>
+						<td>{formatCurrency('il', u2 * (aRate / 100), 0)}</td>
 					</tr>
 					<tr>
 						<td>Employer Contribution</td>
-						<td>{e1}</td>
-						<td>{formatCurrency('il', e2 * (e1 / 100), 0)}</td>
+						<td>{bRate}</td>
+						<td>{formatCurrency('il', bCeiling * (bRate / 100), 0)}</td>
 					</tr>
 				</tbody>
 			</Table>
@@ -66,7 +66,7 @@ StudyFundTableEmployee.propTypes = {
 	handleChange: globalProps.handleChange,
 	taxData: payrollProps.taxData,
 	taxYearIndex: payrollProps.taxYearIndex,
-	employmentType: payrollProps.employmentType
+	employmentType: globalProps.employmentType
 };
 
 export default StudyFundTableEmployee;

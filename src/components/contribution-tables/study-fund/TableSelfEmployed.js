@@ -54,7 +54,7 @@ StudyFundTableSelfEmployed.propTypes = {
 	handleChange: globalProps.handleChange,
 	taxData: payrollProps.taxData,
 	taxYearIndex: payrollProps.taxYearIndex,
-	employmentType: payrollProps.employmentType
+	employmentType: globalProps.employmentType
 };
 
 export default StudyFundTableSelfEmployed;
