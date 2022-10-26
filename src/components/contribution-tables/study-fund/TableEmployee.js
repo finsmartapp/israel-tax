@@ -25,7 +25,7 @@ function StudyFundTableEmployee(props) {
 				<ul>
 					<li>You can only open a study fund if your employer offers one</li>
 					<li>
-						You cannot withdraw from the fund for 6 years in order to beenfit from the tax
+						You cannot withdraw from the fund for 6 years in order to benefit from the tax
 						exemptions, unless using the funds to pay for a study programme
 					</li>
 					<li>You don't pay income tax on your employer's contribution </li>

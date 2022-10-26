@@ -15,7 +15,7 @@ function StudyFundTableSelfEmployed(props) {
 				<p>
 					A study fund allows you to save without paying capital gains tax on any profit the fund
 					generates and the contrbutions are a recognised expense, up to deposit ceilings. You
-					cannot withdraw from the fund for 6 years in order to beenfit from the capital gains
+					cannot withdraw from the fund for 6 years in order to benefit from the capital gains
 					exemption, unless using the funds to pay for a study programme.
 				</p>
 			</div>
