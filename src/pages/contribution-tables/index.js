@@ -1,5 +1,5 @@
 import React from 'react';
-import { globalProps, payrollProps } from '../../prop-types';
+import { globalProps } from '../../prop-types';
 import Hero from '../../components/hero';
 import PageContainer from '../../components/page-container';
 import StudyFund from '../../components/contribution-tables/study-fund';
@@ -30,7 +30,7 @@ function ContributionTables(props) {
 
 ContributionTables.propTypes = {
 	page: globalProps.page,
-	employmentType: payrollProps.employmentType
+	employmentType: globalProps.employmentType
 };
 
 export default ContributionTables;
