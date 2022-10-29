@@ -37,9 +37,9 @@ function StudyFundTableEmployee(props) {
 				handleChange={handleChange}
 				controlled={true}
 			/>
-			<Table striped bordered className='table--equal table__header--blue'>
+			<Table striped bordered className='table--col-3'>
 				<thead>
-					<tr>
+					<tr className='table__row-header table__row-header--primary'>
 						<th></th>
 						<th>Maximum Percent</th>
 						<th>Maximum Value</th>

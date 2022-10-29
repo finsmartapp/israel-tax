@@ -23,9 +23,9 @@ function TaxBandssTable(props) {
 				handleChange={handleChange}
 				controlled={true}
 			/>
-			<Table striped bordered className='table__3--reverse table__header--blue'>
+			<Table striped bordered className='table--col-3-reverse'>
 				<thead>
-					<tr>
+					<tr className='table__row-header table__row-header--primary'>
 						<th>Rate</th>
 						<th>Annual</th>
 						<th>Monthly Equivalent</th>

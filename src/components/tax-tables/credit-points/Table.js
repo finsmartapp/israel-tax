@@ -32,9 +32,9 @@ function CreditPointsTable(props) {
 				</p>
 			</div>
 			<div className='container--sm'>
-				<Table striped bordered className='table--equal table__header--blue'>
+				<Table striped bordered className='table--equal'>
 					<thead>
-						<tr>
+						<tr className='table__row-header table__row-header--primary'>
 							<th>Year</th>
 							<th>Value</th>
 						</tr>
