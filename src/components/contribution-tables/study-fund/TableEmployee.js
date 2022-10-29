@@ -42,7 +42,7 @@ function StudyFundTableEmployee(props) {
 					<tr className='table__row-header table__row-header--primary'>
 						<th></th>
 						<th>Maximum Percent</th>
-						<th>Maximum Value</th>
+						<th>Annual Maximum</th>
 					</tr>
 				</thead>
 				<tbody>

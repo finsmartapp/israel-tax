@@ -15,7 +15,7 @@ function CreditPointsTable(props) {
 
 	return (
 		<section>
-			<h2>Credit Point Values</h2>
+			<h2>Credit Point Vaules</h2>
 			<div className='section'>
 				<p>
 					Tax credit points reduce the amount of income tax you pay. Once your total tax liability
@@ -36,7 +36,7 @@ function CreditPointsTable(props) {
 					<thead>
 						<tr className='table__row-header table__row-header--primary'>
 							<th>Year</th>
-							<th>Value</th>
+							<th>Point Value</th>
 						</tr>
 					</thead>
 					<tbody>

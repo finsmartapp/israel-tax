@@ -26,7 +26,8 @@ function EmployeePension() {
 						pension fund
 					</li>
 					<li>
-						Your employer will not include bonuses or overtime in amount they pay contributions on
+						Your employer will not include bonuses or overtime in the amount they pay contributions
+						on
 					</li>
 					<li>
 						Your employer is only required to contribute up to the equivalant amount of the national
