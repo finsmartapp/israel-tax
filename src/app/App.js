@@ -56,6 +56,8 @@ class App extends Component {
 							path='/self-employed/study-fund'
 							render={() => <ContributionTables page={2} employmentType={'selfEmployed'} />}
 						/>
+						<Route path='/employee/pension' render={() => <ContributionTables page={3} />} />
+						<Route path='/self-employed/pension' render={() => <ContributionTables page={4} />} />
 					</Switch>
 					<Footer />
 				</LanguageContext.Provider>

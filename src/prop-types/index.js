@@ -18,6 +18,7 @@ export const globalProps = {
 	handleClick: func.isRequired,
 	stateData: object.isRequired,
 	employmentType: oneOf(['employee', 'selfEmployed']).isRequired,
+	employmentTypeOptional: oneOf(['employee', 'selfEmployed']),
 	language: string.isRequired,
 	display: bool.isRequired,
 	validated: bool.isRequired,
@@ -25,7 +26,8 @@ export const globalProps = {
 	resultsTable: object.isRequired,
 	showResultsTable: bool.isRequired,
 	displayItems: number.isRequired,
-	page: number.isRequired
+	page: number.isRequired,
+	rate: number.isRequired
 };
 
 export const payrollProps = {

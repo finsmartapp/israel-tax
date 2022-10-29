@@ -51,6 +51,12 @@ function Home() {
 								<li>
 									<Link to='/self-employed/study-fund'>Self-employed Study Fund</Link>
 								</li>
+								<li>
+									<Link to='/employee/pension'>Workplace Pension</Link>
+									<li>
+										<Link to='/self-employed/pension'>Self-employed Pension</Link>
+									</li>
+								</li>
 							</ul>
 						</section>
 					</Col>
