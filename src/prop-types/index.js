@@ -21,13 +21,13 @@ export const globalProps = {
 	employmentTypeOptional: oneOf(['employee', 'selfEmployed']),
 	language: string.isRequired,
 	display: bool.isRequired,
-	validated: bool.isRequired,
 	children: oneOfType([array, object]).isRequired,
 	resultsTable: object.isRequired,
 	showResultsTable: bool.isRequired,
 	displayItems: number.isRequired,
 	page: number.isRequired,
-	rate: number.isRequired
+	rate: number.isRequired,
+	active: bool.isRequired
 };
 
 export const payrollProps = {
@@ -80,9 +80,18 @@ export const formProps = {
 	dataKey: string.isRequired,
 	controlled: bool,
 	type: string,
-	formIndex: number.isRequired
+	formIndex: number.isRequired,
+	validated: bool.isRequired
 };
 
 export const heroProps = {
 	h1: string.isRequired
+};
+
+export const incomeTaxProps = {
+	incomeTax: number,
+	annualIncomeTax: number.isRequired,
+	monthlyBandPayments: array.isRequired,
+	annualBandPayments: array.isRequired,
+	eoy: bool
 };

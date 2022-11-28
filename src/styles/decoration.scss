@@ -8,3 +8,11 @@ a {
 .plain-links a {
 	color: $base-font-color;
 }
+
+.btn-link {
+	border: none;
+	background-color: inherit;
+	padding: 0;
+	color: $link;
+	text-decoration: none;
+}

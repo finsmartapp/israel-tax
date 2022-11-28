@@ -3,53 +3,50 @@ export function incomeTaxCalc(
 	taxYearIndex,
 	taxableIncome,
 	annualBonus,
-	creditPointsTaxCredit,
-	pensionTaxCredit,
+	credits,
 	employment,
 	eoy
 ) {
 	//Income tax uses annual tax bands
 	//Bonus calculated separatly to ensure tax that month isn't multipled by 12 for yearly total
 
-	let incomes = eoy
-		? [taxableIncome]
-		: employment === 'selfEmployed'
-		? [taxableIncome * 12]
-		: [(taxableIncome - annualBonus) * 12, (taxableIncome - annualBonus) * 12 + annualBonus];
-	const credits = creditPointsTaxCredit + pensionTaxCredit;
-	let taxes = [];
-
-	incomes.forEach(income => {
+	const taxBands = Object.keys(taxData[taxYearIndex].incomeTax);
+	const hasBonus = annualBonus > 0;
+	annualBonus = hasBonus ? annualBonus : 0;
+	const calculateTax = income => {
 		let taxDue = 0;
-		const taxBands = Object.keys(taxData[taxYearIndex].incomeTax);
 
 		taxBands.forEach(taxBand => {
-			const { rate, min, max } = taxData[taxYearIndex].incomeTax[taxBand];
-			let bandAdjustment;
-			//Adjust as min band is inclusive and is lost during x - min
-			min === 0 ? (bandAdjustment = 0) : (bandAdjustment = 1);
+			const { rate, min: minimum, max } = taxData[taxYearIndex].incomeTax[taxBand];
+			const bandAdjustment = minimum === 0 ? 0 : 1;
+			const min = minimum - bandAdjustment;
 
 			if (income >= min) {
 				if (max === undefined) {
-					taxDue += (income - min + bandAdjustment) * (rate / 100);
+					const tax = (income - min) * (rate / 100);
+					taxDue += tax;
 				} else if (income >= max) {
-					taxDue += (max - min + bandAdjustment) * (rate / 100);
+					const tax = (max - min) * (rate / 100);
+					taxDue += tax;
 				} else {
-					taxDue += (income - min + bandAdjustment) * (rate / 100);
+					const tax = (income - min) * (rate / 100);
+					taxDue += tax;
 				}
 			}
 		});
 
-		taxes.push(taxDue);
-	});
+		return taxDue;
+	};
 
-	const annualTax = taxes[0];
-	const taxOnBonus = employment === 'employee' ? taxes[1] - taxes[0] : 0;
-	const incomeTax = eoy ? annualTax - credits : annualTax / 12 + taxOnBonus - credits;
-	const annualIncomeTax = annualTax + taxOnBonus - credits * 12;
+	const annualTax = calculateTax(eoy ? taxableIncome : (taxableIncome - annualBonus) * 12);
+	const annualWithBonus =
+		hasBonus && calculateTax((taxableIncome - annualBonus) * 12 + annualBonus);
+	const bonusTax = hasBonus ? annualWithBonus - annualTax : 0;
+	const finalAnnual = annualTax + bonusTax - credits * (eoy ? 1 : 12);
+	const finalMonthly = annualTax / 12 + bonusTax - credits;
 
 	return {
-		incomeTax: incomeTax > 0 ? incomeTax : 0,
-		annualIncomeTax: annualIncomeTax > 0 ? annualIncomeTax : 0
+		incomeTax: finalMonthly > 0 ? finalMonthly : 0,
+		annualIncomeTax: finalAnnual > 0 ? finalAnnual : 0
 	};
 }

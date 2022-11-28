@@ -1,5 +1,5 @@
 import React from 'react';
-import { globalProps, payrollProps } from '../../../prop-types';
+import { globalProps, payrollProps, formProps } from '../../../prop-types';
 import { Form, Button } from 'react-bootstrap';
 import NetPayIncome from './form-sections/Income';
 import NetPayContributions from './form-sections/Contributions';
@@ -21,6 +21,10 @@ function NetPayForm(props) {
 				<p>
 					Use the calculator to determine your net pay, which is the amount you're left with after
 					all tax and other deductions have been applied.
+				</p>
+				<p>
+					Enter your monthly financials, but it's imprtant to be aware that taxes are calculated on
+					your annual income.
 				</p>
 			</section>
 			<section>
@@ -85,7 +89,7 @@ NetPayForm.propTypes = {
 	taxData: payrollProps.taxData,
 	employmentType: globalProps.employmentType,
 	stateData: globalProps.shape({
-		validated: payrollProps.validated
+		validated: formProps.validated
 	})
 };
 

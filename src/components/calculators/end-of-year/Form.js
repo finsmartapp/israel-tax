@@ -1,5 +1,5 @@
 import React from 'react';
-import { globalProps, payrollProps } from '../../../prop-types';
+import { globalProps, payrollProps, formProps } from '../../../prop-types';
 import { Form, ButtonGroup, ToggleButton, Button, Row, Col } from 'react-bootstrap';
 import LanguageContext from '../../../contexts/LanguageContext';
 import EndOfYearRevenue from './form-sections/Revenue';
@@ -31,8 +31,8 @@ function EndOfYearForm(props) {
 			<section>
 				<h2>Net Pay</h2>
 				<p>
-					Use the calculator to determine your net pay, which is the amount you're left with after
-					all tax and other deductions have been applied.
+					Use the calculator to determine your net pay for the year, which is the amount you're left
+					with after all tax and other deductions have been applied.
 				</p>
 			</section>
 			<section>
@@ -142,7 +142,7 @@ EndOfYearForm.propTypes = {
 		taxYearIndex: payrollProps.taxYearIndex,
 		pensionOption: payrollProps.pensionOption,
 		studyFundOption: payrollProps.studyFundOption,
-		validated: payrollProps.validated
+		validated: formProps.validated
 	})
 };
 

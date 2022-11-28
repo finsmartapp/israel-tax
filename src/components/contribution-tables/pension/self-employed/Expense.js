@@ -29,10 +29,11 @@ function SelfEmployedPensionExpense(props) {
 				</p>
 				<p>
 					Up to an eligible income of {formatCurrency('il', eligibleIncome, 0)}, the full benefits
-					are available. If your income exceeds this, the benefits are calculated in two tiers and
-					you must be defined as a beneficary to be eligiible for the second teir. To become a
-					beneficiary, a beneficary payment must be deposited, which is in addition to the amounts
-					deposited in the first tier and on which no tax benefits are availble.
+					are available as a simple percentage of your income. If your income exceeds this, the
+					benefits are calculated in two tiers and you must be defined as a beneficary to be
+					eligiible for the second teir. To become a beneficiary, a beneficary payment must be
+					deposited, which is in addition to the amounts deposited in the first tier and on which no
+					tax benefits are availble.
 				</p>
 				<p>
 					Tax relief is only available up to an income cieling of {formatCurrency('il', ceiling, 0)}

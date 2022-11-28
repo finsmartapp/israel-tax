@@ -8,6 +8,16 @@
 		width: 100%;
 	}
 
+	&--col-2 {
+		th,
+		td {
+			&:nth-of-type(1) {
+				width: 60%;
+			}
+			width: 40%;
+		}
+	}
+
 	&--col-3 {
 		th,
 		td {
@@ -60,4 +70,8 @@
 	&__total {
 		font-weight: $strong;
 	}
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) td:nth-of-type(1) {
+	--bs-table-accent-bg: white;
 }

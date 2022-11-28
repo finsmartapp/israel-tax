@@ -9,7 +9,9 @@ import { pensionReliefCalc } from '../../../utils/tax-calculators/pensionReliefS
 import { studyFundAllowances } from '../../../utils/tax-calculators/studyFundAllowances';
 import { studyFundCalc } from '../../../utils/tax-calculators/studyFund';
 import { incomeTaxCalc } from '../../../utils/tax-calculators/incomeTax';
+import { incomeTaxBandsCalc } from '../../../utils/tax-calculators/incomeTaxBands';
 import { formatCurrency } from '../../../utils/formatCurrency';
+import IncomeTaxTable from '../breakdown/income-tax';
 
 function ResultsSelfEmployed(props) {
 	const taxData = props.taxData;
@@ -73,24 +75,29 @@ function ResultsSelfEmployed(props) {
 		taxableIncome -
 		nationalInsurance *
 			(taxData[taxYearIndex].bituachLeumi.selfEmployedNationalInsuranceDiscount / 100);
+	const credits = creditPointsTaxCredit + pensionTaxCredit;
 	const { incomeTax, annualIncomeTax } = incomeTaxCalc(
 		taxData,
 		taxYearIndex,
 		incomeTaxTaxableIncome,
 		0,
-		creditPointsTaxCredit,
-		pensionTaxCredit,
+		credits,
 		employmentType
+	);
+	const { monthlyBandPayments, annualBandPayments } = incomeTaxBandsCalc(
+		taxData,
+		taxYearIndex,
+		annualIncomeTax
 	);
 
 	return (
 		<>
-			{showResultsTable === true && (
+			{showResultsTable && (
 				<section ref={props.resultsTable}>
 					<h2>Results</h2>
-					<Table striped bordered className='table__3 table__header--blue'>
+					<Table striped bordered className='table--col-3'>
 						<thead>
-							<tr>
+							<tr className='table__row-header table__row-header--primary'>
 								<th></th>
 								<th>Month</th>
 								<th>Year</th>
@@ -103,22 +110,23 @@ function ResultsSelfEmployed(props) {
 								<td>{formatCurrency('il', baseIncome * 12)}</td>
 							</tr>
 							<tr>
-								<td>Taxable income</td>
+								<td>Taxable Income</td>
 								<td>{formatCurrency('il', incomeTaxTaxableIncome)}</td>
 								<td>{formatCurrency('il', incomeTaxTaxableIncome * 12)}</td>
 							</tr>
+							<IncomeTaxTable
+								incomeTax={incomeTax}
+								annualIncomeTax={annualIncomeTax}
+								monthlyBandPayments={monthlyBandPayments}
+								annualBandPayments={annualBandPayments}
+							/>
 							<tr>
-								<td>Income tax</td>
-								<td>{formatCurrency('il', incomeTax)}</td>
-								<td>{formatCurrency('il', annualIncomeTax)}</td>
-							</tr>
-							<tr>
-								<td>National insurance</td>
+								<td>National Insurance</td>
 								<td>{formatCurrency('il', nationalInsurance)}</td>
 								<td>{formatCurrency('il', annualNationalInsurance)}</td>
 							</tr>
 							<tr>
-								<td>Health insurance</td>
+								<td>Health Insurance</td>
 								<td>{formatCurrency('il', healthInsurance)}</td>
 								<td>{formatCurrency('il', annualHealthInsurance)}</td>
 							</tr>
@@ -129,13 +137,12 @@ function ResultsSelfEmployed(props) {
 							</tr>
 							{studyFundContribution > 0 && (
 								<tr>
-									<td>Study fund</td>
+									<td>Study Fund</td>
 									<td>{formatCurrency('il', studyFundContribution)}</td>
 									<td>{formatCurrency('il', studyFundContribution * 12)}</td>
 								</tr>
 							)}
-
-							<tr>
+							<tr className='table_total'>
 								<td>Net</td>
 								<td>
 									{formatCurrency(

@@ -10,6 +10,8 @@ import { studyFundCalc } from '../../../utils/tax-calculators/studyFund';
 import { incomeTaxCalc } from '../../../utils/tax-calculators/incomeTax';
 import { nationalInsuranceSelfEmp } from '../../../utils/tax-calculators/nationalInsuranceSelfEmp';
 import { bituachLeumiCalc } from '../../../utils/tax-calculators/bituachLeumi';
+import { incomeTaxBandsCalc } from '../../../utils/tax-calculators/incomeTaxBands';
+import IncomeTaxTable from '../breakdown/income-tax';
 
 function EndOfYearResults(props) {
 	const taxData = props.taxData;
@@ -105,26 +107,31 @@ function EndOfYearResults(props) {
 		taxableIncome -
 		nationalInsurance *
 			(taxData[taxYearIndex].bituachLeumi.selfEmployedNationalInsuranceDiscount / 100);
-	const { incomeTax } = incomeTaxCalc(
+	const credits = creditPointsTaxCredit + pensionTaxCredit;
+	const { annualIncomeTax: incomeTax } = incomeTaxCalc(
 		taxData,
 		taxYearIndex,
 		incomeTaxTaxableIncome,
 		0,
-		creditPointsTaxCredit,
-		pensionTaxCredit,
+		credits,
 		employmentType,
 		eoy
+	);
+	const { monthlyBandPayments, annualBandPayments } = incomeTaxBandsCalc(
+		taxData,
+		taxYearIndex,
+		incomeTax
 	);
 
 	return (
 		<>
-			{showResultsTable === true && (
+			{showResultsTable && (
 				<section ref={props.resultsTable}>
 					<h2>Results</h2>
 
-					<Table striped bordered className='table__2 table__header--blue'>
+					<Table striped bordered className='table--col-2'>
 						<thead>
-							<tr>
+							<tr className='table__row-header table__row-header--primary'>
 								<th></th>
 								<th>Total</th>
 							</tr>
@@ -147,15 +154,17 @@ function EndOfYearResults(props) {
 								<td>{formatCurrency('il', totalProfit)}</td>
 							</tr>
 							<tr>
-								<td>Taxable income</td>
+								<td>Taxable Income</td>
 								<td>{formatCurrency('il', incomeTaxTaxableIncome)}</td>
 							</tr>
+							<IncomeTaxTable
+								annualIncomeTax={incomeTax}
+								monthlyBandPayments={monthlyBandPayments}
+								annualBandPayments={annualBandPayments}
+								eoy={eoy}
+							/>
 							<tr>
-								<td>Income tax</td>
-								<td>{formatCurrency('il', incomeTax)}</td>
-							</tr>
-							<tr>
-								<td>National insurance</td>
+								<td>National Insurance</td>
 								<td>{formatCurrency('il', nationalInsurance)}</td>
 							</tr>
 							<tr>
@@ -168,11 +177,11 @@ function EndOfYearResults(props) {
 							</tr>
 							{studyFundContribution > 0 && (
 								<tr>
-									<td>Study fund</td>
+									<td>Study Fund</td>
 									<td>{formatCurrency('il', studyFundContribution)}</td>
 								</tr>
 							)}
-							<tr>
+							<tr className='table_total'>
 								<td>Net</td>
 								<td>
 									{' '}

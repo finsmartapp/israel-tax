@@ -53,9 +53,9 @@ function Home() {
 								</li>
 								<li>
 									<Link to='/employee/pension'>Workplace Pension</Link>
-									<li>
-										<Link to='/self-employed/pension'>Self-employed Pension</Link>
-									</li>
+								</li>
+								<li>
+									<Link to='/self-employed/pension'>Self-employed Pension</Link>
 								</li>
 							</ul>
 						</section>
