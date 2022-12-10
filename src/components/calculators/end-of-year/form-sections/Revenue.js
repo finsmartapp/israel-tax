@@ -14,11 +14,11 @@ function EndOfYearRevenue(props) {
 
 	return (
 		<fieldset>
-			<Form.Label as="legend">Revenue</Form.Label>
-			<Row className="eoy-income">
+			<Form.Label as='legend'>Revenue</Form.Label>
+			<Row className='eoy-income'>
 				<InputField
 					language={language}
-					label="Income"
+					label='Total Income'
 					name={`income${formIndex}`}
 					value={income[formIndex]}
 					columns={formSize}
@@ -29,7 +29,7 @@ function EndOfYearRevenue(props) {
 				/>
 				<InputField
 					language={language}
-					label="Expenses"
+					label='Expenses'
 					name={`expenses${formIndex}`}
 					value={expenses[formIndex]}
 					columns={formSize}
@@ -40,7 +40,7 @@ function EndOfYearRevenue(props) {
 				/>
 				<InputField
 					language={language}
-					label="Profit"
+					label='Profit'
 					name={`profit${formIndex}`}
 					value={profit[formIndex]}
 					columns={formSize}
@@ -51,7 +51,7 @@ function EndOfYearRevenue(props) {
 				/>
 				<InputField
 					language={language}
-					label="Tax credit points"
+					label='Tax credit points'
 					name={`creditPoints${formIndex}`}
 					value={creditPoints[formIndex]}
 					columns={formSize}

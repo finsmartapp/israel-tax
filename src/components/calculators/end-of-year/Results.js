@@ -128,7 +128,6 @@ function EndOfYearResults(props) {
 			{showResultsTable && (
 				<section ref={props.resultsTable}>
 					<h2>Results</h2>
-
 					<Table striped bordered className='table--col-2'>
 						<thead>
 							<tr className='table__row-header table__row-header--primary'>

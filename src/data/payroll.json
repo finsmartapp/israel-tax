@@ -196,7 +196,7 @@
 		"studyFund": {
 			"employee": { "rate": 2.5, "ceiling": 188544 },
 			"employer": { "rate": 7.5, "ceiling": 188544 },
-			"selfEmployed": { "rate": 4.5, "ceiling": 270000, "capitalGainsLimit": 18900 }
+			"selfEmployed": { "rate": 4.5, "ceiling": 270000, "capitalGainsLimit": 18960 }
 		}
 	}
 ]
