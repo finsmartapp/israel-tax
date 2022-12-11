@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { globalProps } from '../../../prop-types';
 import taxData from '../../../data/payroll.json';
-import StudyFundTableEmployee from './TableEmployee.js';
-import StudyFundTableSelfEmployed from './TableSelfEmployed.js';
+import StudyFundEmployee from './Employee.js';
+import StudyFundSelfEmployed from './SelfEmployed.js';
 
 class StudyFund extends Component {
 	constructor(props) {
@@ -22,7 +22,7 @@ class StudyFund extends Component {
 		return (
 			<>
 				{this.props.employmentType === 'employee' && (
-					<StudyFundTableEmployee
+					<StudyFundEmployee
 						taxData={taxData}
 						taxYearIndex={this.state.taxYearIndex}
 						handleChange={this.handleChange}
@@ -31,7 +31,7 @@ class StudyFund extends Component {
 				)}
 
 				{this.props.employmentType === 'selfEmployed' && (
-					<StudyFundTableSelfEmployed
+					<StudyFundSelfEmployed
 						taxData={taxData}
 						taxYearIndex={this.state.taxYearIndex}
 						handleChange={this.handleChange}

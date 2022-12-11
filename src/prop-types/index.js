@@ -52,7 +52,8 @@ export const payrollProps = {
 export const panelProps = {
 	type: string.isRequired,
 	title: string.isRequired,
-	text: string.isRequired
+	text: string.isRequired,
+	body: object.isRequired
 };
 
 export const formProps = {

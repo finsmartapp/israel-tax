@@ -1,0 +1,49 @@
+.card:not(:last-child) {
+	margin-bottom: 1rem;
+}
+
+.card-header {
+	.card-title {
+		margin-bottom: 0;
+	}
+
+	.card-icon {
+		&::before {
+			content: '';
+			display: inline-block;
+			height: 1em;
+			width: 1em;
+			object-fit: cover;
+			-webkit-mask-repeat: no-repeat;
+			mask-repeat: no-repeat;
+			-webkit-mask-position: center;
+			mask-position: center;
+			margin-right: 1rem;
+			vertical-align: text-bottom;
+		}
+
+		&--example::before {
+			mask-image: url(../../icons/bulb.svg);
+			-webkit-mask-image: url(../../icons/bulb.svg);
+			background: #000000;
+		}
+
+		&--info::before {
+			mask-image: url(../../icons/info.svg);
+			-webkit-mask-image: url(../../icons/info.svg);
+			background: var(--bs-info);
+		}
+
+		&--warning::before {
+			mask-image: url(../../icons/warning.svg);
+			-webkit-mask-image: url(../../icons/warning.svg);
+			background: var(--bs-warning);
+		}
+
+		&--danger::before {
+			mask-image: url(../../icons/warning.svg);
+			-webkit-mask-image: url(../../icons/warning.svg);
+			background: var(--bs-danger);
+		}
+	}
+}

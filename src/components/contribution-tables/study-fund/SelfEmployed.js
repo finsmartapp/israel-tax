@@ -4,10 +4,11 @@ import PayrollTaxYearBtn from '../../buttons/PayrollYear';
 import { Table } from 'react-bootstrap';
 import { formatCurrency } from '../../../utils/formatCurrency';
 
-function StudyFundTableSelfEmployed(props) {
+import Cards from '../../card';
+
+function StudyFundSelfEmployed(props) {
 	const { taxData, taxYearIndex, employmentType, handleChange } = props;
 	const { rate, ceiling, capitalGainsLimit } = taxData[taxYearIndex].studyFund[employmentType];
-
 	const maxDeposit = ceiling * (rate / 100);
 	const exmpleAboveCeiling = ceiling * 1.25;
 	const exampleAboveMaxDeposit = exmpleAboveCeiling * (rate / 100);
@@ -56,53 +57,70 @@ function StudyFundTableSelfEmployed(props) {
 			</section>
 			<section>
 				<h2>Deposit Examples</h2>
-				<h3>Example One: Above the Income Ceiling</h3>
-				<p>
-					If your annual income is {formatCurrency('il', exmpleAboveCeiling, 0)}, {rate}% is{' '}
-					{formatCurrency('il', exampleAboveMaxDeposit, 0)}, which is above the maximum deposit
-					limit. You're therefore able to make the following deposits:
-				</p>
-				<ul>
-					<li>{formatCurrency('il', maxDeposit, 0)} will be considered a recognised expense</li>
-					<li>
-						An additional {formatCurrency('il', capitalGainsLimit - maxDeposit, 0)} will be exempt
-						from capital gains tax
-					</li>
-					<li>
-						Any further deposits, over the {formatCurrency('il', capitalGainsLimit, 0)} limit, won't
-						be eligible for any tax benefits
-					</li>
-				</ul>
-				<h3>Example Two: Below the Income Ceiling</h3>
-				<p>
-					If your annual income is {formatCurrency('il', exmpleBelowCeiling, 0)}, {rate}% is{' '}
-					{formatCurrency('il', exampleBelowMaxDeposit, 0)}. You're therefore able to make the
-					following deposits:
-				</p>
-				<ul>
-					<li>
-						{formatCurrency('il', exampleBelowMaxDeposit, 0)} will be considered a recognised
-						expense
-					</li>
-					<li>
-						An additional {formatCurrency('il', capitalGainsLimit - exampleBelowMaxDeposit, 0)} will
-						be exempt from capital gains tax
-					</li>
-					<li>
-						Any further deposits, over the {formatCurrency('il', capitalGainsLimit, 0)} limit, won't
-						be eligible for any tax benefits
-					</li>
-				</ul>
+				<Cards
+					type='example'
+					title='Above the Income Ceiling'
+					body={
+						<>
+							<p>
+								If your annual income is {formatCurrency('il', exmpleAboveCeiling, 0)}, {rate}% is{' '}
+								{formatCurrency('il', exampleAboveMaxDeposit, 0)}, which is above the maximum
+								deposit limit. You're therefore able to make the following deposits:
+							</p>
+							<ul>
+								<li>
+									{formatCurrency('il', maxDeposit, 0)} will be considered a recognised expense
+								</li>
+								<li>
+									An additional {formatCurrency('il', capitalGainsLimit - maxDeposit, 0)} will be
+									exempt from capital gains tax
+								</li>
+								<li>
+									Any further deposits, over the {formatCurrency('il', capitalGainsLimit, 0)} limit,
+									won't be eligible for any tax benefits
+								</li>
+							</ul>
+						</>
+					}
+				/>
+				<Cards
+					type='example'
+					title='Below the Income Ceiling'
+					body={
+						<>
+							<p>
+								If your annual income is {formatCurrency('il', exmpleBelowCeiling, 0)}, {rate}% is{' '}
+								{formatCurrency('il', exampleBelowMaxDeposit, 0)}. You're therefore able to make the
+								following deposits:
+							</p>
+							<ul>
+								<li>
+									{formatCurrency('il', exampleBelowMaxDeposit, 0)} will be considered a recognised
+									expense
+								</li>
+								<li>
+									An additional{' '}
+									{formatCurrency('il', capitalGainsLimit - exampleBelowMaxDeposit, 0)} will be
+									exempt from capital gains tax
+								</li>
+								<li>
+									Any further deposits, over the {formatCurrency('il', capitalGainsLimit, 0)} limit,
+									won't be eligible for any tax benefits
+								</li>
+							</ul>
+						</>
+					}
+				/>
 			</section>
 		</>
 	);
 }
 
-StudyFundTableSelfEmployed.propTypes = {
+StudyFundSelfEmployed.propTypes = {
 	handleChange: globalProps.handleChange,
 	taxData: payrollProps.taxData,
 	taxYearIndex: payrollProps.taxYearIndex,
 	employmentType: globalProps.employmentType
 };
 
-export default StudyFundTableSelfEmployed;
+export default StudyFundSelfEmployed;

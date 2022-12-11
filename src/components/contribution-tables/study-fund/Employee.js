@@ -4,7 +4,7 @@ import PayrollTaxYearBtn from '../../buttons/PayrollYear';
 import { Table } from 'react-bootstrap';
 import { formatCurrency } from '../../../utils/formatCurrency';
 
-function StudyFundTableEmployee(props) {
+function StudyFundEmployee(props) {
 	const { taxData, taxYearIndex, employmentType, handleChange } = props;
 	const {
 		studyFund: {
@@ -62,11 +62,11 @@ function StudyFundTableEmployee(props) {
 	);
 }
 
-StudyFundTableEmployee.propTypes = {
+StudyFundEmployee.propTypes = {
 	handleChange: globalProps.handleChange,
 	taxData: payrollProps.taxData,
 	taxYearIndex: payrollProps.taxYearIndex,
 	employmentType: globalProps.employmentType
 };
 
-export default StudyFundTableEmployee;
+export default StudyFundEmployee;
