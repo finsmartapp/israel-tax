@@ -3,7 +3,6 @@ import { globalProps, payrollProps } from '../../../prop-types';
 import PayrollTaxYearBtn from '../../buttons/PayrollYear';
 import { Table } from 'react-bootstrap';
 import { formatCurrency } from '../../../utils/formatCurrency';
-
 import Cards from '../../card';
 
 function StudyFundSelfEmployed(props) {
@@ -11,7 +10,6 @@ function StudyFundSelfEmployed(props) {
 	const { rate, ceiling, capitalGainsLimit } = taxData[taxYearIndex].studyFund[employmentType];
 	const maxDeposit = ceiling * (rate / 100);
 	const exmpleAboveCeiling = ceiling * 1.25;
-	const exampleAboveMaxDeposit = exmpleAboveCeiling * (rate / 100);
 	const exmpleBelowCeiling = ceiling * 0.75;
 	const exampleBelowMaxDeposit = exmpleBelowCeiling * (rate / 100);
 
@@ -21,10 +19,11 @@ function StudyFundSelfEmployed(props) {
 				<h2>Contributions & Allowances</h2>
 				<div className='section'>
 					<p>
-						A study fund allows you to save without paying capital gains tax on any profit the fund
-						generates and the contributions are a recognised expense, up to deposit ceilings. You
-						cannot withdraw from the fund for 6 years in order to benefit from the capital gains
-						exemption, unless using the funds to pay for a study/training programme.
+						A study fund allows you to save without paying capital gains tax on profit the fund
+						generates and the contributions are a recognised expense, up to deposit limits and an
+						income of ceiling of {formatCurrency('il', ceiling, 0)}. You cannot withdraw from the
+						fund for 6 years in order to benefit from the capital gains exemption, unless using the
+						funds to pay for a study/training programme.
 					</p>
 				</div>
 				<PayrollTaxYearBtn
@@ -45,7 +44,7 @@ function StudyFundSelfEmployed(props) {
 						<tr>
 							<td>Recognised Expense</td>
 							<td>{rate}</td>
-							<td>{formatCurrency('il', ceiling * (rate / 100), 0)}</td>
+							<td>{formatCurrency('il', maxDeposit, 0)}</td>
 						</tr>
 						<tr>
 							<td>Capital Gains Exemption</td>
@@ -63,13 +62,13 @@ function StudyFundSelfEmployed(props) {
 					body={
 						<>
 							<p>
-								If your annual income is {formatCurrency('il', exmpleAboveCeiling, 0)}, {rate}% is{' '}
-								{formatCurrency('il', exampleAboveMaxDeposit, 0)}, which is above the maximum
-								deposit limit. You're therefore able to make the following deposits:
+								An annual income of {formatCurrency('il', exmpleAboveCeiling, 0)} exceeds the income
+								ceiling, so the following deposits amounts apply:
 							</p>
 							<ul>
 								<li>
-									{formatCurrency('il', maxDeposit, 0)} will be considered a recognised expense
+									{rate}% of your income exceeds the deposit limit, so you can deposit the maximum
+									of {formatCurrency('il', maxDeposit, 0)} to be considered a recognised expense
 								</li>
 								<li>
 									An additional {formatCurrency('il', capitalGainsLimit - maxDeposit, 0)} will be
@@ -89,14 +88,13 @@ function StudyFundSelfEmployed(props) {
 					body={
 						<>
 							<p>
-								If your annual income is {formatCurrency('il', exmpleBelowCeiling, 0)}, {rate}% is{' '}
-								{formatCurrency('il', exampleBelowMaxDeposit, 0)}. You're therefore able to make the
-								following deposits:
+								An annual income of {formatCurrency('il', exmpleBelowCeiling, 0)} is less than the
+								income ceiling, so the following deposits amounts apply:
 							</p>
 							<ul>
 								<li>
-									{formatCurrency('il', exampleBelowMaxDeposit, 0)} will be considered a recognised
-									expense
+									{rate}% of your income, {formatCurrency('il', exampleBelowMaxDeposit, 0)}, will be
+									considered a recognised expense
 								</li>
 								<li>
 									An additional{' '}
