@@ -58,12 +58,12 @@ function StudyFundSelfEmployed(props) {
 				<h2>Deposit Examples</h2>
 				<Cards
 					type='example'
-					title='Above the Income Ceiling'
+					title='Salary Above the Income Ceiling'
 					body={
 						<>
 							<p>
-								An annual income of {formatCurrency('il', exmpleAboveCeiling, 0)} exceeds the income
-								ceiling, so the following deposits amounts apply:
+								If your annual income is {formatCurrency('il', exmpleAboveCeiling, 0)}, it exceeds
+								the income ceiling and the following deposit amounts apply:
 							</p>
 							<ul>
 								<li>
@@ -84,12 +84,12 @@ function StudyFundSelfEmployed(props) {
 				/>
 				<Cards
 					type='example'
-					title='Below the Income Ceiling'
+					title='Salary Below the Income Ceiling'
 					body={
 						<>
 							<p>
-								An annual income of {formatCurrency('il', exmpleBelowCeiling, 0)} is less than the
-								income ceiling, so the following deposits amounts apply:
+								If your annual income is {formatCurrency('il', exmpleBelowCeiling, 0)}, it's less
+								than the income ceiling and the following deposit amounts apply:
 							</p>
 							<ul>
 								<li>

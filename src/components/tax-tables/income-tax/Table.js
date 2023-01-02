@@ -43,7 +43,7 @@ function TaxBandssTable(props) {
 									{max !== undefined ? `-${formatCurrency('il', max, 0)}` : ' and above'}
 								</td>
 								<td>
-									{formatCurrency('il', min / 12 + 1, 0)}
+									{formatCurrency('il', min === 0 ? min : min / 12 + 1, 0)}
 									{max !== undefined ? `-${formatCurrency('il', max / 12, 0)}` : ' and above'}
 								</td>
 							</tr>
