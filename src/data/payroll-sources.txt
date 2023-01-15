@@ -1,0 +1,31 @@
+BITUACH LEUIMI
+
+Avergae wage: https://www.btl.gov.il/English%20Homepage/Mediniyut/GeneralInformation/Pages/AverageWage.aspx
+Employee: https://www.btl.gov.il/English%20Homepage/Insurance/Ratesandamount/Pages/forSalaried.aspx
+Self-employed: https://www.btl.gov.il/English%20Homepage/Insurance/Ratesandamount/Pages/Selfemployedperson.aspx
+
+INCOME TAX ORDINANCE 
+https://he.wikisource.org/wiki/פקודת_מס_הכנסה
+
+1. Credit point: 33A
+https://he.wikisource.org/wiki/פקודת_מס_הכנסה#חלק_ג_פרק_3
+2. Tax bands: 121A
+https://he.wikisource.org/wiki/פקודת_מס_הכנסה#חלק_ז
+3. Employee Pension
+	a. Shekel limit: 47A (1) ניכוי תשלומים בעד תגמולים או קצבה
+		Gives annual salary, so divide by 12 (months) and calculate 7%
+	b. Tax credit: 45A (ה) (bottom) הזיכוי בעד דמי ביטוח ותגמולים
+4. Self-employed Pension
+	a. Tax credit: same as employee
+  b. eligible (qualifying) income: 47A (2) ניכוי תשלומים בעד תגמולים או קצבה
+	c. ceiling: a. Shekel limit: 47A (1) ניכוי תשלומים בעד תגמולים או קצבה
+		Double the annual salary
+Employee Study Fund
+  a. Employee percent cap: 16a B 2 B תשלומים לקרן השתלמות לעצמאים
+	b. Employee percent cap: תיקון: תשכ״ה, תשל״ה, תשל״ה־2, תשמ״ד־3, תש״ן, תשס״ה־10
+	c. Salary cieling: תיקון: תשכ״ה, תשל״ה, תשל״ה־2, תשמ״ד־3, תש״ן, תשס״ה־10
+		Determining salary is monthly, so multiply by 12 (hasn't chnged since 2004)
+Self-employed Study Fund
+  a. Percent Cap: 17 (5a) תשלומים לקרן השתלמות לעצמאים 	
+	b. Salary Cieling: 17 (5a)														
+  c. Capital Gains Limit: 9 (16b)(A) משיכה מקרן השתלמות לעצמאים	
