@@ -69,12 +69,6 @@ class NetPayCalculator extends Component {
 			showResultsTable: false
 		});
 
-		if (name === 'pensionOption' && value === 'legalMin') {
-			this.setState({
-				pensionAmount: ''
-			});
-		}
-
 		if (name === 'baseIncome' && value === '') {
 			this.setState({
 				pensionOption: 'legalMin'

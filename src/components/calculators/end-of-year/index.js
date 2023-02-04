@@ -27,8 +27,7 @@ class EndOfYearCalculator extends Component {
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-		//Reset state when change forms
-
+		//Reset state when change fiscal input choice
 		const fiscalPeriod = this.state.fiscalPeriod;
 		const indexes = fiscalPeriod === 'annual' ? 1 : fiscalPeriod === 'quarterly' ? 4 : 12;
 
@@ -47,65 +46,50 @@ class EndOfYearCalculator extends Component {
 				validated: false
 			});
 		}
+		//End
 	}
 
 	handleChange = event => {
 		const { name, value, type } = event.target;
 		const { pensionOption } = this.state;
-		const stateIndex = name.match(/\d+/);
+		const stateIndex = parseInt(name.match(/\d+/));
 		const stateName = name.replace(stateIndex, '');
+		//Iterate array and update the changed  value
+		const updateArray = (stateID, changedValue) => {
+			return [...this.state[stateID]].map((currentValue, i) => {
+				return i === stateIndex ? changedValue : currentValue;
+			});
+		};
+		//End
 
-		if (stateIndex === null) {
+		if (isNaN(stateIndex)) {
 			this.setState({
 				[name]: type === 'number' ? parseFloat(value) || '' : value
 			});
 		} else {
-			const copyState = name => {
-				return [...this.state[name]];
-			};
-			const newState = copyState(stateName);
 			const newValue = type === 'number' ? parseFloat(value) || '' : value;
-			newState.splice(stateIndex, 1, newValue);
-
 			this.setState({
-				[stateName]: newState
+				[stateName]: updateArray(stateName, newValue)
 			});
 
-			if (stateName === 'income') {
-				let setProfit = copyState('expenses');
-				setProfit.splice(stateIndex, 1, value - setProfit[stateIndex]);
+			if (stateName === 'income' || stateName === 'expenses') {
+				const isIncome = stateName === 'income' && true;
+				const profitValue = isIncome
+					? value - this.state.expenses[stateIndex]
+					: this.state.income[stateIndex] - value;
+
+				if (profitValue <= 0 && pensionOption[stateIndex] === 'custom') {
+					this.setState({
+						pensionOption: updateArray('pensionOption', 'legalMin')
+					});
+				}
 
 				this.setState({
-					profit: setProfit
+					profit: updateArray('profit', profitValue)
 				});
-			} else if (stateName === 'expenses') {
-				let setProfit = copyState('income');
-				setProfit.splice(stateIndex, 1, setProfit[stateIndex] - value);
-
+			} else if (stateName === 'profit' && value <= 0 && pensionOption[stateIndex] === 'custom') {
 				this.setState({
-					profit: setProfit
-				});
-			}
-
-			if (stateName === 'profit' && value === '' && pensionOption[stateIndex] === 'custom') {
-				let setPensionOption = copyState('pensionOption');
-				setPensionOption.splice(stateIndex, 1, 'legalMin');
-
-				this.setState({
-					pensionOption: setPensionOption
-				});
-			}
-
-			if (
-				stateName === 'pensionOption' &&
-				value !== '' &&
-				pensionOption[stateIndex] === 'legalMin'
-			) {
-				let setPensionAmount = copyState('pensionAmount');
-				setPensionAmount.splice(stateIndex, 1, '');
-
-				this.setState({
-					pensionAmount: setPensionAmount
+					pensionOption: updateArray('pensionOption', 'legalMin')
 				});
 			}
 		}

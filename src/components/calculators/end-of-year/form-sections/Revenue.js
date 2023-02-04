@@ -47,7 +47,7 @@ function EndOfYearRevenue(props) {
 					horizontal={false}
 					handleChange={handleChange}
 					required={true}
-					error={profit[formIndex] < 0 ? 'Profit can not be minus.' : invalidNum}
+					error={profit[formIndex] < 0 ? 'Profit cannot be minus.' : invalidNum}
 				/>
 				<InputField
 					language={language}
