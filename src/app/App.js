@@ -14,21 +14,21 @@ class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			language: localStorage.getItem('languageSetting'),
-			setLanguage: iso => {
-				if (this.state.language !== iso) {
-					localStorage.setItem('languageSetting', iso);
-					this.setState({ language: localStorage.getItem('languageSetting') });
+			language: this.getLanguage(),
+			setLanguage: isoCode => {
+				if (this.state.language !== isoCode) {
+					localStorage.setItem('languageSetting', isoCode);
+					this.setState({ language: isoCode });
 				}
 			}
 		};
 	}
 
-	componentDidMount() {
-		if (this.state.language === null) {
-			this.setState({ language: 'en' });
-		}
-	}
+	getLanguage = () => {
+		const curentLanguage = localStorage.getItem('languageSetting');
+
+		return curentLanguage === null ? 'en' : curentLanguage;
+	};
 
 	render() {
 		return (
