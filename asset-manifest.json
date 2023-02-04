@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/israel-tax/static/css/main.cdb95218.chunk.css",
-    "main.js": "/israel-tax/static/js/main.26425778.chunk.js",
-    "main.js.map": "/israel-tax/static/js/main.26425778.chunk.js.map",
+    "main.js": "/israel-tax/static/js/main.0a5fc6f1.chunk.js",
+    "main.js.map": "/israel-tax/static/js/main.0a5fc6f1.chunk.js.map",
     "runtime-main.js": "/israel-tax/static/js/runtime-main.35618d76.js",
     "runtime-main.js.map": "/israel-tax/static/js/runtime-main.35618d76.js.map",
     "static/js/2.9ed35468.chunk.js": "/israel-tax/static/js/2.9ed35468.chunk.js",
     "static/js/2.9ed35468.chunk.js.map": "/israel-tax/static/js/2.9ed35468.chunk.js.map",
     "index.html": "/israel-tax/index.html",
-    "precache-manifest.da938d56024d204b6a1543bbe19b7343.js": "/israel-tax/precache-manifest.da938d56024d204b6a1543bbe19b7343.js",
+    "precache-manifest.1dfcf65d1fa8bffabe822bb0594210f9.js": "/israel-tax/precache-manifest.1dfcf65d1fa8bffabe822bb0594210f9.js",
     "service-worker.js": "/israel-tax/service-worker.js",
     "static/css/main.cdb95218.chunk.css.map": "/israel-tax/static/css/main.cdb95218.chunk.css.map",
     "static/js/2.9ed35468.chunk.js.LICENSE.txt": "/israel-tax/static/js/2.9ed35468.chunk.js.LICENSE.txt",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.35618d76.js",
     "static/js/2.9ed35468.chunk.js",
     "static/css/main.cdb95218.chunk.css",
-    "static/js/main.26425778.chunk.js"
+    "static/js/main.0a5fc6f1.chunk.js"
   ]
 }
