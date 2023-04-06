@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './app.scss';
 import Home from '../pages/home';
-import NetPay from '../pages/calculators/NetPay';
 import Navigation from '../components/navbar';
 import LanguageContext from '../contexts/LanguageContext';
-import EndOfYear from '../pages/calculators/EndOfYear';
-import TaxTables from '../pages/tax-tables';
-import ContributionTables from '../pages/contribution-tables';
 import Footer from '../components/footer';
+import NetPay from '../pages/net-pay';
+import EndOfYear from '../pages/end-of-year';
+import TaxBands from '../pages/tax-bands';
+import CreditPoints from '../pages/credit-points';
+import SelfEmployedPension from '../pages/pension-self-employed';
+import EmployeePension from '../pages/pension-employee';
+import SelfEmployedStudyFund from '../pages/study-fund-self-employed';
+import EmployeeStudyFund from '../pages/study-fund-employee';
 
 class App extends Component {
 	constructor() {
@@ -46,18 +50,12 @@ class App extends Component {
 							render={() => <NetPay employmentType={'selfEmployed'} />}
 						/>
 						<Route path='/self-employed/end-of-year-calculator' component={EndOfYear} />
-						<Route path='/tax-rates/income-tax' render={() => <TaxTables page={1} />} />
-						<Route path='/tax-rates/credit-points' render={() => <TaxTables page={2} />} />
-						<Route
-							path='/employee/study-fund'
-							render={() => <ContributionTables page={1} employmentType={'employee'} />}
-						/>
-						<Route
-							path='/self-employed/study-fund'
-							render={() => <ContributionTables page={2} employmentType={'selfEmployed'} />}
-						/>
-						<Route path='/employee/pension' render={() => <ContributionTables page={3} />} />
-						<Route path='/self-employed/pension' render={() => <ContributionTables page={4} />} />
+						<Route path='/tax-rates/income-tax' component={TaxBands} />
+						<Route path='/tax-rates/credit-points' component={CreditPoints} />
+						<Route path='/self-employed/pension' component={SelfEmployedPension} />
+						<Route path='/employee/pension' component={EmployeePension} />
+						<Route path='/self-employed/study-fund' component={SelfEmployedStudyFund} />
+						<Route path='/employee/study-fund' component={EmployeeStudyFund} />
 					</Switch>
 					<Footer />
 				</LanguageContext.Provider>

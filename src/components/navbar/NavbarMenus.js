@@ -23,10 +23,10 @@ function NavigationMenu(props) {
 								<NavDropdown.Item>Net Pay Calculator</NavDropdown.Item>
 							</LinkContainer>
 							<LinkContainer to='/employee/pension'>
-								<NavDropdown.Item>Pension Contributions</NavDropdown.Item>
+								<NavDropdown.Item>Pension</NavDropdown.Item>
 							</LinkContainer>
 							<LinkContainer to='/employee/study-fund'>
-								<NavDropdown.Item>Study Fund Allowances</NavDropdown.Item>
+								<NavDropdown.Item>Study Fund</NavDropdown.Item>
 							</LinkContainer>
 						</NavDropdown>
 						<NavDropdown title='Self-employed'>
@@ -34,10 +34,10 @@ function NavigationMenu(props) {
 								<NavDropdown.Item>Net Pay Calculator</NavDropdown.Item>
 							</LinkContainer>
 							<LinkContainer to='/self-employed/pension'>
-								<NavDropdown.Item>Pension Contributions</NavDropdown.Item>
+								<NavDropdown.Item>Pension</NavDropdown.Item>
 							</LinkContainer>
 							<LinkContainer to='/self-employed/study-fund'>
-								<NavDropdown.Item>Study Fund Allowances</NavDropdown.Item>
+								<NavDropdown.Item>Study Fund</NavDropdown.Item>
 							</LinkContainer>
 							<LinkContainer to='/self-employed/end-of-year-calculator'>
 								<NavDropdown.Item>End of Year Calculator</NavDropdown.Item>

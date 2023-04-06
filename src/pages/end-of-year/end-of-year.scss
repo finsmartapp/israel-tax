@@ -1,0 +1,30 @@
+@import '../../styles/variables/media-queries';
+
+.vertical-form {
+	legend[for] {
+		font-size: inherit;
+	}
+}
+
+.vertical-form {
+	> fieldset {
+		border: 1px solid var(--bs-gray-600);
+		padding: 1rem;
+		border-radius: 0.5rem;
+
+		> legend {
+			margin: 0 auto;
+			float: none;
+			width: auto;
+			padding: 0 1rem 0 1rem;
+		}
+	}
+}
+
+.eoy-income {
+	@media (min-width: $screen-md) and (max-width: $screen-lg) {
+		label {
+			height: 48px;
+		}
+	}
+}

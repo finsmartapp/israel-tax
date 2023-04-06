@@ -25,9 +25,9 @@ export const globalProps = {
 	resultsTable: object.isRequired,
 	showResultsTable: bool.isRequired,
 	displayItems: number.isRequired,
-	page: number.isRequired,
 	rate: number.isRequired,
-	active: bool.isRequired
+	active: bool.isRequired,
+	currentYear: number.isRequired
 };
 
 export const payrollProps = {
@@ -82,7 +82,8 @@ export const formProps = {
 	controlled: bool,
 	type: string,
 	formIndex: number.isRequired,
-	validated: bool.isRequired
+	validated: bool.isRequired,
+	startIndex: number
 };
 
 export const heroProps = {
@@ -95,4 +96,34 @@ export const incomeTaxProps = {
 	monthlyBandPayments: array.isRequired,
 	annualBandPayments: array.isRequired,
 	eoy: bool
+};
+
+export const pensionProps = {
+	pensionData: array.isRequired,
+	latestPensionData: object.isRequired,
+	averageWage: number.isRequired,
+	averageWageHalf: number.isRequired,
+	reducedRate: number.isRequired,
+	fullRate: number.isRequired,
+	reducedMax: number.isRequired,
+	fullMax: number.isRequired,
+	taxDeductableLimit: number.isRequired,
+	taxCreditLimit: number.isRequired,
+	eligibleIncome: number.isRequired,
+	ceiling: number.isRequired,
+	maxContribution: number.isRequired,
+	beneficiaryPayment: number.isRequired,
+	recognisedExpense: number.isRequired,
+	taxCredit: number.isRequired,
+	taxCreditRate: number.isRequired,
+	tierLimit: number.isRequired
+};
+
+export const studyProps = {
+	ceiling: number.isRequired,
+	rate: number.isRequired,
+	capitalGainsLimit: number.isRequired,
+	maxDeposit: number.isRequired,
+	employeeRate: number.isRequired,
+	employerRate: number.isRequired
 };

@@ -8,7 +8,7 @@ function InputSelect(props) {
 	const {
 		label,
 		name,
-		value,
+		startIndex,
 		dataSource,
 		dataKey,
 		horizontal,
@@ -18,8 +18,8 @@ function InputSelect(props) {
 		required,
 		error
 	} = props;
-	const placeholder = controlled === undefined ? false : true;
-	const showPlacholder = placeholder ? { value: value } : { defaultValue: '' };
+	const placeholder = controlled === undefined ? false : controlled;
+	const showPlacholder = placeholder ? { value: startIndex } : { defaultValue: '' };
 	const ariaHelp = `${camelToKebab(name)}-help`;
 
 	return (
@@ -31,7 +31,7 @@ function InputSelect(props) {
 				required={required}
 				aria-describedby={ariaHelp}
 			>
-				<option disabled value="">
+				<option disabled value=''>
 					Select
 				</option>
 				{dataSource.map((e, i) => (
@@ -40,7 +40,7 @@ function InputSelect(props) {
 					</option>
 				))}
 			</Form.Select>
-			<Form.Control.Feedback type="invalid" id={ariaHelp}>
+			<Form.Control.Feedback type='invalid' id={ariaHelp}>
 				{error}
 			</Form.Control.Feedback>
 		</InputWrapper>
@@ -51,7 +51,7 @@ InputSelect.propTypes = {
 	handleChange: globalProps.handleChange,
 	label: formProps.label,
 	name: formProps.name,
-	value: formProps.value,
+	startIndex: formProps.startIndex,
 	dataSource: formProps.dataSource,
 	dataKey: formProps.dataKey,
 	horizontal: formProps.horizontal,
