@@ -1,7 +1,7 @@
 import React from 'react';
 import { pensionProps } from '../../prop-types';
 import { formatCurrency } from '../../utils/formatCurrency';
-import Cards from '../../components/card';
+import InfoCard from '../../components/info-card';
 
 function SelfEmployedPensionDepositExamples(props) {
 	const { averageWage, averageWageHalf, reducedRate, fullRate, reducedMax, fullMax } = props;
@@ -9,7 +9,7 @@ function SelfEmployedPensionDepositExamples(props) {
 	return (
 		<section>
 			<h2>Contribution Examples</h2>
-			<Cards
+			<InfoCard
 				type='example'
 				title='Monthly Deposit Example'
 				body={

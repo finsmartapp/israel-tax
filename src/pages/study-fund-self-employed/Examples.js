@@ -1,7 +1,7 @@
 import React from 'react';
 import { studyProps } from '../../prop-types';
 import { formatCurrency } from '../../utils/formatCurrency';
-import Cards from '../../components/card';
+import InfoCard from '../../components/info-card';
 
 function SelfEmployedStudyExamples(props) {
 	const { rate, ceiling, capitalGainsLimit, maxDeposit } = props;
@@ -12,7 +12,7 @@ function SelfEmployedStudyExamples(props) {
 	return (
 		<section>
 			<h2>Deposit Examples</h2>
-			<Cards
+			<InfoCard
 				type='example'
 				title='Salary Above the Income Ceiling'
 				body={
@@ -38,7 +38,7 @@ function SelfEmployedStudyExamples(props) {
 					</>
 				}
 			/>
-			<Cards
+			<InfoCard
 				type='example'
 				title='Salary Below the Income Ceiling'
 				body={

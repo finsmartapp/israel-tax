@@ -1,7 +1,7 @@
 import React from 'react';
 import { pensionProps } from '../../prop-types';
 import { formatCurrency } from '../../utils/formatCurrency';
-import Cards from '../../components/card';
+import InfoCard from '../../components/info-card';
 
 function SelfEmployedPensionTaxReliefExamples(props) {
 	const {
@@ -23,7 +23,7 @@ function SelfEmployedPensionTaxReliefExamples(props) {
 	return (
 		<section>
 			<h2>Tax Relief Examples</h2>
-			<Cards
+			<InfoCard
 				type='example'
 				title='Eligible Income Salary'
 				body={
@@ -52,7 +52,7 @@ function SelfEmployedPensionTaxReliefExamples(props) {
 					</>
 				}
 			/>
-			<Cards
+			<InfoCard
 				type='example'
 				title='Salary Above the Income Ceiling'
 				body={
