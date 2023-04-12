@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/israel-tax/static/css/main.edea8e84.chunk.css",
-    "main.js": "/israel-tax/static/js/main.edb6552c.chunk.js",
-    "main.js.map": "/israel-tax/static/js/main.edb6552c.chunk.js.map",
+    "main.css": "/israel-tax/static/css/main.1eb9bd12.chunk.css",
+    "main.js": "/israel-tax/static/js/main.3fb3a094.chunk.js",
+    "main.js.map": "/israel-tax/static/js/main.3fb3a094.chunk.js.map",
     "runtime-main.js": "/israel-tax/static/js/runtime-main.35618d76.js",
     "runtime-main.js.map": "/israel-tax/static/js/runtime-main.35618d76.js.map",
-    "static/js/2.96eb1319.chunk.js": "/israel-tax/static/js/2.96eb1319.chunk.js",
-    "static/js/2.96eb1319.chunk.js.map": "/israel-tax/static/js/2.96eb1319.chunk.js.map",
+    "static/js/2.56a1e968.chunk.js": "/israel-tax/static/js/2.56a1e968.chunk.js",
+    "static/js/2.56a1e968.chunk.js.map": "/israel-tax/static/js/2.56a1e968.chunk.js.map",
     "index.html": "/israel-tax/index.html",
-    "precache-manifest.e06d0c55cd16f0eba19119d94652912c.js": "/israel-tax/precache-manifest.e06d0c55cd16f0eba19119d94652912c.js",
+    "precache-manifest.b03c10d3d54177b869747da7b7e8c46b.js": "/israel-tax/precache-manifest.b03c10d3d54177b869747da7b7e8c46b.js",
     "service-worker.js": "/israel-tax/service-worker.js",
-    "static/css/main.edea8e84.chunk.css.map": "/israel-tax/static/css/main.edea8e84.chunk.css.map",
-    "static/js/2.96eb1319.chunk.js.LICENSE.txt": "/israel-tax/static/js/2.96eb1319.chunk.js.LICENSE.txt",
-    "static/media/card.scss": "/israel-tax/static/media/warning.6785d770.svg",
+    "static/css/main.1eb9bd12.chunk.css.map": "/israel-tax/static/css/main.1eb9bd12.chunk.css.map",
+    "static/js/2.56a1e968.chunk.js.LICENSE.txt": "/israel-tax/static/js/2.56a1e968.chunk.js.LICENSE.txt",
+    "static/media/info-card.scss": "/israel-tax/static/media/warning.6785d770.svg",
     "static/media/hero.scss": "/israel-tax/static/media/shekel-banknotes.d339988a.jpg",
     "static/media/language-selector.scss": "/israel-tax/static/media/south-africa.3dcf1922.png"
   },
   "entrypoints": [
     "static/js/runtime-main.35618d76.js",
-    "static/js/2.96eb1319.chunk.js",
-    "static/css/main.edea8e84.chunk.css",
-    "static/js/main.edb6552c.chunk.js"
+    "static/js/2.56a1e968.chunk.js",
+    "static/css/main.1eb9bd12.chunk.css",
+    "static/js/main.3fb3a094.chunk.js"
   ]
 }
