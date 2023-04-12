@@ -12,7 +12,7 @@ import {
 } from '../../utils/tax-calculators';
 import { formatCurrency } from '../../utils/formatCurrency';
 import { cardAllowancePopup } from './Popups';
-import IncomeTaxBreakdown from '../../components/net-breakdown/income-tax';
+import TableBreakdown from '../../components/table-breakdown';
 
 function NetPayResultsEmployee(props) {
 	const taxData = props.taxData;
@@ -126,11 +126,12 @@ function NetPayResultsEmployee(props) {
 								<td>{formatCurrency('il', taxableIncome)}</td>
 								<td>{formatCurrency('il', (taxableIncome - annualBonus) * 12 + annualBonus)}</td>
 							</tr>
-							<IncomeTaxBreakdown
-								incomeTax={incomeTax}
-								annualIncomeTax={annualIncomeTax}
-								monthlyBandPayments={monthlyBandPayments}
-								annualBandPayments={annualBandPayments}
+							<TableBreakdown
+								rowHeader={'Income Tax'}
+								monthTotal={incomeTax}
+								annualTotal={annualIncomeTax}
+								monthBreakdown={monthlyBandPayments}
+								annualBreakdown={annualBandPayments}
 							/>
 							<tr>
 								<td>National Insurance</td>

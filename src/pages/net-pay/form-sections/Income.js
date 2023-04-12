@@ -16,13 +16,13 @@ function NetPayIncome(props) {
 	return (
 		<fieldset>
 			<Form.Label as='legend'>Tax</Form.Label>
-			<PayrollTaxYearBtn handleChange={handleChange} columns={formSize} />
+			<PayrollTaxYearBtn handleChange={handleChange} yearLabelColumns={formSize} />
 			<InputField
 				language={language}
 				label={employmentType === 'employee' ? 'Base salary' : 'Profit'}
 				name='baseIncome'
 				value={baseIncome}
-				columns={formSize}
+				labelColumns={formSize}
 				handleChange={handleChange}
 				required={true}
 				error={invalidNum}
@@ -32,7 +32,7 @@ function NetPayIncome(props) {
 				label='Tax credit points'
 				name='creditPoints'
 				value={creditPoints}
-				columns={formSize}
+				labelColumns={formSize}
 				step={0.25}
 				handleChange={handleChange}
 				required={isZeroOrGreater(creditPoints)}

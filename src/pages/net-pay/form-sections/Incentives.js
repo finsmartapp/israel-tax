@@ -19,7 +19,7 @@ function NetPayIncentives(props) {
 				label='One-time bonus or gift'
 				name='annualBonus'
 				value={annualBonus}
-				columns={formSize}
+				labelColumns={formSize}
 				handleChange={handleChange}
 				required={isZeroOrGreater(annualBonus)}
 				error={invalidNum}
@@ -29,7 +29,7 @@ function NetPayIncentives(props) {
 				label='Commission'
 				name='commission'
 				value={commission}
-				columns={formSize}
+				labelColumns={formSize}
 				handleChange={handleChange}
 				required={isZeroOrGreater(commission)}
 				error={invalidNum}
@@ -39,7 +39,7 @@ function NetPayIncentives(props) {
 				label='Overtime'
 				name='overtime'
 				value={overtime}
-				columns={formSize}
+				labelColumns={formSize}
 				handleChange={handleChange}
 				required={isZeroOrGreater(overtime)}
 				error={invalidNum}

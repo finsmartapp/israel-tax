@@ -21,7 +21,7 @@ function EndOfYearRevenue(props) {
 					label='Total Income'
 					name={`income${formIndex}`}
 					value={income[formIndex]}
-					columns={formSize}
+					labelColumns={formSize}
 					horizontal={false}
 					handleChange={handleChange}
 					required={isZeroOrGreater(income[formIndex])}
@@ -32,7 +32,7 @@ function EndOfYearRevenue(props) {
 					label='Expenses'
 					name={`expenses${formIndex}`}
 					value={expenses[formIndex]}
-					columns={formSize}
+					labelColumns={formSize}
 					horizontal={false}
 					handleChange={handleChange}
 					required={isZeroOrGreater(expenses[formIndex])}
@@ -43,7 +43,7 @@ function EndOfYearRevenue(props) {
 					label='Profit'
 					name={`profit${formIndex}`}
 					value={profit[formIndex]}
-					columns={formSize}
+					labelColumns={formSize}
 					horizontal={false}
 					handleChange={handleChange}
 					required={true}
@@ -54,7 +54,7 @@ function EndOfYearRevenue(props) {
 					label='Tax credit points'
 					name={`creditPoints${formIndex}`}
 					value={creditPoints[formIndex]}
-					columns={formSize}
+					labelColumns={formSize}
 					horizontal={false}
 					handleChange={handleChange}
 					required={isZeroOrGreater(creditPoints[formIndex])}

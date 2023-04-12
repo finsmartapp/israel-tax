@@ -17,7 +17,7 @@ function InputField(props) {
 		max,
 		step,
 		horizontal,
-		columns,
+		labelColumns,
 		handleChange,
 		help,
 		required,
@@ -37,7 +37,7 @@ function InputField(props) {
 	const ariaSymbol = appendSymbol ? `${aria}-symbol` : '';
 
 	return (
-		<InputWrapper name={name} label={label} columns={columns} horizontal={horizontal}>
+		<InputWrapper name={name} label={label} labelColumns={labelColumns} horizontal={horizontal}>
 			<ConditionalWrapper
 				condition={appendSymbol}
 				wrapper={children => <InputGroup hasValidation>{children}</InputGroup>}
@@ -52,11 +52,11 @@ function InputField(props) {
 				/>
 				{appendSymbol && <InputGroup.Text id={ariaSymbol}>{symbol}</InputGroup.Text>}
 				{help !== undefined && (
-					<Form.Text id="passwordHelpBlock" muted>
+					<Form.Text id='passwordHelpBlock' muted>
 						{help}
 					</Form.Text>
 				)}
-				<Form.Control.Feedback type="invalid" id={ariaError}>
+				<Form.Control.Feedback type='invalid' id={ariaError}>
 					{error}
 				</Form.Control.Feedback>
 			</ConditionalWrapper>
@@ -75,7 +75,7 @@ InputField.propTypes = {
 	max: formProps.max,
 	step: formProps.step,
 	horizontal: formProps.horizontal,
-	columns: formProps.columns,
+	labelColumns: formProps.labelColumns,
 	required: formProps.required,
 	error: formProps.error,
 	help: formProps.help

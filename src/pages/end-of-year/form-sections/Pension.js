@@ -23,7 +23,7 @@ function EndOfYearPension(props) {
 					btnLabel={[`${fiscalPeriod === 'annual' ? 'Minium' : 'Minimum\u{0002A}'}`, 'Custom']}
 					btnValue={['legalMin', 'custom']}
 					disabled={[false, profit[formIndex] <= 0]}
-					columns={pensionOption[formIndex] === 'legalMin' ? ['xs=12'] : ['md=4', 'lg=5']}
+					labelColumns={pensionOption[formIndex] === 'legalMin' ? ['xs=12'] : ['md=4', 'lg=5']}
 					horizontal={false}
 					handleChange={handleChange}
 					help='Enter income or profit to select custom.'
@@ -38,7 +38,7 @@ function EndOfYearPension(props) {
 							state={pensionType[formIndex]}
 							btnLabel={['Percent', 'Shekel']}
 							btnValue={['percent', 'shekel']}
-							columns={['xs=7', 'md=4', 'lg=4']}
+							labelColumns={['xs=7', 'md=4', 'lg=4']}
 							horizontal={false}
 							handleChange={handleChange}
 						/>
@@ -50,7 +50,7 @@ function EndOfYearPension(props) {
 							value={pensionAmount[formIndex]}
 							symbol={pensionType[formIndex] === 'percent' ? '%' : '₪'}
 							max={pensionType[formIndex] === 'percent' ? 100 : undefined}
-							columns={['xs=5', 'md=4', 'lg=3']}
+							labelColumns={['xs=5', 'md=4', 'lg=3']}
 							horizontal={false}
 							handleChange={handleChange}
 							required={true}

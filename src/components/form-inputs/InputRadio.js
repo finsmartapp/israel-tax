@@ -14,7 +14,7 @@ function InputRadio(props) {
 		btnValue,
 		btnLabel,
 		disabled,
-		columns,
+		labelColumns,
 		horizontal,
 		inline,
 		handleChange,
@@ -36,14 +36,14 @@ function InputRadio(props) {
 			<InputWrapper
 				name={name}
 				label={label}
-				columns={columns}
+				labelColumns={labelColumns}
 				horizontal={horizontal}
-				type="radio"
+				type='radio'
 			>
 				{btnValue.map((e, i) => (
 					<Form.Check
 						key={i}
-						type="radio"
+						type='radio'
 						inline={inline === undefined ? true : inline}
 						label={btnLabel[i]}
 						name={name}
@@ -56,7 +56,7 @@ function InputRadio(props) {
 					/>
 				))}
 				{helpCondition || (helpCondition === undefined && help !== undefined) ? (
-					<Form.Text className="text-muted" id={ariaHelp}>
+					<Form.Text className='text-muted' id={ariaHelp}>
 						{help}
 					</Form.Text>
 				) : (
@@ -72,7 +72,7 @@ InputRadio.propTypes = {
 	label: formProps.label,
 	name: formProps.name,
 	horizontal: formProps.horizontal,
-	columns: formProps.columns,
+	labelColumns: formProps.labelColumns,
 	help: formProps.help,
 	helpCondition: formProps.helpCondition,
 	helpInput: formProps.helpInput,

@@ -19,7 +19,7 @@ function NetPayAllowances(props) {
 				label='Transport'
 				name='travelAllowance'
 				value={travelAllowance}
-				columns={formSize}
+				labelColumns={formSize}
 				handleChange={handleChange}
 				required={isZeroOrGreater(travelAllowance)}
 				error={invalidNum}
@@ -29,7 +29,7 @@ function NetPayAllowances(props) {
 				label='10bis / Cibus / Other Card'
 				name='foodAllowance'
 				value={foodAllowance}
-				columns={formSize}
+				labelColumns={formSize}
 				handleChange={handleChange}
 				required={isZeroOrGreater(foodAllowance)}
 				error={invalidNum}
@@ -39,7 +39,7 @@ function NetPayAllowances(props) {
 				label='Other'
 				name='otherAllowance'
 				value={otherAllowance}
-				columns={formSize}
+				labelColumns={formSize}
 				handleChange={handleChange}
 				required={isZeroOrGreater(otherAllowance)}
 				error={invalidNum}

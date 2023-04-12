@@ -37,7 +37,7 @@ function NetPayContributions(props) {
 					btnLabel={['Legal minium', 'Custom']}
 					btnValue={['legalMin', 'custom']}
 					disabled={[false, baseIncome >= 1 ? false : true]}
-					columns={formSize}
+					labelColumns={formSize}
 					handleChange={handleChange}
 					help={
 						employmentType === 'employee'
@@ -56,7 +56,7 @@ function NetPayContributions(props) {
 								state={pensionType}
 								btnLabel={['Percent', 'Shekel']}
 								btnValue={['percent', 'shekel']}
-								columns={formSize}
+								labelColumns={formSize}
 								handleChange={handleChange}
 							/>
 						)}
@@ -70,7 +70,7 @@ function NetPayContributions(props) {
 								pensionType === 'percent' ? parseFloat(pensionMinPecrcent) : parseFloat(pensionMin)
 							}
 							max={pensionType === 'percent' ? 100 : undefined}
-							columns={formSize}
+							labelColumns={formSize}
 							handleChange={handleChange}
 							required={true}
 							error={
@@ -90,7 +90,7 @@ function NetPayContributions(props) {
 					state={studyFundType}
 					btnLabel={['Percent', 'Shekel']}
 					btnValue={['percent', 'shekel']}
-					columns={formSize}
+					labelColumns={formSize}
 					handleChange={handleChange}
 				/>
 				<InputField
@@ -100,7 +100,7 @@ function NetPayContributions(props) {
 					value={studyFundAmount}
 					symbol={studyFundType === 'percent' ? '%' : '₪'}
 					max={studyFundType === 'percent' ? 100 : undefined}
-					columns={formSize}
+					labelColumns={formSize}
 					handleChange={handleChange}
 					required={isZeroOrGreater(studyFundAmount)}
 					error={studyFundType === 'percent' ? `${invalidPercent}` : `${invalidNum}`}

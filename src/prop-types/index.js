@@ -66,7 +66,7 @@ export const formProps = {
 	max: number,
 	step: number,
 	horizontal: bool,
-	columns: array.isRequired,
+	labelColumns: array.isRequired,
 	required: bool.isRequired,
 	error: string.isRequired,
 	help: string,
@@ -83,18 +83,28 @@ export const formProps = {
 	type: string,
 	formIndex: number.isRequired,
 	validated: bool.isRequired,
-	startIndex: number
+	yearLabelColumns: array,
+	startIndex: function (props, propName, componentName) {
+		if (props['controlled'] === true && props[propName] === undefined) {
+			return new Error(`${propName} supplied to ${componentName} is undefined. Validation failed.`);
+		}
+	}
 };
 
 export const heroProps = {
 	h1: string.isRequired
 };
 
-export const incomeTaxProps = {
-	incomeTax: number,
-	annualIncomeTax: number.isRequired,
-	monthlyBandPayments: array.isRequired,
-	annualBandPayments: array.isRequired,
+export const breakdownProps = {
+	rowHeader: string.isRequired,
+	monthTotal: function (props, propName, componentName) {
+		if (props['eoy'] === undefined && props[propName] === undefined) {
+			return new Error(`${propName} supplied to ${componentName} is undefined. Validation failed.`);
+		}
+	},
+	annualTotal: number,
+	monthBreakdown: array.isRequired,
+	annualBreakdown: array.isRequired,
 	eoy: bool
 };
 

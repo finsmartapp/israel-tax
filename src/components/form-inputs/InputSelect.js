@@ -12,21 +12,20 @@ function InputSelect(props) {
 		dataSource,
 		dataKey,
 		horizontal,
-		columns,
+		labelColumns,
 		handleChange,
 		controlled,
 		required,
 		error
 	} = props;
-	const placeholder = controlled === undefined ? false : controlled;
-	const showPlacholder = placeholder ? { value: startIndex } : { defaultValue: '' };
+	const placeholder = controlled ? { value: startIndex } : { defaultValue: '' };
 	const ariaHelp = `${camelToKebab(name)}-help`;
 
 	return (
-		<InputWrapper name={name} label={label} columns={columns} horizontal={horizontal}>
+		<InputWrapper name={name} label={label} labelColumns={labelColumns} horizontal={horizontal}>
 			<Form.Select
 				name={name}
-				{...showPlacholder}
+				{...placeholder}
 				onChange={handleChange}
 				required={required}
 				aria-describedby={ariaHelp}
@@ -55,7 +54,7 @@ InputSelect.propTypes = {
 	dataSource: formProps.dataSource,
 	dataKey: formProps.dataKey,
 	horizontal: formProps.horizontal,
-	columns: formProps.columns,
+	labelColumns: formProps.labelColumns,
 	controlled: formProps.controlled,
 	required: formProps.required,
 	error: formProps.error

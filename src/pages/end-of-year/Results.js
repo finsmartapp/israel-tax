@@ -13,7 +13,7 @@ import {
 	incomeTaxBandsCalc
 } from '../../utils/tax-calculators';
 import { formatCurrency } from '../../utils/formatCurrency';
-import IncomeTaxBreakdown from '../../components/net-breakdown/income-tax';
+import TableBreakdown from '../../components/table-breakdown';
 
 function EndOfYearResults(props) {
 	const taxData = props.taxData;
@@ -125,6 +125,9 @@ function EndOfYearResults(props) {
 		incomeTax
 	);
 
+	// console.log('monthlyBandPayments 1', monthlyBandPayments);
+	// console.log('annualBandPayments 1', annualBandPayments);
+
 	return (
 		<>
 			{showResultsTable && (
@@ -158,10 +161,11 @@ function EndOfYearResults(props) {
 								<td>Taxable Income</td>
 								<td>{formatCurrency('il', incomeTaxTaxableIncome)}</td>
 							</tr>
-							<IncomeTaxBreakdown
-								annualIncomeTax={incomeTax}
-								monthlyBandPayments={monthlyBandPayments}
-								annualBandPayments={annualBandPayments}
+							<TableBreakdown
+								rowHeader={'Income Tax'}
+								annualTotal={incomeTax}
+								monthBreakdown={monthlyBandPayments}
+								annualBreakdown={annualBandPayments}
 								eoy={eoy}
 							/>
 							<tr>

@@ -5,7 +5,7 @@ import ConditionalWrapper from '../../utils/conditionalWrapper';
 import { camelToKebab } from '../../utils/caseConvertor';
 
 function InputWrapper(props) {
-	const { label, name, horizontal, columns, type } = props;
+	const { label, name, horizontal, labelColumns, type } = props;
 	const radio = {
 		as: 'legend' //workaround as ternary doesn't work with as
 	};
@@ -18,16 +18,16 @@ function InputWrapper(props) {
 			{}
 		);
 	};
-	const colSizeInput = columns.map(e => {
+	const inputColumns = labelColumns.map(e => {
 		const num = /\d+/;
 		return e.replace(num, 12 - e.match(num));
 	});
 
 	return (
 		<Form.Group
-			className="mb-3"
+			className='mb-3'
 			as={horizontalForm ? Row : Col}
-			{...(!horizontalForm && arrayToLiteral(columns))}
+			{...(!horizontalForm && arrayToLiteral(labelColumns))}
 			controlId={id}
 		>
 			<ConditionalWrapper
@@ -36,14 +36,14 @@ function InputWrapper(props) {
 			>
 				<Form.Label
 					column={horizontalForm ? true : false}
-					{...(horizontalForm && arrayToLiteral(columns))}
+					{...(horizontalForm && arrayToLiteral(labelColumns))}
 					{...(type === 'radio' && radio)}
 				>
 					{label}
 				</Form.Label>
 				<ConditionalWrapper
 					condition={horizontalForm}
-					wrapper={children => <Col {...arrayToLiteral(colSizeInput)}>{children}</Col>}
+					wrapper={children => <Col {...arrayToLiteral(inputColumns)}>{children}</Col>}
 				>
 					{props.children}
 				</ConditionalWrapper>
@@ -56,7 +56,7 @@ InputWrapper.propTypes = {
 	label: formProps.label,
 	name: formProps.name,
 	horizontal: formProps.horizontal,
-	columns: formProps.columns,
+	labelColumns: formProps.labelColumns,
 	type: formProps.type,
 	children: globalProps.children
 };

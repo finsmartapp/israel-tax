@@ -22,7 +22,7 @@ function EndOfYearStudyFund(props) {
 					state={studyFundOption[formIndex]}
 					btnLabel={['None', 'Maximum\u{0002A}\u{0002A}', 'Custom']}
 					btnValue={['none', 'maximum', 'custom']}
-					columns={studyFundOption[formIndex] === 'custom' ? ['md=4', 'lg=5'] : ['xs=12']}
+					labelColumns={studyFundOption[formIndex] === 'custom' ? ['md=4', 'lg=5'] : ['xs=12']}
 					horizontal={false}
 					handleChange={handleChange}
 				/>
@@ -34,7 +34,7 @@ function EndOfYearStudyFund(props) {
 							state={studyFundType[formIndex]}
 							btnLabel={['Shekel', 'Percent']}
 							btnValue={['shekel', 'percent']}
-							columns={['xs=7', 'md=4', 'lg=4']}
+							labelColumns={['xs=7', 'md=4', 'lg=4']}
 							horizontal={false}
 							handleChange={handleChange}
 						/>
@@ -45,7 +45,7 @@ function EndOfYearStudyFund(props) {
 							value={studyFundAmount[formIndex]}
 							symbol={studyFundType[formIndex] === 'percent' ? '%' : '₪'}
 							max={studyFundType[formIndex] === 'percent' ? 100 : undefined}
-							columns={['xs=5', 'md=4', 'lg=3']}
+							labelColumns={['xs=5', 'md=4', 'lg=3']}
 							horizontal={false}
 							handleChange={handleChange}
 							required={true}
