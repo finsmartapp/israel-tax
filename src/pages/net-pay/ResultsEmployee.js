@@ -11,8 +11,8 @@ import {
 	incomeTaxBandsCalc
 } from '../../utils/tax-calculators';
 import { formatCurrency } from '../../utils/formatCurrency';
-import { cardAllowancePopup } from './Popups';
 import TableBreakdown from '../../components/table-breakdown';
+import { foodAllowanceInfo } from './ResultsEmployeeInfo';
 
 function NetPayResultsEmployee(props) {
 	const taxData = props.taxData;
@@ -189,9 +189,9 @@ function NetPayResultsEmployee(props) {
 							</tr>
 						</tbody>
 					</Table>
+					{foodAllowance > 0 && showResultsTable === true && foodAllowanceInfo(foodAllowance)}
 				</section>
 			)}
-			<>{foodAllowance > 0 && showResultsTable === true && cardAllowancePopup(foodAllowance)}</>
 		</>
 	);
 }

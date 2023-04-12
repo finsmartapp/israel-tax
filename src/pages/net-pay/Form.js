@@ -8,10 +8,7 @@ import NetPayIncentives from './form-sections/Incentives';
 import LanguageContext from '../../contexts/LanguageContext';
 
 function NetPayForm(props) {
-	const employmentType = props.employmentType;
-	const taxData = props.taxData;
-	const stateData = props.stateData;
-	const handleChange = props.handleChange;
+	const { employmentType, taxData, stateData, handleChange } = props;
 	const formSize = ['xs=7', 'md=6'];
 
 	return (
