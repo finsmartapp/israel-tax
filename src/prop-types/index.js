@@ -22,7 +22,7 @@ export const globalProps = {
 	language: string.isRequired,
 	display: bool.isRequired,
 	children: oneOfType([array, object]).isRequired,
-	resultsTable: object.isRequired,
+	scrollPoint: object.isRequired,
 	showResultsTable: bool.isRequired,
 	displayItems: number.isRequired,
 	rate: number.isRequired,

@@ -125,14 +125,11 @@ function EndOfYearResults(props) {
 		incomeTax
 	);
 
-	// console.log('monthlyBandPayments 1', monthlyBandPayments);
-	// console.log('annualBandPayments 1', annualBandPayments);
-
 	return (
 		<>
 			{showResultsTable && (
-				<section ref={props.resultsTable}>
-					<h2>Results</h2>
+				<section>
+					<h2 ref={props.scrollPoint}>Results</h2>
 					<Table striped bordered className='table--col-2'>
 						<thead>
 							<tr className='table__row-header table__row-header--primary'>
@@ -210,7 +207,7 @@ function EndOfYearResults(props) {
 }
 
 EndOfYearResults.propTypes = {
-	resultsTable: globalProps.resultsTable,
+	scrollPoint: globalProps.scrollPoint,
 	taxData: payrollProps.taxData,
 	stateData: globalProps.shape({
 		taxYearIndex: payrollProps.taxYearIndex,

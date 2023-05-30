@@ -5,6 +5,7 @@ import './net-pay.scss';
 import NetPayForm from './Form';
 import NetPayResultsEmployee from './ResultsEmployee';
 import NetPayResultsSelfEmployed from './ResultsSelfEmployed';
+import { scrollToRef } from '../../utils/scrollToRef';
 
 class NetPayCalculator extends Component {
 	constructor(props) {
@@ -27,7 +28,7 @@ class NetPayCalculator extends Component {
 			validated: false,
 			showResultsTable: false
 		};
-		this.resultsTable = React.createRef();
+		this.scrollPoint = React.createRef();
 	}
 
 	componentDidUpdate(prevProps) {
@@ -76,15 +77,6 @@ class NetPayCalculator extends Component {
 		}
 	};
 
-	scrollToResults = () => {
-		setTimeout(() => {
-			this.resultsTable.current.scrollIntoView({
-				behavior: 'smooth',
-				block: 'start'
-			});
-		}, 150);
-	};
-
 	handleSubmit = event => {
 		const form = event.currentTarget;
 
@@ -93,7 +85,9 @@ class NetPayCalculator extends Component {
 				showResultsTable: true,
 				validated: false //Hides validation text
 			});
-			this.scrollToResults();
+			setTimeout(() => {
+				scrollToRef(this.scrollPoint.current);
+			}, 150);
 		} else {
 			this.setState({
 				validated: true
@@ -118,7 +112,7 @@ class NetPayCalculator extends Component {
 						employmentType={this.props.employmentType}
 						taxData={taxData}
 						stateData={this.state}
-						resultsTable={this.resultsTable}
+						scrollPoint={this.scrollPoint}
 					/>
 				)}
 				{this.props.employmentType === 'selfEmployed' && (
@@ -126,7 +120,7 @@ class NetPayCalculator extends Component {
 						employmentType={this.props.employmentType}
 						taxData={taxData}
 						stateData={this.state}
-						resultsTable={this.resultsTable}
+						scrollPoint={this.scrollPoint}
 					/>
 				)}
 			</>

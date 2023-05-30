@@ -3,6 +3,7 @@ import taxData from '../../data/payroll';
 import './end-of-year.scss';
 import EndOfYearForm from './Form';
 import EndOfYearResults from './Results';
+import { scrollToRef } from '../../utils/scrollToRef';
 
 class EndOfYearCalculator extends Component {
 	constructor(props) {
@@ -23,7 +24,7 @@ class EndOfYearCalculator extends Component {
 			validated: false,
 			showResultsTable: false
 		};
-		this.resultsTable = React.createRef();
+		this.scrollPoint = React.createRef();
 	}
 
 	componentDidUpdate(prevProps, prevState) {
@@ -98,15 +99,6 @@ class EndOfYearCalculator extends Component {
 		});
 	};
 
-	scrollToResults = () => {
-		setTimeout(() => {
-			this.resultsTable.current.scrollIntoView({
-				behavior: 'smooth',
-				block: 'start'
-			});
-		}, 150);
-	};
-
 	handleSubmit = event => {
 		const form = event.currentTarget;
 
@@ -115,7 +107,9 @@ class EndOfYearCalculator extends Component {
 				showResultsTable: true,
 				validated: false //Hides validation text
 			});
-			this.scrollToResults();
+			setTimeout(() => {
+				scrollToRef(this.scrollPoint.current);
+			}, 150);
 		} else {
 			this.setState({
 				validated: true
@@ -133,11 +127,7 @@ class EndOfYearCalculator extends Component {
 					handleChange={this.handleChange}
 					handleSubmit={this.handleSubmit}
 				/>
-				<EndOfYearResults
-					taxData={taxData}
-					stateData={this.state}
-					resultsTable={this.resultsTable}
-				/>
+				<EndOfYearResults taxData={taxData} stateData={this.state} scrollPoint={this.scrollPoint} />
 			</>
 		);
 	}

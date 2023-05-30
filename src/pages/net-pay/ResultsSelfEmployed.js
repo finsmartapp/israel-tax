@@ -95,8 +95,8 @@ function NetPayResultsSelfEmployed(props) {
 	return (
 		<>
 			{showResultsTable && (
-				<section ref={props.resultsTable}>
-					<h2>Results</h2>
+				<section>
+					<h2 ref={props.scrollPoint}>Results</h2>
 					<Table striped bordered className='table--col-3'>
 						<thead>
 							<tr className='table__row-header table__row-header--primary'>
@@ -179,7 +179,7 @@ function NetPayResultsSelfEmployed(props) {
 
 NetPayResultsSelfEmployed.propTypes = {
 	employmentType: globalProps.employmentType,
-	resultsTable: globalProps.resultsTable,
+	scrollPoint: globalProps.scrollPoint,
 	taxData: payrollProps.taxData,
 	stateData: globalProps.shape({
 		taxYearIndex: payrollProps.taxYearIndex,
