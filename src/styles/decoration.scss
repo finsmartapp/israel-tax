@@ -7,6 +7,10 @@ a {
 
 .plain-links a {
 	color: $base-font-color;
+
+	&:hover {
+		color: #0a58ca;
+	}
 }
 
 .btn-link {
@@ -15,4 +19,8 @@ a {
 	padding: 0;
 	color: $link;
 	text-decoration: none;
+}
+
+.flush-list ul {
+	padding-left: 1rem;
 }
