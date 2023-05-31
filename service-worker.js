@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/israel-tax/precache-manifest.9d831da0bb6b14d13695bd1ef3d42c13.js"
+  "/israel-tax/precache-manifest.36631aa669cb2310c23b2daf80e7f264.js"
 );
 
 self.addEventListener('message', (event) => {
