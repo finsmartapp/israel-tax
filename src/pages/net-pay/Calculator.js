@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { globalProps } from '../../prop-types';
 import taxData from '../../data/payroll';
-import './net-pay.scss';
 import NetPayForm from './Form';
 import NetPayResultsEmployee from './ResultsEmployee';
 import NetPayResultsSelfEmployed from './ResultsSelfEmployed';

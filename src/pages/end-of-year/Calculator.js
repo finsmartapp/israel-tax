@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import taxData from '../../data/payroll';
-import './end-of-year.scss';
 import EndOfYearForm from './Form';
 import EndOfYearResults from './Results';
 import { scrollToRef } from '../../utils/scrollToRef';

@@ -1,5 +1,6 @@
 import React from 'react';
 import { globalProps } from '../../prop-types';
+import './net-pay.scss';
 import Hero from '../../components/hero';
 import PageContainer from '../../components/page-container';
 import NetPayCalculator from './Calculator';

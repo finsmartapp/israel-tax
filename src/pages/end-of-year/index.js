@@ -1,4 +1,5 @@
 import React from 'react';
+import './end-of-year.scss';
 import PageContainer from '../../components/page-container';
 import Hero from '../../components/hero';
 import EndOfYearCalculator from './Calculator';
