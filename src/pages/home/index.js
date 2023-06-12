@@ -22,21 +22,17 @@ function Home() {
 							<Card.Title>
 								<h3>Calculators</h3>
 							</Card.Title>
-							<Card.Text>
-								<ul>
-									<li>
-										<Link to='/employee/net-pay-calculator'>Employee Net Pay</Link>
-									</li>
-									<li>
-										<Link to='/self-employed/net-pay-calculator'>Self-employed Net Pay</Link>
-									</li>
-									<li>
-										<Link to='/self-employed/end-of-year-calculator'>
-											Self-employed end of Year
-										</Link>
-									</li>
-								</ul>
-							</Card.Text>
+							<ul>
+								<li>
+									<Link to='/employee/net-pay-calculator'>Employee Net Pay</Link>
+								</li>
+								<li>
+									<Link to='/self-employed/net-pay-calculator'>Self-employed Net Pay</Link>
+								</li>
+								<li>
+									<Link to='/self-employed/end-of-year-calculator'>Self-employed end of Year</Link>
+								</li>
+							</ul>
 						</Card.Body>
 					</Card>
 					<Card>
@@ -45,16 +41,14 @@ function Home() {
 							<Card.Title>
 								<h3>Tax Rate Tables</h3>
 							</Card.Title>
-							<Card.Text>
-								<ul>
-									<li>
-										<Link to='/tax-rates/income-tax'>Income Tax</Link>
-									</li>
-									<li>
-										<Link to='/tax-rates/credit-points'>Credit Points</Link>
-									</li>
-								</ul>
-							</Card.Text>
+							<ul>
+								<li>
+									<Link to='/tax-rates/income-tax'>Income Tax</Link>
+								</li>
+								<li>
+									<Link to='/tax-rates/credit-points'>Credit Points</Link>
+								</li>
+							</ul>
 						</Card.Body>
 					</Card>
 					<Card>
@@ -63,16 +57,14 @@ function Home() {
 							<Card.Title>
 								<h3>Pensions</h3>
 							</Card.Title>
-							<Card.Text>
-								<ul>
-									<li>
-										<Link to='/employee/pension'>Workplace Pension</Link>
-									</li>
-									<li>
-										<Link to='/self-employed/pension'>Self-employed Pension</Link>
-									</li>
-								</ul>
-							</Card.Text>
+							<ul>
+								<li>
+									<Link to='/employee/pension'>Workplace Pension</Link>
+								</li>
+								<li>
+									<Link to='/self-employed/pension'>Self-employed Pension</Link>
+								</li>
+							</ul>
 						</Card.Body>
 					</Card>
 					<Card>
@@ -81,16 +73,14 @@ function Home() {
 							<Card.Title>
 								<h3>Study Funds</h3>
 							</Card.Title>
-							<Card.Text>
-								<ul>
-									<li>
-										<Link to='/employee/study-fund'>Employee Study Fund</Link>
-									</li>
-									<li>
-										<Link to='/self-employed/study-fund'>Self-employed Study Fund</Link>
-									</li>
-								</ul>
-							</Card.Text>
+							<ul>
+								<li>
+									<Link to='/employee/study-fund'>Employee Study Fund</Link>
+								</li>
+								<li>
+									<Link to='/self-employed/study-fund'>Self-employed Study Fund</Link>
+								</li>
+							</ul>
 						</Card.Body>
 					</Card>
 				</section>
