@@ -55,7 +55,12 @@ label[as='legend'] {
 }
 
 .form-control {
-	color: $base-font-family;
+	color: $base-font-color;
+}
+
+input,
+select {
+	font-size: 100%;
 }
 
 .form-text {
