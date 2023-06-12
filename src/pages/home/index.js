@@ -5,9 +5,9 @@ import PageContainer from '../../components/page-container';
 import Hero from '../../components/hero';
 import Card from 'react-bootstrap/Card';
 import calculator from '../../images/cards/iphone-calulator.jpg';
-import moneyBag from '../../images/cards/shekel-money-bag.jpg';
-import hourGlass from '../../images/cards/hour-glass-coins.jpeg';
-import moneyTree from '../../images/cards/seedling-coins.jpg';
+import taxTable from '../../images/cards/shekel-money-bag.jpg';
+import pension from '../../images/cards/hour-glass-coins.jpeg';
+import studyFund from '../../images/cards/seedling-coins.jpg';
 
 function Home() {
 	return (
@@ -24,19 +24,19 @@ function Home() {
 							</Card.Title>
 							<ul>
 								<li>
-									<Link to='/employee/net-pay-calculator'>Employee Net Pay</Link>
+									<Link to='/employee/net-pay-calculators'>Employee Net Pay</Link>
 								</li>
 								<li>
-									<Link to='/self-employed/net-pay-calculator'>Self-employed Net Pay</Link>
+									<Link to='/self-employed/net-pay-calculators'>Self-employed Net Pay</Link>
 								</li>
 								<li>
-									<Link to='/self-employed/end-of-year-calculator'>Self-employed end of Year</Link>
+									<Link to='/self-employed/end-of-year-calculators'>Self-employed end of Year</Link>
 								</li>
 							</ul>
 						</Card.Body>
 					</Card>
 					<Card>
-						<Card.Img variant='top' src={moneyBag} />
+						<Card.Img variant='top' src={taxTable} />
 						<Card.Body>
 							<Card.Title>
 								<h3>Tax Rate Tables</h3>
@@ -52,7 +52,7 @@ function Home() {
 						</Card.Body>
 					</Card>
 					<Card>
-						<Card.Img variant='top' src={hourGlass} />
+						<Card.Img variant='top' src={pension} />
 						<Card.Body>
 							<Card.Title>
 								<h3>Pensions</h3>
@@ -68,7 +68,7 @@ function Home() {
 						</Card.Body>
 					</Card>
 					<Card>
-						<Card.Img variant='top' src={moneyTree} />
+						<Card.Img variant='top' src={studyFund} />
 						<Card.Body>
 							<Card.Title>
 								<h3>Study Funds</h3>
