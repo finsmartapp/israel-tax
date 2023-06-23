@@ -24,13 +24,13 @@ function Home() {
 							</Card.Title>
 							<ul>
 								<li>
-									<Link to='/employee/net-pay-calculators'>Employee Net Pay</Link>
+									<Link to='/employee/net-pay-calculator'>Employee Net Pay</Link>
 								</li>
 								<li>
-									<Link to='/self-employed/net-pay-calculators'>Self-employed Net Pay</Link>
+									<Link to='/self-employed/net-pay-calculator'>Self-employed Net Pay</Link>
 								</li>
 								<li>
-									<Link to='/self-employed/end-of-year-calculators'>Self-employed end of Year</Link>
+									<Link to='/self-employed/end-of-year-calculator'>Self-employed End of Year</Link>
 								</li>
 							</ul>
 						</Card.Body>
