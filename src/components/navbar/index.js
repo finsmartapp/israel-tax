@@ -9,23 +9,23 @@ class Navigation extends Component {
 	}
 
 	componentDidMount() {
-		this.noheroStyling();
+		this.heroOutOfView();
 
 		window.addEventListener('resize', () => {
-			this.noheroStyling();
+			this.heroOutOfView();
 		});
 	}
 
 	screensize = () => {
 		const view = window.innerWidth;
-		return view < 1200 ? true : false;
+		return view < 1400 ? true : false; //Must match hero.scss
 	};
 
-	noheroStyling = () => {
-		const shortlHero = this.screensize();
+	heroOutOfView = () => {
+		const smallHero = this.screensize();
 		let heroHeight;
 
-		heroHeight = shortlHero ? window.innerHeight * 0.25 : window.innerHeight * 0.35;
+		heroHeight = smallHero ? window.innerHeight * 0.3 : window.innerHeight * 0.45; //Must match hero.scss
 
 		window.addEventListener('scroll', () => {
 			let fromTop = window.scrollY;

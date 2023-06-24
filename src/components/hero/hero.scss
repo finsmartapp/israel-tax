@@ -7,13 +7,15 @@
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 30vh;
 	position: relative;
 	margin-bottom: 1.5rem;
 
+	//Must match to navbar index
+	height: 30vh;
 	@include screen-xxl {
 		height: 45vh;
 	}
+	//End
 
 	&--home {
 		background-image: url(../../images/heroes/banknotes-mixed.jpg);
