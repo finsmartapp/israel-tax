@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/israel-tax/static/css/main.abc9514b.chunk.css",
-    "main.js": "/israel-tax/static/js/main.f654c16f.chunk.js",
-    "main.js.map": "/israel-tax/static/js/main.f654c16f.chunk.js.map",
+    "main.css": "/israel-tax/static/css/main.fefb9da1.chunk.css",
+    "main.js": "/israel-tax/static/js/main.4498b4b8.chunk.js",
+    "main.js.map": "/israel-tax/static/js/main.4498b4b8.chunk.js.map",
     "runtime-main.js": "/israel-tax/static/js/runtime-main.35618d76.js",
     "runtime-main.js.map": "/israel-tax/static/js/runtime-main.35618d76.js.map",
     "static/js/2.a2de8a61.chunk.js": "/israel-tax/static/js/2.a2de8a61.chunk.js",
     "static/js/2.a2de8a61.chunk.js.map": "/israel-tax/static/js/2.a2de8a61.chunk.js.map",
     "index.html": "/israel-tax/index.html",
-    "precache-manifest.24dbf9aaa90e8bb499e4e4a5a9f0d369.js": "/israel-tax/precache-manifest.24dbf9aaa90e8bb499e4e4a5a9f0d369.js",
+    "precache-manifest.ec4e17a6de9bcc70dda828f349da22e7.js": "/israel-tax/precache-manifest.ec4e17a6de9bcc70dda828f349da22e7.js",
     "service-worker.js": "/israel-tax/service-worker.js",
-    "static/css/main.abc9514b.chunk.css.map": "/israel-tax/static/css/main.abc9514b.chunk.css.map",
+    "static/css/main.fefb9da1.chunk.css.map": "/israel-tax/static/css/main.fefb9da1.chunk.css.map",
     "static/js/2.a2de8a61.chunk.js.LICENSE.txt": "/israel-tax/static/js/2.a2de8a61.chunk.js.LICENSE.txt",
+    "static/media/hero.scss": "/israel-tax/static/media/wallet.1b524ecb.jpeg",
     "static/media/info-card.scss": "/israel-tax/static/media/warning.6785d770.svg",
+    "static/media/canvasbag-suit.jpg": "/israel-tax/static/media/canvasbag-suit.f9d191d0.jpg",
     "static/media/hour-glass-coins.jpeg": "/israel-tax/static/media/hour-glass-coins.1cb60e21.jpeg",
     "static/media/iphone-calulator.jpg": "/israel-tax/static/media/iphone-calulator.6f8e95b0.jpg",
     "static/media/seedling-coins.jpg": "/israel-tax/static/media/seedling-coins.699b28d7.jpg",
-    "static/media/hero.scss": "/israel-tax/static/media/shekel-banknotes.d339988a.jpg",
-    "static/media/shekel-money-bag.jpg": "/israel-tax/static/media/shekel-money-bag.f9d191d0.jpg",
     "static/media/language-selector.scss": "/israel-tax/static/media/south-africa.3dcf1922.png"
   },
   "entrypoints": [
     "static/js/runtime-main.35618d76.js",
     "static/js/2.a2de8a61.chunk.js",
-    "static/css/main.abc9514b.chunk.css",
-    "static/js/main.f654c16f.chunk.js"
+    "static/css/main.fefb9da1.chunk.css",
+    "static/js/main.4498b4b8.chunk.js"
   ]
 }
