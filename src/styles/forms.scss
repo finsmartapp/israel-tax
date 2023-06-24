@@ -54,13 +54,10 @@ label[as='legend'] {
 	box-shadow: none;
 }
 
-.form-control {
+.form-control,
+.form-select {
 	color: $base-font-color;
-}
-
-input,
-select {
-	font-size: 100%;
+	font-size: 16px;
 }
 
 .form-text {
