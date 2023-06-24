@@ -2,20 +2,47 @@
 @import '../../styles/variables/fonts';
 
 .hero {
-	background-image: url(../../images/heroes/shekel-banknotes.jpg);
-	// background-image: url(../../images/heroes/pension.jpg);
+	background-image: url(../../images/heroes/banknotes-mixed.jpg);
 	background-attachment: scroll;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 25vh;
+	height: 30vh;
 	position: relative;
 	margin-bottom: 1.5rem;
 
-	@include screen-xl {
-		background-attachment: fixed;
-		background-position: center -18vh;
-		height: 35vh;
+	@include screen-xxl {
+		height: 45vh;
+	}
+
+	&--home {
+		background-image: url(../../images/heroes/banknotes-mixed.jpg);
+	}
+
+	&--netPay {
+		background-image: url(../../images/heroes/wallet.jpeg);
+	}
+
+	&--pension {
+		background-image: url(../../images/heroes/jar.jpeg);
+		@include screen-md {
+			background-position: center -10vh;
+		}
+	}
+
+	&--studyFund {
+		background-image: url(../../images/heroes/coins-stacked.jpg);
+		@include screen-md {
+			background-position: center -10vh;
+		}
+	}
+
+	&--taxTable {
+		background-image: url(../../images/heroes/canvasbag-houses-suit.jpg);
+	}
+
+	&--creditPoints {
+		background-image: url(../../images/heroes/banknotes-bow.jpeg);
 	}
 
 	h1 {
@@ -28,8 +55,14 @@
 		color: #ffffff;
 		text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 		font-weight: $extra-strong;
+		padding: 1rem;
+		font-size: 2rem;
 
 		@include screen-md {
+			font-size: 3.5rem;
+		}
+
+		@include screen-xl {
 			font-size: 4rem;
 		}
 	}

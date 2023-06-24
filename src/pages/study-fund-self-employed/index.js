@@ -12,7 +12,7 @@ function SelfEmployedStudyFund() {
 
 	return (
 		<>
-			<Hero h1='Self-employed Study Fund' />
+			<Hero h1='Self-employed Study Fund' heroImage='studyFund' />
 			<PageContainer>
 				<SelfEmployedStudyFundDeposit
 					currentYear={currentYear}

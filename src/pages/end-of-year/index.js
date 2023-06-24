@@ -7,7 +7,7 @@ import EndOfYearCalculator from './Calculator';
 function EndOfYear() {
 	return (
 		<>
-			<Hero h1='End of Year Calculator' />
+			<Hero h1='End of Year Calculator' heroImage='netPay' />
 			<PageContainer>
 				<section>
 					<h2>Net Pay</h2>

@@ -7,7 +7,7 @@ function Hero(props) {
 	return (
 		<Container fluid={true}>
 			<Row>
-				<Col xs={12} className="hero">
+				<Col xs={12} className={`hero hero--${props.heroImage}`}>
 					<h1>{props.h1}</h1>
 				</Col>
 			</Row>
@@ -16,7 +16,8 @@ function Hero(props) {
 }
 
 Hero.propTypes = {
-	h1: heroProps.h1
+	h1: heroProps.h1,
+	heroImage: heroProps.heroImage
 };
 
 export default Hero;

@@ -30,7 +30,7 @@ const taxCredit = tierLimit * (taxCreditLimit / 100) * (taxCreditRate / 100);
 function SelfEmployedPension() {
 	return (
 		<>
-			<Hero h1='Self-employed Pension' />
+			<Hero h1='Self-employed Pension' heroImage='pension' />
 			<PageContainer>
 				<SelfEmployedPensionDeposit
 					currentYearData={currentYearData}

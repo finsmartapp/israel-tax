@@ -99,7 +99,8 @@ export const formProps = {
 };
 
 export const heroProps = {
-	h1: string.isRequired
+	h1: string.isRequired,
+	heroImage: string.isRequired
 };
 
 export const breakdownProps = {

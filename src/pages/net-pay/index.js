@@ -11,7 +11,10 @@ function NetPay(props) {
 
 	return (
 		<>
-			<Hero h1={`${capitaliseFirst(camelToKebab(employment))} Net Pay Calculator`} />
+			<Hero
+				h1={`${capitaliseFirst(camelToKebab(employment))} Net Pay Calculator`}
+				heroImage='netPay'
+			/>
 			<PageContainer>
 				<section>
 					<h2>Net Pay</h2>

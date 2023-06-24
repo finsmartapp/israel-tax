@@ -12,7 +12,7 @@ function EmployeePension() {
 
 	return (
 		<>
-			<Hero h1='Workplace Pension' />
+			<Hero h1='Workplace Pension' heroImage='pension' />
 			<PageContainer>
 				<EmployeePensionDeposit latestPensionData={latestPensionData} averageWage={averageWage} />
 			</PageContainer>

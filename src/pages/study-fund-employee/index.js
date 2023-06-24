@@ -16,7 +16,7 @@ function EmployeeStudyFund() {
 
 	return (
 		<>
-			<Hero h1='Employee Study Fund' />
+			<Hero h1='Employee Study Fund' heroImage='studyFund' />
 			<PageContainer>
 				<EmployeeStudyFundDeposit
 					currentYear={currentYear}

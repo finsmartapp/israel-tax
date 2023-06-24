@@ -6,7 +6,7 @@ import TaxBandsTable from './Table';
 function TaxBands() {
 	return (
 		<>
-			<Hero h1='Income Tax Bands' />
+			<Hero h1='Income Tax Bands' heroImage='taxTable' />
 			<PageContainer>
 				<section>
 					<h2>Tax Bands</h2>

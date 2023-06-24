@@ -5,14 +5,14 @@ import PageContainer from '../../components/page-container';
 import Hero from '../../components/hero';
 import Card from 'react-bootstrap/Card';
 import calculator from '../../images/cards/iphone-calulator.jpg';
-import taxTable from '../../images/cards/shekel-money-bag.jpg';
+import taxTable from '../../images/cards/canvasbag-suit.jpg';
 import pension from '../../images/cards/hour-glass-coins.jpeg';
 import studyFund from '../../images/cards/seedling-coins.jpg';
 
 function Home() {
 	return (
 		<>
-			<Hero h1='Israel Tax Information' />
+			<Hero h1='Israel Tax Information' heroImage='home' />
 			<PageContainer>
 				<section className='home-cards plain-links flush-list'>
 					<h2 className='visually-hidden'>Website Categories</h2>

@@ -6,7 +6,7 @@ import CreditPointsTable from './Table';
 function CreditPoints() {
 	return (
 		<>
-			<Hero h1='Income Tax Bands' />
+			<Hero h1='Tax Credit Points' heroImage='creditPoints' />
 			<PageContainer>
 				<section>
 					<h2>Credit Point Vaules</h2>
