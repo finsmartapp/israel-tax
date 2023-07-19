@@ -29,9 +29,6 @@ function Home() {
 								<li>
 									<Link to='/self-employed/net-pay-calculator'>Self-employed Net Pay</Link>
 								</li>
-								<li>
-									<Link to='/self-employed/end-of-year-calculator'>Self-employed End of Year</Link>
-								</li>
 							</ul>
 						</Card.Body>
 					</Card>

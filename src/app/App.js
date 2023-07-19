@@ -13,6 +13,7 @@ import SelfEmployedPension from '../pages/pension-self-employed';
 import EmployeePension from '../pages/pension-employee';
 import SelfEmployedStudyFund from '../pages/study-fund-self-employed';
 import EmployeeStudyFund from '../pages/study-fund-employee';
+import RecognisedExpenses from '../pages/expenses';
 
 class App extends Component {
 	constructor() {
@@ -56,6 +57,7 @@ class App extends Component {
 						<Route path='/employee/pension' component={EmployeePension} />
 						<Route path='/self-employed/study-fund' component={SelfEmployedStudyFund} />
 						<Route path='/employee/study-fund' component={EmployeeStudyFund} />
+						<Route path='/self-employed/recognised-expenses' component={RecognisedExpenses} />
 					</Switch>
 					<Footer />
 				</LanguageContext.Provider>

@@ -1,0 +1,27 @@
+{
+	"expenses": [
+		{ "expense": "Stationery", "type": "Full", "deduct": 100, "vat": 100 },
+		{ "expense": "Internet", "type": "Full", "deduct": 100, "vat": 100 },
+		{ "expense": "Travel (Bus, Train, Taxi)", "type": "Full", "deduct": 100, "vat": 100 },
+		{ "expense": "Accounting and Legal", "type": "Full", "deduct": 100, "vat": 100 },
+		{ "expense": "Mobile Phone Bill", "type": "Partial", "deduct": 100, "vat": 66.67 },
+		{ "expense": "Utilities (Electric, Water)", "type": "Partial", "deduct": 25, "vat": 25 },
+		{ "expense": "Arnona", "type": "Partial", "deduct": 25, "vat": "NA" },
+		{ "expense": "House Committee (Vaad Bayit)", "type": "Partial", "deduct": 25, "vat": "NA" },
+		{ "expense": "Cleaning Products", "type": "Partial", "deduct": 25, "vat": 25 },
+		{ "expense": "Refreshments", "type": "Partial", "deduct": 80, "vat": 66.67 },
+		{
+			"expense": "Car Maintenance (Fuel, Insurance, License)",
+			"type": "Partial",
+			"deduct": 45,
+			"vat": 66.67
+		},
+		{ "expense": "Client Gift (less than ₪210)", "type": "Full", "deduct": 100, "vat": 100 },
+		{ "expense": "Computer, Laptop and Smartphone", "type": "Capital", "deduct": 33, "vat": 100 },
+		{ "expense": "Printer", "type": "Capital", "deduct": 25, "vat": 100 },
+		{ "expense": "Coffee Machine", "type": "Capital", "deduct": 20, "vat": 100 },
+		{ "expense": "Car", "type": "Capital", "deduct": 15, "vat": 0 },
+		{ "expense": "Office Furniture", "type": "Capital", "deduct": 6, "vat": 100 }
+	],
+	"vat": [{ "startYear": 2017, "amount": 17 }]
+}

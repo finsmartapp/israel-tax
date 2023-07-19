@@ -3,7 +3,7 @@
 		border-top: none;
 	}
 
-	&--equal {
+	&--col-equal {
 		table-layout: fixed;
 		width: 100%;
 	}
@@ -39,11 +39,6 @@
 	}
 
 	&--col-4 {
-		@include screen-md {
-			table-layout: fixed;
-			width: 100%;
-		}
-
 		th,
 		td {
 			@include screen-lg {
@@ -74,4 +69,8 @@
 
 .table-striped > tbody > tr:nth-of-type(odd) td:nth-of-type(1) {
 	--bs-table-accent-bg: white;
+}
+
+.table-overflow {
+	overflow-x: scroll;
 }

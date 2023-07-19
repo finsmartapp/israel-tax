@@ -39,6 +39,9 @@ function NavigationMenu(props) {
 							<LinkContainer to='/self-employed/study-fund'>
 								<NavDropdown.Item>Study Fund</NavDropdown.Item>
 							</LinkContainer>
+							<LinkContainer to='/self-employed/recognised-expenses'>
+								<NavDropdown.Item>Recognised Expenses</NavDropdown.Item>
+							</LinkContainer>
 							<LinkContainer to='/self-employed/end-of-year-calculator'>
 								<NavDropdown.Item>End of Year Calculator</NavDropdown.Item>
 							</LinkContainer>

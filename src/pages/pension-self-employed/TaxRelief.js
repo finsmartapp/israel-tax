@@ -36,42 +36,44 @@ function SelfEmployedPensionTaxRelief(props) {
 				Tax relief is only available up to an income ceiling of {formatCurrency('il', ceiling, 0)},
 				with the tier ceilings being divided equally.
 			</p>
-			<Table striped bordered className='table--col-4'>
-				<thead>
-					<tr className='table__row-header table__row-header--primary'>
-						<th></th>
-						<th>Maximum Contribution</th>
-						<th>Recognised Expense</th>
-						<th>Tax Credit</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Tier One </td>
-						<td>{formatCurrency('il', maxContribution, 0)}</td>
-						<td>{formatCurrency('il', recognisedExpense, 0)}</td>
-						<td>{formatCurrency('il', taxCredit, 0)}</td>
-					</tr>
-					<tr>
-						<td>Beneficary Payment</td>
-						<td>{formatCurrency('il', beneficiaryPayment, 0)}</td>
-						<td>{formatCurrency('il', 0, 0)}</td>
-						<td>{formatCurrency('il', 0, 0)}</td>
-					</tr>
-					<tr>
-						<td>Tier Two </td>
-						<td>{formatCurrency('il', maxContribution, 0)}</td>
-						<td>{formatCurrency('il', recognisedExpense, 0)}</td>
-						<td>{formatCurrency('il', taxCredit, 0)}</td>
-					</tr>
-					<tr className='table__total'>
-						<td>Total</td>
-						<td>{formatCurrency('il', maxContribution * 2 + beneficiaryPayment, 0)}</td>
-						<td>{formatCurrency('il', recognisedExpense * 2, 0)}</td>
-						<td>{formatCurrency('il', taxCredit * 2, 0)}</td>
-					</tr>
-				</tbody>
-			</Table>
+			<di className='table-overflow'>
+				<Table striped bordered className='table--col-4'>
+					<thead>
+						<tr className='table__row-header table__row-header--primary'>
+							<th></th>
+							<th>Maximum Contribution</th>
+							<th>Recognised Expense</th>
+							<th>Tax Credit</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Tier One </td>
+							<td>{formatCurrency('il', maxContribution, 0)}</td>
+							<td>{formatCurrency('il', recognisedExpense, 0)}</td>
+							<td>{formatCurrency('il', taxCredit, 0)}</td>
+						</tr>
+						<tr>
+							<td>Beneficary Payment</td>
+							<td>{formatCurrency('il', beneficiaryPayment, 0)}</td>
+							<td>{formatCurrency('il', 0, 0)}</td>
+							<td>{formatCurrency('il', 0, 0)}</td>
+						</tr>
+						<tr>
+							<td>Tier Two </td>
+							<td>{formatCurrency('il', maxContribution, 0)}</td>
+							<td>{formatCurrency('il', recognisedExpense, 0)}</td>
+							<td>{formatCurrency('il', taxCredit, 0)}</td>
+						</tr>
+						<tr className='table__total'>
+							<td>Total</td>
+							<td>{formatCurrency('il', maxContribution * 2 + beneficiaryPayment, 0)}</td>
+							<td>{formatCurrency('il', recognisedExpense * 2, 0)}</td>
+							<td>{formatCurrency('il', taxCredit * 2, 0)}</td>
+						</tr>
+					</tbody>
+				</Table>
+			</di>
 		</section>
 	);
 }
