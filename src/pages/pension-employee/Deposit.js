@@ -8,7 +8,7 @@ function EmployeePensionDeposit(props) {
 	const { employee, employer, severance } = props.latestPensionData;
 	const averageWage = props.averageWage;
 	const employerMax = averageWage * (employer / 100);
-	const severanceMax = averageWage * (employer / 100);
+	const severanceMax = averageWage * (severance / 100);
 
 	return (
 		<section>
