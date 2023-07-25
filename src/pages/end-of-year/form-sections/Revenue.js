@@ -4,6 +4,7 @@ import { Form, Row } from 'react-bootstrap';
 import InputField from '../../../components/form-inputs/InputField';
 import { invalidNum } from '../../../utils/validationText';
 import { isZeroOrGreater } from '../../../utils/comparisons';
+import { formatNumberPlain } from '../../../utils/formatNumber';
 
 function EndOfYearRevenue(props) {
 	const { income, expenses, profit, creditPoints } = props.stateData;
@@ -42,7 +43,9 @@ function EndOfYearRevenue(props) {
 					language={language}
 					label='Profit'
 					name={`profit${formIndex}`}
-					value={profit[formIndex]}
+					value={
+						profit[formIndex] > 0 ? formatNumberPlain(profit[formIndex], 2) : profit[formIndex]
+					}
 					labelColumns={formSize}
 					horizontal={false}
 					handleChange={handleChange}

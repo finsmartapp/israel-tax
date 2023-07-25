@@ -36,8 +36,8 @@ function EndOfYearPension(props) {
 							label='Type'
 							name={`pensionType${formIndex}`}
 							state={pensionType[formIndex]}
-							btnLabel={['Percent', 'Shekel']}
-							btnValue={['percent', 'shekel']}
+							btnLabel={['Shekel', 'Percent']}
+							btnValue={['shekel', 'percent']}
 							labelColumns={['xs=7', 'md=4', 'lg=4']}
 							horizontal={false}
 							handleChange={handleChange}

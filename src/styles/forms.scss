@@ -57,7 +57,6 @@ label[as='legend'] {
 .form-control,
 .form-select {
 	color: $base-font-color;
-	// font-size: 16px;
 }
 
 .form-text {
@@ -77,6 +76,6 @@ label[as='legend'] {
 input,
 select,
 textarea {
-	font-size: 1rem !important;
+	font-size: 16px !important;
 }
 //end
