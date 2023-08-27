@@ -13,6 +13,7 @@ class NetPayCalculator extends Component {
 			taxYearIndex: 0,
 			baseIncome: '',
 			creditPoints: '',
+			bituachLeumiAdvance: '',
 			pensionOption: 'legalMin',
 			pensionType: props.employmentType === 'employee' ? 'percent' : 'shekel',
 			pensionAmount: '',

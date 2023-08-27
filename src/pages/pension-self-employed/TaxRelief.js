@@ -5,8 +5,8 @@ import { formatCurrency } from '../../utils/formatCurrency';
 
 function SelfEmployedPensionTaxRelief(props) {
 	const {
-		taxDeductableLimit,
-		taxCreditLimit,
+		taxDeductableMaxPercent,
+		taxCreditMaxPercent,
 		eligibleIncome,
 		ceiling,
 		maxContribution,
@@ -20,12 +20,12 @@ function SelfEmployedPensionTaxRelief(props) {
 			<h2>Tax Relief</h2>
 			<p>
 				You're entitled to tax relief on pension contributions up to{' '}
-				{taxDeductableLimit + taxCreditLimit}% of your annual income, with {taxDeductableLimit}%
-				being a recognised expense and up to {taxCreditLimit}% receiving a tax credit of 35%, up to
-				deposit ceilings and type of pension.
+				{taxDeductableMaxPercent + taxCreditMaxPercent}% of your annual income, with{' '}
+				{taxDeductableMaxPercent}% being a recognised expense and up to {taxCreditMaxPercent}%
+				receiving a tax credit of 35%, up to deposit ceilings and type of pension.
 			</p>
 			<p>
-				Up to an eligible income of {formatCurrency('il', eligibleIncome, 0)}, the full benefits are
+				Up to an eligible income of {formatCurrency('il', eligibleIncome)}, the full benefits are
 				available as a simple percentage of your income. If your income exceeds this, the benefits
 				are calculated in two tiers and you must be defined as a beneficiary to be eligible for the
 				second tier. To become a beneficiary, a beneficiary payment must be deposited, which is in
@@ -33,10 +33,10 @@ function SelfEmployedPensionTaxRelief(props) {
 				available.
 			</p>
 			<p>
-				Tax relief is only available up to an income ceiling of {formatCurrency('il', ceiling, 0)},
+				Tax relief is only available up to an income ceiling of {formatCurrency('il', ceiling)},
 				with the tier ceilings being divided equally.
 			</p>
-			<di className='table-overflow'>
+			<div className='table-overflow'>
 				<Table striped bordered className='table--col-4'>
 					<thead>
 						<tr className='table__row-header table__row-header--primary'>
@@ -49,38 +49,38 @@ function SelfEmployedPensionTaxRelief(props) {
 					<tbody>
 						<tr>
 							<td>Tier One </td>
-							<td>{formatCurrency('il', maxContribution, 0)}</td>
-							<td>{formatCurrency('il', recognisedExpense, 0)}</td>
-							<td>{formatCurrency('il', taxCredit, 0)}</td>
+							<td>{formatCurrency('il', maxContribution)}</td>
+							<td>{formatCurrency('il', recognisedExpense)}</td>
+							<td>{formatCurrency('il', taxCredit)}</td>
 						</tr>
 						<tr>
 							<td>Beneficary Payment</td>
-							<td>{formatCurrency('il', beneficiaryPayment, 0)}</td>
-							<td>{formatCurrency('il', 0, 0)}</td>
-							<td>{formatCurrency('il', 0, 0)}</td>
+							<td>{formatCurrency('il', beneficiaryPayment)}</td>
+							<td>{formatCurrency('il', 0)}</td>
+							<td>{formatCurrency('il', 0)}</td>
 						</tr>
 						<tr>
 							<td>Tier Two </td>
-							<td>{formatCurrency('il', maxContribution, 0)}</td>
-							<td>{formatCurrency('il', recognisedExpense, 0)}</td>
-							<td>{formatCurrency('il', taxCredit, 0)}</td>
+							<td>{formatCurrency('il', maxContribution)}</td>
+							<td>{formatCurrency('il', recognisedExpense)}</td>
+							<td>{formatCurrency('il', taxCredit)}</td>
 						</tr>
 						<tr className='table__total'>
 							<td>Total</td>
-							<td>{formatCurrency('il', maxContribution * 2 + beneficiaryPayment, 0)}</td>
-							<td>{formatCurrency('il', recognisedExpense * 2, 0)}</td>
-							<td>{formatCurrency('il', taxCredit * 2, 0)}</td>
+							<td>{formatCurrency('il', maxContribution * 2 + beneficiaryPayment)}</td>
+							<td>{formatCurrency('il', recognisedExpense * 2)}</td>
+							<td>{formatCurrency('il', taxCredit * 2)}</td>
 						</tr>
 					</tbody>
 				</Table>
-			</di>
+			</div>
 		</section>
 	);
 }
 
 SelfEmployedPensionTaxRelief.propTypes = {
-	taxDeductableLimit: pensionProps.taxDeductableLimit,
-	taxCreditLimit: pensionProps.taxCreditLimit,
+	taxDeductableMaxPercent: pensionProps.taxDeductableMaxPercent,
+	taxCreditMaxPercent: pensionProps.taxCreditMaxPercent,
 	eligibleIncome: pensionProps.eligibleIncome,
 	ceiling: pensionProps.ceiling,
 	maxContribution: pensionProps.maxContribution,

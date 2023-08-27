@@ -23,8 +23,13 @@
 
 .eoy-income {
 	@media (min-width: $screen-md) and (max-width: $screen-lg) {
-		label {
+		label:not(.bituach-leumi-field) {
 			height: 48px;
 		}
 	}
+}
+
+.bituach-leumi-field {
+	white-space: nowrap;
+	height: auto;
 }

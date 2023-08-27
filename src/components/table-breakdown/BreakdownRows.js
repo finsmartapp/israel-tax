@@ -11,7 +11,8 @@ function TableBreakdownRows(props) {
 		annualBreakdown,
 		active,
 		handleClick,
-		eoy
+		eoy,
+		decimal
 	} = props;
 	const hasTax = annualTotal > 0;
 	const monthColumn = eoy ? false : true;
@@ -30,8 +31,8 @@ function TableBreakdownRows(props) {
 						BREAKDOWN
 					</button>
 				</td>
-				{monthColumn && <td>{formatCurrency('il', monthTotal)}</td>}
-				<td>{formatCurrency('il', annualTotal)}</td>
+				{monthColumn && <td>{formatCurrency('il', monthTotal, decimal)}</td>}
+				<td>{formatCurrency('il', annualTotal, decimal)}</td>
 			</tr>
 			{active && (
 				<>
@@ -43,8 +44,8 @@ function TableBreakdownRows(props) {
 						return (
 							<tr key={i} className='breakdown-row'>
 								<td>{rate}% Rate</td>
-								{monthColumn && <td>{formatCurrency('il', tax)}</td>}
-								<td>{formatCurrency('il', isAnnual ? annualBreakdown[i][rate] : 0)}</td>
+								{monthColumn && <td>{formatCurrency('il', tax, decimal)}</td>}
+								<td>{formatCurrency('il', isAnnual ? annualBreakdown[i][rate] : 0, decimal)}</td>
 							</tr>
 						);
 					})}
@@ -62,7 +63,8 @@ TableBreakdownRows.propTypes = {
 	annualTotal: breakdownProps.annualTotal,
 	monthBreakdown: breakdownProps.monthBreakdown,
 	annualBreakdown: breakdownProps.annualBreakdown,
-	eoy: breakdownProps.eoy
+	eoy: breakdownProps.eoy,
+	decimal: globalProps.decimal
 };
 
 export default TableBreakdownRows;

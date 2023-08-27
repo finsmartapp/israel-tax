@@ -3,14 +3,15 @@ import { globalProps, payrollProps } from '../../prop-types';
 import Table from 'react-bootstrap/table';
 import {
 	bituachLeumiCalc,
-	nationalInsuranceSelfEmp,
+	niDeductableSelfEmpCalc,
 	pensionMinCalc,
 	pensionContributionCalc,
 	pensionReliefCalcSelfEmp,
 	studyFundAllowances,
 	studyFundCalc,
 	incomeTaxCalc,
-	incomeTaxBandsCalc
+	incomeTaxBandsCalc,
+	niDeductableAdvanceSelfEmpCalc
 } from '../../utils/tax-calculators';
 import { formatCurrency } from '../../utils/formatCurrency';
 import TableBreakdown from '../../components/table-breakdown';
@@ -21,6 +22,7 @@ function NetPayResultsSelfEmployed(props) {
 		taxYearIndex,
 		baseIncome,
 		creditPoints,
+		bituachLeumiAdvance,
 		pensionOption,
 		pensionType,
 		pensionAmount,
@@ -57,7 +59,7 @@ function NetPayResultsSelfEmployed(props) {
 		pensionContribution
 	);
 	const taxableIncome = baseIncome - studyFundTaxDeductible - pensionTaxDeductible;
-	const bituachLeumiDeductible = nationalInsuranceSelfEmp(taxData, taxYearIndex, taxableIncome);
+	const bituachLeumiDeductible = niDeductableSelfEmpCalc(taxData, taxYearIndex, taxableIncome);
 	const { month: nationalInsurance, annual: annualNationalInsurance } = bituachLeumiCalc(
 		taxData,
 		taxYearIndex,
@@ -73,10 +75,12 @@ function NetPayResultsSelfEmployed(props) {
 		'healthInsurance'
 	);
 	const creditPointsTaxCredit = creditPoints * taxData[taxYearIndex].creditPoint;
-	const incomeTaxTaxableIncome =
-		taxableIncome -
-		nationalInsurance *
-			(taxData[taxYearIndex].bituachLeumi.selfEmployedNationalInsuranceDiscount / 100);
+	const niIncomeTaxDeductable = niDeductableAdvanceSelfEmpCalc(
+		taxData,
+		taxYearIndex,
+		bituachLeumiAdvance
+	);
+	const incomeTaxTaxableIncome = taxableIncome - niIncomeTaxDeductable;
 	const credits = creditPointsTaxCredit + pensionTaxCredit;
 	const { incomeTax, annualIncomeTax } = incomeTaxCalc(
 		taxData,
@@ -111,11 +115,6 @@ function NetPayResultsSelfEmployed(props) {
 								<td>{formatCurrency('il', baseIncome)}</td>
 								<td>{formatCurrency('il', baseIncome * 12)}</td>
 							</tr>
-							<tr>
-								<td>Taxable Income</td>
-								<td>{formatCurrency('il', incomeTaxTaxableIncome)}</td>
-								<td>{formatCurrency('il', incomeTaxTaxableIncome * 12)}</td>
-							</tr>
 							<TableBreakdown
 								rowHeader={'Income Tax'}
 								monthTotal={incomeTax}
@@ -145,7 +144,7 @@ function NetPayResultsSelfEmployed(props) {
 									<td>{formatCurrency('il', studyFundContribution * 12)}</td>
 								</tr>
 							)}
-							<tr className='table_total'>
+							<tr className='table__total'>
 								<td>Net</td>
 								<td>
 									{formatCurrency(
@@ -190,7 +189,8 @@ NetPayResultsSelfEmployed.propTypes = {
 		pensionAmount: payrollProps.pensionAmount,
 		studyFundType: payrollProps.studyFundType,
 		studyFundAmount: payrollProps.studyFundAmount,
-		showResultsTable: globalProps.showResultsTable
+		showResultsTable: globalProps.showResultsTable,
+		bituachLeumiAdvance: payrollProps.bituachLeumiAdvance
 	})
 };
 

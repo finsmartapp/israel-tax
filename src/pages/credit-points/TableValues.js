@@ -30,7 +30,7 @@ function CreditPointsTableValues(props) {
 							return (
 								<tr key={i}>
 									<td>{taxYear}</td>
-									<td>{formatCurrency('il', creditPoint, 0)}</td>
+									<td>{formatCurrency('il', creditPoint)}</td>
 								</tr>
 							);
 						})}

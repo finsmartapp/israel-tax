@@ -118,13 +118,13 @@ function NetPayResultsEmployee(props) {
 						<tbody>
 							<tr>
 								<td>Basic Salary</td>
-								<td>{formatCurrency('il', baseIncome)}</td>
-								<td>{formatCurrency('il', baseIncome * 12)}</td>
+								<td>{formatCurrency('il', baseIncome, 2)}</td>
+								<td>{formatCurrency('il', baseIncome * 12, 2)}</td>
 							</tr>
 							<tr>
 								<td>Taxable Income</td>
-								<td>{formatCurrency('il', taxableIncome)}</td>
-								<td>{formatCurrency('il', (taxableIncome - annualBonus) * 12 + annualBonus)}</td>
+								<td>{formatCurrency('il', taxableIncome, 2)}</td>
+								<td>{formatCurrency('il', (taxableIncome - annualBonus) * 12 + annualBonus, 2)}</td>
 							</tr>
 							<TableBreakdown
 								rowHeader={'Income Tax'}
@@ -132,34 +132,35 @@ function NetPayResultsEmployee(props) {
 								annualTotal={annualIncomeTax}
 								monthBreakdown={monthlyBandPayments}
 								annualBreakdown={annualBandPayments}
+								decimal={2}
 							/>
 							<tr>
 								<td>National Insurance</td>
-								<td>{formatCurrency('il', nationalInsurance)}</td>
-								<td>{formatCurrency('il', annualNationalInsurance)}</td>
+								<td>{formatCurrency('il', nationalInsurance, 2)}</td>
+								<td>{formatCurrency('il', annualNationalInsurance, 2)}</td>
 							</tr>
 							<tr>
 								<td>Health Insurance</td>
-								<td>{formatCurrency('il', healthInsurance)}</td>
-								<td>{formatCurrency('il', annualHealthInsurance)}</td>
+								<td>{formatCurrency('il', healthInsurance, 2)}</td>
+								<td>{formatCurrency('il', annualHealthInsurance, 2)}</td>
 							</tr>
 							<tr>
 								<td>Pension</td>
-								<td>{formatCurrency('il', pensionContribution)}</td>
-								<td>{formatCurrency('il', pensionContribution * 12)}</td>
+								<td>{formatCurrency('il', pensionContribution, 2)}</td>
+								<td>{formatCurrency('il', pensionContribution * 12, 2)}</td>
 							</tr>
 							{studyFundContribution > 0 && (
 								<tr>
 									<td>Study Fund</td>
-									<td>{formatCurrency('il', studyFundContribution)}</td>
-									<td>{formatCurrency('il', studyFundContribution * 12)}</td>
+									<td>{formatCurrency('il', studyFundContribution, 2)}</td>
+									<td>{formatCurrency('il', studyFundContribution * 12, 2)}</td>
 								</tr>
 							)}
 							{annualBonus > 0 && (
 								<tr>
 									<td>Bonus</td>
-									<td>{formatCurrency('il', annualBonus)}</td>
-									<td>{formatCurrency('il', annualBonus)}</td>
+									<td>{formatCurrency('il', annualBonus, 2)}</td>
+									<td>{formatCurrency('il', annualBonus, 2)}</td>
 								</tr>
 							)}
 							<tr className='table__total'>
@@ -172,7 +173,8 @@ function NetPayResultsEmployee(props) {
 											nationalInsurance -
 											healthInsurance -
 											pensionContribution -
-											studyFundContribution
+											studyFundContribution,
+										2
 									)}
 								</td>
 								<td>
@@ -183,7 +185,8 @@ function NetPayResultsEmployee(props) {
 											annualIncomeTax -
 											annualNationalInsurance -
 											annualHealthInsurance -
-											(pensionContribution + studyFundContribution) * 12
+											(pensionContribution + studyFundContribution) * 12,
+										2
 									)}
 								</td>
 							</tr>

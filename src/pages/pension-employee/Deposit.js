@@ -28,9 +28,8 @@ function EmployeePensionDeposit(props) {
 				</li>
 				<li>
 					Your employer is only required to contribute up to the equivalant amount of the national
-					average wage, which is {formatCurrency('il', averageWage, 0)} a month for the{' '}
-					{currentYear} tax year. However, you may be able to negotiate a higher limit in your
-					contract
+					average wage, which is {formatCurrency('il', averageWage)} a month for the {currentYear}{' '}
+					tax year. However, you may be able to negotiate a higher limit in your contract
 				</li>
 				<li>
 					Your individual circumstances at the start of your employment will dictate when your
@@ -54,17 +53,17 @@ function EmployeePensionDeposit(props) {
 					<tr>
 						<td>Employer Pension Contribution</td>
 						<td>{employer}</td>
-						<td>{formatCurrency('il', employerMax, 0)}</td>
+						<td>{formatCurrency('il', employerMax)}</td>
 					</tr>
 					<tr>
 						<td>Employer Severance Contribution</td>
 						<td>{severance}</td>
-						<td>{formatCurrency('il', severanceMax, 0)}</td>
+						<td>{formatCurrency('il', severanceMax)}</td>
 					</tr>
 					<tr className='table__total'>
 						<td>Total</td>
 						<td>{employee + employer + severance}</td>
-						<td>{formatCurrency('il', employerMax + severanceMax, 0)}</td>
+						<td>{formatCurrency('il', employerMax + severanceMax)}</td>
 					</tr>
 				</tbody>
 			</Table>

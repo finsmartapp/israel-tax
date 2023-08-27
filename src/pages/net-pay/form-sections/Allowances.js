@@ -26,7 +26,7 @@ function NetPayAllowances(props) {
 			/>
 			<InputField
 				language={language}
-				label='10bis / Cibus / Other Card'
+				label='10bis / Cibus / Other card'
 				name='foodAllowance'
 				value={foodAllowance}
 				labelColumns={formSize}

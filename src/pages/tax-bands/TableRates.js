@@ -25,12 +25,12 @@ function TaxBandRates(props) {
 							<tr key={i}>
 								<td>{rate}%</td>
 								<td>
-									{formatCurrency('il', min, 0)}
-									{max !== undefined ? `-${formatCurrency('il', max, 0)}` : ' and above'}
+									{formatCurrency('il', min)}
+									{max !== undefined ? `-${formatCurrency('il', max)}` : ' and above'}
 								</td>
 								<td>
-									{formatCurrency('il', min === 0 ? min : min / 12 + 1, 0)}
-									{max !== undefined ? `-${formatCurrency('il', max / 12, 0)}` : ' and above'}
+									{formatCurrency('il', min === 0 ? min : min / 12 + 1)}
+									{max !== undefined ? `-${formatCurrency('il', max / 12)}` : ' and above'}
 								</td>
 							</tr>
 						);

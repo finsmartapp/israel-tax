@@ -17,22 +17,22 @@ function SelfEmployedPensionDepositExamples(props) {
 						<p>Up to 50% of the national average:</p>
 						<ul>
 							<li>
-								Income of {formatCurrency('il', 0, 0)}-{formatCurrency('il', averageWageHalf, 0)}
+								Income of {formatCurrency('il', 0)}-{formatCurrency('il', averageWageHalf)}
 							</li>
 							<li>
 								A deposit of {reducedRate}% is required on this portion of income, which is a
-								maximum of {formatCurrency('il', reducedMax, 0)}
+								maximum of {formatCurrency('il', reducedMax)}
 							</li>
 						</ul>
 						<p>Over 50% of the national average:</p>
 						<ul>
 							<li>
-								Income of {formatCurrency('il', averageWageHalf + 1, 0)}-
-								{formatCurrency('il', averageWage, 0)}
+								Income of {formatCurrency('il', averageWageHalf + 1)}-
+								{formatCurrency('il', averageWage)}
 							</li>
 							<li>
 								A deposit of {fullRate}% is required on this portion of income, which is a maximum
-								of {formatCurrency('il', fullMax, 0)}
+								of {formatCurrency('il', fullMax)}
 							</li>
 						</ul>
 					</>

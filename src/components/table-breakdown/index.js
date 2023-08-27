@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { breakdownProps } from '../../prop-types';
+import { breakdownProps, globalProps } from '../../prop-types';
 import TableBreakdownRows from './BreakdownRows.js';
 import './table-breakdown.scss';
 
@@ -27,6 +27,7 @@ class TableBreakdown extends Component {
 				annualBreakdown={this.props.annualBreakdown}
 				handleClick={this.handleClick}
 				eoy={this.props.eoy}
+				decimal={this.props.decimal}
 			/>
 		);
 	}
@@ -38,7 +39,8 @@ TableBreakdown.propTypes = {
 	annualTotal: breakdownProps.annualTotal,
 	monthBreakdown: breakdownProps.monthBreakdown,
 	annualBreakdown: breakdownProps.annualBreakdown,
-	eoy: breakdownProps.eoy
+	eoy: breakdownProps.eoy,
+	decimal: globalProps.decimal
 };
 
 export default TableBreakdown;

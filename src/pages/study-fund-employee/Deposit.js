@@ -11,8 +11,8 @@ function EmployeeStudyFundDeposit(props) {
 			<h2>Contributions & Allowances</h2>
 			<p>
 				A study fund allows you to save without paying capital gains tax on profit the fund
-				generates, up to deposit limits and an income ceiling of {formatCurrency('il', ceiling, 0)}{' '}
-				({formatCurrency('il', ceiling / 12, 0)} a month) for the {currentYear} tax year.
+				generates, up to deposit limits and an income ceiling of {formatCurrency('il', ceiling)} (
+				{formatCurrency('il', ceiling / 12)} a month) for the {currentYear} tax year.
 			</p>
 			<p>Key points:</p>
 			<ul>
@@ -35,12 +35,12 @@ function EmployeeStudyFundDeposit(props) {
 					<tr>
 						<td>Employee Contribution</td>
 						<td>{employeeRate}</td>
-						<td>{formatCurrency('il', ceiling * (employeeRate / 100), 0)}</td>
+						<td>{formatCurrency('il', ceiling * (employeeRate / 100))}</td>
 					</tr>
 					<tr>
 						<td>Employer Contribution</td>
 						<td>{employerRate}</td>
-						<td>{formatCurrency('il', ceiling * (employerRate / 100), 0)}</td>
+						<td>{formatCurrency('il', ceiling * (employerRate / 100))}</td>
 					</tr>
 				</tbody>
 			</Table>

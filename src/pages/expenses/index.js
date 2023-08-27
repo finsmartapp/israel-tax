@@ -27,9 +27,9 @@ function ExpensesTable() {
 					<p>
 						As tax is due on your income and not revenue, this allows you to lower your tax burden
 						and the amount of tax you ultimately pay. For example, if your total revenue is{' '}
-						{formatCurrency('il', 15000, 0)} and you have a deductible amount of{' '}
-						{formatCurrency('il', 2000, 0)} in recognised expenses, you will only pay tax on your
-						income of {formatCurrency('il', 13000, 0)}. The amount of tax the this equates to will
+						{formatCurrency('il', 15000)} and you have a deductible amount of{' '}
+						{formatCurrency('il', 2000)} in recognised expenses, you will only pay tax on your
+						income of {formatCurrency('il', 13000)}. The amount of tax the this equates to will
 						depend on your <Link to='/tax-rates/income-tax'>tax bracket</Link>. The saving will be
 						greater the higher the bracket.
 					</p>
@@ -48,12 +48,11 @@ function ExpensesTable() {
 						office stationary, work travel or accounting. These expenses can be claimed in full.
 					</p>
 					<p>
-						For example, if the total amount is {formatCurrency('il', 100 + vat, 0)}, the net is{' '}
-						{formatCurrency('il', 100, 0)} and VAT portion is {formatCurrency('il', vat, 0)}. As a
-						fully recognised expense, an osek murshe can deduct {formatCurrency('il', 100, 0)} from
-						their tax liability and offset {formatCurrency('il', vat, 0)} from their VAT returns. An
-						osek patur can simply deduct {formatCurrency('il', 100 + vat, 0)} from their tax
-						liability.
+						For example, if the total amount is {formatCurrency('il', 100 + vat)}, the net is{' '}
+						{formatCurrency('il', 100)} and VAT portion is {formatCurrency('il', vat)}. As a fully
+						recognised expense, an osek murshe can deduct {formatCurrency('il', 100)} from their tax
+						liability and offset {formatCurrency('il', vat)} from their VAT returns. An osek patur
+						can simply deduct {formatCurrency('il', 100 + vat)} from their tax liability.
 					</p>
 				</section>
 				<section>
@@ -64,11 +63,11 @@ function ExpensesTable() {
 						offset amounts vary depending on the expense and the level of business benefit.
 					</p>
 					<p>
-						For example, if the total amount is {formatCurrency('il', 100 + vat, 0)}, the net is{' '}
-						{formatCurrency('il', 100, 0)} and VAT portion is {formatCurrency('il', vat, 0)}. If 25%
-						is claimable, an osek murshe can deduct {formatCurrency('il', 100 / 4, 0)} from their
-						tax liability and offset {formatCurrency('il', vat / 4, 0)} from their VAT returns. An
-						osek patur can simply deduct {formatCurrency('il', (100 + vat) / 4, 0)} from their tax
+						For example, if the total amount is {formatCurrency('il', 100 + vat)}, the net is{' '}
+						{formatCurrency('il', 100)} and VAT portion is {formatCurrency('il', vat)}. If 25% is
+						claimable, an osek murshe can deduct {formatCurrency('il', 100 / 4)} from their tax
+						liability and offset {formatCurrency('il', vat / 4)} from their VAT returns. An osek
+						patur can simply deduct {formatCurrency('il', (100 + vat) / 4)} from their tax
 						liability.
 					</p>
 				</section>
@@ -81,13 +80,12 @@ function ExpensesTable() {
 						durability of the asset. The VAT is usually offset in full during the first year.
 					</p>
 					<p>
-						For example, if the total amount is {formatCurrency('il', (100 + vat) * 10, 0)}, the net
-						is {formatCurrency('il', 100 * 10, 0)} and VAT portion is{' '}
-						{formatCurrency('il', vat * 10, 0)}. If 33% a year is claimable, an osek murshe can
-						deduct {formatCurrency('il', (100 * 10) / 3, 0)} a year from their tax liability and
-						offset {formatCurrency('il', vat * 10, 0)} from their VAT returns. An osek patur can
-						simply deduct {formatCurrency('il', ((100 + vat) * 10) / 3, 0)} a year from their tax
-						liability.
+						For example, if the total amount is {formatCurrency('il', (100 + vat) * 10)}, the net is{' '}
+						{formatCurrency('il', 100 * 10)} and VAT portion is {formatCurrency('il', vat * 10)}. If
+						33% a year is claimable, an osek murshe can deduct{' '}
+						{formatCurrency('il', (100 * 10) / 3)} a year from their tax liability and offset{' '}
+						{formatCurrency('il', vat * 10)} from their VAT returns. An osek patur can simply deduct{' '}
+						{formatCurrency('il', ((100 + vat) * 10) / 3)} a year from their tax liability.
 					</p>
 				</section>
 				<section className='table-overflow'>

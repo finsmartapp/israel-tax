@@ -21,8 +21,8 @@ function EmployeeStudyFundExamples(props) {
 				body={
 					<>
 						<p>
-							If your annual income is {formatCurrency('il', exmpleAboveCeiling, 0)} (
-							{formatCurrency('il', exmpleAboveCeiling / 12, 0)} a month), it exceeds the income
+							If your annual income is {formatCurrency('il', exmpleAboveCeiling)} (
+							{formatCurrency('il', exmpleAboveCeiling / 12)} a month), it exceeds the income
 							ceiling and the following deposit amounts apply:
 						</p>
 						<ul>
@@ -30,16 +30,16 @@ function EmployeeStudyFundExamples(props) {
 								{employeeRate}% of your income exceeds the deposit limit, so you can deposit the
 								maximum of
 								<ul>
-									<li>{formatCurrency('il', maxEmployeeDeposit / 12, 0)} a month</li>
-									<li>{formatCurrency('il', maxEmployeeDeposit, 0)} a year</li>
+									<li>{formatCurrency('il', maxEmployeeDeposit / 12)} a month</li>
+									<li>{formatCurrency('il', maxEmployeeDeposit)} a year</li>
 								</ul>
 							</li>
 							<li>
 								{employerRate}% of your income exceeds the deposit limit, so your employer can
 								deposit the maximum of
 								<ul>
-									<li>{formatCurrency('il', maxEmployerDeposit / 12, 0)} a month</li>
-									<li>{formatCurrency('il', maxEmployerDeposit, 0)} a year</li>
+									<li>{formatCurrency('il', maxEmployerDeposit / 12)} a month</li>
+									<li>{formatCurrency('il', maxEmployerDeposit)} a year</li>
 								</ul>
 							</li>
 							<li>
@@ -56,23 +56,23 @@ function EmployeeStudyFundExamples(props) {
 				body={
 					<>
 						<p>
-							If your annual income is {formatCurrency('il', exmpleBelowCeiling, 0)} (
-							{formatCurrency('il', exmpleBelowCeiling / 12, 0)} a month), it's less than the income
+							If your annual income is {formatCurrency('il', exmpleBelowCeiling)} (
+							{formatCurrency('il', exmpleBelowCeiling / 12)} a month), it's less than the income
 							ceiling and the following deposits amounts apply:
 						</p>
 						<ul>
 							<li>
 								{employeeRate}% of your income
 								<ul>
-									<li>{formatCurrency('il', exampleBelowMaxDepositEmployee / 12, 0)} a month</li>
-									<li>{formatCurrency('il', exampleBelowMaxDepositEmployee, 0)} a year</li>
+									<li>{formatCurrency('il', exampleBelowMaxDepositEmployee / 12)} a month</li>
+									<li>{formatCurrency('il', exampleBelowMaxDepositEmployee)} a year</li>
 								</ul>
 							</li>
 							<li>
 								{employerRate}% from your employer
 								<ul>
-									<li>{formatCurrency('il', exampleBelowMaxDepositEmployer / 12, 0)} a month</li>
-									<li>{formatCurrency('il', exampleBelowMaxDepositEmployer, 0)} a year</li>
+									<li>{formatCurrency('il', exampleBelowMaxDepositEmployer / 12)} a month</li>
+									<li>{formatCurrency('il', exampleBelowMaxDepositEmployer)} a year</li>
 								</ul>
 							</li>
 							<li>

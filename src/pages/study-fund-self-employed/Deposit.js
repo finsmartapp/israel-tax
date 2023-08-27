@@ -12,7 +12,7 @@ function SelfEmployedStudyFundDeposit(props) {
 			<p>
 				A study fund allows you to save without paying capital gains tax on profit the fund
 				generates and the contributions are a recognised expense, up to deposit limits and an income
-				of ceiling of {formatCurrency('il', ceiling, 0)} for the {currentYear} tax year. You cannot
+				of ceiling of {formatCurrency('il', ceiling)} for the {currentYear} tax year. You cannot
 				withdraw from the fund for 6 years in order to benefit from the capital gains exemption,
 				unless using the funds to pay for a study/training programme.
 			</p>
@@ -28,12 +28,12 @@ function SelfEmployedStudyFundDeposit(props) {
 					<tr>
 						<td>Recognised Expense</td>
 						<td>{rate}</td>
-						<td>{formatCurrency('il', maxDeposit, 0)}</td>
+						<td>{formatCurrency('il', maxDeposit)}</td>
 					</tr>
 					<tr>
 						<td>Capital Gains Exemption</td>
 						<td></td>
-						<td>{formatCurrency('il', capitalGainsLimit, 0)}</td>
+						<td>{formatCurrency('il', capitalGainsLimit)}</td>
 					</tr>
 				</tbody>
 			</Table>

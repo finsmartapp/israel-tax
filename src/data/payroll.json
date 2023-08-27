@@ -30,13 +30,13 @@
 			},
 			"taxRelief": {
 				"employee": {
-					"percentLimit": 7,
-					"shekelLimit": 616,
+					"taxCreditMaxPercent": 7,
+					"taxCreditMaxShekel": 616,
 					"taxCreditRate": 35
 				},
 				"selfEmployed": {
-					"taxDeductableLimit": 11,
-					"taxCreditLimit": 5.5,
+					"taxDeductableMaxPercent": 11,
+					"taxCreditMaxPercent": 5.5,
 					"taxCreditRate": 35,
 					"eligibleIncome": 148800,
 					"ceiling": 211200
@@ -80,13 +80,13 @@
 			},
 			"taxRelief": {
 				"employee": {
-					"percentLimit": 7,
-					"shekelLimit": 616,
+					"taxCreditMaxPercent": 7,
+					"taxCreditMaxShekel": 616,
 					"taxCreditRate": 35
 				},
 				"selfEmployed": {
-					"taxDeductableLimit": 11,
-					"taxCreditLimit": 5.5,
+					"taxDeductableMaxPercent": 11,
+					"taxCreditMaxPercent": 5.5,
 					"taxCreditRate": 35,
 					"eligibleIncome": 148800,
 					"ceiling": 211200
@@ -130,13 +130,13 @@
 			},
 			"taxRelief": {
 				"employee": {
-					"percentLimit": 7,
-					"shekelLimit": 609,
+					"taxCreditMaxPercent": 7,
+					"taxCreditMaxShekel": 609,
 					"taxCreditRate": 35
 				},
 				"selfEmployed": {
-					"taxDeductableLimit": 11,
-					"taxCreditLimit": 5.5,
+					"taxDeductableMaxPercent": 11,
+					"taxCreditMaxPercent": 5.5,
 					"taxCreditRate": 35,
 					"eligibleIncome": 147600,
 					"ceiling": 208800
@@ -180,13 +180,13 @@
 			},
 			"taxRelief": {
 				"employee": {
-					"percentLimit": 7,
-					"shekelLimit": 623,
+					"taxCreditMaxPercent": 7,
+					"taxCreditMaxShekel": 623,
 					"taxCreditRate": 35
 				},
 				"selfEmployed": {
-					"taxDeductableLimit": 11,
-					"taxCreditLimit": 5.5,
+					"taxDeductableMaxPercent": 11,
+					"taxCreditMaxPercent": 5.5,
 					"taxCreditRate": 35,
 					"eligibleIncome": 151200,
 					"ceiling": 213600
@@ -230,13 +230,13 @@
 			},
 			"taxRelief": {
 				"employee": {
-					"percentLimit": 7,
-					"shekelLimit": 658,
+					"taxCreditMaxPercent": 7,
+					"taxCreditMaxShekel": 658,
 					"taxCreditRate": 35
 				},
 				"selfEmployed": {
-					"taxDeductableLimit": 11,
-					"taxCreditLimit": 5.5,
+					"taxDeductableMaxPercent": 11,
+					"taxCreditMaxPercent": 5.5,
 					"taxCreditRate": 35,
 					"eligibleIncome": 159600,
 					"ceiling": 225600

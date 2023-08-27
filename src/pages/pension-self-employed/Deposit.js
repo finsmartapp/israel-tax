@@ -17,7 +17,7 @@ function SelfEmployedPensionDeposit(props) {
 			</p>
 			<p>
 				The national avergae wage for the {currentYear} tax year is{' '}
-				{formatCurrency('il', averageWage, 0)} a month.
+				{formatCurrency('il', averageWage)} a month.
 			</p>
 			<Table striped bordered className='table--col-3 table__header--blue'>
 				<thead>
@@ -31,17 +31,17 @@ function SelfEmployedPensionDeposit(props) {
 					<tr>
 						<td>Up to 50%</td>
 						<td>{reducedRate}</td>
-						<td>{formatCurrency('il', reducedMax * 12, 0)}</td>
+						<td>{formatCurrency('il', reducedMax * 12)}</td>
 					</tr>
 					<tr>
 						<td>Over 50%</td>
 						<td>{fullRate}</td>
-						<td>{formatCurrency('il', fullMax * 12, 0)}</td>
+						<td>{formatCurrency('il', fullMax * 12)}</td>
 					</tr>
 					<tr className='table__total'>
 						<td>Total</td>
 						<td></td>
-						<td>{formatCurrency('il', reducedMax + fullMax * 12, 0)}</td>
+						<td>{formatCurrency('il', reducedMax + fullMax * 12)}</td>
 					</tr>
 				</tbody>
 			</Table>

@@ -83,7 +83,7 @@ function NetPayContributions(props) {
 				)}
 			</fieldset>
 			<fieldset>
-				<Form.Label as='legend'>Study fund</Form.Label>
+				<Form.Label as='legend'>Study Fund</Form.Label>
 				<InputRadio
 					label='Type'
 					name='studyFundType'

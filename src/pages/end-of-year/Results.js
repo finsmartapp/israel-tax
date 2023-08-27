@@ -4,13 +4,14 @@ import { Table } from 'react-bootstrap';
 import {
 	incomeTaxCalc,
 	bituachLeumiCalc,
-	nationalInsuranceSelfEmp,
+	niDeductableSelfEmpCalc,
 	pensionMinCalc,
 	pensionContributionCalc,
 	pensionReliefCalcSelfEmp,
 	studyFundAllowances,
 	studyFundCalc,
-	incomeTaxBandsCalc
+	incomeTaxBandsCalc,
+	niDeductableAdvanceSelfEmpCalc
 } from '../../utils/tax-calculators';
 import { formatCurrency } from '../../utils/formatCurrency';
 import TableBreakdown from '../../components/table-breakdown';
@@ -23,14 +24,17 @@ function EndOfYearResults(props) {
 		expenses,
 		profit,
 		creditPoints,
+		bituachLeumiAdvance,
 		pensionOption,
 		pensionType,
 		pensionAmount,
 		studyFundOption,
 		studyFundType,
 		studyFundAmount,
-		showResultsTable
+		showResultsTable,
+		showExtended
 	} = props.stateData;
+	const handleClick = props.handleClick;
 	const total = array => {
 		const filteredArray = array.filter(Boolean);
 
@@ -44,6 +48,7 @@ function EndOfYearResults(props) {
 	const totalExpenses = total(expenses);
 	const totalProfit = total(profit);
 	const creditPointsTaxCredit = total(creditPoints) * taxData[taxYearIndex].creditPoint;
+	const totalbituachLeumiAdvance = total(bituachLeumiAdvance);
 	const employmentType = 'selfEmployed';
 	const eoy = true;
 	const pensionLegalMin = pensionMinCalc(taxData, taxYearIndex, totalProfit, employmentType, eoy);
@@ -79,12 +84,7 @@ function EndOfYearResults(props) {
 		eoy
 	);
 	const taxableIncome = totalProfit - studyFundTaxDeductible - pensionTaxDeductible;
-	const bituachLeumiDeductible = nationalInsuranceSelfEmp(
-		taxData,
-		taxYearIndex,
-		taxableIncome,
-		eoy
-	);
+	const bituachLeumiDeductible = niDeductableSelfEmpCalc(taxData, taxYearIndex, taxableIncome, eoy);
 	const { month: nationalInsurance } = bituachLeumiCalc(
 		taxData,
 		taxYearIndex,
@@ -105,11 +105,23 @@ function EndOfYearResults(props) {
 		false,
 		eoy
 	);
-	const incomeTaxTaxableIncome =
-		taxableIncome -
-		nationalInsurance *
-			(taxData[taxYearIndex].bituachLeumi.selfEmployedNationalInsuranceDiscount / 100);
+	const niIncomeTaxDeductable = niDeductableAdvanceSelfEmpCalc(
+		taxData,
+		taxYearIndex,
+		totalbituachLeumiAdvance,
+		eoy
+	);
+	const incomeTaxTaxableIncome = taxableIncome - niIncomeTaxDeductable;
 	const credits = creditPointsTaxCredit + pensionTaxCredit;
+	const { annualIncomeTax: grossIncomeTax } = incomeTaxCalc(
+		taxData,
+		taxYearIndex,
+		incomeTaxTaxableIncome,
+		0,
+		0,
+		employmentType,
+		eoy
+	);
 	const { annualIncomeTax: incomeTax } = incomeTaxCalc(
 		taxData,
 		taxYearIndex,
@@ -130,6 +142,13 @@ function EndOfYearResults(props) {
 			{showResultsTable && (
 				<section>
 					<h2 ref={props.scrollPoint}>Results</h2>
+					<button
+						className='btn-link'
+						aria-pressed={showExtended ? 'true' : 'false'}
+						onClick={handleClick}
+					>
+						View Extended Results
+					</button>
 					<Table striped bordered className='table--col-2'>
 						<thead>
 							<tr className='table__row-header table__row-header--primary'>
@@ -154,10 +173,40 @@ function EndOfYearResults(props) {
 								<td>Profit</td>
 								<td>{formatCurrency('il', totalProfit)}</td>
 							</tr>
-							<tr>
-								<td>Taxable Income</td>
-								<td>{formatCurrency('il', incomeTaxTaxableIncome)}</td>
-							</tr>
+							{showExtended && (
+								<>
+									<tr>
+										<td>National Insurance Advance Deductable</td>
+										<td>{formatCurrency('il', niIncomeTaxDeductable)}</td>
+									</tr>
+
+									<tr>
+										<td>Pension Tax Deductible</td>
+										<td>{formatCurrency('il', pensionTaxDeductible)}</td>
+									</tr>
+									<tr>
+										<td>Study Fund Tax Deductible</td>
+										<td>{formatCurrency('il', studyFundTaxDeductible)}</td>
+									</tr>
+									<tr>
+										<td>Taxable Income: Income Tax</td>
+										<td>{formatCurrency('il', incomeTaxTaxableIncome)}</td>
+									</tr>
+
+									<tr>
+										<td>Gross Tax</td>
+										<td>{formatCurrency('il', grossIncomeTax)}</td>
+									</tr>
+									<tr>
+										<td>Pension Tax Credit</td>
+										<td>{formatCurrency('il', pensionTaxCredit)}</td>
+									</tr>
+									<tr>
+										<td>Tax Points Credit</td>
+										<td>{formatCurrency('il', creditPointsTaxCredit)}</td>
+									</tr>
+								</>
+							)}
 							<TableBreakdown
 								rowHeader={'Income Tax'}
 								annualTotal={incomeTax}
@@ -165,6 +214,18 @@ function EndOfYearResults(props) {
 								annualBreakdown={annualBandPayments}
 								eoy={eoy}
 							/>
+							{showExtended && (
+								<>
+									<tr>
+										<td>National Insurance Deductable</td>
+										<td>{formatCurrency('il', bituachLeumiDeductible)}</td>
+									</tr>
+									<tr>
+										<td>Taxable Income: Bituach Leumi</td>
+										<td>{formatCurrency('il', taxableIncome - bituachLeumiDeductible)}</td>
+									</tr>
+								</>
+							)}
 							<tr>
 								<td>National Insurance</td>
 								<td>{formatCurrency('il', nationalInsurance)}</td>
@@ -183,7 +244,7 @@ function EndOfYearResults(props) {
 									<td>{formatCurrency('il', studyFundContribution)}</td>
 								</tr>
 							)}
-							<tr className='table_total'>
+							<tr className='table__total'>
 								<td>Net</td>
 								<td>
 									{' '}
@@ -221,8 +282,11 @@ EndOfYearResults.propTypes = {
 		studyFundOption: payrollProps.studyFundOption,
 		studyFundType: payrollProps.studyFundType,
 		studyFundAmount: payrollProps.studyFundAmount,
-		showResultsTable: globalProps.showResultsTable
-	})
+		showResultsTable: globalProps.showResultsTable,
+		bituachLeumiAdvance: payrollProps.bituachLeumiAdvance,
+		showExtended: payrollProps.showExtended
+	}),
+	handleClick: globalProps.handleClick
 };
 
 export default EndOfYearResults;

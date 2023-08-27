@@ -27,7 +27,9 @@ export const globalProps = {
 	displayItems: number.isRequired,
 	rate: number.isRequired,
 	active: bool.isRequired,
-	currentYear: number.isRequired
+	currentYear: number.isRequired,
+	className: string,
+	decimal: number
 };
 
 export const payrollProps = {
@@ -46,7 +48,9 @@ export const payrollProps = {
 	annualBonus: oneOfType([string, number]).isRequired,
 	commission: oneOfType([string, number]).isRequired,
 	overtime: oneOfType([string, number]).isRequired,
-	fiscalPeriod: string.isRequired
+	fiscalPeriod: string.isRequired,
+	bituachLeumiAdvance: oneOfType([string, number, array]).isRequired,
+	showExtended: bool.isRequired
 };
 
 export const panelProps = {
@@ -125,8 +129,8 @@ export const pensionProps = {
 	fullRate: number.isRequired,
 	reducedMax: number.isRequired,
 	fullMax: number.isRequired,
-	taxDeductableLimit: number.isRequired,
-	taxCreditLimit: number.isRequired,
+	taxDeductableMaxPercent: number.isRequired,
+	taxCreditMaxPercent: number.isRequired,
 	eligibleIncome: number.isRequired,
 	ceiling: number.isRequired,
 	maxContribution: number.isRequired,

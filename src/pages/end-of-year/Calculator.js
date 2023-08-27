@@ -14,6 +14,7 @@ class EndOfYearCalculator extends Component {
 			expenses: [''],
 			profit: [''],
 			creditPoints: [''],
+			bituachLeumiAdvance: [''],
 			pensionOption: ['legalMin'],
 			pensionType: ['shekel'],
 			pensionAmount: [''],
@@ -21,7 +22,8 @@ class EndOfYearCalculator extends Component {
 			studyFundType: ['shekel'],
 			studyFundAmount: [''],
 			validated: false,
-			showResultsTable: false
+			showResultsTable: false,
+			showExtended: false
 		};
 		this.scrollPoint = React.createRef();
 	}
@@ -37,6 +39,7 @@ class EndOfYearCalculator extends Component {
 				expenses: Array(indexes).fill(''),
 				profit: Array(indexes).fill(''),
 				creditPoints: Array(indexes).fill(''),
+				bituachLeumiAdvance: Array(indexes).fill(''),
 				pensionOption: Array(indexes).fill('legalMin'),
 				pensionType: Array(indexes).fill('shekel'),
 				pensionAmount: Array(indexes).fill(''),
@@ -54,7 +57,7 @@ class EndOfYearCalculator extends Component {
 		const { pensionOption } = this.state;
 		const stateIndex = parseInt(name.match(/\d+/));
 		const stateName = name.replace(stateIndex, '');
-		//Iterate array and update the changed  value
+		//Iterate array and update the changed value
 		const updateArray = (stateID, changedValue) => {
 			return [...this.state[stateID]].map((currentValue, i) => {
 				return i === stateIndex ? changedValue : currentValue;
@@ -94,7 +97,8 @@ class EndOfYearCalculator extends Component {
 			}
 		}
 		this.setState({
-			showResultsTable: false
+			showResultsTable: false,
+			showExtended: false
 		});
 	};
 
@@ -118,6 +122,11 @@ class EndOfYearCalculator extends Component {
 		event.stopPropagation();
 	};
 
+	handleClick = event => {
+		const extendedActive = event.target.ariaPressed === 'true' ? true : false;
+		this.setState({ showExtended: extendedActive ? false : true });
+	};
+
 	render() {
 		return (
 			<>
@@ -126,7 +135,12 @@ class EndOfYearCalculator extends Component {
 					handleChange={this.handleChange}
 					handleSubmit={this.handleSubmit}
 				/>
-				<EndOfYearResults taxData={taxData} stateData={this.state} scrollPoint={this.scrollPoint} />
+				<EndOfYearResults
+					taxData={taxData}
+					stateData={this.state}
+					scrollPoint={this.scrollPoint}
+					handleClick={this.handleClick}
+				/>
 			</>
 		);
 	}

@@ -21,6 +21,7 @@ function InputField(props) {
 		handleChange,
 		help,
 		required,
+		className,
 		error
 	} = props;
 	const controls = {
@@ -37,7 +38,13 @@ function InputField(props) {
 	const ariaSymbol = appendSymbol ? `${aria}-symbol` : '';
 
 	return (
-		<InputWrapper name={name} label={label} labelColumns={labelColumns} horizontal={horizontal}>
+		<InputWrapper
+			name={name}
+			label={label}
+			labelColumns={labelColumns}
+			horizontal={horizontal}
+			className={className}
+		>
 			<ConditionalWrapper
 				condition={appendSymbol}
 				wrapper={children => <InputGroup hasValidation>{children}</InputGroup>}
@@ -78,7 +85,8 @@ InputField.propTypes = {
 	labelColumns: formProps.labelColumns,
 	required: formProps.required,
 	error: formProps.error,
-	help: formProps.help
+	help: formProps.help,
+	className: globalProps.className
 };
 
 export default InputField;

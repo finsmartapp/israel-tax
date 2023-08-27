@@ -1,5 +1,5 @@
 export function formatCurrency(country, number, decimal) {
-	const decimalPoint = decimal === undefined ? 2 : decimal;
+	const decimalPoint = decimal === undefined ? 0 : decimal;
 
 	if (country === 'il') {
 		var language = 'en-IL';

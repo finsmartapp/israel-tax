@@ -7,7 +7,7 @@ import { isZeroOrGreater } from '../../../utils/comparisons';
 import { formatNumberPlain } from '../../../utils/formatNumber';
 
 function EndOfYearRevenue(props) {
-	const { income, expenses, profit, creditPoints } = props.stateData;
+	const { income, expenses, profit, creditPoints, bituachLeumiAdvance } = props.stateData;
 	const handleChange = props.handleChange;
 	const language = props.language;
 	const formSize = ['xs=6', 'md=3'];
@@ -19,7 +19,7 @@ function EndOfYearRevenue(props) {
 			<Row className='eoy-income'>
 				<InputField
 					language={language}
-					label='Total Income'
+					label='Total income'
 					name={`income${formIndex}`}
 					value={income[formIndex]}
 					labelColumns={formSize}
@@ -63,6 +63,18 @@ function EndOfYearRevenue(props) {
 					required={isZeroOrGreater(creditPoints[formIndex])}
 					error={invalidNum}
 				/>
+				<InputField
+					className='bituach-leumi-field'
+					language={language}
+					label='Bituach Leumi advances'
+					name={`bituachLeumiAdvance${formIndex}`}
+					value={bituachLeumiAdvance[formIndex]}
+					labelColumns={formSize}
+					horizontal={false}
+					handleChange={handleChange}
+					required={isZeroOrGreater(bituachLeumiAdvance[formIndex])}
+					error={invalidNum}
+				/>
 			</Row>
 		</fieldset>
 	);
@@ -76,7 +88,8 @@ EndOfYearRevenue.propTypes = {
 		income: payrollProps.income,
 		expenses: payrollProps.expenses,
 		profit: payrollProps.profit,
-		creditPoints: payrollProps.creditPoints
+		creditPoints: payrollProps.creditPoints,
+		bituachLeumiAdvance: payrollProps.bituachLeumiAdvance
 	})
 };
 

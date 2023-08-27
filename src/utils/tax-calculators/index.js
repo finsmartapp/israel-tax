@@ -1,10 +1,11 @@
 export { incomeTaxCalc } from './incomeTax';
 export { bituachLeumiCalc } from './bituachLeumi';
 export { incomeTaxBandsCalc } from './incomeTaxBands';
-export { nationalInsuranceSelfEmp } from './nationalInsuranceSelfEmp';
+export { niDeductableSelfEmpCalc } from './niDeductableSelfEmp';
 export { pensionContributionCalc } from './pensionContribution';
 export { pensionMinCalc } from './pensionLegalMin';
 export { pensionReliefCalc } from './pensionReliefEmployee';
-export { pensionReliefCalc as pensionReliefCalcSelfEmp } from './pensionReliefSelfEmp';
+export { pensionTaxReliefCalc as pensionReliefCalcSelfEmp } from './pensionTaxReliefSelfEmp';
 export { studyFundCalc } from './studyFund';
 export { studyFundAllowances } from './studyFundAllowances';
+export { niDeductableAdvanceSelfEmpCalc } from './niDeductableAdvanceSelfEmp';

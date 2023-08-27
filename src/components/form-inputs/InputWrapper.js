@@ -5,7 +5,7 @@ import ConditionalWrapper from '../../utils/conditionalWrapper';
 import { camelToKebab } from '../../utils/caseConvertor';
 
 function InputWrapper(props) {
-	const { label, name, horizontal, labelColumns, type } = props;
+	const { label, name, horizontal, labelColumns, type, className } = props;
 	const radio = {
 		as: 'legend' //workaround as ternary doesn't work with as
 	};
@@ -35,6 +35,7 @@ function InputWrapper(props) {
 				wrapper={children => <fieldset>{children}</fieldset>}
 			>
 				<Form.Label
+					className={className}
 					column={horizontalForm ? true : false}
 					{...(horizontalForm && arrayToLiteral(labelColumns))}
 					{...(type === 'radio' && radio)}
@@ -58,7 +59,8 @@ InputWrapper.propTypes = {
 	horizontal: formProps.horizontal,
 	labelColumns: formProps.labelColumns,
 	type: formProps.type,
-	children: globalProps.children
+	children: globalProps.children,
+	className: globalProps.className
 };
 
 export default InputWrapper;
