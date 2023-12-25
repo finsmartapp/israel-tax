@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/israel-tax/static/css/main.d2e8bcc9.chunk.css",
-    "main.js": "/israel-tax/static/js/main.e0f005c3.chunk.js",
-    "main.js.map": "/israel-tax/static/js/main.e0f005c3.chunk.js.map",
+    "main.js": "/israel-tax/static/js/main.74a84caf.chunk.js",
+    "main.js.map": "/israel-tax/static/js/main.74a84caf.chunk.js.map",
     "runtime-main.js": "/israel-tax/static/js/runtime-main.35618d76.js",
     "runtime-main.js.map": "/israel-tax/static/js/runtime-main.35618d76.js.map",
-    "static/js/2.e5619f03.chunk.js": "/israel-tax/static/js/2.e5619f03.chunk.js",
-    "static/js/2.e5619f03.chunk.js.map": "/israel-tax/static/js/2.e5619f03.chunk.js.map",
+    "static/js/2.04642dda.chunk.js": "/israel-tax/static/js/2.04642dda.chunk.js",
+    "static/js/2.04642dda.chunk.js.map": "/israel-tax/static/js/2.04642dda.chunk.js.map",
     "index.html": "/israel-tax/index.html",
-    "precache-manifest.9b01bdc432131c315635eef1924f5a10.js": "/israel-tax/precache-manifest.9b01bdc432131c315635eef1924f5a10.js",
+    "precache-manifest.18d32062d57a63690b1021608ef48ac9.js": "/israel-tax/precache-manifest.18d32062d57a63690b1021608ef48ac9.js",
     "service-worker.js": "/israel-tax/service-worker.js",
     "static/css/main.d2e8bcc9.chunk.css.map": "/israel-tax/static/css/main.d2e8bcc9.chunk.css.map",
-    "static/js/2.e5619f03.chunk.js.LICENSE.txt": "/israel-tax/static/js/2.e5619f03.chunk.js.LICENSE.txt",
+    "static/js/2.04642dda.chunk.js.LICENSE.txt": "/israel-tax/static/js/2.04642dda.chunk.js.LICENSE.txt",
     "static/media/hero.scss": "/israel-tax/static/media/wallet.1b524ecb.jpeg",
     "static/media/info-card.scss": "/israel-tax/static/media/warning.6785d770.svg",
     "static/media/canvasbag-suit.jpg": "/israel-tax/static/media/canvasbag-suit.f9d191d0.jpg",
@@ -22,8 +22,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.35618d76.js",
-    "static/js/2.e5619f03.chunk.js",
+    "static/js/2.04642dda.chunk.js",
     "static/css/main.d2e8bcc9.chunk.css",
-    "static/js/main.e0f005c3.chunk.js"
+    "static/js/main.74a84caf.chunk.js"
   ]
 }
