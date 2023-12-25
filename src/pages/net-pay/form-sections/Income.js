@@ -46,7 +46,7 @@ function NetPayIncome(props) {
 					value={bituachLeumiAdvance}
 					labelColumns={formSize}
 					handleChange={handleChange}
-					required={isZeroOrGreater(creditPoints)}
+					required={isZeroOrGreater(bituachLeumiAdvance)}
 					error={invalidNum}
 				/>
 			)}

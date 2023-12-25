@@ -15,6 +15,14 @@ import {
 } from '../../utils/tax-calculators';
 import { formatCurrency } from '../../utils/formatCurrency';
 import TableBreakdown from '../../components/table-breakdown';
+//Cards
+import { bituachLeumiAdvances } from '../net-pay/info-cards/SelfEmpCards';
+import { pensionUnder } from './info-cards';
+import { pensionOver } from './info-cards';
+import { studyUnder } from './info-cards';
+import { studyOver } from './info-cards';
+import { studyUnderGains } from './info-cards';
+import { studyOverGains } from './info-cards';
 
 function EndOfYearResults(props) {
 	const taxData = props.taxData;
@@ -60,13 +68,11 @@ function EndOfYearResults(props) {
 		pensionType,
 		eoy
 	);
-	const { pensionTaxDeductible, pensionTaxCredit } = pensionReliefCalcSelfEmp(
-		taxData,
-		taxYearIndex,
-		totalProfit,
-		pensionContribution,
-		eoy
-	);
+	const {
+		pensionTaxDeductible,
+		pensionTaxCredit,
+		maxContribution: maxPensionContribution
+	} = pensionReliefCalcSelfEmp(taxData, taxYearIndex, totalProfit, pensionContribution, eoy);
 	const studyFundTaxAllowance = studyFundAllowances(
 		taxData,
 		taxYearIndex,
@@ -136,12 +142,29 @@ function EndOfYearResults(props) {
 		taxYearIndex,
 		incomeTax
 	);
+	const capitalGainsLimit = taxData[taxYearIndex].studyFund.selfEmployed.capitalGainsLimit;
 
 	return (
 		<>
 			{showResultsTable && (
 				<section>
 					<h2 ref={props.scrollPoint}>Results</h2>
+					{/* Cards */}
+					{bituachLeumiAdvance <= 0 && bituachLeumiAdvances()}
+					{pensionContribution < maxPensionContribution &&
+						pensionUnder(maxPensionContribution - pensionContribution)}
+					{pensionContribution > maxPensionContribution &&
+						pensionOver(pensionContribution - maxPensionContribution)}
+					{studyFundContribution < studyFundTaxAllowance &&
+						studyUnder(studyFundTaxAllowance - studyFundContribution)}
+					{studyFundContribution > studyFundTaxAllowance &&
+						studyOver(studyFundContribution - studyFundTaxAllowance)}
+					{studyFundContribution >= studyFundTaxAllowance &&
+						studyFundContribution < capitalGainsLimit &&
+						studyUnderGains(capitalGainsLimit - studyFundContribution)}
+					{studyFundContribution > capitalGainsLimit &&
+						studyOverGains(studyFundContribution - capitalGainsLimit)}
+					{/* End Cards */}
 					<button
 						className='btn-link'
 						aria-pressed={showExtended ? 'true' : 'false'}

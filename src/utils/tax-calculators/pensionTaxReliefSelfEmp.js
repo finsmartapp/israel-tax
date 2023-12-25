@@ -10,7 +10,7 @@ export function pensionTaxReliefCalc(taxData, taxYearIndex, income, pensionContr
 		taxData[taxYearIndex].pension.taxRelief.selfEmployed;
 	//Determine calculation type
 	//Up to the eligible income tax relief is calculated on whole amount - above it's tiered
-	const isWithinEligibleIncomeThreshold = income <= eligibleIncome;
+	const isWithiinEligibleIncomeThreshold = income <= eligibleIncome;
 	const beneficiaryContribution = taxData[taxYearIndex].bituachLeumi.averageSalary * 0.16 * 12;
 	const isBeneficiary = pensionContribution > beneficiaryContribution;
 	//End
@@ -35,6 +35,7 @@ export function pensionTaxReliefCalc(taxData, taxYearIndex, income, pensionContr
 
 	let deduction = 0;
 	let credit = 0;
+
 	const eligibleIncomeTaxReleif = () => {
 		if (pensionContribution >= maxDeductableForIncome + maxCreditForIncome) {
 			deduction = maxDeductableForIncome;
@@ -50,7 +51,7 @@ export function pensionTaxReliefCalc(taxData, taxYearIndex, income, pensionContr
 	const tierTaxRelief = (contribution, tier1) => {
 		const maxDeductable = tier1 ? maxDeductableForTier : maxDeductableTier2;
 		const maxCredit = tier1 ? maxCreditForTier : maxCreditTier2;
-		//Credit is given on the noneDeductable in some instnces, although it shouldn't be acorrding to Altshuler.
+		//Credit is given on the noneDeductable in some instances, although it shouldn't be acorrding to Altshuler.
 		// can just be deleted if needed.
 		const fee = tier1 ? 0 : noneDeductable;
 
@@ -78,10 +79,25 @@ export function pensionTaxReliefCalc(taxData, taxYearIndex, income, pensionContr
 		isBeneficiary && tierTaxRelief(tierTwoContribution, false);
 	};
 
-	isWithinEligibleIncomeThreshold ? eligibleIncomeTaxReleif() : tierContibutions();
+	isWithiinEligibleIncomeThreshold ? eligibleIncomeTaxReleif() : tierContibutions();
+
+	const maxContribution = () => {
+		if (isWithiinEligibleIncomeThreshold) {
+			return maxDeductableForIncome + maxCreditForIncome;
+		} else {
+			return (
+				maxDeductableForTier +
+				maxCreditForTier +
+				maxDeductableTier2 +
+				maxCreditTier2 +
+				noneDeductable
+			);
+		}
+	};
 
 	return {
 		pensionTaxDeductible: deduction / prorata,
-		pensionTaxCredit: (credit * (taxCreditRate / 100)) / prorata
+		pensionTaxCredit: (credit * (taxCreditRate / 100)) / prorata,
+		maxContribution: maxContribution() / prorata
 	};
 }

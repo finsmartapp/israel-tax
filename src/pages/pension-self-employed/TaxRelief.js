@@ -17,7 +17,7 @@ function SelfEmployedPensionTaxRelief(props) {
 
 	return (
 		<section>
-			<h2>Tax Relief</h2>
+			<h2 id='tax-relief'>Tax Relief</h2>
 			<p>
 				You're entitled to tax relief on pension contributions up to{' '}
 				{taxDeductableMaxPercent + taxCreditMaxPercent}% of your annual income, with{' '}

@@ -1,6 +1,6 @@
 import React from 'react';
-import InfoCard from '../../components/info-card';
-import { formatCurrency } from '../../utils/formatCurrency';
+import InfoCard from '../../../components/info-card';
+import { formatCurrency } from '../../../utils/formatCurrency';
 
 export function foodAllowanceInfo(allowance) {
 	return (

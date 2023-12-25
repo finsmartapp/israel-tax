@@ -15,6 +15,8 @@ import {
 } from '../../utils/tax-calculators';
 import { formatCurrency } from '../../utils/formatCurrency';
 import TableBreakdown from '../../components/table-breakdown';
+//Cards
+import { bituachLeumiAdvances } from './info-cards/SelfEmpCards';
 
 function NetPayResultsSelfEmployed(props) {
 	const taxData = props.taxData;
@@ -101,6 +103,9 @@ function NetPayResultsSelfEmployed(props) {
 			{showResultsTable && (
 				<section>
 					<h2 ref={props.scrollPoint}>Results</h2>
+					{/* Cards */}
+					{bituachLeumiAdvance <= 0 && bituachLeumiAdvances()}
+					{/* End Cards */}
 					<Table striped bordered className='table--col-3'>
 						<thead>
 							<tr className='table__row-header table__row-header--primary'>
