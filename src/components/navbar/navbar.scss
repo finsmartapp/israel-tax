@@ -5,6 +5,7 @@ $nav-nohero-bg: #fffeea;
 .navbar {
 	background-color: #fff;
 	border-bottom: 1px var(--gray) solid;
+	height: 3.5rem;
 
 	//No hero code
 	&--nohero {
