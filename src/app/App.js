@@ -14,7 +14,7 @@ import EmployeePension from '../pages/pension-employee';
 import SelfEmployedStudyFund from '../pages/study-fund-self-employed';
 import EmployeeStudyFund from '../pages/study-fund-employee';
 import RecognisedExpenses from '../pages/expenses';
-import TaxUpdateBanner from '../components/tax-banner';
+import NewTaxYearBanner from '../components/new-year-banner';
 
 class App extends Component {
 	constructor() {
@@ -41,7 +41,7 @@ class App extends Component {
 			<Router basename='/israel-tax'>
 				<LanguageContext.Provider value={this.state}>
 					<Navigation />
-					<TaxUpdateBanner active={false} />
+					<NewTaxYearBanner active={false} />
 					<Switch>
 						<Route exact path='/' component={Home} />
 						<Route

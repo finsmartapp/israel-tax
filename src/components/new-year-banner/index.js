@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { globalProps } from '../../prop-types';
-import TaxBanner from './Banner';
-import './tax-banner.scss';
+import Banner from './Banner';
+import './new-year-banner.scss';
 
-class TaxUpdateBanner extends Component {
+class NewTaxYearBanner extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -17,7 +17,7 @@ class TaxUpdateBanner extends Component {
 
 	render() {
 		return (
-			<TaxBanner
+			<Banner
 				active={this.props.active}
 				display={this.state.display}
 				handleClick={this.handleClick}
@@ -26,8 +26,8 @@ class TaxUpdateBanner extends Component {
 	}
 }
 
-TaxUpdateBanner.propTypes = {
+NewTaxYearBanner.propTypes = {
 	active: globalProps.active
 };
 
-export default TaxUpdateBanner;
+export default NewTaxYearBanner;
