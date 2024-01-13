@@ -41,7 +41,7 @@ class App extends Component {
 			<Router basename='/israel-tax'>
 				<LanguageContext.Provider value={this.state}>
 					<Navigation />
-					<TaxUpdateBanner active={true} />
+					<TaxUpdateBanner active={false} />
 					<Switch>
 						<Route exact path='/' component={Home} />
 						<Route
