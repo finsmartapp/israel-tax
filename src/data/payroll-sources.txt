@@ -24,8 +24,9 @@ https://he.wikisource.org/wiki/פקודת_מס_הכנסה
 
 4.	Self-employed Pension
 	a.	Tax credit: same as employee
-  b.	Eligible (qualifying) income: 47 (a) (2) ניכוי תשלומים בעד תגמולים או קצבה
-	c.	Salary ceiling: 47 (a) (1) ניכוי תשלומים בעד תגמולים או קצבה
+  b.	Eligible income: 47 (a) (1) (2) ניכוי תשלומים בעד תגמולים או קצבה
+			https://he.wikisource.org/wiki/פקודת_מס_הכנסה#חלק_ג_פרק_3
+	c.	Salary ceiling: 47 (a) (1) (1) ניכוי תשלומים בעד תגמולים או קצבה
 			x2
 
 5.	Self-emmployed national insurance deduction 

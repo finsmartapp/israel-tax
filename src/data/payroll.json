@@ -277,8 +277,8 @@
 				}
 			},
 			"healthInsurance": {
-				"band1": { "rate": { "employee": 3.1, "selfEmployed": 3.1 }, "min": 0, "max": 7122 },
-				"band2": { "rate": { "employee": 5, "selfEmployed": 5 }, "min": 7123, "max": 47465 }
+				"band1": { "rate": { "employee": 3.1, "selfEmployed": 3.1 }, "min": 0, "max": 7522 },
+				"band2": { "rate": { "employee": 5, "selfEmployed": 5 }, "min": 7523, "max": 49030 }
 			}
 		},
 		"pension": {
@@ -296,8 +296,8 @@
 					"taxDeductableMaxPercent": 11,
 					"taxCreditMaxPercent": 5.5,
 					"taxCreditRate": 35,
-					"eligibleIncome": 159600,
-					"ceiling": 225600
+					"eligibleIncome": 164400,
+					"ceiling": 232800
 				}
 			}
 		},
