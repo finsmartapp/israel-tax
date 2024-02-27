@@ -15,13 +15,14 @@ $nav-heroscroll-bg: #fffeea;
 	&--heroscroll {
 		background-color: $nav-heroscroll-bg;
 
-		.navbar-collapse {
-			background-color: $nav-heroscroll-bg;
-		}
-
+		.navbar-collapse,
 		.dropdown-menu {
 			background-color: $nav-heroscroll-bg;
 		}
+
+		// .dropdown-menu {
+		// 	background-color: $nav-heroscroll-bg;
+		// }
 	}
 	//end
 
