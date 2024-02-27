@@ -31,8 +31,8 @@ class Navigation extends Component {
 			let fromTop = window.scrollY;
 
 			fromTop >= heroHeight
-				? this.nav.current.classList.add('navbar--nohero')
-				: this.nav.current.classList.remove('navbar--nohero');
+				? this.nav.current.classList.add('navbar--heroscroll')
+				: this.nav.current.classList.remove('navbar--heroscroll');
 		});
 	};
 

@@ -1,24 +1,36 @@
 @import '../../styles/variables/colors';
 
-$nav-nohero-bg: #fffeea;
+$nav-heroscroll-bg: #fffeea;
 
 .navbar {
 	background-color: #fff;
 	border-bottom: 1px var(--gray) solid;
 	height: 3.5rem;
 
-	//No hero code
-	&--nohero {
-		background-color: $nav-nohero-bg;
+	.navbar-collapse {
+		background-color: #fff;
 	}
 
-	&--nohero .dropdown-menu {
-		background-color: $nav-nohero-bg;
+	//Contrast nav color on scroll past hero
+	&--heroscroll {
+		background-color: $nav-heroscroll-bg;
+
+		.navbar-collapse {
+			background-color: $nav-heroscroll-bg;
+		}
+
+		.dropdown-menu {
+			background-color: $nav-heroscroll-bg;
+		}
 	}
 	//end
 
 	.navbar-nav .nav-link {
 		color: $base-font-color;
+	}
+
+	.navbar-toggler:focus {
+		box-shadow: none;
 	}
 }
 
