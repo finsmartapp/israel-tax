@@ -17,7 +17,7 @@ function Home() {
 				<section className='home-cards plain-links flush-list'>
 					<h2 className='visually-hidden'>Website Categories</h2>
 					<Card>
-						<Card.Img variant='top' src={calculator} />
+						<Card.Img variant='top' src={calculator} alt='Calculor screen on iPhone' />
 						<Card.Body>
 							<Card.Title>
 								<h3>Calculators</h3>
@@ -33,7 +33,7 @@ function Home() {
 						</Card.Body>
 					</Card>
 					<Card>
-						<Card.Img variant='top' src={taxTable} />
+						<Card.Img variant='top' src={taxTable} alt='Man in a suit holding a cash bag' />
 						<Card.Body>
 							<Card.Title>
 								<h3>Tax Rate Tables</h3>
@@ -49,7 +49,11 @@ function Home() {
 						</Card.Body>
 					</Card>
 					<Card>
-						<Card.Img variant='top' src={pension} />
+						<Card.Img
+							variant='top'
+							src={pension}
+							alt='Three hour glasses and coin piles at various heights'
+						/>
 						<Card.Body>
 							<Card.Title>
 								<h3>Pensions</h3>
@@ -65,7 +69,7 @@ function Home() {
 						</Card.Body>
 					</Card>
 					<Card>
-						<Card.Img variant='top' src={studyFund} />
+						<Card.Img variant='top' src={studyFund} alt='Sapling growing from a coin pile' />
 						<Card.Body>
 							<Card.Title>
 								<h3>Study Funds</h3>

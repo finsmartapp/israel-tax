@@ -41,7 +41,7 @@ function SelfEmployedPensionDeposit(props) {
 					<tr className='table__total'>
 						<td>Total</td>
 						<td></td>
-						<td>{formatCurrency('il', reducedMax + fullMax * 12)}</td>
+						<td>{formatCurrency('il', (reducedMax + fullMax) * 12)}</td>
 					</tr>
 				</tbody>
 			</Table>
