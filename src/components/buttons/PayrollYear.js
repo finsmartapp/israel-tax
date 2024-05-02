@@ -11,7 +11,6 @@ function PayrollTaxYearBtn(props) {
 		<InputSelect
 			label='Tax year'
 			name='taxYearIndex'
-			// dataSource={controlled ? taxData : [...taxData].reverse()}
 			dataSource={taxData}
 			dataKey='taxYear'
 			controlled={controlled}

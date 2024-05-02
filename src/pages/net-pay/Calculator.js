@@ -5,12 +5,13 @@ import NetPayForm from './Form';
 import NetPayResultsEmployee from './ResultsEmployee';
 import NetPayResultsSelfEmployed from './ResultsSelfEmployed';
 import { scrollToRef } from '../../utils/scrollToRef';
+import { currentYearIndex } from '../../utils/globalVariables';
 
 class NetPayCalculator extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			taxYearIndex: 0,
+			taxYearIndex: currentYearIndex,
 			baseIncome: '',
 			creditPoints: '',
 			bituachLeumiAdvance: '',

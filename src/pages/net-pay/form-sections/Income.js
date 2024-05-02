@@ -7,7 +7,7 @@ import { invalidNum } from '../../../utils/validationText';
 import { isZeroOrGreater } from '../../../utils/comparisons';
 
 function NetPayIncome(props) {
-	const { baseIncome, creditPoints, bituachLeumiAdvance } = props.stateData;
+	const { baseIncome, creditPoints, bituachLeumiAdvance, taxYearIndex } = props.stateData;
 	const handleChange = props.handleChange;
 	const employmentType = props.employmentType;
 	const language = props.language;
@@ -16,7 +16,12 @@ function NetPayIncome(props) {
 	return (
 		<fieldset>
 			<Form.Label as='legend'>Income</Form.Label>
-			<PayrollTaxYearBtn handleChange={handleChange} yearLabelColumns={formSize} />
+			<PayrollTaxYearBtn
+				handleChange={handleChange}
+				yearLabelColumns={formSize}
+				startIndex={taxYearIndex}
+				controlled={true}
+			/>
 			<InputField
 				language={language}
 				label={employmentType === 'employee' ? 'Base salary' : 'Profit'}
@@ -61,7 +66,8 @@ NetPayIncome.propTypes = {
 	stateData: globalProps.shape({
 		baseIncome: payrollProps.baseIncome,
 		creditPoints: payrollProps.creditPoints,
-		bituachLeumiAdvance: payrollProps.bituachLeumiAdvance
+		bituachLeumiAdvance: payrollProps.bituachLeumiAdvance,
+		taxYearIndex: payrollProps.taxYearIndex
 	}),
 	formSize: formProps.formSize
 };
