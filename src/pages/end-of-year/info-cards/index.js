@@ -48,7 +48,7 @@ export function studyUnder(amount) {
 	return (
 		<InfoCard
 			type='warning'
-			title='Increase Your Study Fund Contribution fo Maximum Tax Relief'
+			title='Increase Your Study Fund Contribution for Maximum Tax Relief'
 			body={
 				<p>
 					Study fund contributions are considered a recognised expense and an additional
