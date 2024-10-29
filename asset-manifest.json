@@ -1,29 +1,28 @@
 {
   "files": {
-    "main.css": "/israel-tax/static/css/main.d05e0d36.chunk.css",
-    "main.js": "/israel-tax/static/js/main.0cf87569.chunk.js",
-    "main.js.map": "/israel-tax/static/js/main.0cf87569.chunk.js.map",
-    "runtime-main.js": "/israel-tax/static/js/runtime-main.35618d76.js",
-    "runtime-main.js.map": "/israel-tax/static/js/runtime-main.35618d76.js.map",
-    "static/js/2.610ad11c.chunk.js": "/israel-tax/static/js/2.610ad11c.chunk.js",
-    "static/js/2.610ad11c.chunk.js.map": "/israel-tax/static/js/2.610ad11c.chunk.js.map",
+    "main.css": "/israel-tax/static/css/main.6f9ac7a4.css",
+    "main.js": "/israel-tax/static/js/main.d2062432.js",
+    "static/media/coins-spread.jpg": "/israel-tax/static/media/coins-spread.e0be45ca6a253247e300.jpg",
+    "static/media/coins-stacked.jpg": "/israel-tax/static/media/coins-stacked.0ab9448291cf054224fd.jpg",
+    "static/media/canvasbag-houses-suit.jpg": "/israel-tax/static/media/canvasbag-houses-suit.6b8164e3f3b2115a5a5d.jpg",
+    "static/media/banknotes-mixed.jpg": "/israel-tax/static/media/banknotes-mixed.ca24add14b287890dbf6.jpg",
+    "static/media/iphone-calulator.jpg": "/israel-tax/static/media/iphone-calulator.c36bf7aafbc1f27d1753.jpg",
+    "static/media/seedling-coins.jpg": "/israel-tax/static/media/seedling-coins.cd2390debde13e6dc16d.jpg",
+    "static/media/jar.jpeg": "/israel-tax/static/media/jar.df13915345bf62a3ca6f.jpeg",
+    "static/media/banknotes-bow.jpeg": "/israel-tax/static/media/banknotes-bow.165452b755c2939adf5d.jpeg",
+    "static/media/hour-glass-coins.jpeg": "/israel-tax/static/media/hour-glass-coins.3120b92592d18d32ec29.jpeg",
+    "static/media/south-africa.png": "/israel-tax/static/media/south-africa.33c470655729b4e302a9.png",
+    "static/media/canvasbag-suit.jpg": "/israel-tax/static/media/canvasbag-suit.06889cbe49c32abc542e.jpg",
+    "static/media/wallet.jpeg": "/israel-tax/static/media/wallet.16892dc5c192c9afa8cb.jpeg",
+    "static/media/bulb.svg": "/israel-tax/static/media/bulb.1cdb78bec7ce4f52fccf.svg",
+    "static/media/warning.svg": "/israel-tax/static/media/warning.f612e7744f2b7c23f720.svg",
+    "static/media/info.svg": "/israel-tax/static/media/info.6ac4a752c1a6de64138a.svg",
     "index.html": "/israel-tax/index.html",
-    "precache-manifest.0365abdc0b2239e10af5d65434f80d75.js": "/israel-tax/precache-manifest.0365abdc0b2239e10af5d65434f80d75.js",
-    "service-worker.js": "/israel-tax/service-worker.js",
-    "static/css/main.d05e0d36.chunk.css.map": "/israel-tax/static/css/main.d05e0d36.chunk.css.map",
-    "static/js/2.610ad11c.chunk.js.LICENSE.txt": "/israel-tax/static/js/2.610ad11c.chunk.js.LICENSE.txt",
-    "static/media/hero.scss": "/israel-tax/static/media/wallet.1b524ecb.jpeg",
-    "static/media/info-card.scss": "/israel-tax/static/media/warning.6785d770.svg",
-    "static/media/canvasbag-suit.jpg": "/israel-tax/static/media/canvasbag-suit.f9d191d0.jpg",
-    "static/media/hour-glass-coins.jpeg": "/israel-tax/static/media/hour-glass-coins.1cb60e21.jpeg",
-    "static/media/iphone-calulator.jpg": "/israel-tax/static/media/iphone-calulator.6f8e95b0.jpg",
-    "static/media/seedling-coins.jpg": "/israel-tax/static/media/seedling-coins.699b28d7.jpg",
-    "static/media/language-selector.scss": "/israel-tax/static/media/south-africa.3dcf1922.png"
+    "main.6f9ac7a4.css.map": "/israel-tax/static/css/main.6f9ac7a4.css.map",
+    "main.d2062432.js.map": "/israel-tax/static/js/main.d2062432.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.35618d76.js",
-    "static/js/2.610ad11c.chunk.js",
-    "static/css/main.d05e0d36.chunk.css",
-    "static/js/main.0cf87569.chunk.js"
+    "static/css/main.6f9ac7a4.css",
+    "static/js/main.d2062432.js"
   ]
 }
