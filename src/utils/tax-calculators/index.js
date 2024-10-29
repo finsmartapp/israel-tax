@@ -5,7 +5,7 @@ export { niDeductableSelfEmpCalc } from './niDeductableSelfEmp';
 export { pensionContributionCalc } from './pensionContribution';
 export { pensionMinCalc } from './pensionLegalMin';
 export { pensionReliefCalc } from './pensionReliefEmployee';
-export { pensionTaxReliefCalc as pensionReliefCalcSelfEmp } from './pensionTaxReliefSelfEmp';
+export { pensionTaxReliefCalc as pensionReliefCalcSelfEmp } from './pensionTaxSelfEmp_v1';
 export { studyFundCalc } from './studyFund';
 export { studyFundAllowances } from './studyFundAllowances';
 export { niDeductableAdvanceSelfEmpCalc } from './niDeductableAdvanceSelfEmp';

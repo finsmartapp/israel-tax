@@ -1,3 +1,6 @@
+//IN THIS VERSION TAX RELIEF IS NOT GIVEN ON BENEFICIARY PAYMENT.
+//IT ALIGNS WITH ALTSHULER PENSION PUBISHED RULES.
+
 export function pensionTaxReliefCalc(taxData, taxYearIndex, income, pensionContribution, eoy) {
 	//Tax benefit available to a fixed percentage of profit up to a ceiling. Part of that can be deducted as an expense
 	//and the remaining as a tax credit, up to ceilings. Different calculation methods depending on
@@ -8,17 +11,17 @@ export function pensionTaxReliefCalc(taxData, taxYearIndex, income, pensionContr
 	pensionContribution = eoy ? pensionContribution : pensionContribution * 12;
 	const { taxDeductableMaxPercent, taxCreditMaxPercent, taxCreditRate, eligibleIncome, ceiling } =
 		taxData[taxYearIndex].pension.taxRelief.selfEmployed;
-	//Determine calculation type
+	//Start determine calculation type
 	//Up to the eligible income tax relief is calculated on whole amount - above it's tiered
-	const isWithiinEligibleIncomeThreshold = income <= eligibleIncome;
+	const isUnderEligibleIncomeThreshold = income <= eligibleIncome;
 	const beneficiaryContribution = taxData[taxYearIndex].bituachLeumi.averageSalary * 0.16 * 12;
 	const isBeneficiary = pensionContribution > beneficiaryContribution;
 	//End
-	//Baseline limits
+	//Start baseline limits
 	const maxDeductableForIncome = income * (taxDeductableMaxPercent / 100);
 	const maxCreditForIncome = income * (taxCreditMaxPercent / 100);
 	//End
-	//Tier baselines
+	//Start tier baselines
 	//Tier 1 is calculated on whole amount
 	//Eligible for tier two if beneficiary
 	const incomeExceedsCeiling = income > ceiling;
@@ -33,56 +36,47 @@ export function pensionTaxReliefCalc(taxData, taxYearIndex, income, pensionContr
 		: maxCreditForIncome - maxCreditForTier;
 	//End
 
-	let deduction = 0;
+	let deductible = 0;
 	let credit = 0;
 
 	const eligibleIncomeTaxReleif = () => {
 		if (pensionContribution >= maxDeductableForIncome + maxCreditForIncome) {
-			deduction = maxDeductableForIncome;
+			deductible = maxDeductableForIncome;
 			credit = maxCreditForIncome;
 		} else if (pensionContribution > maxDeductableForIncome) {
-			deduction = maxDeductableForIncome;
+			deductible = maxDeductableForIncome;
 			credit = pensionContribution - maxDeductableForIncome;
 		} else {
-			deduction = pensionContribution;
+			deductible = pensionContribution;
 		}
 	};
 
 	const tierTaxRelief = (contribution, tier1) => {
 		const maxDeductable = tier1 ? maxDeductableForTier : maxDeductableTier2;
 		const maxCredit = tier1 ? maxCreditForTier : maxCreditTier2;
-		//Credit is given on the noneDeductable in some instances, although it shouldn't be acorrding to Altshuler.
-		// can just be deleted if needed.
-		const fee = tier1 ? 0 : noneDeductable;
 
-		if (contribution >= maxDeductable + maxCredit + fee) {
-			deduction += maxDeductable;
+		if (contribution >= maxDeductable + maxCredit) {
+			deductible += maxDeductable;
 			credit += maxCredit;
-		} else if (contribution > maxDeductable + fee) {
-			deduction += maxDeductable;
-			if (fee > 0) {
-				credit +=
-					contribution - maxDeductable >= maxCredit ? maxCredit : contribution - maxDeductable;
-			} else {
-				credit += contribution - maxDeductable;
-			}
+		} else if (contribution > maxDeductable) {
+			deductible += maxDeductable;
+			credit += contribution - maxDeductable;
 		} else {
-			deduction += contribution - fee;
-			credit += fee;
+			deductible += contribution;
 		}
 	};
 
 	const tierContibutions = () => {
 		tierTaxRelief(pensionContribution, true);
-		const tierTwoContribution = pensionContribution - (maxDeductableForTier + maxCreditForTier);
+		const tierTwoContribution = pensionContribution - beneficiaryContribution;
 
 		isBeneficiary && tierTaxRelief(tierTwoContribution, false);
 	};
 
-	isWithiinEligibleIncomeThreshold ? eligibleIncomeTaxReleif() : tierContibutions();
+	isUnderEligibleIncomeThreshold ? eligibleIncomeTaxReleif() : tierContibutions();
 
 	const maxContribution = () => {
-		if (isWithiinEligibleIncomeThreshold) {
+		if (isUnderEligibleIncomeThreshold) {
 			return maxDeductableForIncome + maxCreditForIncome;
 		} else {
 			return (
@@ -96,7 +90,7 @@ export function pensionTaxReliefCalc(taxData, taxYearIndex, income, pensionContr
 	};
 
 	return {
-		pensionTaxDeductible: deduction / prorata,
+		pensionTaxDeductible: deductible / prorata,
 		pensionTaxCredit: (credit * (taxCreditRate / 100)) / prorata,
 		maxContribution: maxContribution() / prorata
 	};
