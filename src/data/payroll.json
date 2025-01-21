@@ -306,5 +306,63 @@
 			"employer": { "rate": 7.5, "ceiling": 188544 },
 			"selfEmployed": { "rate": 4.5, "ceiling": 293397, "capitalGainsLimit": 20520 }
 		}
+	},
+	{
+		"taxYear": 2025,
+		"creditPoint": 242,
+		"incomeTax": {
+			"band1": { "rate": 10, "min": 0, "max": 84120 },
+			"band2": { "rate": 14, "min": 84121, "max": 120720 },
+			"band3": { "rate": 20, "min": 120721, "max": 193800 },
+			"band4": { "rate": 31, "min": 193801, "max": 269280 },
+			"band5": { "rate": 35, "min": 269281, "max": 560280 },
+			"band6": { "rate": 47, "min": 560281, "max": 721560 },
+			"band7": { "rate": 50, "min": 721561 }
+		},
+		"bituachLeumi": {
+			"averageSalary": 12536,
+			"selfEmployedNationalInsuranceDiscount": 52,
+			"nationalInsurance": {
+				"band1": {
+					"rate": { "employer": 3.55, "employee": 0.4, "selfEmployed": 2.87 },
+					"min": 0,
+					"max": 7522
+				},
+				"band2": {
+					"rate": { "employer": 7.6, "employee": 7, "selfEmployed": 12.83 },
+					"min": 7523,
+					"max": 49030
+				}
+			},
+			"healthInsurance": {
+				"band1": { "rate": { "employee": 3.1, "selfEmployed": 3.1 }, "min": 0, "max": 7522 },
+				"band2": { "rate": { "employee": 5, "selfEmployed": 5 }, "min": 7523, "max": 49030 }
+			}
+		},
+		"pension": {
+			"legalMin": {
+				"employee": 6,
+				"selfEmployed": { "reducedRate": 4.45, "fullRate": 12.55 }
+			},
+			"taxRelief": {
+				"employee": {
+					"taxCreditMaxPercent": 7,
+					"taxCreditMaxShekel": 679,
+					"taxCreditRate": 35
+				},
+				"selfEmployed": {
+					"taxDeductableMaxPercent": 11,
+					"taxCreditMaxPercent": 5.5,
+					"taxCreditRate": 35,
+					"eligibleIncome": 164400,
+					"ceiling": 232800
+				}
+			}
+		},
+		"studyFund": {
+			"employee": { "rate": 2.5, "ceiling": 188544 },
+			"employer": { "rate": 7.5, "ceiling": 188544 },
+			"selfEmployed": { "rate": 4.5, "ceiling": 293397, "capitalGainsLimit": 20520 }
+		}
 	}
 ]

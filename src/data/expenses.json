@@ -23,5 +23,8 @@
 		{ "expense": "Car", "type": "Capital", "deduct": 15, "vat": 0 },
 		{ "expense": "Office Furniture", "type": "Capital", "deduct": 6, "vat": 100 }
 	],
-	"vat": [{ "startYear": 2017, "amount": 17 }]
+	"vat": [
+		{ "startYear": 2017, "amount": 17 },
+		{ "startYear": 2025, "amount": 18 }
+	]
 }

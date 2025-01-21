@@ -33,7 +33,7 @@ https://he.wikisource.org/wiki/פקודת_מס_הכנסה
 	47A (a) ניכוי בשל תשלומי ביטוח לאומי ומס
 	https://he.wikisource.org/wiki/פקודת_מס_הכנסה#סעיף_47א 
 
-5.	Employee Study Fund
+6.	Employee Study Fund
   a.	Employee percent cap: 9 (16a) (c) (2) (b) Withdrawal of employer payments from a continuing education fund
 			https://he.wikisource.org/wiki/פקודת_מס_הכנסה#חלק_ג	
 	b.	Salary ceiling: 3 Other income, (e)
@@ -42,8 +42,8 @@ https://he.wikisource.org/wiki/פקודת_מס_הכנסה
 	c.	Employer percent cap: 3 Other income, (e)
 			https://he.wikisource.org/wiki/פקודת_מס_הכנסה#חלק_ב
 
-6. Self-employed Study Fund
-	https://he.wikisource.org/wiki/פקודת_מס_הכנסה#חלק_ג_פרק_2
+7. Self-employed Study Fund
+	https://he.wikisource.org/wiki/פקודת_מס_הכנסה#חלק_ג_פרק_2	
   a. Percent cap: 17 (5a) תשלומים לקרן השתלמות לעצמאים 	
 	b. Salary Cieling: 17 (5a)						
   c. Capital gains limit: 9 (16b) (a) משיכה מקרן השתלמות לעצמאים	
