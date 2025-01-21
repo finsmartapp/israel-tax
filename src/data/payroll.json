@@ -324,19 +324,19 @@
 			"selfEmployedNationalInsuranceDiscount": 52,
 			"nationalInsurance": {
 				"band1": {
-					"rate": { "employer": 3.55, "employee": 0.4, "selfEmployed": 2.87 },
+					"rate": { "employer": 4.51, "employee": 1.04, "selfEmployed": 4.47 },
 					"min": 0,
 					"max": 7522
 				},
 				"band2": {
 					"rate": { "employer": 7.6, "employee": 7, "selfEmployed": 12.83 },
 					"min": 7523,
-					"max": 49030
+					"max": 50695
 				}
 			},
 			"healthInsurance": {
-				"band1": { "rate": { "employee": 3.1, "selfEmployed": 3.1 }, "min": 0, "max": 7522 },
-				"band2": { "rate": { "employee": 5, "selfEmployed": 5 }, "min": 7523, "max": 49030 }
+				"band1": { "rate": { "employee": 3.23, "selfEmployed": 3.23 }, "min": 0, "max": 7522 },
+				"band2": { "rate": { "employee": 5.16, "selfEmployed": 5.16 }, "min": 7523, "max": 50695 }
 			}
 		},
 		"pension": {
