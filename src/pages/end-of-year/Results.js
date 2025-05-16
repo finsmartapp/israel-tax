@@ -170,7 +170,7 @@ function EndOfYearResults(props) {
 						aria-pressed={showExtended ? 'true' : 'false'}
 						onClick={handleClick}
 					>
-						View Extended Results
+						View {showExtended ? 'Summary' : 'Extended'} Results
 					</button>
 					<Table striped bordered className='table--col-2'>
 						<thead>
