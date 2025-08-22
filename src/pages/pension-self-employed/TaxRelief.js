@@ -28,9 +28,9 @@ function SelfEmployedPensionTaxRelief(props) {
 				Up to an eligible income of {formatCurrency('il', eligibleIncome)}, the full benefits are
 				available as a simple percentage of your income. If your income exceeds this, the benefits
 				are calculated in two tiers and you must be defined as a beneficiary to be eligible for the
-				second tier. To become a beneficiary, a beneficiary payment must be deposited, which is in
-				addition to the amounts deposited in the first tier and on which no tax benefits are
-				available.
+				second tier. To become a beneficiary, a beneficiary payment must be deposited; it is in
+				addition to the first-tier amounts and is not deductible, but it may count toward the
+				tax-credit base (it does not raise the caps).
 			</p>
 			<p>
 				Tax relief is only available up to an income ceiling of {formatCurrency('il', ceiling)},
@@ -57,7 +57,7 @@ function SelfEmployedPensionTaxRelief(props) {
 							<td>Beneficary Payment</td>
 							<td>{formatCurrency('il', beneficiaryPayment)}</td>
 							<td>{formatCurrency('il', 0)}</td>
-							<td>{formatCurrency('il', 0)}</td>
+							<td></td>
 						</tr>
 						<tr>
 							<td>Tier Two </td>

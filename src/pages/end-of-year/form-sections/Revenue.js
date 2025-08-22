@@ -19,7 +19,7 @@ function EndOfYearRevenue(props) {
 			<Row className='eoy-income'>
 				<InputField
 					language={language}
-					label='Total income'
+					label='Business income'
 					name={`income${formIndex}`}
 					value={income[formIndex]}
 					labelColumns={formSize}
