@@ -13,6 +13,7 @@ import {
 import { formatCurrency } from '../../utils/formatCurrency';
 import TableBreakdown from '../../components/table-breakdown';
 //Cards
+import { noTaxCreditPoints } from './info-cards/EmployeeCards';
 import { foodAllowanceInfo } from './info-cards/EmployeeCards';
 
 function NetPayResultsEmployee(props) {
@@ -109,6 +110,7 @@ function NetPayResultsEmployee(props) {
 				<section>
 					<h2 ref={props.scrollPoint}>Results</h2>
 					{/* Cards */}
+					{creditPoints <= 0 && noTaxCreditPoints()}
 					{foodAllowance > 0 && foodAllowanceInfo(foodAllowance)}
 					{/* End Cards */}
 					<Table striped bordered className='table--col-3'>

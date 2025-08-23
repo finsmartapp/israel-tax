@@ -16,6 +16,7 @@ import {
 import { formatCurrency } from '../../utils/formatCurrency';
 import TableBreakdown from '../../components/table-breakdown';
 //Cards
+import { noTaxCreditPoints } from '../net-pay/info-cards/EmployeeCards';
 import { bituachLeumiAdvances } from '../net-pay/info-cards/SelfEmpCards';
 import { pensionUnder } from './info-cards';
 import { pensionOver } from './info-cards';
@@ -150,6 +151,7 @@ function EndOfYearResults(props) {
 				<section>
 					<h2 ref={props.scrollPoint}>Results</h2>
 					{/* Cards */}
+					{creditPoints <= 0 && noTaxCreditPoints()}
 					{bituachLeumiAdvance <= 0 && bituachLeumiAdvances()}
 					{pensionContribution < maxPensionContribution &&
 						pensionUnder(maxPensionContribution - pensionContribution)}
@@ -235,10 +237,12 @@ function EndOfYearResults(props) {
 										<td>Pension Tax Deductible</td>
 										<td>{formatCurrency('il', pensionTaxDeductible)}</td>
 									</tr>
-									<tr>
-										<td>Study Fund Tax Deductible</td>
-										<td>{formatCurrency('il', studyFundTaxDeductible)}</td>
-									</tr>
+									{studyFundContribution > 0 && (
+										<tr>
+											<td>Study Fund Tax Deductible</td>
+											<td>{formatCurrency('il', studyFundTaxDeductible)}</td>
+										</tr>
+									)}
 								</>
 							)}
 							{showExtended && (
