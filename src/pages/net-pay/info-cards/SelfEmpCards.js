@@ -1,7 +1,7 @@
 import React from 'react';
 import InfoCard from '../../../components/info-card';
 
-export function bituachLeumiAdvances() {
+export function noBituachLeumiAdvances() {
 	return (
 		<InfoCard
 			type='warning'

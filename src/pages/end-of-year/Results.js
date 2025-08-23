@@ -17,7 +17,7 @@ import { formatCurrency } from '../../utils/formatCurrency';
 import TableBreakdown from '../../components/table-breakdown';
 //Cards
 import { noTaxCreditPoints } from '../net-pay/info-cards/EmployeeCards';
-import { bituachLeumiAdvances } from '../net-pay/info-cards/SelfEmpCards';
+import { noBituachLeumiAdvances } from '../net-pay/info-cards/SelfEmpCards';
 import { pensionUnder } from './info-cards';
 import { pensionOver } from './info-cards';
 import { studyUnder } from './info-cards';
@@ -152,7 +152,7 @@ function EndOfYearResults(props) {
 					<h2 ref={props.scrollPoint}>Results</h2>
 					{/* Cards */}
 					{creditPoints <= 0 && noTaxCreditPoints()}
-					{bituachLeumiAdvance <= 0 && bituachLeumiAdvances()}
+					{bituachLeumiAdvance <= 0 && noBituachLeumiAdvances()}
 					{pensionContribution < maxPensionContribution &&
 						pensionUnder(maxPensionContribution - pensionContribution)}
 					{pensionContribution > maxPensionContribution &&
@@ -172,7 +172,7 @@ function EndOfYearResults(props) {
 						aria-pressed={showExtended ? 'true' : 'false'}
 						onClick={handleClick}
 					>
-						View {showExtended ? 'Summary' : 'Extended'} Results
+						See {showExtended ? 'summary' : 'extended'} results
 					</button>
 					<Table striped bordered className='table--col-2'>
 						<thead>
