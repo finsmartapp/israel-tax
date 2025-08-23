@@ -35,7 +35,7 @@
 					"taxCreditRate": 35
 				},
 				"selfEmployed": {
-					"taxDeductableMaxPercent": 11,
+					"taxDeductibleMaxPercent": 11,
 					"taxCreditMaxPercent": 5.5,
 					"taxCreditRate": 35,
 					"eligibleIncome": 148800,
@@ -85,7 +85,7 @@
 					"taxCreditRate": 35
 				},
 				"selfEmployed": {
-					"taxDeductableMaxPercent": 11,
+					"taxDeductibleMaxPercent": 11,
 					"taxCreditMaxPercent": 5.5,
 					"taxCreditRate": 35,
 					"eligibleIncome": 148800,
@@ -135,7 +135,7 @@
 					"taxCreditRate": 35
 				},
 				"selfEmployed": {
-					"taxDeductableMaxPercent": 11,
+					"taxDeductibleMaxPercent": 11,
 					"taxCreditMaxPercent": 5.5,
 					"taxCreditRate": 35,
 					"eligibleIncome": 147600,
@@ -185,7 +185,7 @@
 					"taxCreditRate": 35
 				},
 				"selfEmployed": {
-					"taxDeductableMaxPercent": 11,
+					"taxDeductibleMaxPercent": 11,
 					"taxCreditMaxPercent": 5.5,
 					"taxCreditRate": 35,
 					"eligibleIncome": 151200,
@@ -235,7 +235,7 @@
 					"taxCreditRate": 35
 				},
 				"selfEmployed": {
-					"taxDeductableMaxPercent": 11,
+					"taxDeductibleMaxPercent": 11,
 					"taxCreditMaxPercent": 5.5,
 					"taxCreditRate": 35,
 					"eligibleIncome": 159600,
@@ -293,7 +293,7 @@
 					"taxCreditRate": 35
 				},
 				"selfEmployed": {
-					"taxDeductableMaxPercent": 11,
+					"taxDeductibleMaxPercent": 11,
 					"taxCreditMaxPercent": 5.5,
 					"taxCreditRate": 35,
 					"eligibleIncome": 164400,
@@ -351,7 +351,7 @@
 					"taxCreditRate": 35
 				},
 				"selfEmployed": {
-					"taxDeductableMaxPercent": 11,
+					"taxDeductibleMaxPercent": 11,
 					"taxCreditMaxPercent": 5.5,
 					"taxCreditRate": 35,
 					"eligibleIncome": 164400,

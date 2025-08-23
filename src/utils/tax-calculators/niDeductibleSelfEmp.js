@@ -1,7 +1,7 @@
 import { formatNumberPlain } from '../formatNumber';
 
-export function niDeductableSelfEmpCalc(taxData, taxYearIndex, profit, eoy) {
-	//A percentage of national insurance is tax deductible and taken applicable to the final bituach luemi calculations.
+export function niDeductibleSelfEmpCalc(taxData, taxYearIndex, profit, eoy) {
+	//A percentage of national insurance is bituach luemi tax deductible, calculated on the final payments.
 	// Although only applicable to NI and not health, calculate the total taxable amount, which can then be fed into
 	// the bituach leumi formula. This can be adapted to calculate that too if needed.
 

@@ -6,7 +6,7 @@ import InfoCard from '../../components/info-card';
 function SelfEmployedPensionTaxReliefExamples(props) {
 	const {
 		eligibleIncome,
-		taxDeductableMaxPercent,
+		taxDeductibleMaxPercent,
 		taxCreditMaxPercent,
 		taxCreditRate,
 		taxCredit,
@@ -16,7 +16,7 @@ function SelfEmployedPensionTaxReliefExamples(props) {
 		maxContribution,
 		beneficiaryPayment
 	} = props;
-	const eligibleDeductable = eligibleIncome * (taxDeductableMaxPercent / 100);
+	const eligibleDeductible = eligibleIncome * (taxDeductibleMaxPercent / 100);
 	const eligibleCredit = eligibleIncome * (taxCreditMaxPercent / 100);
 	const taxCreditContribution = tierLimit * (taxCreditMaxPercent / 100);
 
@@ -34,17 +34,17 @@ function SelfEmployedPensionTaxReliefExamples(props) {
 						</p>
 						<ul>
 							<li>
-								{taxDeductableMaxPercent}% of your income,{' '}
-								{formatCurrency('il', eligibleDeductable)}, will be considered a recognised expense
+								{taxDeductibleMaxPercent}% of your income,{' '}
+								{formatCurrency('il', eligibleDeductible)}, will be considered a recognised expense
 							</li>
 							<li>
 								An additional {taxCreditMaxPercent}% of your income,{' '}
 								{formatCurrency('il', eligibleCredit)}, will receive a tax credit of {taxCreditRate}
 								%, equalling{' '}
-								{formatCurrency('il', eligibleDeductable * (taxCreditMaxPercent / 100))}
+								{formatCurrency('il', eligibleDeductible * (taxCreditMaxPercent / 100))}
 							</li>
 							<li>
-								Total deposit amount of {formatCurrency('il', eligibleDeductable + eligibleCredit)}.
+								Total deposit amount of {formatCurrency('il', eligibleDeductible + eligibleCredit)}.
 								Any further deposits won't be eligible for any tax benefits
 							</li>
 						</ul>
@@ -66,7 +66,7 @@ function SelfEmployedPensionTaxReliefExamples(props) {
 						</p>
 						<ul>
 							<li>
-								{taxDeductableMaxPercent}% of tier one, {formatCurrency('il', recognisedExpense)},
+								{taxDeductibleMaxPercent}% of tier one, {formatCurrency('il', recognisedExpense)},
 								will be considered a recognised expense
 							</li>
 							<li>
@@ -83,7 +83,7 @@ function SelfEmployedPensionTaxReliefExamples(props) {
 						</p>
 						<ul>
 							<li>
-								{taxDeductableMaxPercent}% of tier two, {formatCurrency('il', recognisedExpense)},
+								{taxDeductibleMaxPercent}% of tier two, {formatCurrency('il', recognisedExpense)},
 								will be considered a recognised expense
 							</li>
 							<li>
@@ -108,7 +108,7 @@ function SelfEmployedPensionTaxReliefExamples(props) {
 
 SelfEmployedPensionTaxReliefExamples.propTypes = {
 	eligibleIncome: pensionProps.eligibleIncome,
-	taxDeductableMaxPercent: pensionProps.taxDeductableMaxPercent,
+	taxDeductibleMaxPercent: pensionProps.taxDeductibleMaxPercent,
 	taxCredit: pensionProps.taxCredit,
 	taxCreditMaxPercent: pensionProps.taxCreditMaxPercent,
 	taxCreditRate: pensionProps.taxCreditRate,

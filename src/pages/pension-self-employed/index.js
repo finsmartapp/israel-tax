@@ -16,14 +16,14 @@ const averageWageHalf = averageWage / 2;
 const reducedMax = averageWageHalf * (reducedRate / 100);
 const fullMax = averageWageHalf * (fullRate / 100);
 //Tax relief calculations
-const { taxDeductableMaxPercent, taxCreditMaxPercent, taxCreditRate, eligibleIncome, ceiling } =
+const { taxDeductibleMaxPercent, taxCreditMaxPercent, taxCreditRate, eligibleIncome, ceiling } =
 	currentYearData.pension.taxRelief.selfEmployed;
-const deductableDecimal = taxDeductableMaxPercent / 100;
+const deductibleDecimal = taxDeductibleMaxPercent / 100;
 const creditDecimal = taxCreditMaxPercent / 100;
 const tierLimit = ceiling / 2;
-const maxContribution = tierLimit * (deductableDecimal + creditDecimal);
+const maxContribution = tierLimit * (deductibleDecimal + creditDecimal);
 const beneficiaryPayment = currentYearData.bituachLeumi.averageSalary * 0.16 * 12 - maxContribution;
-const recognisedExpense = tierLimit * (taxDeductableMaxPercent / 100);
+const recognisedExpense = tierLimit * (taxDeductibleMaxPercent / 100);
 const taxCredit = tierLimit * (taxCreditMaxPercent / 100) * (taxCreditRate / 100);
 
 function SelfEmployedPension() {
@@ -48,7 +48,7 @@ function SelfEmployedPension() {
 					fullMax={fullMax}
 				/>
 				<SelfEmployedPensionTaxRelief
-					taxDeductableMaxPercent={taxDeductableMaxPercent}
+					taxDeductibleMaxPercent={taxDeductibleMaxPercent}
 					taxCreditMaxPercent={taxCreditMaxPercent}
 					eligibleIncome={eligibleIncome}
 					ceiling={ceiling}
@@ -59,7 +59,7 @@ function SelfEmployedPension() {
 				/>
 				<SelfEmployedPensionTaxReliefExamples
 					eligibleIncome={eligibleIncome}
-					taxDeductableMaxPercent={taxDeductableMaxPercent}
+					taxDeductibleMaxPercent={taxDeductibleMaxPercent}
 					taxCreditMaxPercent={taxCreditMaxPercent}
 					taxCreditRate={taxCreditRate}
 					taxCredit={taxCredit}

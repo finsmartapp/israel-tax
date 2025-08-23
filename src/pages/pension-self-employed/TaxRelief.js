@@ -5,7 +5,7 @@ import { formatCurrency } from '../../utils/formatCurrency';
 
 function SelfEmployedPensionTaxRelief(props) {
 	const {
-		taxDeductableMaxPercent,
+		taxDeductibleMaxPercent,
 		taxCreditMaxPercent,
 		eligibleIncome,
 		ceiling,
@@ -20,8 +20,8 @@ function SelfEmployedPensionTaxRelief(props) {
 			<h2 id='tax-relief'>Tax Relief</h2>
 			<p>
 				You're entitled to tax relief on pension contributions up to{' '}
-				{taxDeductableMaxPercent + taxCreditMaxPercent}% of your annual income, with{' '}
-				{taxDeductableMaxPercent}% being a recognised expense and up to {taxCreditMaxPercent}%
+				{taxDeductibleMaxPercent + taxCreditMaxPercent}% of your annual income, with{' '}
+				{taxDeductibleMaxPercent}% being a recognised expense and up to {taxCreditMaxPercent}%
 				receiving a tax credit of 35%, up to deposit ceilings and type of pension.
 			</p>
 			<p>
@@ -79,7 +79,7 @@ function SelfEmployedPensionTaxRelief(props) {
 }
 
 SelfEmployedPensionTaxRelief.propTypes = {
-	taxDeductableMaxPercent: pensionProps.taxDeductableMaxPercent,
+	taxDeductibleMaxPercent: pensionProps.taxDeductibleMaxPercent,
 	taxCreditMaxPercent: pensionProps.taxCreditMaxPercent,
 	eligibleIncome: pensionProps.eligibleIncome,
 	ceiling: pensionProps.ceiling,

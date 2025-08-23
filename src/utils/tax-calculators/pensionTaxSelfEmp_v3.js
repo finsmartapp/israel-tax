@@ -11,7 +11,7 @@ export function pensionTaxReliefCalc(taxData, taxYearIndex, income, pensionContr
 	income = income * prorata;
 	pensionContribution = eoy ? pensionContribution : pensionContribution * 12;
 
-	const { taxDeductableMaxPercent, taxCreditMaxPercent, taxCreditRate, eligibleIncome, ceiling } =
+	const { taxDeductibleMaxPercent, taxCreditMaxPercent, taxCreditRate, eligibleIncome, ceiling } =
 		taxData[taxYearIndex].pension.taxRelief.selfEmployed;
 
 	//Start determine calculation type
@@ -24,7 +24,7 @@ export function pensionTaxReliefCalc(taxData, taxYearIndex, income, pensionContr
 	const isBeneficiary = pensionContribution > beneficiaryContribution;
 	//End
 	//Start baseline limits
-	const maxDeductableForIncome = income * (taxDeductableMaxPercent / 100); // 11% total
+	const maxDeductibleForIncome = income * (taxDeductibleMaxPercent / 100); // 11% total
 	const maxCreditForIncome = income * (taxCreditMaxPercent / 100); // 5% or 5.5% total
 	//End
 	//Start tier baselines
@@ -34,7 +34,7 @@ export function pensionTaxReliefCalc(taxData, taxYearIndex, income, pensionContr
 	const tier1IncomeCap = Math.min(income, ceiling / 2);
 	const tier2IncomeCap = Math.max(0, Math.min(income, ceiling) - tier1IncomeCap);
 
-	const maxDeductableForTier = (ceiling * (taxDeductableMaxPercent / 100)) / 2; // 11% of 1/2 ceiling
+	const maxDeductibleForTier = (ceiling * (taxDeductibleMaxPercent / 100)) / 2; // 11% of 1/2 ceiling
 	const maxCreditForTier = (ceiling * (taxCreditMaxPercent / 100)) / 2; // 5/5.5% of 1/2 ceiling
 
 	// Deduction on Tier 2 is 7% base + possible extra 4% (only after 12% trigger)
@@ -42,16 +42,16 @@ export function pensionTaxReliefCalc(taxData, taxYearIndex, income, pensionContr
 	const tier2ExtraDeductPercent = 0.04;
 	const tier2TriggerPercent = 0.12;
 
-	const maxDeductableTier2 = incomeExceedsCeiling
-		? maxDeductableForTier
-		: maxDeductableForIncome - maxDeductableForTier; // overall 11% headroom on Tier 2
+	const maxDeductibleTier2 = incomeExceedsCeiling
+		? maxDeductibleForTier
+		: maxDeductibleForIncome - maxDeductibleForTier; // overall 11% headroom on Tier 2
 
 	const maxCreditTier2 = incomeExceedsCeiling
 		? maxCreditForTier
 		: maxCreditForIncome - maxCreditForTier; // credit headroom on Tier 2
 
-	const maxDeductableTier2Base7 = tier2IncomeCap * tier2BaseDeductPercent;
-	const maxDeductableTier2Extra4 = tier2IncomeCap * tier2ExtraDeductPercent;
+	const maxDeductibleTier2Base7 = tier2IncomeCap * tier2BaseDeductPercent;
+	const maxDeductibleTier2Extra4 = tier2IncomeCap * tier2ExtraDeductPercent;
 	const tier2TriggerAmount = tier2IncomeCap * tier2TriggerPercent;
 
 	let deductible = 0; // base for deduction (before applying marginal rate)
@@ -61,12 +61,12 @@ export function pensionTaxReliefCalc(taxData, taxYearIndex, income, pensionContr
 
 	const eligibleIncomeTaxReleif = () => {
 		// Single-bucket regime (no tiers, no beneficiaryContribution rules)
-		if (pensionContribution >= maxDeductableForIncome + maxCreditForIncome) {
-			deductible = maxDeductableForIncome;
+		if (pensionContribution >= maxDeductibleForIncome + maxCreditForIncome) {
+			deductible = maxDeductibleForIncome;
 			credit = maxCreditForIncome;
-		} else if (pensionContribution > maxDeductableForIncome) {
-			deductible = maxDeductableForIncome;
-			credit = Math.min(pensionContribution - maxDeductableForIncome, maxCreditForIncome);
+		} else if (pensionContribution > maxDeductibleForIncome) {
+			deductible = maxDeductibleForIncome;
+			credit = Math.min(pensionContribution - maxDeductibleForIncome, maxCreditForIncome);
 		} else {
 			deductible = pensionContribution;
 		}
@@ -74,10 +74,10 @@ export function pensionTaxReliefCalc(taxData, taxYearIndex, income, pensionContr
 
 	const tierTaxRelief = (contribution, tier1) => {
 		// Generic tier allocator: allocate to deduction first (up to cap), then to credit (up to cap)
-		const maxDeductable = tier1 ? maxDeductableForTier : maxDeductableTier2;
+		const maxDeductible = tier1 ? maxDeductibleForTier : maxDeductibleTier2;
 		const maxCredit = tier1 ? maxCreditForTier : maxCreditTier2;
 
-		const deductRoom = clampNonNegative(maxDeductable - Math.min(deductible, maxDeductable));
+		const deductRoom = clampNonNegative(maxDeductible - Math.min(deductible, maxDeductible));
 		const creditRoomGlobal = clampNonNegative(maxCreditForIncome - credit);
 		const creditRoomTier = Math.min(
 			creditRoomGlobal,
@@ -128,9 +128,9 @@ export function pensionTaxReliefCalc(taxData, taxYearIndex, income, pensionContr
 		// C) allocate Tier-2 base 7% deduction
 		const tier2BaseUsedSoFar = Math.max(
 			0,
-			Math.min(Math.max(0, deductible - tier1DeductibleUsed), maxDeductableTier2Base7)
+			Math.min(Math.max(0, deductible - tier1DeductibleUsed), maxDeductibleTier2Base7)
 		);
-		const tier2BaseRoom = clampNonNegative(maxDeductableTier2Base7 - tier2BaseUsedSoFar);
+		const tier2BaseRoom = clampNonNegative(maxDeductibleTier2Base7 - tier2BaseUsedSoFar);
 		const deductibleFromTier2Base7 = Math.min(remainingAfterBeneficiary, tier2BaseRoom);
 		deductible += deductibleFromTier2Base7;
 		remainingAfterBeneficiary -= deductibleFromTier2Base7;
@@ -141,11 +141,11 @@ export function pensionTaxReliefCalc(taxData, taxYearIndex, income, pensionContr
 			const tier2ExtraUsedSoFar = Math.max(
 				0,
 				Math.min(
-					Math.max(0, deductible - tier1DeductibleUsed - maxDeductableTier2Base7),
-					maxDeductableTier2Extra4
+					Math.max(0, deductible - tier1DeductibleUsed - maxDeductibleTier2Base7),
+					maxDeductibleTier2Extra4
 				)
 			);
-			const tier2ExtraRoom = clampNonNegative(maxDeductableTier2Extra4 - tier2ExtraUsedSoFar);
+			const tier2ExtraRoom = clampNonNegative(maxDeductibleTier2Extra4 - tier2ExtraUsedSoFar);
 			const deductibleFromTier2Extra4 = Math.min(remainingAfterBeneficiary, tier2ExtraRoom);
 			deductible += deductibleFromTier2Extra4;
 			remainingAfterBeneficiary -= deductibleFromTier2Extra4;
@@ -157,7 +157,7 @@ export function pensionTaxReliefCalc(taxData, taxYearIndex, income, pensionContr
 		// ---- TIER 1 ----
 		// Cap the amount Tier 1 can consume (11% deduction + 5/5.5% credit of Tier-1 income)
 		const tier1MaxContribution =
-			tier1IncomeCap * (taxDeductableMaxPercent / 100) +
+			tier1IncomeCap * (taxDeductibleMaxPercent / 100) +
 			tier1IncomeCap * (taxCreditMaxPercent / 100);
 
 		const deductibleBeforeTier1 = deductible;
@@ -181,18 +181,18 @@ export function pensionTaxReliefCalc(taxData, taxYearIndex, income, pensionContr
 
 	const maxContribution = () => {
 		if (isUnderEligibleIncomeThreshold) {
-			return maxDeductableForIncome + maxCreditForIncome;
+			return maxDeductibleForIncome + maxCreditForIncome;
 		} else {
 			// Full 16.5% of applicable income + beneficiary remainder after Tier 1
 			const tier1Max =
-				tier1IncomeCap * (taxDeductableMaxPercent / 100) +
+				tier1IncomeCap * (taxDeductibleMaxPercent / 100) +
 				tier1IncomeCap * (taxCreditMaxPercent / 100);
 			const beneficiaryRemainder = clampNonNegative(beneficiaryContribution - tier1Max);
 			return (
-				maxDeductableForTier + // Tier-1 11%
+				maxDeductibleForTier + // Tier-1 11%
 				maxCreditForTier + // Tier-1 credit
-				maxDeductableTier2Base7 +
-				maxDeductableTier2Extra4 +
+				maxDeductibleTier2Base7 +
+				maxDeductibleTier2Extra4 +
 				Math.min(maxCreditTier2, Math.max(0, maxCreditForIncome - maxCreditForTier)) +
 				beneficiaryRemainder
 			);

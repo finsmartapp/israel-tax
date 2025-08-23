@@ -133,7 +133,7 @@ export const pensionProps = {
 	fullRate: number.isRequired,
 	reducedMax: number.isRequired,
 	fullMax: number.isRequired,
-	taxDeductableMaxPercent: number.isRequired,
+	taxDeductibleMaxPercent: number.isRequired,
 	taxCreditMaxPercent: number.isRequired,
 	eligibleIncome: number.isRequired,
 	ceiling: number.isRequired,

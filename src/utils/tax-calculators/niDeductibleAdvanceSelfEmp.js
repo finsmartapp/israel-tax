@@ -1,5 +1,5 @@
-export function niDeductableAdvanceSelfEmpCalc(taxData, taxYearIndex, advance, eoy) {
-	//A percentage of national insurance is tax deductible. Only available on premiums paid during the year
+export function niDeductibleAdvanceSelfEmpCalc(taxData, taxYearIndex, advance, eoy) {
+	//A percentage of national insurance is income tax deductible. Only available on premiums paid during the year
 	// (typically advances) and differeent to the deduction on final innsurance payments.
 
 	const months = eoy ? 12 : 1;

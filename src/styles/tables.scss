@@ -65,6 +65,9 @@
 	&__total {
 		font-weight: $strong;
 	}
+	&__header {
+		font-weight: $strong;
+	}
 }
 
 .table-striped > tbody > tr:nth-of-type(odd) td:nth-of-type(1) {

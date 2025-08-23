@@ -3,7 +3,7 @@ import { globalProps, payrollProps } from '../../prop-types';
 import Table from 'react-bootstrap/table';
 import {
 	bituachLeumiCalc,
-	niDeductableSelfEmpCalc,
+	niDeductibleSelfEmpCalc,
 	pensionMinCalc,
 	pensionContributionCalc,
 	pensionReliefCalcSelfEmp,
@@ -11,7 +11,7 @@ import {
 	studyFundCalc,
 	incomeTaxCalc,
 	incomeTaxBandsCalc,
-	niDeductableAdvanceSelfEmpCalc
+	niDeductibleAdvanceSelfEmpCalc
 } from '../../utils/tax-calculators';
 import { formatCurrency } from '../../utils/formatCurrency';
 import TableBreakdown from '../../components/table-breakdown';
@@ -61,7 +61,7 @@ function NetPayResultsSelfEmployed(props) {
 		pensionContribution
 	);
 	const taxableIncome = baseIncome - studyFundTaxDeductible - pensionTaxDeductible;
-	const bituachLeumiDeductible = niDeductableSelfEmpCalc(taxData, taxYearIndex, taxableIncome);
+	const bituachLeumiDeductible = niDeductibleSelfEmpCalc(taxData, taxYearIndex, taxableIncome);
 	const { month: nationalInsurance, annual: annualNationalInsurance } = bituachLeumiCalc(
 		taxData,
 		taxYearIndex,
@@ -77,12 +77,12 @@ function NetPayResultsSelfEmployed(props) {
 		'healthInsurance'
 	);
 	const creditPointsTaxCredit = creditPoints * taxData[taxYearIndex].creditPoint;
-	const niIncomeTaxDeductable = niDeductableAdvanceSelfEmpCalc(
+	const niIncomeTaxDeductible = niDeductibleAdvanceSelfEmpCalc(
 		taxData,
 		taxYearIndex,
 		bituachLeumiAdvance
 	);
-	const incomeTaxTaxableIncome = taxableIncome - niIncomeTaxDeductable;
+	const incomeTaxTaxableIncome = taxableIncome - niIncomeTaxDeductible;
 	const credits = creditPointsTaxCredit + pensionTaxCredit;
 	const { incomeTax, annualIncomeTax } = incomeTaxCalc(
 		taxData,
