@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/israel-tax/static/css/main.57ea92a2.css",
-    "main.js": "/israel-tax/static/js/main.6b5698eb.js",
+    "main.css": "/israel-tax/static/css/main.03fa80d8.css",
+    "main.js": "/israel-tax/static/js/main.daa30000.js",
     "static/media/coins-spread.jpg": "/israel-tax/static/media/coins-spread.e0be45ca6a253247e300.jpg",
     "static/media/coins-stacked.jpg": "/israel-tax/static/media/coins-stacked.0ab9448291cf054224fd.jpg",
     "static/media/canvasbag-houses-suit.jpg": "/israel-tax/static/media/canvasbag-houses-suit.6b8164e3f3b2115a5a5d.jpg",
@@ -18,11 +18,11 @@
     "static/media/warning.svg": "/israel-tax/static/media/warning.f612e7744f2b7c23f720.svg",
     "static/media/info.svg": "/israel-tax/static/media/info.6ac4a752c1a6de64138a.svg",
     "index.html": "/israel-tax/index.html",
-    "main.57ea92a2.css.map": "/israel-tax/static/css/main.57ea92a2.css.map",
-    "main.6b5698eb.js.map": "/israel-tax/static/js/main.6b5698eb.js.map"
+    "main.03fa80d8.css.map": "/israel-tax/static/css/main.03fa80d8.css.map",
+    "main.daa30000.js.map": "/israel-tax/static/js/main.daa30000.js.map"
   },
   "entrypoints": [
-    "static/css/main.57ea92a2.css",
-    "static/js/main.6b5698eb.js"
+    "static/css/main.03fa80d8.css",
+    "static/js/main.daa30000.js"
   ]
 }
