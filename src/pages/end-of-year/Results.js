@@ -208,7 +208,7 @@ function EndOfYearResults(props) {
 							{showExtended && (
 								<tr>
 									<td colSpan='2' className='table__header'>
-										Personal Contributions
+										Personal Contributions Summary
 									</td>
 								</tr>
 							)}
@@ -226,7 +226,7 @@ function EndOfYearResults(props) {
 								<>
 									<tr>
 										<td colSpan='2' className='table__header'>
-											Income Tax Deductions
+											Income Tax Deductions Summary
 										</td>
 									</tr>
 									<tr>
@@ -249,7 +249,7 @@ function EndOfYearResults(props) {
 								<>
 									<tr>
 										<td colSpan='2' className='table__header'>
-											Income Tax
+											Income Tax Summary
 										</td>
 									</tr>
 									<tr>

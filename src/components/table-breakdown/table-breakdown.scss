@@ -12,7 +12,5 @@
 .btn-link--breakdown {
 	font-size: 75%;
 	margin-top: calc($base-font * 0.25);
-	@include screen-sm {
-		float: right;
-	}
+	float: right;
 }
