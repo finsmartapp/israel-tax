@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/israel-tax/static/css/main.70b98591.css",
-    "main.js": "/israel-tax/static/js/main.be39f526.js",
+    "main.js": "/israel-tax/static/js/main.6ad7c0a0.js",
     "static/media/coins-spread.jpg": "/israel-tax/static/media/coins-spread.e0be45ca6a253247e300.jpg",
     "static/media/coins-stacked.jpg": "/israel-tax/static/media/coins-stacked.0ab9448291cf054224fd.jpg",
     "static/media/canvasbag-houses-suit.jpg": "/israel-tax/static/media/canvasbag-houses-suit.6b8164e3f3b2115a5a5d.jpg",
@@ -19,10 +19,10 @@
     "static/media/info.svg": "/israel-tax/static/media/info.6ac4a752c1a6de64138a.svg",
     "index.html": "/israel-tax/index.html",
     "main.70b98591.css.map": "/israel-tax/static/css/main.70b98591.css.map",
-    "main.be39f526.js.map": "/israel-tax/static/js/main.be39f526.js.map"
+    "main.6ad7c0a0.js.map": "/israel-tax/static/js/main.6ad7c0a0.js.map"
   },
   "entrypoints": [
     "static/css/main.70b98591.css",
-    "static/js/main.be39f526.js"
+    "static/js/main.6ad7c0a0.js"
   ]
 }
