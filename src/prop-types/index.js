@@ -32,8 +32,9 @@ export const globalProps = {
 	decimal: number
 };
 
-export const payrollProps = {
-	taxData: array.isRequired,
+export const taxProps = {
+	incomeTaxTables: array.isRequired,
+	studyFundTables: array.isRequired,
 	taxYearIndex: oneOfType([string, number]).isRequired,
 	baseIncome: oneOfType([string, number]).isRequired,
 	income: oneOfType([string, array]).isRequired,
@@ -125,9 +126,7 @@ export const breakdownProps = {
 };
 
 export const pensionProps = {
-	pensionData: array.isRequired,
-	latestPensionData: object.isRequired,
-	averageWage: number.isRequired,
+	pensionTable: array.isRequired,
 	averageWageHalf: number.isRequired,
 	reducedRate: number.isRequired,
 	fullRate: number.isRequired,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { globalProps, payrollProps, formProps } from '../../../prop-types';
+import { globalProps, taxProps, formProps } from '../../../prop-types';
 import { Form } from 'react-bootstrap';
 import InputField from '../../../components/form-inputs/InputField';
 import { invalidNum } from '../../../utils/validationText';
@@ -52,9 +52,9 @@ NetPayIncentives.propTypes = {
 	handleChange: globalProps.handleChange,
 	language: globalProps.language,
 	stateData: globalProps.shape({
-		annualBonus: payrollProps.annualBonus,
-		commission: payrollProps.commission,
-		overtime: payrollProps.overtime
+		annualBonus: taxProps.annualBonus,
+		commission: taxProps.commission,
+		overtime: taxProps.overtime
 	}),
 	formSize: formProps.formSize
 };

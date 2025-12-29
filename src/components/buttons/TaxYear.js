@@ -1,9 +1,9 @@
 import React from 'react';
 import { globalProps, formProps } from '../../prop-types';
 import InputSelect from '../form-inputs/InputSelect';
-import taxData from '../../data/payroll.json';
+import incomeTaxTables from '../../data/income-tax.json';
 
-function PayrollTaxYearBtn(props) {
+function TaxYearBtn(props) {
 	const { controlled, startIndex, yearLabelColumns, horizontal, handleChange } = props;
 	const columnSize = yearLabelColumns === undefined ? ['xs=auto'] : yearLabelColumns;
 
@@ -11,7 +11,7 @@ function PayrollTaxYearBtn(props) {
 		<InputSelect
 			label='Tax year'
 			name='taxYearIndex'
-			dataSource={taxData}
+			dataSource={incomeTaxTables}
 			dataKey='taxYear'
 			controlled={controlled}
 			startIndex={startIndex}
@@ -24,7 +24,7 @@ function PayrollTaxYearBtn(props) {
 	);
 }
 
-PayrollTaxYearBtn.propTypes = {
+TaxYearBtn.propTypes = {
 	controlled: formProps.controlled,
 	startIndex: formProps.startIndex,
 	yearLabelColumns: formProps.yearLabelColumns,
@@ -32,4 +32,4 @@ PayrollTaxYearBtn.propTypes = {
 	handleChange: globalProps.handleChange
 };
 
-export default PayrollTaxYearBtn;
+export default TaxYearBtn;

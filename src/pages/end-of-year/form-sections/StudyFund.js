@@ -1,5 +1,5 @@
 import React from 'react';
-import { globalProps, payrollProps, formProps } from '../../../prop-types';
+import { globalProps, taxProps, formProps } from '../../../prop-types';
 import { Form, Row } from 'react-bootstrap';
 import InputField from '../../../components/form-inputs/InputField';
 import InputRadio from '../../../components/form-inputs/InputRadio';
@@ -63,9 +63,9 @@ EndOfYearStudyFund.propTypes = {
 	language: globalProps.language,
 	formIndex: formProps.formIndex,
 	stateData: globalProps.shape({
-		studyFundOption: payrollProps.studyFundOption,
-		studyFundType: payrollProps.studyFundType,
-		studyFundAmount: payrollProps.studyFundAmount
+		studyFundOption: taxProps.studyFundOption,
+		studyFundType: taxProps.studyFundType,
+		studyFundAmount: taxProps.studyFundAmount
 	})
 };
 

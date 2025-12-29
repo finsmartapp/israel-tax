@@ -1,5 +1,5 @@
 import React from 'react';
-import taxData from '../../data/payroll.json';
+import pensionTables from '../../data/pension.json';
 import Hero from '../../components/hero';
 import PageContainer from '../../components/page-container';
 import SelfEmployedPensionDeposit from './Deposit';
@@ -8,21 +8,21 @@ import SelfEmployedPensionTaxRelief from './TaxRelief';
 import SelfEmployedPensionTaxReliefExamples from './TaxReliefExamples';
 import { currentYearIndex } from '../../utils/globalVariables';
 
-const currentYearData = taxData[currentYearIndex];
+const currentYearData = pensionTables[currentYearIndex];
 //Contribution calculations
-const { reducedRate, fullRate } = currentYearData.pension.legalMin.selfEmployed;
-const averageWage = currentYearData.bituachLeumi.averageSalary;
+const { reducedRate, fullRate } = currentYearData.legalMin.selfEmployed;
+const averageWage = currentYearData.averageSalary;
 const averageWageHalf = averageWage / 2;
 const reducedMax = averageWageHalf * (reducedRate / 100);
 const fullMax = averageWageHalf * (fullRate / 100);
 //Tax relief calculations
 const { taxDeductibleMaxPercent, taxCreditMaxPercent, taxCreditRate, eligibleIncome, ceiling } =
-	currentYearData.pension.taxRelief.selfEmployed;
+	currentYearData.taxRelief.selfEmployed;
 const deductibleDecimal = taxDeductibleMaxPercent / 100;
 const creditDecimal = taxCreditMaxPercent / 100;
 const tierLimit = ceiling / 2;
 const maxContribution = tierLimit * (deductibleDecimal + creditDecimal);
-const beneficiaryPayment = currentYearData.bituachLeumi.averageSalary * 0.16 * 12 - maxContribution;
+const beneficiaryPayment = currentYearData.averageSalary * 0.16 * 12 - maxContribution;
 const recognisedExpense = tierLimit * (taxDeductibleMaxPercent / 100);
 const taxCredit = tierLimit * (taxCreditMaxPercent / 100) * (taxCreditRate / 100);
 

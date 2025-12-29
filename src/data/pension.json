@@ -1,0 +1,163 @@
+[
+	{
+		"taxYear": 2019,
+		"averageSalary": 10273,
+		"legalMin": {
+			"employee": 6,
+			"employer": { "pension": 6.5, "severance": 6 },
+			"selfEmployed": { "reducedRate": 4.45, "fullRate": 12.55 }
+		},
+		"taxRelief": {
+			"employee": {
+				"taxCreditMaxPercent": 7,
+				"taxCreditMaxShekel": 616,
+				"taxCreditRate": 35
+			},
+			"selfEmployed": {
+				"taxDeductibleMaxPercent": 11,
+				"taxCreditMaxPercent": 5.5,
+				"taxCreditRate": 35,
+				"eligibleIncome": 148800,
+				"ceiling": 211200
+			}
+		}
+	},
+	{
+		"taxYear": 2020,
+		"averageSalary": 10551,
+		"legalMin": {
+			"employee": 6,
+			"employer": { "pension": 6.5, "severance": 6 },
+			"selfEmployed": { "reducedRate": 4.45, "fullRate": 12.55 }
+		},
+		"taxRelief": {
+			"employee": {
+				"taxCreditMaxPercent": 7,
+				"taxCreditMaxShekel": 616,
+				"taxCreditRate": 35
+			},
+			"selfEmployed": {
+				"taxDeductibleMaxPercent": 11,
+				"taxCreditMaxPercent": 5.5,
+				"taxCreditRate": 35,
+				"eligibleIncome": 148800,
+				"ceiling": 211200
+			}
+		}
+	},
+	{
+		"taxYear": 2021,
+		"averageSalary": 10551,
+		"legalMin": {
+			"employee": 6,
+			"employer": { "pension": 6.5, "severance": 6 },
+			"selfEmployed": { "reducedRate": 4.45, "fullRate": 12.55 }
+		},
+		"taxRelief": {
+			"employee": {
+				"taxCreditMaxPercent": 7,
+				"taxCreditMaxShekel": 609,
+				"taxCreditRate": 35
+			},
+			"selfEmployed": {
+				"taxDeductibleMaxPercent": 11,
+				"taxCreditMaxPercent": 5.5,
+				"taxCreditRate": 35,
+				"eligibleIncome": 147600,
+				"ceiling": 208800
+			}
+		}
+	},
+	{
+		"taxYear": 2022,
+		"averageSalary": 10551,
+		"legalMin": {
+			"employee": 6,
+			"employer": { "pension": 6.5, "severance": 6 },
+			"selfEmployed": { "reducedRate": 4.45, "fullRate": 12.55 }
+		},
+		"taxRelief": {
+			"employee": {
+				"taxCreditMaxPercent": 7,
+				"taxCreditMaxShekel": 623,
+				"taxCreditRate": 35
+			},
+			"selfEmployed": {
+				"taxDeductibleMaxPercent": 11,
+				"taxCreditMaxPercent": 5.5,
+				"taxCreditRate": 35,
+				"eligibleIncome": 151200,
+				"ceiling": 213600
+			}
+		}
+	},
+	{
+		"taxYear": 2023,
+		"averageSalary": 11870,
+		"legalMin": {
+			"employee": 6,
+			"employer": { "pension": 6.5, "severance": 6 },
+			"selfEmployed": { "reducedRate": 4.45, "fullRate": 12.55 }
+		},
+		"taxRelief": {
+			"employee": {
+				"taxCreditMaxPercent": 7,
+				"taxCreditMaxShekel": 658,
+				"taxCreditRate": 35
+			},
+			"selfEmployed": {
+				"taxDeductibleMaxPercent": 11,
+				"taxCreditMaxPercent": 5.5,
+				"taxCreditRate": 35,
+				"eligibleIncome": 159600,
+				"ceiling": 225600
+			}
+		}
+	},
+	{
+		"taxYear": 2024,
+		"averageSalary": 12536,
+		"legalMin": {
+			"employee": 6,
+			"employer": { "pension": 6.5, "severance": 6 },
+			"selfEmployed": { "reducedRate": 4.45, "fullRate": 12.55 }
+		},
+		"taxRelief": {
+			"employee": {
+				"taxCreditMaxPercent": 7,
+				"taxCreditMaxShekel": 679,
+				"taxCreditRate": 35
+			},
+			"selfEmployed": {
+				"taxDeductibleMaxPercent": 11,
+				"taxCreditMaxPercent": 5.5,
+				"taxCreditRate": 35,
+				"eligibleIncome": 164400,
+				"ceiling": 232800
+			}
+		}
+	},
+	{
+		"taxYear": 2025,
+		"averageSalary": 13316,
+		"legalMin": {
+			"employee": 6,
+			"employer": { "pension": 6.5, "severance": 6 },
+			"selfEmployed": { "reducedRate": 4.45, "fullRate": 12.55 }
+		},
+		"taxRelief": {
+			"employee": {
+				"taxCreditMaxPercent": 7,
+				"taxCreditMaxShekel": 679,
+				"taxCreditRate": 35
+			},
+			"selfEmployed": {
+				"taxDeductibleMaxPercent": 11,
+				"taxCreditMaxPercent": 5.5,
+				"taxCreditRate": 35,
+				"eligibleIncome": 164400,
+				"ceiling": 232800
+			}
+		}
+	}
+]

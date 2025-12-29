@@ -1,7 +1,7 @@
 import React from 'react';
-import { globalProps, payrollProps, formProps } from '../../../prop-types';
+import { globalProps, taxProps, formProps } from '../../../prop-types';
 import { Form } from 'react-bootstrap';
-import PayrollTaxYearBtn from '../../../components/buttons/PayrollYear';
+import TaxYearBtn from '../../../components/buttons/TaxYear';
 import InputField from '../../../components/form-inputs/InputField';
 import { invalidNum } from '../../../utils/validationText';
 import { isZeroOrGreater } from '../../../utils/comparisons';
@@ -16,7 +16,7 @@ function NetPayIncome(props) {
 	return (
 		<fieldset>
 			<Form.Label as='legend'>Income</Form.Label>
-			<PayrollTaxYearBtn
+			<TaxYearBtn
 				handleChange={handleChange}
 				yearLabelColumns={formSize}
 				startIndex={taxYearIndex}
@@ -64,10 +64,10 @@ NetPayIncome.propTypes = {
 	employmentType: globalProps.employmentType,
 	language: globalProps.language,
 	stateData: globalProps.shape({
-		baseIncome: payrollProps.baseIncome,
-		creditPoints: payrollProps.creditPoints,
-		bituachLeumiAdvance: payrollProps.bituachLeumiAdvance,
-		taxYearIndex: payrollProps.taxYearIndex
+		baseIncome: taxProps.baseIncome,
+		creditPoints: taxProps.creditPoints,
+		bituachLeumiAdvance: taxProps.bituachLeumiAdvance,
+		taxYearIndex: taxProps.taxYearIndex
 	}),
 	formSize: formProps.formSize
 };

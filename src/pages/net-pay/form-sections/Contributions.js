@@ -1,5 +1,5 @@
 import React from 'react';
-import { globalProps, payrollProps, formProps } from '../../../prop-types';
+import { globalProps, taxProps, formProps } from '../../../prop-types';
 import { Form } from 'react-bootstrap';
 import InputRadio from '../../../components/form-inputs/InputRadio';
 import InputField from '../../../components/form-inputs/InputField';
@@ -8,7 +8,6 @@ import { isZeroOrGreater } from '../../../utils/comparisons';
 import { pensionMinCalc } from '../../../utils/tax-calculators/pensionLegalMin';
 
 function NetPayContributions(props) {
-	const taxData = props.taxData;
 	const {
 		taxYearIndex,
 		baseIncome,
@@ -22,7 +21,7 @@ function NetPayContributions(props) {
 	const employmentType = props.employmentType;
 	const language = props.language;
 	const formSize = props.formSize;
-	const pensionMin = pensionMinCalc(taxData, taxYearIndex, baseIncome, employmentType).toFixed(2);
+	const pensionMin = pensionMinCalc(taxYearIndex, baseIncome, employmentType).toFixed(2);
 	const pensionMinPecrcent = ((pensionMin / baseIncome) * 100).toFixed(2);
 
 	return (
@@ -114,15 +113,14 @@ NetPayContributions.propTypes = {
 	handleChange: globalProps.handleChange,
 	employmentType: globalProps.employmentType,
 	language: globalProps.language,
-	taxData: payrollProps.taxData,
 	stateData: globalProps.shape({
-		taxYearIndex: payrollProps.taxYearIndex,
-		baseIncome: payrollProps.baseIncome,
-		pensionOption: payrollProps.pensionOption,
-		pensionType: payrollProps.pensionType,
-		pensionAmount: payrollProps.pensionAmount,
-		studyFundType: payrollProps.studyFundType,
-		studyFundAmount: payrollProps.studyFundAmount
+		taxYearIndex: taxProps.taxYearIndex,
+		baseIncome: taxProps.baseIncome,
+		pensionOption: taxProps.pensionOption,
+		pensionType: taxProps.pensionType,
+		pensionAmount: taxProps.pensionAmount,
+		studyFundType: taxProps.studyFundType,
+		studyFundAmount: taxProps.studyFundAmount
 	}),
 	formSize: formProps.formSize
 };

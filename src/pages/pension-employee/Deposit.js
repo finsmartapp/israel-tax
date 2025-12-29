@@ -5,10 +5,15 @@ import { formatCurrency } from '../../utils/formatCurrency';
 import { currentYear } from '../../utils/globalVariables';
 
 function EmployeePensionDeposit(props) {
-	const { employee, employer, severance } = props.latestPensionData;
-	const averageWage = props.averageWage;
-	const employerMax = averageWage * (employer / 100);
-	const severanceMax = averageWage * (severance / 100);
+	const {
+		averageSalary,
+		legalMin: {
+			employee,
+			employer: { pension: employer, severance }
+		}
+	} = props.pensionTable;
+	const employerMax = averageSalary * (employer / 100);
+	const severanceMax = averageSalary * (severance / 100);
 
 	return (
 		<section>
@@ -28,7 +33,7 @@ function EmployeePensionDeposit(props) {
 				</li>
 				<li>
 					Your employer is only required to contribute up to the equivalant amount of the national
-					average wage, which is {formatCurrency('il', averageWage)} a month for the {currentYear}{' '}
+					average wage, which is {formatCurrency('il', averageSalary)} a month for the {currentYear}{' '}
 					tax year. However, you may be able to negotiate a higher limit in your contract
 				</li>
 				<li>
@@ -72,8 +77,7 @@ function EmployeePensionDeposit(props) {
 }
 
 EmployeePensionDeposit.propTypes = {
-	latestPensionData: pensionProps.latestPensionData,
-	averageWage: pensionProps.averageWage
+	pensionTable: pensionProps.pensionTable
 };
 
 export default EmployeePensionDeposit;

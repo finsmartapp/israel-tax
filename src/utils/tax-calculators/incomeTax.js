@@ -1,23 +1,16 @@
-export function incomeTaxCalc(
-	taxData,
-	taxYearIndex,
-	taxableIncome,
-	annualBonus,
-	credits,
-	employment,
-	eoy
-) {
+import incomeTaxTables from '../../data/income-tax.json';
+export function incomeTaxCalc(taxYearIndex, taxableIncome, annualBonus, credits, employment, eoy) {
 	//Income tax uses annual tax bands
 	//Bonus calculated separatly to ensure tax that month isn't multipled by 12 for yearly total
 
-	const taxBands = Object.keys(taxData[taxYearIndex].incomeTax);
+	const taxBands = Object.keys(incomeTaxTables[taxYearIndex].incomeTax);
 	const hasBonus = annualBonus > 0;
 	annualBonus = hasBonus ? annualBonus : 0;
 	const calculateTax = income => {
 		let taxDue = 0;
 
 		taxBands.forEach(taxBand => {
-			const { rate, min: minimum, max } = taxData[taxYearIndex].incomeTax[taxBand];
+			const { rate, min: minimum, max } = incomeTaxTables[taxYearIndex].incomeTax[taxBand];
 			const bandAdjustment = minimum === 0 ? 0 : 1;
 			const min = minimum - bandAdjustment;
 

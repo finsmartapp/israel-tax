@@ -1,5 +1,5 @@
 import React from 'react';
-import { globalProps, payrollProps } from '../../prop-types';
+import { globalProps, taxProps } from '../../prop-types';
 import { Table } from 'react-bootstrap';
 import {
 	bituachLeumiCalc,
@@ -17,7 +17,7 @@ import { noTaxCreditPoints } from './info-cards/EmployeeCards';
 import { foodAllowanceInfo } from './info-cards/EmployeeCards';
 
 function NetPayResultsEmployee(props) {
-	const taxData = props.taxData;
+	const incomeTaxTables = props.incomeTaxTables;
 	const {
 		taxYearIndex,
 		baseIncome,
@@ -57,7 +57,6 @@ function NetPayResultsEmployee(props) {
 	const paycheckGross = taxableIncome - foodAllowance;
 	const prisa = annualBonus > (taxableIncome - annualBonus) * 0.25;
 	const { month: nationalInsurance, annual: annualNationalInsurance } = bituachLeumiCalc(
-		taxData,
 		taxYearIndex,
 		employmentType,
 		taxableIncome,
@@ -66,7 +65,6 @@ function NetPayResultsEmployee(props) {
 		prisa
 	);
 	const { month: healthInsurance, annual: annualHealthInsurance } = bituachLeumiCalc(
-		taxData,
 		taxYearIndex,
 		employmentType,
 		taxableIncome,
@@ -74,23 +72,17 @@ function NetPayResultsEmployee(props) {
 		annualBonus,
 		prisa
 	);
-	const creditPointsTaxCredit = creditPoints * taxData[taxYearIndex].creditPoint;
-	const pensionLegalMin = pensionMinCalc(taxData, taxYearIndex, pensionableIncome, employmentType);
+	const creditPointsTaxCredit = creditPoints * incomeTaxTables[taxYearIndex].creditPoint;
+	const pensionLegalMin = pensionMinCalc(taxYearIndex, pensionableIncome, employmentType);
 	const pensionContribution = pensionContributionCalc(
 		pensionableIncome,
 		pensionLegalMin,
 		pensionOption,
 		pensionAmount
 	);
-	const pensionTaxCredit = pensionReliefCalc(
-		taxData,
-		taxYearIndex,
-		pensionContribution,
-		pensionableIncome
-	);
+	const pensionTaxCredit = pensionReliefCalc(taxYearIndex, pensionContribution, pensionableIncome);
 	const credits = creditPointsTaxCredit + pensionTaxCredit;
 	const { incomeTax, annualIncomeTax } = incomeTaxCalc(
-		taxData,
 		taxYearIndex,
 		taxableIncome,
 		annualBonus,
@@ -98,7 +90,6 @@ function NetPayResultsEmployee(props) {
 		employmentType
 	);
 	const { monthlyBandPayments, annualBandPayments } = incomeTaxBandsCalc(
-		taxData,
 		taxYearIndex,
 		annualIncomeTax,
 		incomeTax
@@ -207,21 +198,21 @@ function NetPayResultsEmployee(props) {
 NetPayResultsEmployee.propTypes = {
 	employmentType: globalProps.employmentType,
 	scrollPoint: globalProps.scrollPoint,
-	taxData: payrollProps.taxData,
+	incomeTaxTables: taxProps.incomeTaxTables,
 	stateData: globalProps.shape({
-		taxYearIndex: payrollProps.taxYearIndex,
-		baseIncome: payrollProps.baseIncome,
-		creditPoints: payrollProps.creditPoints,
-		pensionOption: payrollProps.pensionOption,
-		pensionAmount: payrollProps.pensionAmount,
-		studyFundType: payrollProps.studyFundType,
-		studyFundAmount: payrollProps.studyFundAmount,
-		travelAllowance: payrollProps.travelAllowance,
-		foodAllowance: payrollProps.foodAllowance,
-		otherAllowance: payrollProps.otherAllowance,
-		overtime: payrollProps.overtime,
-		annualBonus: payrollProps.annualBonus,
-		commission: payrollProps.commission,
+		taxYearIndex: taxProps.taxYearIndex,
+		baseIncome: taxProps.baseIncome,
+		creditPoints: taxProps.creditPoints,
+		pensionOption: taxProps.pensionOption,
+		pensionAmount: taxProps.pensionAmount,
+		studyFundType: taxProps.studyFundType,
+		studyFundAmount: taxProps.studyFundAmount,
+		travelAllowance: taxProps.travelAllowance,
+		foodAllowance: taxProps.foodAllowance,
+		otherAllowance: taxProps.otherAllowance,
+		overtime: taxProps.overtime,
+		annualBonus: taxProps.annualBonus,
+		commission: taxProps.commission,
 		showResultsTable: globalProps.showResultsTable
 	})
 };

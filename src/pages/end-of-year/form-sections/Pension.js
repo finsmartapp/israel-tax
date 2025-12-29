@@ -1,5 +1,5 @@
 import React from 'react';
-import { globalProps, payrollProps, formProps } from '../../../prop-types';
+import { globalProps, taxProps, formProps } from '../../../prop-types';
 import { Form, Row } from 'react-bootstrap';
 import InputField from '../../../components/form-inputs/InputField';
 import InputRadio from '../../../components/form-inputs/InputRadio';
@@ -68,11 +68,11 @@ EndOfYearPension.propTypes = {
 	language: globalProps.language,
 	formIndex: formProps.formIndex,
 	stateData: globalProps.shape({
-		fiscalPeriod: payrollProps.fiscalPeriod,
-		profit: payrollProps.profit,
-		pensionOption: payrollProps.pensionOption,
-		pensionType: payrollProps.pensionType,
-		pensionAmount: payrollProps.pensionAmount
+		fiscalPeriod: taxProps.fiscalPeriod,
+		profit: taxProps.profit,
+		pensionOption: taxProps.pensionOption,
+		pensionType: taxProps.pensionType,
+		pensionAmount: taxProps.pensionAmount
 	})
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { globalProps, payrollProps } from '../../prop-types';
+import { globalProps, taxProps } from '../../prop-types';
 import Table from 'react-bootstrap/table';
 import {
 	bituachLeumiCalc,
@@ -20,7 +20,7 @@ import { noTaxCreditPoints } from './info-cards/EmployeeCards';
 import { noBituachLeumiAdvances } from './info-cards/SelfEmpCards';
 
 function NetPayResultsSelfEmployed(props) {
-	const taxData = props.taxData;
+	const incomeTaxTables = props.incomeTaxTables;
 	const {
 		taxYearIndex,
 		baseIncome,
@@ -34,12 +34,7 @@ function NetPayResultsSelfEmployed(props) {
 		showResultsTable
 	} = props.stateData;
 	const employmentType = props.employmentType;
-	const studyFundTaxAllowance = studyFundAllowances(
-		taxData,
-		taxYearIndex,
-		baseIncome,
-		employmentType
-	);
+	const studyFundTaxAllowance = studyFundAllowances(taxYearIndex, baseIncome, employmentType);
 	const { studyFundContribution, studyFundTaxDeductible } = studyFundCalc(
 		baseIncome,
 		employmentType,
@@ -47,7 +42,7 @@ function NetPayResultsSelfEmployed(props) {
 		studyFundType,
 		studyFundTaxAllowance
 	);
-	const pensionLegalMin = pensionMinCalc(taxData, taxYearIndex, baseIncome, employmentType);
+	const pensionLegalMin = pensionMinCalc(taxYearIndex, baseIncome, employmentType);
 	const pensionContribution = pensionContributionCalc(
 		baseIncome,
 		pensionLegalMin,
@@ -56,37 +51,29 @@ function NetPayResultsSelfEmployed(props) {
 		pensionType
 	);
 	const { pensionTaxDeductible, pensionTaxCredit } = pensionReliefCalcSelfEmp(
-		taxData,
 		taxYearIndex,
 		baseIncome,
 		pensionContribution
 	);
 	const taxableIncome = baseIncome - studyFundTaxDeductible - pensionTaxDeductible;
-	const bituachLeumiDeductible = niDeductibleSelfEmpCalc(taxData, taxYearIndex, taxableIncome);
+	const bituachLeumiDeductible = niDeductibleSelfEmpCalc(taxYearIndex, taxableIncome);
 	const { month: nationalInsurance, annual: annualNationalInsurance } = bituachLeumiCalc(
-		taxData,
 		taxYearIndex,
 		employmentType,
 		taxableIncome - bituachLeumiDeductible,
 		'nationalInsurance'
 	);
 	const { month: healthInsurance, annual: annualHealthInsurance } = bituachLeumiCalc(
-		taxData,
 		taxYearIndex,
 		employmentType,
 		taxableIncome - bituachLeumiDeductible,
 		'healthInsurance'
 	);
-	const creditPointsTaxCredit = creditPoints * taxData[taxYearIndex].creditPoint;
-	const niIncomeTaxDeductible = niDeductibleAdvanceSelfEmpCalc(
-		taxData,
-		taxYearIndex,
-		bituachLeumiAdvance
-	);
+	const creditPointsTaxCredit = creditPoints * incomeTaxTables[taxYearIndex].creditPoint;
+	const niIncomeTaxDeductible = niDeductibleAdvanceSelfEmpCalc(taxYearIndex, bituachLeumiAdvance);
 	const incomeTaxTaxableIncome = taxableIncome - niIncomeTaxDeductible;
 	const credits = creditPointsTaxCredit + pensionTaxCredit;
 	const { incomeTax, annualIncomeTax } = incomeTaxCalc(
-		taxData,
 		taxYearIndex,
 		incomeTaxTaxableIncome,
 		0,
@@ -94,7 +81,6 @@ function NetPayResultsSelfEmployed(props) {
 		employmentType
 	);
 	const { monthlyBandPayments, annualBandPayments } = incomeTaxBandsCalc(
-		taxData,
 		taxYearIndex,
 		annualIncomeTax
 	);
@@ -186,18 +172,18 @@ function NetPayResultsSelfEmployed(props) {
 NetPayResultsSelfEmployed.propTypes = {
 	employmentType: globalProps.employmentType,
 	scrollPoint: globalProps.scrollPoint,
-	taxData: payrollProps.taxData,
+	incomeTaxTables: taxProps.incomeTaxTables,
 	stateData: globalProps.shape({
-		taxYearIndex: payrollProps.taxYearIndex,
-		baseIncome: payrollProps.baseIncome,
-		creditPoints: payrollProps.creditPoints,
-		pensionOption: payrollProps.pensionOption,
-		pensionType: payrollProps.pensionType,
-		pensionAmount: payrollProps.pensionAmount,
-		studyFundType: payrollProps.studyFundType,
-		studyFundAmount: payrollProps.studyFundAmount,
+		taxYearIndex: taxProps.taxYearIndex,
+		baseIncome: taxProps.baseIncome,
+		creditPoints: taxProps.creditPoints,
+		pensionOption: taxProps.pensionOption,
+		pensionType: taxProps.pensionType,
+		pensionAmount: taxProps.pensionAmount,
+		studyFundType: taxProps.studyFundType,
+		studyFundAmount: taxProps.studyFundAmount,
 		showResultsTable: globalProps.showResultsTable,
-		bituachLeumiAdvance: payrollProps.bituachLeumiAdvance
+		bituachLeumiAdvance: taxProps.bituachLeumiAdvance
 	})
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { globalProps, payrollProps, formProps } from '../../../prop-types';
+import { globalProps, taxProps, formProps } from '../../../prop-types';
 import { Form } from 'react-bootstrap';
 import InputField from '../../../components/form-inputs/InputField';
 import { invalidNum } from '../../../utils/validationText';
@@ -52,9 +52,9 @@ NetPayAllowances.propTypes = {
 	handleChange: globalProps.handleChange,
 	language: globalProps.language,
 	stateData: globalProps.shape({
-		travelAllowance: payrollProps.travelAllowance,
-		foodAllowance: payrollProps.foodAllowance,
-		otherAllowance: payrollProps.otherAllowance
+		travelAllowance: taxProps.travelAllowance,
+		foodAllowance: taxProps.foodAllowance,
+		otherAllowance: taxProps.otherAllowance
 	}),
 	formSize: formProps.formSize
 };

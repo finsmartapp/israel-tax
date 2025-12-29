@@ -1,5 +1,5 @@
 import React from 'react';
-import taxData from '../../data/payroll.json';
+import studyFundTables from '../../data/study-fund.json';
 import Hero from '../../components/hero';
 import PageContainer from '../../components/page-container';
 import SelfEmployedStudyFundDeposit from './Deposit';
@@ -7,7 +7,7 @@ import SelfEmployedStudyExamples from './Examples';
 import { currentYearIndex, currentYear } from '../../utils/globalVariables';
 
 function SelfEmployedStudyFund() {
-	const { rate, ceiling, capitalGainsLimit } = taxData[currentYearIndex].studyFund.selfEmployed;
+	const { rate, ceiling, capitalGainsLimit } = studyFundTables[currentYearIndex].selfEmployed;
 	const maxDeposit = ceiling * (rate / 100);
 
 	return (

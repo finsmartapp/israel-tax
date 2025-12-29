@@ -1,5 +1,5 @@
 import React from 'react';
-import { globalProps, payrollProps, formProps } from '../../prop-types';
+import { globalProps, formProps } from '../../prop-types';
 import { Form, Button } from 'react-bootstrap';
 import NetPayIncome from './form-sections/Income';
 import NetPayContributions from './form-sections/Contributions';
@@ -8,7 +8,7 @@ import NetPayIncentives from './form-sections/Incentives';
 import LanguageContext from '../../contexts/LanguageContext';
 
 function NetPayForm(props) {
-	const { employmentType, taxData, stateData, handleChange } = props;
+	const { employmentType, stateData, handleChange } = props;
 	const formSize = ['xs=7', 'md=6'];
 
 	return (
@@ -33,7 +33,6 @@ function NetPayForm(props) {
 							/>
 							<NetPayContributions
 								employmentType={employmentType}
-								taxData={taxData}
 								stateData={stateData}
 								handleChange={handleChange}
 								language={value.language}
@@ -69,7 +68,6 @@ function NetPayForm(props) {
 NetPayForm.propTypes = {
 	handleSubmit: globalProps.handleSubmit,
 	handleChange: globalProps.handleChange,
-	taxData: payrollProps.taxData,
 	employmentType: globalProps.employmentType,
 	stateData: globalProps.shape({
 		validated: formProps.validated

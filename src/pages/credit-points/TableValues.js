@@ -1,15 +1,15 @@
 import React from 'react';
-import { globalProps, payrollProps } from '../../prop-types';
+import { globalProps, taxProps } from '../../prop-types';
 import { Table } from 'react-bootstrap';
 import { formatCurrency } from '../../utils/formatCurrency';
 
 function CreditPointsTableValues(props) {
-	const { taxData, displayItems } = props;
-	const allItems = taxData.length;
+	const { incomeTaxTables, displayItems } = props;
+	const allItems = incomeTaxTables.length;
 	let displayYears = [];
 
 	for (let i = allItems - 1; i >= allItems - displayItems; i--) {
-		displayYears.push(taxData[i]);
+		displayYears.push(incomeTaxTables[i]);
 	}
 
 	return (
@@ -43,7 +43,7 @@ function CreditPointsTableValues(props) {
 
 CreditPointsTableValues.propTypes = {
 	displayItems: globalProps.displayItems,
-	taxData: payrollProps.taxData
+	incomeTaxTables: taxProps.incomeTaxTables
 };
 
 export default CreditPointsTableValues;

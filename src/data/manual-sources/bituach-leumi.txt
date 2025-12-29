@@ -1,0 +1,39 @@
+BITUACH LEUIMI
+
+*********************************************
+Part 1: Bituach Leumi Official
+---------------------------------------------
+1. Avergae Wage
+	https://www.btl.gov.il/English%20Homepage/Mediniyut/GeneralInformation/Pages/AverageWage.aspx
+		Insurance wage (only)
+
+2. National Insurance
+	https://www.btl.gov.il/English%20Homepage/Insurance/Ratesandamount/Pages/forSalaried.aspx
+		Employee Bands
+		Self-Employed Bands
+
+3. Health Insurance
+	https://www.btl.gov.il/English%20Homepage/Insurance/Ratesandamount/Pages/Selfemployedperson.aspx
+		Employee Bands
+		Self-Employed Bands
+
+Part 2: Wiki Tax Ordinance 
+---------------------------------------------
+https://he.wikisource.org/wiki/פקודת_מס_הכנסה
+
+1. Self-Emmployed National Insurance Deduction 
+	Doc section: https://he.wikisource.org/wiki/פקודת_מס_הכנסה#סעיף_47א 
+	Search: ניכוי בשל תשלומי ביטוח לאומי ומס
+	Ordinance: 47A (a)
+*********************************************
+
+*********************************************
+(Partial) Israel Tax Authority 
+---------------------------------------------
+https://www.gov.il/en/pages/income-tax-monthly-deductions-booklet
+לוח עזר לחישוב מס הכנסה ממשכורת ושכר עבודה
+
+1. Average Salary 
+	Doc section: 5 
+	Search: שכר הממוצע במשק
+*********************************************

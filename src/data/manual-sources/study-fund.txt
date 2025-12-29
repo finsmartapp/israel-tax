@@ -1,0 +1,63 @@
+STUDY FUND
+
+*********************************************
+Wiki Tax Ordinance 
+---------------------------------------------
+https://he.wikisource.org/wiki/פקודת_מס_הכנסה
+
+1. Employee
+	Percent cap
+		Doc section: https://he.wikisource.org/wiki/פקודת_מס_הכנסה#חלק_ג	
+		Search: משיכת תשלומי מעביד מקרן השתלמות
+		Ordinance: (א16) (ג) (2) (ב), סכום בשיעור שאינו עולה על
+	Salary ceiling
+		Doc section: https://he.wikisource.org/wiki/פקודת_מס_הכנסה#חלק_ב
+		Search:	תיקון: תשכ״ה, תשל״ה, תשל״ה־2, תשמ״ד־3, תש״ן, תשס״ה־10
+		Ordinance: (3) (ה) 
+		Note: Given as monthly, so *12 for annual
+	
+	
+2. Employer
+	Percent cap
+		Doc section: https://he.wikisource.org/wiki/פקודת_מס_הכנסה#חלק_ב
+		Search:	תיקון: תשכ״ה, תשל״ה, תשל״ה־2, תשמ״ד־3, תש״ן, תשס״ה־10
+		Ordinance: (3) (ה) 
+	Salary ceiling
+		Same amount as employee
+	
+
+3. Self-Employed Ceilings
+	Percent cap
+		Doc section: https://he.wikisource.org/wiki/פקודת_מס_הכנסה#חלק_ג_פרק_2	
+		Search: תשלומים לקרן השתלמות לעצמאים 	
+		Ordinance: 17 (5א)
+	Salary ceiling
+		Same location as the cap
+	Capital gains
+		Doc section: https://he.wikisource.org/wiki/פקודת_מס_הכנסה#חלק_ג
+		Search: משיכה מקרן השתלמות לעצמאים	
+		Ordinance: 9 (16ב) (א) 
+*********************************************
+
+*********************************************
+(Partial) Israel Tax Authority
+---------------------------------------------
+https://www.gov.il/en/pages/income-tax-monthly-deductions-booklet
+לוח עזר לחישוב מס הכנסה ממשכורת ושכר עבודה
+
+1. Employee
+		Salary ceiling
+			Doc section: קופות גמל וקרנות השתלמות
+			Search: משכורת קובעת להפרשות לקרן השתלמות
+			Ordinance: 3ה
+
+2. Self-Employed
+		Salary ceiling
+			Doc section: קופות גמל וקרנות השתלמות
+			Search: תקרת הכנסה קובעת בקרן השתלמות
+			Ordinance: 17 (5a)
+		Capital gains limit
+			Doc section: קופות גמל וקרנות השתלמות
+			Search: הפקדה מוטבת
+			Ordinance: 9 (16b) (a)
+*********************************************

@@ -1,0 +1,93 @@
+[
+	{
+		"taxYear": 2019,
+		"creditPoint": 218,
+		"incomeTax": {
+			"band1": { "rate": 10, "min": 0, "max": 75720 },
+			"band2": { "rate": 14, "min": 75721, "max": 108600 },
+			"band3": { "rate": 20, "min": 108601, "max": 174360 },
+			"band4": { "rate": 31, "min": 174361, "max": 242400 },
+			"band5": { "rate": 35, "min": 242401, "max": 504360 },
+			"band6": { "rate": 47, "min": 504361, "max": 649560 },
+			"band7": { "rate": 50, "min": 649561 }
+		}
+	},
+	{
+		"taxYear": 2020,
+		"creditPoint": 219,
+		"incomeTax": {
+			"band1": { "rate": 10, "min": 0, "max": 75960 },
+			"band2": { "rate": 14, "min": 75961, "max": 108960 },
+			"band3": { "rate": 20, "min": 108961, "max": 174960 },
+			"band4": { "rate": 31, "min": 174961, "max": 243120 },
+			"band5": { "rate": 35, "min": 243121, "max": 505920 },
+			"band6": { "rate": 47, "min": 505921, "max": 651600 },
+			"band7": { "rate": 50, "min": 651601 }
+		}
+	},
+	{
+		"taxYear": 2021,
+		"creditPoint": 218,
+		"incomeTax": {
+			"band1": { "rate": 10, "min": 0, "max": 75480 },
+			"band2": { "rate": 14, "min": 75481, "max": 108360 },
+			"band3": { "rate": 20, "min": 108361, "max": 173880 },
+			"band4": { "rate": 31, "min": 173881, "max": 241680 },
+			"band5": { "rate": 35, "min": 241681, "max": 502920 },
+			"band6": { "rate": 47, "min": 502921, "max": 647640 },
+			"band7": { "rate": 50, "min": 647641 }
+		}
+	},
+	{
+		"taxYear": 2022,
+		"creditPoint": 223,
+		"incomeTax": {
+			"band1": { "rate": 10, "min": 0, "max": 77400 },
+			"band2": { "rate": 14, "min": 77401, "max": 110880 },
+			"band3": { "rate": 20, "min": 110881, "max": 178080 },
+			"band4": { "rate": 31, "min": 178081, "max": 247440 },
+			"band5": { "rate": 35, "min": 247441, "max": 514920 },
+			"band6": { "rate": 47, "min": 502921, "max": 663240 },
+			"band7": { "rate": 50, "min": 663241 }
+		}
+	},
+	{
+		"taxYear": 2023,
+		"creditPoint": 235,
+		"incomeTax": {
+			"band1": { "rate": 10, "min": 0, "max": 81480 },
+			"band2": { "rate": 14, "min": 81481, "max": 116760 },
+			"band3": { "rate": 20, "min": 116761, "max": 187440 },
+			"band4": { "rate": 31, "min": 187441, "max": 260520 },
+			"band5": { "rate": 35, "min": 260521, "max": 542160 },
+			"band6": { "rate": 47, "min": 542161, "max": 698280 },
+			"band7": { "rate": 50, "min": 698281 }
+		}
+	},
+	{
+		"taxYear": 2024,
+		"creditPoint": 242,
+		"incomeTax": {
+			"band1": { "rate": 10, "min": 0, "max": 84120 },
+			"band2": { "rate": 14, "min": 84121, "max": 120720 },
+			"band3": { "rate": 20, "min": 120721, "max": 193800 },
+			"band4": { "rate": 31, "min": 193801, "max": 269280 },
+			"band5": { "rate": 35, "min": 269281, "max": 560280 },
+			"band6": { "rate": 47, "min": 560281, "max": 721560 },
+			"band7": { "rate": 50, "min": 721561 }
+		}
+	},
+	{
+		"taxYear": 2025,
+		"creditPoint": 242,
+		"incomeTax": {
+			"band1": { "rate": 10, "min": 0, "max": 84120 },
+			"band2": { "rate": 14, "min": 84121, "max": 120720 },
+			"band3": { "rate": 20, "min": 120721, "max": 193800 },
+			"band4": { "rate": 31, "min": 193801, "max": 269280 },
+			"band5": { "rate": 35, "min": 269281, "max": 560280 },
+			"band6": { "rate": 47, "min": 560281, "max": 721560 },
+			"band7": { "rate": 50, "min": 721561 }
+		}
+	}
+]

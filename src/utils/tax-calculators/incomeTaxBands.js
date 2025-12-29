@@ -1,15 +1,16 @@
-export function incomeTaxBandsCalc(taxData, taxYearIndex, annualTax, monthlyTax) {
+import incomeTaxTables from '../../data/income-tax.json';
+export function incomeTaxBandsCalc(taxYearIndex, annualTax, monthlyTax) {
 	//An expetional month is where payment's received for that month only, so the annual tax can't be evenly divided
 	const isExptionalMonth = monthlyTax * 12 > annualTax;
 
 	const taxAndBand = (tax, exptionalMonth) => {
-		const taxBands = Object.keys(taxData[taxYearIndex].incomeTax);
+		const taxBands = Object.keys(incomeTaxTables[taxYearIndex].incomeTax);
 		let counter = tax;
 		let fullBands = [];
 		let dividedBands = [];
 
 		taxBands.forEach(taxBand => {
-			const { rate, min, max } = taxData[taxYearIndex].incomeTax[taxBand];
+			const { rate, min, max } = incomeTaxTables[taxYearIndex].incomeTax[taxBand];
 			const bandAdjustment = min === 0 ? 0 : 1;
 			const minimum = exptionalMonth ? Math.round(min / 12) : min - bandAdjustment;
 			const maximum = max === undefined ? Infinity : exptionalMonth ? max / 12 : max;

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import taxData from '../../data/payroll';
+import incomeTaxTables from '../../data/income-tax';
+import bituachLeumiTables from '../../data/bituach-leumi';
+import studyFundTables from '../../data/study-fund';
 import EndOfYearForm from './Form';
 import EndOfYearResults from './Results';
 import { scrollToRef } from '../../utils/scrollToRef';
@@ -136,7 +138,9 @@ class EndOfYearCalculator extends Component {
 					handleSubmit={this.handleSubmit}
 				/>
 				<EndOfYearResults
-					taxData={taxData}
+					incomeTaxTables={incomeTaxTables}
+					bituachLeumiTables={bituachLeumiTables}
+					studyFundTables={studyFundTables}
 					stateData={this.state}
 					scrollPoint={this.scrollPoint}
 					handleClick={this.handleClick}

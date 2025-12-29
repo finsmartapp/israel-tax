@@ -1,11 +1,11 @@
 import React from 'react';
-import { globalProps, payrollProps, formProps } from '../../prop-types/index';
+import { globalProps, taxProps, formProps } from '../../prop-types/index';
 import { Form, ButtonGroup, ToggleButton, Button, Row, Col } from 'react-bootstrap';
 import LanguageContext from '../../contexts/LanguageContext';
 import EndOfYearRevenue from './form-sections/Revenue';
 import EndOfYearPension from './form-sections/Pension';
 import EndOfYearStudyFund from './form-sections/StudyFund';
-import PayrollTaxYearBtn from '../../components/buttons/PayrollYear';
+import TaxYearBtn from '../../components/buttons/TaxYear';
 
 function EndOfYearForm(props) {
 	const stateData = props.stateData;
@@ -56,7 +56,7 @@ function EndOfYearForm(props) {
 				onSubmit={props.handleSubmit}
 				className='vertical-form'
 			>
-				<PayrollTaxYearBtn handleChange={handleChange} />
+				<TaxYearBtn handleChange={handleChange} />
 
 				{pensionOption.map((forms, i) => {
 					const fullWidth =
@@ -124,10 +124,10 @@ EndOfYearForm.propTypes = {
 	handleSubmit: globalProps.handleSubmit,
 	handleChange: globalProps.handleChange,
 	stateData: globalProps.shape({
-		fiscalPeriod: payrollProps.fiscalPeriod,
-		taxYearIndex: payrollProps.taxYearIndex,
-		pensionOption: payrollProps.pensionOption,
-		studyFundOption: payrollProps.studyFundOption,
+		fiscalPeriod: taxProps.fiscalPeriod,
+		taxYearIndex: taxProps.taxYearIndex,
+		pensionOption: taxProps.pensionOption,
+		studyFundOption: taxProps.studyFundOption,
 		validated: formProps.validated
 	})
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { globalProps, payrollProps } from '../../prop-types/index';
+import { globalProps, taxProps } from '../../prop-types/index';
 import { Table } from 'react-bootstrap';
 import {
 	incomeTaxCalc,
@@ -26,7 +26,8 @@ import { studyUnderGains } from './info-cards';
 import { studyOverGains } from './info-cards';
 
 function EndOfYearResults(props) {
-	const taxData = props.taxData;
+	const incomeTaxTables = props.incomeTaxTables;
+	const studyFundTables = props.studyFundTables;
 	const {
 		taxYearIndex,
 		income,
@@ -56,11 +57,11 @@ function EndOfYearResults(props) {
 	const totalIncome = total(income);
 	const totalExpenses = total(expenses);
 	const totalProfit = total(profit);
-	const creditPointsTaxCredit = total(creditPoints) * taxData[taxYearIndex].creditPoint;
+	const creditPointsTaxCredit = total(creditPoints) * incomeTaxTables[taxYearIndex].creditPoint;
 	const totalbituachLeumiAdvance = total(bituachLeumiAdvance);
 	const employmentType = 'selfEmployed';
 	const eoy = true;
-	const pensionLegalMin = pensionMinCalc(taxData, taxYearIndex, totalProfit, employmentType, eoy);
+	const pensionLegalMin = pensionMinCalc(taxYearIndex, totalProfit, employmentType, eoy);
 	const pensionContribution = pensionContributionCalc(
 		profit,
 		pensionLegalMin,
@@ -73,14 +74,8 @@ function EndOfYearResults(props) {
 		pensionTaxDeductible,
 		pensionTaxCredit,
 		maxContribution: maxPensionContribution
-	} = pensionReliefCalcSelfEmp(taxData, taxYearIndex, totalProfit, pensionContribution, eoy);
-	const studyFundTaxAllowance = studyFundAllowances(
-		taxData,
-		taxYearIndex,
-		totalProfit,
-		employmentType,
-		eoy
-	);
+	} = pensionReliefCalcSelfEmp(taxYearIndex, totalProfit, pensionContribution, eoy);
+	const studyFundTaxAllowance = studyFundAllowances(taxYearIndex, totalProfit, employmentType, eoy);
 	const { studyFundContribution, studyFundTaxDeductible } = studyFundCalc(
 		profit,
 		employmentType,
@@ -91,9 +86,8 @@ function EndOfYearResults(props) {
 		eoy
 	);
 	const taxableIncome = totalProfit - studyFundTaxDeductible - pensionTaxDeductible;
-	const bituachLeumiDeductible = niDeductibleSelfEmpCalc(taxData, taxYearIndex, taxableIncome, eoy);
+	const bituachLeumiDeductible = niDeductibleSelfEmpCalc(taxYearIndex, taxableIncome, eoy);
 	const { month: nationalInsurance } = bituachLeumiCalc(
-		taxData,
 		taxYearIndex,
 		employmentType,
 		taxableIncome - bituachLeumiDeductible,
@@ -103,7 +97,6 @@ function EndOfYearResults(props) {
 		eoy
 	);
 	const { month: healthInsurance } = bituachLeumiCalc(
-		taxData,
 		taxYearIndex,
 		employmentType,
 		taxableIncome - bituachLeumiDeductible,
@@ -113,7 +106,6 @@ function EndOfYearResults(props) {
 		eoy
 	);
 	const niIncomeTaxDeductible = niDeductibleAdvanceSelfEmpCalc(
-		taxData,
 		taxYearIndex,
 		totalbituachLeumiAdvance,
 		eoy
@@ -121,7 +113,6 @@ function EndOfYearResults(props) {
 	const incomeTaxTaxableIncome = taxableIncome - niIncomeTaxDeductible;
 	const credits = creditPointsTaxCredit + pensionTaxCredit;
 	const { annualIncomeTax: grossIncomeTax } = incomeTaxCalc(
-		taxData,
 		taxYearIndex,
 		incomeTaxTaxableIncome,
 		0,
@@ -130,7 +121,6 @@ function EndOfYearResults(props) {
 		eoy
 	);
 	const { annualIncomeTax: incomeTax } = incomeTaxCalc(
-		taxData,
 		taxYearIndex,
 		incomeTaxTaxableIncome,
 		0,
@@ -138,12 +128,8 @@ function EndOfYearResults(props) {
 		employmentType,
 		eoy
 	);
-	const { monthlyBandPayments, annualBandPayments } = incomeTaxBandsCalc(
-		taxData,
-		taxYearIndex,
-		incomeTax
-	);
-	const capitalGainsLimit = taxData[taxYearIndex].studyFund.selfEmployed.capitalGainsLimit;
+	const { monthlyBandPayments, annualBandPayments } = incomeTaxBandsCalc(taxYearIndex, incomeTax);
+	const capitalGainsLimit = studyFundTables[taxYearIndex].selfEmployed.capitalGainsLimit;
 
 	return (
 		<>
@@ -327,22 +313,23 @@ function EndOfYearResults(props) {
 
 EndOfYearResults.propTypes = {
 	scrollPoint: globalProps.scrollPoint,
-	taxData: payrollProps.taxData,
+	incomeTaxTables: taxProps.incomeTaxTables,
+	studyFundTables: taxProps.studyFundTables,
 	stateData: globalProps.shape({
-		taxYearIndex: payrollProps.taxYearIndex,
-		income: payrollProps.income,
-		expenses: payrollProps.expenses,
-		profit: payrollProps.profit,
-		creditPoints: payrollProps.creditPoints,
-		pensionOption: payrollProps.pensionOption,
-		pensionType: payrollProps.pensionType,
-		pensionAmount: payrollProps.pensionAmount,
-		studyFundOption: payrollProps.studyFundOption,
-		studyFundType: payrollProps.studyFundType,
-		studyFundAmount: payrollProps.studyFundAmount,
+		taxYearIndex: taxProps.taxYearIndex,
+		income: taxProps.income,
+		expenses: taxProps.expenses,
+		profit: taxProps.profit,
+		creditPoints: taxProps.creditPoints,
+		pensionOption: taxProps.pensionOption,
+		pensionType: taxProps.pensionType,
+		pensionAmount: taxProps.pensionAmount,
+		studyFundOption: taxProps.studyFundOption,
+		studyFundType: taxProps.studyFundType,
+		studyFundAmount: taxProps.studyFundAmount,
 		showResultsTable: globalProps.showResultsTable,
-		bituachLeumiAdvance: payrollProps.bituachLeumiAdvance,
-		showExtended: payrollProps.showExtended
+		bituachLeumiAdvance: taxProps.bituachLeumiAdvance,
+		showExtended: taxProps.showExtended
 	}),
 	handleClick: globalProps.handleClick
 };

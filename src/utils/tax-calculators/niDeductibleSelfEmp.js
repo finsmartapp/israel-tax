@@ -1,6 +1,7 @@
+import bituachLeumiTables from '../../data/bituach-leumi.json';
 import { formatNumberPlain } from '../formatNumber';
 
-export function niDeductibleSelfEmpCalc(taxData, taxYearIndex, profit, eoy) {
+export function niDeductibleSelfEmpCalc(taxYearIndex, profit, eoy) {
 	//A percentage of national insurance is bituach luemi tax deductible, calculated on the final payments.
 	// Although only applicable to NI and not health, calculate the total taxable amount, which can then be fed into
 	// the bituach leumi formula. This can be adapted to calculate that too if needed.
@@ -19,7 +20,7 @@ export function niDeductibleSelfEmpCalc(taxData, taxYearIndex, profit, eoy) {
 				max
 			}
 		}
-	} = taxData[taxYearIndex].bituachLeumi;
+	} = bituachLeumiTables[taxYearIndex];
 	const minProrata = min * months;
 	const maxProrata = max * months;
 	profit = profit > maxProrata ? maxProrata : profit;

@@ -1,4 +1,5 @@
-export function niDeductibleAdvanceSelfEmpCalc(taxData, taxYearIndex, advance, eoy) {
+import bituachLeumiTables from '../../data/bituach-leumi.json';
+export function niDeductibleAdvanceSelfEmpCalc(taxYearIndex, advance, eoy) {
 	//A percentage of national insurance is income tax deductible. Only available on premiums paid during the year
 	// (typically advances) and differeent to the deduction on final innsurance payments.
 
@@ -22,7 +23,7 @@ export function niDeductibleAdvanceSelfEmpCalc(taxData, taxYearIndex, advance, e
 				rate: { selfEmployed: hiRegular }
 			}
 		}
-	} = taxData[taxYearIndex].bituachLeumi;
+	} = bituachLeumiTables[taxYearIndex];
 
 	const niReducedRate = niReduced / 100;
 	const hiReducedRate = hiReduced / 100;

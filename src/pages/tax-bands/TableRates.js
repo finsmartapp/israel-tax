@@ -1,11 +1,11 @@
 import React from 'react';
-import { payrollProps } from '../../prop-types';
+import { taxProps } from '../../prop-types';
 import { Table } from 'react-bootstrap';
 import { formatCurrency } from '../../utils/formatCurrency';
 
 function TaxBandRates(props) {
-	const { taxData, taxYearIndex } = props;
-	const taxBands = Object.keys(taxData[taxYearIndex].incomeTax);
+	const { incomeTaxTables, taxYearIndex } = props;
+	const taxBands = Object.keys(incomeTaxTables[taxYearIndex].incomeTax);
 
 	return (
 		<section>
@@ -19,7 +19,7 @@ function TaxBandRates(props) {
 				</thead>
 				<tbody>
 					{taxBands.map((taxBand, i) => {
-						const { rate, min, max } = taxData[taxYearIndex].incomeTax[taxBand];
+						const { rate, min, max } = incomeTaxTables[taxYearIndex].incomeTax[taxBand];
 
 						return (
 							<tr key={i}>
@@ -42,8 +42,8 @@ function TaxBandRates(props) {
 }
 
 TaxBandRates.propTypes = {
-	taxData: payrollProps.taxData,
-	taxYearIndex: payrollProps.taxYearIndex
+	incomeTaxTables: taxProps.incomeTaxTables,
+	taxYearIndex: taxProps.taxYearIndex
 };
 
 export default TaxBandRates;

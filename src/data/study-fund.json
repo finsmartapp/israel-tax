@@ -1,0 +1,44 @@
+[
+	{
+		"taxYear": 2019,
+		"employee": { "rate": 2.5, "ceiling": 188544 },
+		"employer": { "rate": 7.5, "ceiling": 188544 },
+		"selfEmployed": { "rate": 4.5, "ceiling": 264000, "capitalGainsLimit": 18480 }
+	},
+	{
+		"taxYear": 2020,
+		"employee": { "rate": 2.5, "ceiling": 188544 },
+		"employer": { "rate": 7.5, "ceiling": 188544 },
+		"selfEmployed": { "rate": 4.5, "ceiling": 265000, "capitalGainsLimit": 18550 }
+	},
+	{
+		"taxYear": 2021,
+		"employee": { "rate": 2.5, "ceiling": 188544 },
+		"employer": { "rate": 7.5, "ceiling": 188544 },
+		"selfEmployed": { "rate": 4.5, "ceiling": 263000, "capitalGainsLimit": 18410 }
+	},
+	{
+		"taxYear": 2022,
+		"employee": { "rate": 2.5, "ceiling": 188544 },
+		"employer": { "rate": 7.5, "ceiling": 188544 },
+		"selfEmployed": { "rate": 4.5, "ceiling": 270000, "capitalGainsLimit": 18960 }
+	},
+	{
+		"taxYear": 2023,
+		"employee": { "rate": 2.5, "ceiling": 188544 },
+		"employer": { "rate": 7.5, "ceiling": 188544 },
+		"selfEmployed": { "rate": 4.5, "ceiling": 283905, "capitalGainsLimit": 19920 }
+	},
+	{
+		"taxYear": 2024,
+		"employee": { "rate": 2.5, "ceiling": 188544 },
+		"employer": { "rate": 7.5, "ceiling": 188544 },
+		"selfEmployed": { "rate": 4.5, "ceiling": 293397, "capitalGainsLimit": 20520 }
+	},
+	{
+		"taxYear": 2025,
+		"employee": { "rate": 2.5, "ceiling": 188544 },
+		"employer": { "rate": 7.5, "ceiling": 188544 },
+		"selfEmployed": { "rate": 4.5, "ceiling": 293397, "capitalGainsLimit": 20520 }
+	}
+]

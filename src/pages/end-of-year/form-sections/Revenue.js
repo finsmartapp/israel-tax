@@ -1,5 +1,5 @@
 import React from 'react';
-import { globalProps, payrollProps, formProps } from '../../../prop-types';
+import { globalProps, taxProps, formProps } from '../../../prop-types';
 import { Form, Row } from 'react-bootstrap';
 import InputField from '../../../components/form-inputs/InputField';
 import { invalidNum } from '../../../utils/validationText';
@@ -85,11 +85,11 @@ EndOfYearRevenue.propTypes = {
 	language: globalProps.language,
 	formIndex: formProps.formIndex,
 	stateData: globalProps.shape({
-		income: payrollProps.income,
-		expenses: payrollProps.expenses,
-		profit: payrollProps.profit,
-		creditPoints: payrollProps.creditPoints,
-		bituachLeumiAdvance: payrollProps.bituachLeumiAdvance
+		income: taxProps.income,
+		expenses: taxProps.expenses,
+		profit: taxProps.profit,
+		creditPoints: taxProps.creditPoints,
+		bituachLeumiAdvance: taxProps.bituachLeumiAdvance
 	})
 };
 

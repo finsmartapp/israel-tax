@@ -1,7 +1,8 @@
 //IN THIS VERSION TAX RELIEF IS GIVEN ON BENEFICIARY PAYMENT.
 //IT DOES NOT ALIGNS WITH ALTSHULER PENSION PUBISHED RULES - BUT HAS BEEN APPLIED IN A PREVIOUS ANNUAL REPORT.
 
-export function pensionTaxReliefCalc(taxData, taxYearIndex, income, pensionContribution, eoy) {
+import pensionTables from '../../data/pension.json';
+export function pensionTaxReliefCalc(taxYearIndex, income, pensionContribution, eoy) {
 	//Tax benefit available to a fixed percentage of profit up to a ceiling. Part of that can be deducted as an expense
 	//and the remaining as a tax credit, up to ceilings. Different calculation methods depending on
 	//profit and contribution amounts.
@@ -10,11 +11,11 @@ export function pensionTaxReliefCalc(taxData, taxYearIndex, income, pensionContr
 	income = income * prorata;
 	pensionContribution = eoy ? pensionContribution : pensionContribution * 12;
 	const { taxDeductibleMaxPercent, taxCreditMaxPercent, taxCreditRate, eligibleIncome, ceiling } =
-		taxData[taxYearIndex].pension.taxRelief.selfEmployed;
+		pensionTables[taxYearIndex].taxRelief.selfEmployed;
 	//Determine calculation type
 	//Up to the eligible income tax relief is calculated on whole amount - above it's tiered
 	const isUnderEligibleIncomeThreshold = income <= eligibleIncome;
-	const beneficiaryContribution = taxData[taxYearIndex].bituachLeumi.averageSalary * 0.16 * 12;
+	const beneficiaryContribution = pensionTables[taxYearIndex].averageSalary * 0.16 * 12;
 	const isBeneficiary = pensionContribution > beneficiaryContribution;
 	//End
 	//Baseline limits

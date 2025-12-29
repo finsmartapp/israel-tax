@@ -1,5 +1,5 @@
 import React from 'react';
-import taxData from '../../data/payroll.json';
+import studyFundTables from '../../data/study-fund.json';
 import Hero from '../../components/hero';
 import PageContainer from '../../components/page-container';
 import EmployeeStudyFundDeposit from './Deposit';
@@ -8,11 +8,9 @@ import { currentYearIndex, currentYear } from '../../utils/globalVariables';
 
 function EmployeeStudyFund() {
 	const {
-		studyFund: {
-			employee: { rate: employeeRate, ceiling },
-			employer: { rate: employerRate }
-		}
-	} = taxData[currentYearIndex];
+		employee: { rate: employeeRate, ceiling },
+		employer: { rate: employerRate }
+	} = studyFundTables[currentYearIndex];
 
 	return (
 		<>

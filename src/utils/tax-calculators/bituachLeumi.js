@@ -1,5 +1,5 @@
+import bituachLeumiTables from '../../data/bituach-leumi.json';
 export function bituachLeumiCalc(
-	taxData,
 	taxYearIndex,
 	employmentType,
 	taxableIncome,
@@ -22,14 +22,14 @@ export function bituachLeumiCalc(
 
 	incomes.forEach(income => {
 		let taxDue = 0;
-		const taxBands = Object.keys(taxData[taxYearIndex].bituachLeumi[insuranceType]);
+		const taxBands = Object.keys(bituachLeumiTables[taxYearIndex][insuranceType]);
 		const months = eoy ? 12 : 1;
 
 		taxBands.forEach(taxBand => {
-			const { min, max } = taxData[taxYearIndex].bituachLeumi[insuranceType][taxBand];
+			const { min, max } = bituachLeumiTables[taxYearIndex][insuranceType][taxBand];
 			const minProrata = min * months;
 			const maxProrata = max * months;
-			const rate = taxData[taxYearIndex].bituachLeumi[insuranceType][taxBand].rate[employmentType];
+			const rate = bituachLeumiTables[taxYearIndex][insuranceType][taxBand].rate[employmentType];
 			let bandAdjustment;
 			//Adjust as min band is inclusive and is lost during x - min
 			minProrata === 0 ? (bandAdjustment = 0) : (bandAdjustment = 1);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { globalProps } from '../../prop-types';
-import taxData from '../../data/payroll';
+import incomeTaxTables from '../../data/income-tax';
+import studyFundTables from '../../data/study-fund';
 import NetPayForm from './Form';
 import NetPayResultsEmployee from './ResultsEmployee';
 import NetPayResultsSelfEmployed from './ResultsSelfEmployed';
@@ -103,7 +104,6 @@ class NetPayCalculator extends Component {
 			<>
 				<NetPayForm
 					employmentType={this.props.employmentType}
-					taxData={taxData}
 					stateData={this.state}
 					handleChange={this.handleChange}
 					handleSubmit={this.handleSubmit}
@@ -111,7 +111,8 @@ class NetPayCalculator extends Component {
 				{this.props.employmentType === 'employee' && (
 					<NetPayResultsEmployee
 						employmentType={this.props.employmentType}
-						taxData={taxData}
+						incomeTaxTables={incomeTaxTables}
+						studyFundTables={studyFundTables}
 						stateData={this.state}
 						scrollPoint={this.scrollPoint}
 					/>
@@ -119,7 +120,7 @@ class NetPayCalculator extends Component {
 				{this.props.employmentType === 'selfEmployed' && (
 					<NetPayResultsSelfEmployed
 						employmentType={this.props.employmentType}
-						taxData={taxData}
+						incomeTaxTables={incomeTaxTables}
 						stateData={this.state}
 						scrollPoint={this.scrollPoint}
 					/>
