@@ -139,7 +139,30 @@
 	},
 	{
 		"taxYear": 2025,
-		"averageSalary": 13316,
+		"averageSalary": 12536,
+		"legalMin": {
+			"employee": 6,
+			"employer": { "pension": 6.5, "severance": 6 },
+			"selfEmployed": { "reducedRate": 4.45, "fullRate": 12.55 }
+		},
+		"taxRelief": {
+			"employee": {
+				"taxCreditMaxPercent": 7,
+				"taxCreditMaxShekel": 679,
+				"taxCreditRate": 35
+			},
+			"selfEmployed": {
+				"taxDeductibleMaxPercent": 11,
+				"taxCreditMaxPercent": 5.5,
+				"taxCreditRate": 35,
+				"eligibleIncome": 164400,
+				"ceiling": 232800
+			}
+		}
+	},
+	{
+		"taxYear": 2026,
+		"averageSalary": 13769,
 		"legalMin": {
 			"employee": 6,
 			"employer": { "pension": 6.5, "severance": 6 },

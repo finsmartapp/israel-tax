@@ -5,11 +5,11 @@ Part 1: Bituach Leumi Official
 ---------------------------------------------
 1. Avergae Wage
 	https://www.btl.gov.il/English%20Homepage/Mediniyut/GeneralInformation/Pages/AverageWage.aspx
-		Benefits wage (only)
+		Insurance wage
 		
 Part 2: Kol Zchut
 ---------------------------------------------
-These rates don't tend to change year-to-year.
+THESE RATES DON'T TEND TO CHANGE YEAR TO YEAR.
 
 1. Employee & Employer Contributions Rates
 	https://www.kolzchut.org.il/he/חובת_ביטוח_פנסיוני_לעובדים
@@ -36,15 +36,14 @@ https://he.wikisource.org/wiki/פקודת_מס_הכנסה
 		Ordinance: (47) (א) (1) (1)
 		Note: Given as annual ceiling, so divide by 12 and calculate *7%	
 
-1. Self-Employed Tax Relief
+2. Self-Employed Tax Relief
 	Eligible income
-		Doc section: https://he.wikisource.org/wiki/פקודת_מס_הכנסה#חלק_ג_פרק_3
+		Doc section: https://he.wikisource.org/wiki/פקודת_מס_הכנסה#סעיף_47
 		Search: ניכוי תשלומים בעד תגמולים או קצבה
 		Ordinance: (47) (א) (1) (2)
 	Salary ceiling
-		Employee ceiling x2
-									c.	Salary ceiling: 47 (a) (1) (1) ניכוי תשלומים בעד תגמולים או קצבה
-									x2
+			Search: ניכוי תשלומים בעד תגמולים או קצבה
+			Ordinance: 47 (a) (1) (1) 
 	Tax credit rate
 		Same value as employee
 

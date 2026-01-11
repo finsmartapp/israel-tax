@@ -5,17 +5,13 @@ Part 1: Bituach Leumi Official
 ---------------------------------------------
 1. Avergae Wage
 	https://www.btl.gov.il/English%20Homepage/Mediniyut/GeneralInformation/Pages/AverageWage.aspx
-		Insurance wage (only)
+		Insurance wage
 
-2. National Insurance
+2. National & Health Insurance Employee
 	https://www.btl.gov.il/English%20Homepage/Insurance/Ratesandamount/Pages/forSalaried.aspx
-		Employee Bands
-		Self-Employed Bands
 
-3. Health Insurance
+3. National & Health Insurance Self-Employed
 	https://www.btl.gov.il/English%20Homepage/Insurance/Ratesandamount/Pages/Selfemployedperson.aspx
-		Employee Bands
-		Self-Employed Bands
 
 Part 2: Wiki Tax Ordinance 
 ---------------------------------------------
