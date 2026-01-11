@@ -44,6 +44,7 @@ https://he.wikisource.org/wiki/פקודת_מס_הכנסה
 	Salary ceiling
 			Search: ניכוי תשלומים בעד תגמולים או קצבה
 			Ordinance: 47 (a) (1) (1) 
+			Note: x2
 	Tax credit rate
 		Same value as employee
 
